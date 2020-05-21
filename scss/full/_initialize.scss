@@ -1,0 +1,100 @@
+@charset 'UTF-8';
+
+//--------------------------------------------------------------------
+// initialize
+//--------------------------------------------------------------------
+* {
+  font-family: 'Helvetica Neue', 'Segoe UI', '游ゴシック', YuGothic, 'Hiragino Kaku Gothic ProN', Meiryo, 'メイリオ', sans-serif;
+  font-weight: $base-font-normal;
+  @media all and (-ms-high-contrast: none) { // ie11
+    font-family: 'Helvetica Neue', 'Segoe UI', Meiryo, 'メイリオ', sans-serif;
+    font-weight: normal;
+  }
+}
+
+html {
+  font-size: 62.5%;
+  height: 100%;
+  min-width: 320px;
+}
+
+body {
+  position: relative;
+  line-height: 1;
+  line-break: strict;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+h1, h2, h3, h4, h5, h6, p,
+dl, ul, ol, table, blockquote {
+  font-size: 1rem;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+}
+
+dt, dd, li {
+  margin: 0;
+  padding: 0;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+  border: none;
+}
+
+a {
+  &:link,
+  &:visited {
+    text-decoration: none;
+  }
+  &:hover,
+  &:active {
+    text-decoration: underline;
+  }
+}
+
+em {
+  font-style: normal;
+}
+
+h1, h2, h3, h4, h5, h6, th, strong {
+  font-weight: $base-font-bold;
+}
+
+form {
+  margin: 0;
+  padding: 0;
+}
+
+input, textarea, select, button {
+  margin: 0;
+  transition: all .2s;
+  outline: none;
+  &:focus {
+    border: 1px solid #6ac !important;
+    box-shadow: 0 0 8px -2px #6af;
+  }
+}
+
+button {
+  vertical-align: top;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+input {
+  &[type='submit'], &[type='button'], &[type='reset'] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+}

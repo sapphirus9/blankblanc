@@ -1,0 +1,27 @@
+@charset 'UTF-8';
+
+//--------------------------------------------------------------------
+// widget
+//--------------------------------------------------------------------
+
+// archive
+//--------------------------------------------------------------------
+.widget_archive .month-list {
+  margin: 4px 2.5% 0;
+  > li {
+    width: 22%;
+    margin: 0 1.5%;
+    text-align: center;
+    border-top: 1px solid $base-gray-7;
+    a {
+      padding: 10px 0;
+    }
+    .month {
+      display: block;
+    }
+    .count {
+      font-size: 1rem;
+      margin: 3px 0 0 0;
+    }
+  }
+}

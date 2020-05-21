@@ -1,0 +1,348 @@
+@charset "UTF-8";
+
+/*
+ *--------------------------------------------------------------------
+ * Theme Name: BlankBlanc
+ * Author: Naoki Yamamoto
+ * Description: 管理画面（外観 » テーマオプション）用スタイルシートです。
+ *--------------------------------------------------------------------
+ */
+
+#bb-config-edit {
+  min-width: 800px;
+  margin-top: 10px;
+  &.bb-config-edit-box {
+    min-width: initial;
+  }
+  .nav-tab-wrapper {
+    margin-bottom: 10px;
+    li {
+      float: left;
+      margin: 0;
+    }
+    a {
+      &:focus {
+        box-shadow: none;
+      }
+    }
+    .nav-tab-active {
+      cursor: default;
+    }
+  }
+  .col {
+    &-left {
+      float: left;
+      width: 280px;
+      margin-right: 40px;
+    }
+    &-right {
+      margin-left: 315px;
+      padding-left: 5px;
+      overflow: hidden;
+    }
+  }
+  fieldset {
+    margin: 0;
+    padding: 15px 0;
+    border: 0;
+    overflow: hidden;
+    &.sub-field {
+      display: none;
+      margin: -10px 0 10px;
+      padding: 10px 15px;
+      background-color: #e5e5e5;
+      box-sizing: border-box;
+      .label-title {
+        border-left: 0;
+        padding: 0;
+      }
+    }
+  }
+  .label-title {
+    position: relative;
+    top: 5px;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1.3;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    padding: 3px 6px;
+    border-left: 4px dotted #c0c0c0;
+    em {
+      font-size: .93em;
+      font-weight: normal !important;
+      margin-left: .5em !important;
+    }
+  }
+  ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  em {
+    color: #f00;
+    font-style: normal;
+  }
+  input {
+    vertical-align: -2px;
+    margin: 1px;
+    &[type=checkbox] {
+      margin-top: 7px;
+    }
+    &[type=button] {
+      margin: 6px 3px 0 0;
+    }
+    &[type=number] {
+      padding-right: 0;
+    }
+      &.error {
+      border-color: #f00;
+      background-color: #fff6f3;
+    }
+  }
+  .s-text {
+    width: 4em;
+  }
+  .m-text {
+    width: 12em;
+  }
+  .l-text {
+    width: 30em;
+  }
+  .s-num {
+    width: 4.5em;
+  }
+  .note {
+    display: block;
+    clear: both;
+    color: #707070;
+    font-size: 11px;
+    line-height: 1.6;
+    margin-top: 12px;
+  }
+  .default {
+    display: block;
+    clear: both;
+    color: #909090;
+    font-size: 11px;
+    line-height: 1.6;
+    margin-top: 3px;
+  }
+  .input-group {
+    padding-bottom: 3px;
+    overflow: hidden;
+  }
+  .group {
+    display: inline-block;
+    margin-left: 1em;
+    &:first-of-type {
+      margin-left: 0;
+    }
+  }
+  .image-view {
+    width: auto;
+    max-width: 640px;
+    img {
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 480px;
+    }
+  }
+  .no-image {
+    display: inline-block;
+    color: #b0b0b0;
+    font-size: .83em;
+    line-height: 1;
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    padding: 25px 50px;
+    margin: 5px 0;
+    border: 1px dashed #d0d0d0;
+    box-sizing: border-box;
+  }
+  .submit-btn {
+    &-top {
+      padding: 3px 3px 15px;
+    }
+    &-bottom {
+      padding: 5px 3px 3px;
+    }
+    input {
+      &[type=submit] {
+        margin-right: 6px;
+      }
+    }
+    .button-reset {
+      font-size: .93em;
+      color: #b0b0b0;
+      line-height: 1.2;
+      height: auto;
+      padding: 0;
+      margin: 0 0 0 1.5em;
+      background-color: transparent;
+      border: 0;
+      box-shadow: none;
+      &:hover {
+        color: #00a0d2;
+      }
+    }
+  }
+  .bb-media-upload {
+    .input-group {
+      overflow: visible;
+    }
+    .media-title {
+      display: none;
+    }
+  }
+  .ui-sortable {
+    position: relative;
+    > li {
+      margin-bottom: 4px;
+      background-color: #e5e5e5;
+      overflow: hidden;
+      -webkit-user-select: none;
+      -moz-user-select: -moz-none;
+      -ms-user-select: none;
+      user-select: none;
+      &.active {
+        background-color: #d0d0d0;
+      }
+      input {
+        &[type=checkbox] {
+          float: left;
+          margin: 9px 0 0 8px;
+        }
+      }
+      label {
+        display: block;
+        padding: 8px;
+        margin-left: 22px;
+        cursor: move;
+        span {
+          cursor: inherit;
+        }
+      }
+    }
+  }
+  #activate-mobile-nav {
+    display: inline-block;
+    .widgets-name {
+      margin-right: 5px;
+    }
+    .sidebar-name {
+      display: inline-block;
+      color: #777;
+      font-size: .83em;
+    }
+  }
+  .wp-editor-wrap {
+    overflow: hidden;
+  }
+}
+
+// postmeta
+#poststuff {
+  .inline-textarea {
+    p {
+      margin-bottom: .5em;
+    }
+    textarea {
+      width: 100%;
+      box-sizing: border-box;
+    }
+  }
+  #bb-config-edit {
+    fieldset {
+      padding: 5px 0;
+      overflow: visible;
+    }
+    .input-group {
+      overflow: visible;
+    }
+    .notes {
+      margin: 10px 0 0;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #bb-config-edit {
+    width: 100%;
+    min-width: initial;
+      .col {
+      &-left {
+        float: none;
+        width: auto;
+        margin-right: 0;
+        margin-bottom: 15px;
+      }
+      &-right {
+        width: auto;
+        margin-left: 0;
+        padding-left: 0;
+      }
+    }
+    fieldset {
+      width: 100%;
+      border-bottom: 1px dotted #d0d0d0;
+      box-sizing: border-box;
+      &.sub-field {
+        width: 100%;
+        margin-top: 0;
+      }
+      &:last-of-type {
+        border-bottom: 0;
+      }
+    }
+    .label-title {
+      font-size: 15px;
+      width: auto;
+      margin: 0 0 15px;
+      box-sizing: border-box;
+    }
+    .l-text {
+      width: 99.5%;
+      box-sizing: border-box;
+    }
+    .group {
+      margin-bottom: 8px;
+      &-full {
+        display: block;
+        margin-right: 0;
+      }
+    }
+    .input-group {
+      max-width: 400px;
+    }
+    .bb-media-upload {
+      .image-view {
+        width: 100%;
+        img {
+          max-width: 100%;
+        }
+      }
+    }
+    .ui-sortable {
+      width: 80%;
+      > li {
+        label {
+          padding: 11px 8px;
+          margin-left: 38px;
+        }
+        input {
+          &[type=checkbox] {
+            float: left;
+            margin: 8px ;
+          }
+        }
+      }
+    }
+    .submit-btn {
+      border-bottom: none;
+    }
+  }
+}

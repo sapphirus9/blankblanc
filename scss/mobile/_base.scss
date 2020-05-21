@@ -1,0 +1,23 @@
+@charset 'UTF-8';
+
+//--------------------------------------------------------------------
+// base
+//--------------------------------------------------------------------
+#main-screen {
+  position: relative;
+  min-width: 320px;
+  overflow-x: hidden;
+}
+
+.wrap {
+  width: 100%;
+  padding: 0;
+}
+
+.is-pc {
+  display: none;
+}
+
+.is-mobile {
+  display: inherit;
+}

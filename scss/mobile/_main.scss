@@ -1,0 +1,46 @@
+@charset 'UTF-8';
+
+//--------------------------------------------------------------------
+// main
+//--------------------------------------------------------------------
+#contents {
+  padding: 55px 0 60px;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, .06);
+  > .wrap {
+    padding-top: 30px;
+  }
+}
+
+#contents-conatiner {
+  flex-direction: column;
+}
+
+#one-column {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+#first-column {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+// hide 2nd column
+#second-column {
+  display: none;
+}
+
+// hide bread crumb
+#bread-crumb {
+  display: none;
+}
+
+// gotop button
+#gotop {
+  display: block;
+  &-button {
+    right: 4.0%;
+  }
+}

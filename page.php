@@ -1,0 +1,51 @@
+<?php
+/**
+ * Theme Name: BlankBlanc
+ * Author: Naoki Yamamoto
+ * Template: page
+ * Description: 固定ページ
+ */
+get_header(); ?>
+
+<main role="main" id="contents" class="article static">
+  <?php get_template_part('includes/inc', 'mainvisual'); ?>
+  <?php get_template_part('includes/inc', 'breadcrumb'); ?>
+
+  <div id="contents-conatiner" class="wrap">
+    <div id="first-column">
+      <article class="main-article">
+        <?php if (have_posts()) :
+          while (have_posts()) :
+            the_post(); ?>
+          <header class="entry-header">
+            <?php if (empty($bb_mainvisual_image)) : ?>
+              <h1 class="page-title"><?php echo esc_attr(get_the_title()); ?></h1>
+            <?php endif; ?>
+            <ul class="meta">
+              <li class="date font-icon"><time datetime="<?php echo get_the_date('Y-m-d'); ?>"><?php echo bb_get_custom_date(); ?></time></li>
+              <li class="author font-icon"><?php echo the_author_posts_link(); ?></li>
+            </ul>
+          </header>
+
+          <section id="post-<?php echo get_the_ID(); ?>" <?php post_class('entry-content'); ?>>
+            <?php get_template_part('includes/inc', 'thumbnail'); ?>
+            <div class="entry-body">
+              <?php bb_the_content(); ?>
+            </div>
+            <?php get_template_part('includes/inc', 'linkpages'); ?>
+          </section>
+
+          <?php comments_template('', true); ?>
+
+        <?php endwhile;
+          endif; ?>
+      </article>
+    </div>
+
+    <div id="second-column">
+      <?php get_sidebar(); ?>
+    </div>
+  </div>
+</main>
+
+<?php get_footer();

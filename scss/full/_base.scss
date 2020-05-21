@@ -1,0 +1,58 @@
+@charset 'UTF-8';
+
+//--------------------------------------------------------------------
+// base
+//--------------------------------------------------------------------
+body {
+  color: $base-gray-1;
+  background-color: $base-gray-7;
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: $link-color;
+  &:hover {
+    color: $link-hover-color;
+  }
+}
+
+// fixed content width
+#main-screen {
+  min-width: 980px;
+  overflow: hidden;
+}
+
+.wrap {
+  position: relative;
+  width: 960px;
+  padding: 0 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.is-mobile {
+  display: none;
+}
+
+input {
+  &::-webkit-input-placeholder {
+    color: #ddd;
+  }
+  &::-moz-placeholder {
+    color: #ddd;
+  }
+  &:-ms-input-placeholder {
+    color: #ddd;
+  }
+  &:focus {
+    &::-webkit-input-placeholder {
+      color: transparent;
+    }
+    &::-moz-placeholder {
+      color: transparent;
+    }
+    &:-ms-input-placeholder {
+      color: transparent;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+@charset 'UTF-8';
+
+//--------------------------------------------------------------------
+// gallery
+//--------------------------------------------------------------------
+.main-article .entry-body {
+  .gallery {
+    margin: -6px;
+  }
+  .gallery-item {
+    margin: 6px;
+    width: calc(33.33% - 12px) !important;
+  }
+}

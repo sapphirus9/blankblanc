@@ -1,0 +1,80 @@
+@charset 'UTF-8';
+
+//--------------------------------------------------------------------
+// gotop button
+//--------------------------------------------------------------------
+#gotop {
+  position: relative;
+  display: block;
+  .gotop {
+    &-cfg {
+      display: none;
+    }
+    &-start {
+      top: 100px; // display start position (px)
+    }
+    &-bottom {
+      position: absolute;
+      bottom: 0; // bottom display fixed position (px)
+    }
+    &-offset {
+      width: 767px; // mobile width breakpoint (px)
+      margin-top: 55px; // mobile view offset top (px)
+    }
+    &-show {
+      margin-bottom: 0;
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+  &-button {
+    display: block;
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    right: 15px;
+    margin-bottom: -65px;
+    padding-bottom: 15px;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 98;
+    transition: visibility .5s, margin-bottom .5s, opacity .5s;
+    * {
+      font-family: 'Arial Narrow', Helvetica, sans-serif;
+    }
+    p {
+      line-height: 0;
+      > span {
+        display: block;
+        color: $base-gray-3;
+        font-size: 12px;
+        line-height: 1;
+        text-align: center;
+        letter-spacing: .1em;
+        width: 50px;
+        height: 50px;
+        padding-top: 8px;
+        padding-left: .1em;
+        background-color: $base-gray-5;
+        border-radius: 50%;
+        box-sizing: border-box;
+        cursor: pointer;
+        opacity: .65;
+        transition: all .2s;
+        &:hover {
+          text-decoration: none;
+          opacity: .9;
+        }
+        &::before {
+          display: block;
+          text-align: center;
+          @include icon-font('f005d');
+          font-size: 18px;
+          line-height: 1;
+          padding-bottom: 0;
+          margin-bottom: .05em;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,2673 @@
+@charset "UTF-8";
+/*
+ *--------------------------------------------------------------------
+ * Theme Name: BlankBlanc
+ * Theme URI: http://www.sapphirus.biz/wordpress/themes/
+ * Author: Naoki Yamamoto
+ * Author URI: http://www.sapphirus.biz/
+ * Version: 2.4.3
+ * Description: ウェブサイト+ブログを構築するためのベース用テーマとして、オリジナルのデザインやレイアウトを組み込みやすさを主眼に置いた、飾りを抑えたシンプルな2カラムタイプの HTML5 テーマです。カテゴリーやページ毎に設定した slug 名と同じスタイルシートをテーマ内に用意することで、各々スタイルの調整を行うことができます。基本 css ではレスポンシブデザインとして、767px でスマートフォン向けのレイアウト切り替えを設けています。
+
+ * Tags: simple, plain, white, two-columns
+ * License: GNU General Public License v2 or later
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ *--------------------------------------------------------------------
+ */
+* {
+  font-family: 'Helvetica Neue', 'Segoe UI', '游ゴシック', YuGothic, 'Hiragino Kaku Gothic ProN', Meiryo, 'メイリオ', sans-serif;
+  font-weight: 450;
+}
+
+@media all and (-ms-high-contrast: none) {
+  * {
+    font-family: 'Helvetica Neue', 'Segoe UI', Meiryo, 'メイリオ', sans-serif;
+    font-weight: normal;
+  }
+}
+
+html {
+  font-size: 62.5%;
+  height: 100%;
+  min-width: 320px;
+}
+
+body {
+  position: relative;
+  line-height: 1;
+  line-break: strict;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+h1, h2, h3, h4, h5, h6, p,
+dl, ul, ol, table, blockquote {
+  font-size: 1rem;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+}
+
+dt, dd, li {
+  margin: 0;
+  padding: 0;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+  border: none;
+}
+
+a:link, a:visited {
+  text-decoration: none;
+}
+
+a:hover, a:active {
+  text-decoration: underline;
+}
+
+em {
+  font-style: normal;
+}
+
+h1, h2, h3, h4, h5, h6, th, strong {
+  font-weight: 600;
+}
+
+form {
+  margin: 0;
+  padding: 0;
+}
+
+input, textarea, select, button {
+  margin: 0;
+  transition: all .2s;
+  outline: none;
+}
+
+input:focus, textarea:focus, select:focus, button:focus {
+  border: 1px solid #6ac !important;
+  box-shadow: 0 0 8px -2px #6af;
+}
+
+button {
+  vertical-align: top;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+input[type='submit'], input[type='button'], input[type='reset'] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+body {
+  color: #353535;
+  background-color: #f5f5f5;
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: #3b99d8;
+}
+
+a:hover {
+  color: #e84824;
+}
+
+#main-screen {
+  min-width: 980px;
+  overflow: hidden;
+}
+
+.wrap {
+  position: relative;
+  width: 960px;
+  padding: 0 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.is-mobile {
+  display: none;
+}
+
+input::-webkit-input-placeholder {
+  color: #ddd;
+}
+
+input::-moz-placeholder {
+  color: #ddd;
+}
+
+input:-ms-input-placeholder {
+  color: #ddd;
+}
+
+input:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+input:focus::-moz-placeholder {
+  color: transparent;
+}
+
+input:focus:-ms-input-placeholder {
+  color: transparent;
+}
+
+#global-header {
+  background-color: #fff;
+}
+
+#global-header .wrap {
+  height: 100px;
+}
+
+#global-header .logo {
+  position: absolute;
+  top: 18px;
+  left: 10px;
+}
+
+#global-header .logo a {
+  display: block;
+  text-decoration: none;
+}
+
+#global-header .logo img {
+  width: auto;
+  height: 40px;
+}
+
+#global-header .site-title {
+  display: block;
+  font-size: 4rem;
+}
+
+#global-header .copy {
+  position: absolute;
+  top: 68px;
+  left: 10px;
+  color: #a0a0a0;
+  font-size: 1.3rem;
+  font-weight: normal;
+}
+
+#header-nav {
+  position: absolute;
+  top: 15px;
+  right: 10px;
+}
+
+#header-nav .menu {
+  font-size: 0;
+}
+
+#header-nav .menu > li {
+  display: inline-block;
+  font-size: 1.4rem;
+  line-height: 1.3;
+  margin-right: 30px;
+}
+
+#header-nav .menu > li:last-of-type {
+  margin-right: 0;
+}
+
+#global-nav {
+  background-color: #f5f5f5;
+}
+
+#global-nav ul {
+  font-size: 1.4rem;
+}
+
+#global-nav .menu {
+  padding-bottom: 40px;
+}
+
+#global-nav .menu > li {
+  position: relative;
+  float: left;
+  border-right: 2px solid #f5f5f5;
+  box-sizing: border-box;
+}
+
+#global-nav .menu > li > a {
+  display: block;
+  font-size: 1.4rem;
+  text-align: center;
+  line-height: 40px;
+  height: 40px;
+  padding: 0 10px;
+  background-color: #ebebeb;
+  box-sizing: border-box;
+}
+
+#global-nav .menu > li a {
+  color: #a0a0a0;
+  transition: all .2s;
+}
+
+#global-nav .menu > li a:hover {
+  color: #787878;
+  text-decoration: none;
+  background-color: #e0e0e0;
+}
+
+#global-nav .menu > li.current-menu-parent > a,
+#global-nav .menu > li.current-menu-item > a {
+  background-color: #e0e0e0;
+}
+
+#global-nav .menu > li > .sub-menu {
+  position: absolute;
+  top: auto;
+  left: 0;
+  min-width: 160px;
+  padding: 0;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  z-index: 99;
+  box-sizing: border-box;
+  visibility: hidden;
+}
+
+#global-nav .menu > li > .sub-menu li {
+  border-top: 1px solid #ebebeb;
+}
+
+#global-nav .menu > li > .sub-menu li a {
+  display: block;
+  text-align: left;
+  font-size: 1.4rem;
+  line-height: 1.3;
+  white-space: nowrap;
+  width: auto;
+  height: auto;
+  padding: 8px;
+}
+
+#global-nav .menu > li > .sub-menu li a:hover {
+  text-decoration: none;
+  background-color: #f5f5f5;
+}
+
+#global-nav .menu > li > .sub-menu li > .sub-menu > li {
+  border-top-style: dashed;
+}
+
+#global-nav .menu > li > .sub-menu li > .sub-menu > li > a {
+  font-size: .933333em;
+  line-height: 1.4;
+  padding-left: 12px;
+}
+
+#global-nav .menu > li > .sub-menu li > .sub-menu > li > a::before {
+  font-family: "Material Design Icons";
+  content: '\f0142';
+  color: #d5d5d5;
+  vertical-align: -1px;
+  margin-right: 3px;
+}
+
+#global-nav .menu > li > .sub-menu li.current-menu-item > a {
+  background-color: #f5f5f5;
+}
+
+#global-nav .menu > li > .sub-menu > li:first-child {
+  border-top: none;
+}
+
+#global-nav .menu > li .sub-menu {
+  max-height: 0;
+  transition: all 200ms ease-out;
+  overflow: hidden;
+}
+
+#global-nav .menu > li:hover .sub-menu {
+  max-height: 40vh;
+  transition: all 400ms linear;
+  visibility: visible;
+}
+
+#bread-crumb {
+  padding-top: 7px;
+  background-color: #fff;
+}
+
+#bread-crumb .bread-crumb-list {
+  font-size: 0;
+  margin: 0;
+  padding: 5px 0 0;
+  list-style: none;
+}
+
+#bread-crumb .bread-crumb-list li,
+#bread-crumb .bread-crumb-list div,
+#bread-crumb .bread-crumb-list span,
+#bread-crumb .bread-crumb-list a {
+  display: inline-block;
+}
+
+#bread-crumb .bread-crumb-list li,
+#bread-crumb .bread-crumb-list div {
+  font-size: 1.3rem;
+  line-height: 1.3;
+}
+
+#bread-crumb .bread-crumb-list li:first-child > a,
+#bread-crumb .bread-crumb-list div:first-child > a {
+  margin-left: 0;
+}
+
+#bread-crumb .bread-crumb-list li a,
+#bread-crumb .bread-crumb-list div a {
+  margin: 0 6px;
+}
+
+#bread-crumb .bread-crumb-list li i,
+#bread-crumb .bread-crumb-list div i {
+  font-size: 1.5rem;
+  line-height: 1;
+  vertical-align: -3px;
+}
+
+#bread-crumb .bread-crumb-list .page {
+  margin-left: -10px;
+}
+
+#bread-crumb .bread-crumb-list .current span {
+  color: #787878;
+}
+
+#contents {
+  display: block;
+  padding-bottom: 45px;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+#contents dl,
+#contents ul,
+#contents ol {
+  overflow: hidden;
+}
+
+#contents > .wrap {
+  padding-top: 40px;
+}
+
+#contents-conatiner {
+  display: flex;
+  justify-content: space-between;
+}
+
+#one-column {
+  width: 100%;
+}
+
+#first-column {
+  width: 660px;
+}
+
+#second-column {
+  float: right;
+  width: 250px;
+}
+
+.hidden-column {
+  display: none;
+}
+
+article {
+  line-height: 1.5;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+#gotop {
+  position: relative;
+  display: block;
+}
+
+#gotop .gotop-cfg {
+  display: none;
+}
+
+#gotop .gotop-start {
+  top: 100px;
+}
+
+#gotop .gotop-bottom {
+  position: absolute;
+  bottom: 0;
+}
+
+#gotop .gotop-offset {
+  width: 767px;
+  margin-top: 55px;
+}
+
+#gotop .gotop-show {
+  margin-bottom: 0;
+  visibility: visible;
+  opacity: 1;
+}
+
+#gotop-button {
+  display: block;
+  position: fixed;
+  top: auto;
+  bottom: 0;
+  right: 15px;
+  margin-bottom: -65px;
+  padding-bottom: 15px;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 98;
+  transition: visibility .5s, margin-bottom .5s, opacity .5s;
+}
+
+#gotop-button * {
+  font-family: 'Arial Narrow', Helvetica, sans-serif;
+}
+
+#gotop-button p {
+  line-height: 0;
+}
+
+#gotop-button p > span {
+  display: block;
+  color: #a0a0a0;
+  font-size: 12px;
+  line-height: 1;
+  text-align: center;
+  letter-spacing: .1em;
+  width: 50px;
+  height: 50px;
+  padding-top: 8px;
+  padding-left: .1em;
+  background-color: #e0e0e0;
+  border-radius: 50%;
+  box-sizing: border-box;
+  cursor: pointer;
+  opacity: .65;
+  transition: all .2s;
+}
+
+#gotop-button p > span:hover {
+  text-decoration: none;
+  opacity: .9;
+}
+
+#gotop-button p > span::before {
+  display: block;
+  text-align: center;
+  font-family: "Material Design Icons";
+  content: '\f005d';
+  font-size: 18px;
+  line-height: 1;
+  padding-bottom: 0;
+  margin-bottom: .05em;
+}
+
+.widget {
+  margin-bottom: 30px;
+}
+
+.widget ul {
+  font-size: 1.4rem;
+  margin-top: 8px;
+}
+
+.widget ul:first-of-type {
+  margin-top: 0;
+}
+
+.widget ul > li {
+  line-height: 1.3;
+  list-style: none;
+  margin-top: 8px;
+}
+
+.widget ul > li:first-of-type {
+  margin-top: 0;
+}
+
+.widget ul.children, .widget ul.sub-menu {
+  margin-bottom: 16px;
+}
+
+.widget ul.children > li, .widget ul.sub-menu > li {
+  margin-top: 8px;
+  padding-left: 1.5em;
+}
+
+.widget ul .cat-item-none {
+  color: #d5d5d5;
+}
+
+.widget .count {
+  display: inline-block;
+  color: #a0a0a0;
+  font-size: 1.2rem;
+  line-height: 1;
+  margin-left: 7px;
+  padding: 2px 10px;
+  background-color: #f5f5f5;
+  border-radius: 15px;
+}
+
+.widget .select-area {
+  display: inline-block;
+  position: relative;
+  background-color: #fff;
+  border-radius: 2px;
+}
+
+.widget .select-area::before {
+  position: absolute;
+  top: 50%;
+  right: 3px;
+  font-size: 2.2rem;
+  line-height: 1;
+  font-family: "Material Design Icons";
+  content: '\f0140';
+  margin-top: -.46em;
+  z-index: 1;
+}
+
+.widget label {
+  display: none;
+}
+
+.widget select {
+  position: relative;
+  font-size: 1.4rem;
+  line-height: 1.56;
+  width: 100%;
+  padding: 5px 25px 5px 5px;
+  margin: 0;
+  background-color: transparent;
+  border: 1px solid #d5d5d5;
+  border-radius: 2px;
+  box-sizing: border-box;
+  z-index: 2;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.widget select::-ms-expand {
+  display: none;
+}
+
+.widget_recent_comments .recentcomments a {
+  text-decoration: none;
+}
+
+.widget_recent_comments .recentcomments .entry-title:hover {
+  text-decoration: underline;
+}
+
+.widget_recent_comments .recentcomments .comment-user {
+  color: #a0a0a0;
+  font-size: 1.2rem;
+}
+
+.widget_archive > ul:last-of-type {
+  margin-bottom: -5px;
+}
+
+.widget_archive > ul > li.year-title {
+  margin-left: 0;
+}
+
+.widget_archive > ul > li .month-list {
+  margin-top: 4px;
+  overflow: hidden;
+}
+
+.widget_archive > ul > li .month-list > li {
+  float: left;
+  margin: 0 15px 5px 0;
+}
+
+.widget_archive > ul > li .month-list > li:last-of-type {
+  margin-right: 0;
+}
+
+.widget_archive > ul > li .month-list .year {
+  display: none;
+}
+
+.widget_tag_cloud .tagcloud {
+  line-height: 1.2;
+  margin: -3px;
+}
+
+.widget_tag_cloud .wp-tag-cloud {
+  font-size: 0;
+}
+
+.widget_tag_cloud .wp-tag-cloud > li {
+  display: inline-block;
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.widget_tag_cloud a {
+  display: inline-block;
+  font-size: 1em;
+  line-height: 1;
+  text-decoration: none;
+  vertical-align: -50%;
+  margin: 3px;
+  padding: 6px 9px;
+  background-color: #f5f5f5;
+  border-radius: 2px;
+  transition: background-color .2s;
+}
+
+.widget_tag_cloud a:hover {
+  background-color: #ebebeb;
+}
+
+.widget_calendar table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.widget_calendar caption {
+  font-size: 1.4rem;
+  line-height: 1;
+  margin-bottom: 7px;
+}
+
+.widget_calendar tr {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.widget_calendar th {
+  padding: 8px 0 7px;
+}
+
+.widget_calendar td {
+  padding: 8px 0 7px;
+}
+
+.widget_calendar thead {
+  background-color: #f5f5f5;
+}
+
+.widget_calendar thead tr {
+  color: #a0a0a0;
+}
+
+.widget_calendar thead th {
+  font-weight: normal;
+  text-align: center;
+  border: 1px solid #e0e0e0;
+}
+
+.widget_calendar thead th:last-of-type {
+  color: #df0002;
+}
+
+.widget_calendar tbody {
+  background-color: #fff;
+}
+
+.widget_calendar tbody tr {
+  color: #e0e0e0;
+}
+
+.widget_calendar tbody td {
+  text-align: center;
+  border: 1px solid #e0e0e0;
+}
+
+.widget_calendar tbody td a {
+  display: block;
+  margin: -8px 0 -7px;
+  padding: 8px 0 7px;
+  background-color: #f5f5f5;
+}
+
+.widget_calendar tbody td a:hover {
+  background-color: #ebebeb;
+}
+
+.widget_calendar tbody td:last-of-type {
+  color: #df0002;
+}
+
+.widget_calendar tfoot a {
+  font-size: 1.3rem;
+}
+
+.widget_calendar tfoot #prev {
+  text-align: left;
+}
+
+.widget_calendar tfoot #next {
+  text-align: right;
+}
+
+.widget_calendar #today {
+  color: #353535;
+}
+
+#global-widget .widgettitle {
+  font-size: 1.8rem;
+  line-height: 1.3;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+#global-widget > ul {
+  overflow: visible;
+}
+
+#global-widget .widget_nav_menu .menu {
+  margin-bottom: 30px;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+#global-widget .widget_nav_menu .menu li {
+  margin: 0;
+  list-style: none;
+}
+
+#global-widget .widget_nav_menu .menu li a {
+  display: block;
+  font-size: 1.4rem;
+  line-height: 1.3;
+  transition: all .2s;
+}
+
+#global-widget .widget_nav_menu .menu li a:hover {
+  background-color: #f5f5f5;
+}
+
+#global-widget .widget_nav_menu .menu > li {
+  border-top: 1px solid #e0e0e0;
+}
+
+#global-widget .widget_nav_menu .menu > li > a {
+  padding: 12px 8px;
+}
+
+#global-widget .widget_nav_menu .menu > li:first-child {
+  border-top: none;
+}
+
+#global-widget .widget_nav_menu .menu > li .sub-menu {
+  margin-bottom: 0;
+}
+
+#global-widget .widget_nav_menu .menu > li .sub-menu li {
+  padding-left: 0;
+  border-top: 1px dotted #ebebeb;
+}
+
+#global-widget .widget_nav_menu .menu > li .sub-menu li > a {
+  font-size: .933333em;
+  line-height: 1.4;
+  padding: 10px 8px 10px 20px;
+}
+
+#global-widget .widget_nav_menu .menu > li .sub-menu .sub-menu a {
+  padding-left: 30px;
+}
+
+#global-footer .wrap {
+  min-height: 100px;
+}
+
+#global-footer .copyright {
+  color: #a0a0a0;
+  font-size: 1.3rem;
+  line-height: 1;
+  text-align: center;
+  letter-spacing: .02em;
+  padding: 20px 0 30px;
+}
+
+#global-footer .copyright * {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#global-footer .copyright .prefix {
+  margin-right: .3em;
+}
+
+#global-footer .copyright .sign {
+  margin-right: .3em;
+}
+
+#global-footer .copyright .year {
+  margin-right: .3em;
+}
+
+.footer-widgets {
+  padding-top: 30px;
+  margin: 0 -15px;
+  overflow: hidden;
+}
+
+.footer-widgets .widget ul {
+  font-size: 1.4rem;
+}
+
+.footer-widgets .widgettitle {
+  color: #787878;
+  font-size: 1.3rem;
+  line-height: 1.3;
+  font-weight: normal;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #d5d5d5;
+}
+
+.footer-widgets > ul {
+  float: left;
+  width: 25%;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+.footer-widgets .tagcloud a {
+  background-color: #ebebeb;
+}
+
+.footer-widgets .tagcloud a:hover {
+  background-color: #e0e0e0;
+}
+
+.footer-widgets .count {
+  background-color: #ebebeb;
+}
+
+.widget_search.widget label {
+  display: block;
+}
+
+.search-form {
+  position: relative;
+}
+
+.search-form .screen-reader-text {
+  display: none;
+}
+
+.search-form label {
+  position: relative;
+}
+
+.search-form label::after {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  color: #d5d5d5;
+  font-family: "Material Design Icons";
+  content: '\f0349';
+  font-size: 24px;
+  line-height: 1;
+  margin-top: -.46em;
+  cursor: pointer;
+  transition: all .2s;
+}
+
+.search-form label.hover::after {
+  color: #a0a0a0;
+}
+
+.search-form .search-field {
+  font-size: 14px;
+  vertical-align: middle;
+  width: 100%;
+  padding: 8px 35px 8px 8px;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 2px;
+  box-sizing: border-box;
+}
+
+.search-form .search-submit {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  color: transparent;
+  width: 35px;
+  padding: 0;
+  background-color: transparent;
+  border-width: 0;
+  cursor: pointer;
+}
+
+.search-form .search-submit:focus {
+  border-width: 0 !important;
+  box-shadow: none;
+}
+
+#contents.error404 > .wrap {
+  padding: 140px 0 140px;
+}
+
+#contents.error404 .title {
+  color: #e0e0e0;
+  font-size: 4rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  text-align: center;
+}
+
+#contents.error404 p {
+  font-size: 1.4rem;
+  margin-top: 10px;
+  text-align: center;
+}
+
+#main-visual {
+  margin: 0 auto;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+#main-visual .wrap {
+  position: relative;
+}
+
+#main-visual .page-title {
+  display: flex;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 10px;
+  right: 10px;
+  color: #fff;
+  font-size: 2.8rem;
+  line-height: 1.3;
+  font-weight: normal;
+  align-items: center;
+}
+
+#main-visual .page-title a {
+  color: #fff;
+}
+
+#main-visual .mv-title-content p {
+  font-size: 2.8rem;
+  line-height: 1.3;
+}
+
+#contents .meta .font-icon::before {
+  color: #d5d5d5;
+  font-size: 1.5rem;
+  vertical-align: -1px;
+  margin-right: 4px;
+}
+
+#contents .meta .date::before {
+  font-family: "Material Design Icons";
+  content: '\f00ed';
+}
+
+#contents .meta .categories::before {
+  font-family: "Material Design Icons";
+  content: '\f0770';
+}
+
+#contents .meta .tags::before {
+  font-family: "Material Design Icons";
+  content: '\f04fd';
+}
+
+#contents .meta .author::before {
+  font-family: "Material Design Icons";
+  content: '\f03ea';
+}
+
+@media screen and (min-width: 1200px) {
+  #main-visual .wrap {
+    padding-bottom: 180px;
+  }
+}
+
+.archive-list {
+  font-size: 1.5rem;
+}
+
+.archive-list .term-description {
+  padding: 20px;
+  margin-bottom: 30px;
+  border: 1px solid #ebebeb;
+}
+
+.archive-list .term-description p {
+  font-size: 1.5rem;
+  line-height: 1.75;
+}
+
+.archive-list .archive-header {
+  margin-bottom: 25px;
+}
+
+.archive-list .archive-header .page-title {
+  font-size: 2.8rem;
+  line-height: 1.3;
+  font-weight: normal;
+}
+
+.archive-list .entry-article {
+  padding: 20px 0;
+  border-bottom: 1px solid #ebebeb;
+  overflow: hidden;
+}
+
+.archive-list .entry-article:first-of-type {
+  padding-top: 0;
+}
+
+.archive-list .article-container {
+  display: flex;
+}
+
+.archive-list .thumbnail {
+  width: 120px;
+  height: 120px;
+  margin-right: 20px;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.archive-list .thumbnail a {
+  display: block;
+  opacity: 1;
+  transition: all .2s;
+}
+
+.archive-list .thumbnail a:hover {
+  opacity: 0.8;
+}
+
+.archive-list .thumbnail img {
+  width: auto;
+  max-width: 120px;
+  height: auto;
+  max-height: 120px;
+}
+
+.archive-list .no-thumbnail {
+  position: relative;
+}
+
+.archive-list .no-thumbnail a {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #f5f5f5;
+}
+
+.archive-list .no-thumbnail a span {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  color: #e0e0e0;
+  font-size: 1.2rem;
+  line-height: 1;
+  text-align: center;
+  margin-top: -.5em;
+}
+
+.archive-list .entry-content {
+  flex: 1;
+}
+
+.archive-list .entry-header {
+  margin-bottom: 5px;
+}
+
+.archive-list .entry-header .title {
+  font-size: 2.2rem;
+  line-height: 1.3;
+  font-weight: normal;
+  margin-bottom: 5px;
+}
+
+.archive-list .entry-header .meta {
+  line-height: 0;
+}
+
+.archive-list .entry-header .meta li {
+  display: inline-block;
+  color: #787878;
+  font-size: 1.3rem;
+  line-height: 1.4;
+  margin: 0 20px 2px 0;
+}
+
+.archive-list .entry-header .meta .year,
+.archive-list .entry-header .meta .month,
+.archive-list .entry-header .meta .day {
+  margin-right: 3px;
+}
+
+.archive-list .entry-body {
+  text-justify: inter-ideograph;
+  text-align: justify;
+  overflow: hidden;
+}
+
+.archive-list .entry-body p {
+  font-size: 1.5rem;
+  line-height: 1.6;
+}
+
+.archive-list #no-result {
+  clear: both;
+  text-align: center;
+  padding: 60px 0 80px;
+}
+
+.archive-list #no-result p {
+  color: #a0a0a0;
+  font-size: 1.6rem;
+}
+
+.archive-list .pagination {
+  font-size: 0;
+  text-align: center;
+  padding: 0;
+  margin: 30px 0;
+  overflow: hidden;
+}
+
+.archive-list .pagination .page-numbers {
+  display: inline-block;
+  font-size: 1.4rem;
+  line-height: 34px;
+  vertical-align: top;
+  width: 36px;
+  height: 36px;
+  margin: 0 2px;
+  border: 1px solid #ebebeb;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.archive-list .pagination a {
+  text-decoration: none;
+  transition: all .2s;
+}
+
+.archive-list .pagination a:hover {
+  background-color: #f5f5f5;
+}
+
+.archive-list .pagination .current {
+  color: #787878;
+  background-color: #ebebeb;
+  border: 1px solid #e0e0e0;
+}
+
+.archive-list .pagination .first,
+.archive-list .pagination .last,
+.archive-list .pagination .prev,
+.archive-list .pagination .next {
+  width: auto;
+  padding: 0 8px;
+}
+
+.archive-list .pagination .first::before, .archive-list .pagination .first::after,
+.archive-list .pagination .last::before,
+.archive-list .pagination .last::after,
+.archive-list .pagination .prev::before,
+.archive-list .pagination .prev::after,
+.archive-list .pagination .next::before,
+.archive-list .pagination .next::after {
+  line-height: 1;
+  vertical-align: -.07em;
+}
+
+.archive-list .pagination .first::before {
+  font-family: "Material Design Icons";
+  content: '\f0600\0020';
+}
+
+.archive-list .pagination .last::after {
+  font-family: "Material Design Icons";
+  content: '\0020\f0601';
+}
+
+.archive-list .pagination .prev::before {
+  font-family: "Material Design Icons";
+  content: '\f0141\0020';
+}
+
+.archive-list .pagination .next::after {
+  font-family: "Material Design Icons";
+  content: '\0020\f0142';
+}
+
+.archive-list .pagination .dots {
+  color: #a0a0a0;
+  border: none;
+}
+
+.main-article {
+  font-size: 1.5rem;
+  overflow: hidden;
+}
+
+.main-article .entry-header {
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+
+.main-article .entry-header .page-title {
+  font-size: 2.8rem;
+  line-height: 1.3;
+  font-weight: normal;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.main-article .entry-header .page-title a {
+  color: #353535;
+}
+
+.main-article .entry-header .meta {
+  line-height: 0;
+  overflow: hidden;
+}
+
+.main-article .entry-header .meta > li {
+  display: inline-block;
+  color: #787878;
+  font-size: 1.3rem;
+  line-height: 1.4;
+  white-space: nowrap;
+  vertical-align: top;
+  margin: 0 20px 2px 0;
+}
+
+.main-article .entry-header .meta > li a {
+  display: inline-block;
+}
+
+.main-article .entry-header .year,
+.main-article .entry-header .month,
+.main-article .entry-header .day {
+  margin-right: 3px;
+}
+
+.main-article .post-thumbnail {
+  margin-bottom: 30px;
+}
+
+.main-article .post-thumbnail .image {
+  margin: 0;
+  background-color: #fff;
+}
+
+.main-article .post-thumbnail .image a {
+  display: block;
+  opacity: 1;
+  transition: all .2s;
+}
+
+.main-article .post-thumbnail .image a:hover {
+  opacity: 0.8;
+}
+
+.main-article .post-thumbnail .image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+.main-article .post-thumbnail .caption {
+  display: inline-block;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  min-width: 100%;
+  margin: 0;
+  padding: 7px;
+  background-color: #f5f5f5;
+  box-sizing: border-box;
+}
+
+.main-article .entry-body {
+  font-size: 1.5rem;
+  text-justify: inter-ideograph;
+  text-align: justify;
+  margin-bottom: 50px;
+  overflow: hidden;
+}
+
+.main-article .entry-body abbr,
+.main-article .entry-body acronym {
+  text-decoration: none;
+  border-bottom: 1px dotted #a0a0a0;
+  cursor: help;
+}
+
+.main-article .entry-body ins {
+  text-decoration: none;
+  border-bottom: 1px dotted #a0a0a0;
+}
+
+.main-article .entry-body small {
+  font-size: .8em;
+}
+
+.main-article .entry-body img {
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.main-article .entry-body img.alignnone {
+  display: block;
+  margin: 20px 0;
+}
+
+.main-article .entry-body img.aligncenter {
+  display: block;
+  margin: 20px auto;
+}
+
+.main-article .entry-body img.alignleft {
+  margin: 0 25px 20px 0;
+}
+
+.main-article .entry-body img.alignright {
+  margin: 0 0 20px 25px;
+}
+
+.main-article .entry-body a.more-link {
+  position: relative;
+  top: 10px;
+  display: block;
+  font-size: 1.4rem;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  width: 240px;
+  padding: 10px;
+  margin: 20px auto 10px;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+  box-sizing: border-box;
+  clear: both;
+  overflow: hidden;
+  transition: all .2s;
+}
+
+.main-article .entry-body a.more-link::after {
+  display: inline-block;
+  font-size: 1.7rem;
+  line-height: 0.5;
+  vertical-align: -.1rem;
+  font-family: "Material Design Icons";
+  content: '\0020\f0140';
+  margin: -.2rem 0 0 .2rem;
+}
+
+.main-article .entry-body a.more-link:hover {
+  background-color: #f5f5f5;
+}
+
+.main-article .entry-body a.more-link.active {
+  display: none;
+}
+
+.main-article .entry-body a img {
+  display: inline-block;
+  opacity: 1;
+  transition: all .2s;
+}
+
+.main-article .entry-body a img:hover {
+  opacity: 0.8;
+}
+
+.main-article .entry-body .more-content {
+  height: 0;
+  visibility: hidden;
+  overflow: hidden;
+  opacity: 0;
+  transition: all .2s;
+}
+
+.main-article .entry-body .more-content.active {
+  height: auto;
+  visibility: visible;
+  overflow: visible;
+  opacity: 1;
+}
+
+.main-article .entry-body .alignleft {
+  float: left;
+}
+
+.main-article .entry-body .alignright {
+  float: right;
+}
+
+.main-article .entry-body .aligncenter {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.main-article .entry-body h1,
+.main-article .entry-body h2,
+.main-article .entry-body h3 {
+  overflow: hidden;
+}
+
+.main-article .entry-body h1:first-of-type,
+.main-article .entry-body h2:first-of-type,
+.main-article .entry-body h3:first-of-type {
+  margin-top: 0;
+}
+
+.main-article .entry-body h4,
+.main-article .entry-body h5,
+.main-article .entry-body h6 {
+  overflow: hidden;
+}
+
+.main-article .entry-body h4 + p, .main-article .entry-body h4:first-of-type,
+.main-article .entry-body h5 + p,
+.main-article .entry-body h5:first-of-type,
+.main-article .entry-body h6 + p,
+.main-article .entry-body h6:first-of-type {
+  margin-top: 0;
+}
+
+.main-article .entry-body p {
+  font-size: 1em;
+  line-height: 1.75;
+  margin: 20px 0;
+}
+
+.main-article .entry-body p:first-of-type {
+  margin-top: 0;
+}
+
+.main-article .entry-body h1 {
+  font-size: 1.8em;
+  line-height: 1.3;
+  margin: 50px 0 20px;
+}
+
+.main-article .entry-body h2 {
+  font-size: 1.6em;
+  line-height: 1.35;
+  margin: 50px 0 20px;
+}
+
+.main-article .entry-body h3 {
+  font-size: 1.4em;
+  line-height: 1.4;
+  margin: 50px 0 20px;
+}
+
+.main-article .entry-body h4 {
+  font-size: 1.2em;
+  line-height: 1.4;
+  margin: 25px 0 15px;
+}
+
+.main-article .entry-body h5 {
+  font-size: 1em;
+  line-height: 1.5;
+  margin: 25px 0 10px;
+}
+
+.main-article .entry-body h6 {
+  font-size: .866666em;
+  line-height: 1.5;
+  margin: 25px 0 5px;
+}
+
+.main-article .entry-body div {
+  line-height: 1.75;
+}
+
+.main-article .entry-body hr {
+  height: 0;
+  margin: 20px 0;
+  border: none;
+  border-bottom: 1px solid #ebebeb;
+}
+
+.main-article .entry-body pre {
+  position: relative;
+  font-size: .933333em;
+  line-height: 1.75;
+  margin: 25px 0;
+  padding: 30px;
+  background-color: #f5f5f5;
+}
+
+.main-article .entry-body blockquote {
+  position: relative;
+  font-size: .933333em;
+  line-height: 1.75;
+  margin: 25px 0;
+  padding: 30px;
+  background-color: #f5f5f5;
+}
+
+.main-article .entry-body blockquote p {
+  margin: 0;
+}
+
+.main-article .entry-body blockquote::before {
+  display: inline-block;
+  position: absolute;
+  top: 3px;
+  left: 5px;
+  font-family: "Material Design Icons";
+  content: '\f0757';
+  font-size: 3.2rem;
+  line-height: 1;
+  color: #d5d5d5;
+}
+
+.main-article .entry-body blockquote::after {
+  display: inline-block;
+  position: absolute;
+  bottom: 3px;
+  right: 5px;
+  font-family: "Material Design Icons";
+  content: '\f027e';
+  font-size: 3.2rem;
+  line-height: 1;
+  color: #d5d5d5;
+}
+
+.main-article .entry-body ul,
+.main-article .entry-body ol {
+  font-size: 1em;
+  line-height: 1.75;
+  margin: 20px 0;
+  padding-left: 2em;
+}
+
+.main-article .entry-body ul > li,
+.main-article .entry-body ol > li {
+  margin: 8px 0;
+}
+
+.main-article .entry-body ul > li:first-of-type,
+.main-article .entry-body ol > li:first-of-type {
+  margin-top: 0;
+}
+
+.main-article .entry-body ul > li:last-of-type,
+.main-article .entry-body ol > li:last-of-type {
+  margin-bottom: 0;
+}
+
+.main-article .entry-body ul > li > ul,
+.main-article .entry-body ul > li > ol,
+.main-article .entry-body ol > li > ul,
+.main-article .entry-body ol > li > ol {
+  margin-top: 8px;
+}
+
+.main-article .entry-body ul {
+  list-style: disc;
+}
+
+.main-article .entry-body ol {
+  list-style: decimal;
+}
+
+.main-article .entry-body dl {
+  font-size: 1em;
+  line-height: 1.75;
+  margin-bottom: 20px;
+}
+
+.main-article .entry-body dl > dt {
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.main-article .entry-body dl > dt:first-child {
+  margin-top: 0;
+}
+
+.main-article .entry-body dl > dd {
+  margin: 15px 0 0 20px;
+}
+
+.main-article .entry-body dl dt + dd {
+  margin-top: 0;
+}
+
+.main-article .entry-body table {
+  font-size: 1em;
+  line-height: 1.5;
+  margin: 0;
+  border-collapse: collapse;
+  box-sizing: border-box;
+}
+
+.main-article .entry-body table caption {
+  font-size: .933333em;
+  margin-bottom: 5px;
+}
+
+.main-article .entry-body table thead th,
+.main-article .entry-body table tfoot th {
+  font-size: 1em;
+  padding: 7px;
+  background-color: #e0e0e0;
+  border: 1px solid #d5d5d5;
+}
+
+.main-article .entry-body table thead td,
+.main-article .entry-body table tfoot td {
+  font-size: 1em;
+  padding: 7px;
+  background-color: #f5f5f5;
+  border: 1px solid #d5d5d5;
+}
+
+.main-article .entry-body table tbody th {
+  font-size: 1em;
+  padding: 7px;
+  background-color: #f5f5f5;
+  border: 1px solid #d5d5d5;
+}
+
+.main-article .entry-body table tbody td {
+  font-size: 1em;
+  padding: 7px;
+  background-color: #fff;
+  border: 1px solid #d5d5d5;
+}
+
+.main-article .entry-body fieldset {
+  border: 1px solid #e0e0e0;
+  padding: 16px;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.main-article .entry-body fieldset legend {
+  font-size: 1em;
+  padding: 0 5px;
+}
+
+.main-article .entry-body label {
+  display: inline-block;
+  line-height: 1.3;
+  margin-bottom: 3px;
+}
+
+.main-article .entry-body input {
+  line-height: 1.5;
+}
+
+.main-article .entry-body input[type='text'] {
+  font-size: 1.5rem;
+  width: 100%;
+  padding: 6px;
+  border: 1px solid #d5d5d5;
+  border-radius: 2px;
+  box-sizing: border-box;
+}
+
+.main-article .entry-body input[type='password'] {
+  font-size: 1.5rem;
+  width: 100%;
+  padding: 6px;
+  border: 1px solid #d5d5d5;
+  border-radius: 2px;
+  box-sizing: border-box;
+}
+
+.main-article .entry-body input[type='email'] {
+  font-size: 1.5rem;
+  width: 100%;
+  padding: 6px;
+  border: 1px solid #d5d5d5;
+  border-radius: 2px;
+  box-sizing: border-box;
+}
+
+.main-article .entry-body input[type='url'] {
+  font-size: 1.5rem;
+  width: 100%;
+  padding: 6px;
+  border: 1px solid #d5d5d5;
+  border-radius: 2px;
+  box-sizing: border-box;
+}
+
+.main-article .entry-body input[type='number'] {
+  font-size: 1.5rem;
+  width: 60px;
+  min-width: 60px;
+  padding: 6px;
+  border: 1px solid #d5d5d5;
+  border-radius: 2px;
+  box-sizing: border-box;
+}
+
+.main-article .entry-body input[type='checkbox'] {
+  display: inline;
+  position: absolute;
+  margin: 9px 0 0 9px;
+  opacity: 0;
+}
+
+.main-article .entry-body input[type='checkbox'] + label,
+.main-article .entry-body input[type='checkbox'] + span {
+  display: inline-block;
+  font-size: 1.5rem;
+  line-height: 1;
+  padding: 5px;
+  margin: 0 5px 5px 0;
+  border-radius: 2px;
+  cursor: default;
+  transition: all .2s;
+}
+
+.main-article .entry-body input[type='checkbox'] + label::before,
+.main-article .entry-body input[type='checkbox'] + span::before {
+  position: relative;
+  display: inline-block;
+  color: transparent;
+  font-size: 1.8rem;
+  text-align: center;
+  font-family: "Material Design Icons";
+  content: '\f012c';
+  line-height: 1;
+  vertical-align: -1px;
+  width: 20px;
+  height: 20px;
+  margin-right: 6px;
+  background-color: #fff;
+  border: 1px solid #d5d5d5;
+  border-radius: 2px;
+  box-sizing: border-box;
+  transition: all .2s;
+}
+
+.main-article .entry-body input[type='checkbox']:checked + label,
+.main-article .entry-body input[type='checkbox']:checked + span {
+  background-color: #f5f5f5;
+}
+
+.main-article .entry-body input[type='checkbox']:checked + label::before,
+.main-article .entry-body input[type='checkbox']:checked + span::before {
+  color: #fff;
+  background-color: #787878;
+  border-color: #787878;
+}
+
+.main-article .entry-body input[type='radio'] {
+  display: inline;
+  position: absolute;
+  margin: 9px 0 0 9px;
+  opacity: 0;
+}
+
+.main-article .entry-body input[type='radio'] + label,
+.main-article .entry-body input[type='radio'] + span {
+  display: inline-block;
+  font-size: 1.5rem;
+  line-height: 1;
+  padding: 5px;
+  margin: 0 5px 5px 0;
+  border-radius: 2px;
+  cursor: default;
+  transition: all .2s;
+}
+
+.main-article .entry-body input[type='radio'] + label::before,
+.main-article .entry-body input[type='radio'] + span::before {
+  position: relative;
+  display: inline-block;
+  vertical-align: -4px;
+  content: '';
+  width: 20px;
+  height: 20px;
+  margin-right: 6px;
+  background-color: #fff;
+  border: 1px solid #d5d5d5;
+  border-radius: 50%;
+  box-sizing: border-box;
+  transition: all .2s;
+}
+
+.main-article .entry-body input[type='radio']:checked + label,
+.main-article .entry-body input[type='radio']:checked + span {
+  background-color: #f5f5f5;
+}
+
+.main-article .entry-body input[type='radio']:checked + label::before,
+.main-article .entry-body input[type='radio']:checked + span::before {
+  background-color: #fff;
+  border: 6px solid #787878;
+}
+
+.main-article .entry-body input[type='range'] {
+  width: 100%;
+}
+
+.main-article .entry-body input[type='range']:focus {
+  border-width: 0 !important;
+  box-shadow: none;
+}
+
+.main-article .entry-body input[type='submit'] {
+  color: #fff;
+  font-size: 1.5rem;
+  line-height: 1;
+  vertical-align: top;
+  height: 40px;
+  min-width: 160px;
+  background-color: #3b99d8;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all .2s;
+}
+
+.main-article .entry-body input[type='submit']:hover {
+  background-color: #248ac6;
+}
+
+.main-article .entry-body input[type='reset'] {
+  color: #fff;
+  font-size: 1.5rem;
+  line-height: 1;
+  vertical-align: top;
+  height: 40px;
+  min-width: 80px;
+  background-color: #d5d5d5;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all .2s;
+}
+
+.main-article .entry-body input[type='reset']:hover {
+  background-color: #c7c7c7;
+}
+
+.main-article .entry-body input[type='button'],
+.main-article .entry-body button {
+  color: #fff;
+  font-size: 1.5rem;
+  line-height: 1;
+  vertical-align: top;
+  height: 40px;
+  min-width: 160px;
+  background-color: #3b99d8;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all .2s;
+}
+
+.main-article .entry-body input[type='button']:hover,
+.main-article .entry-body button:hover {
+  background-color: #248ac6;
+}
+
+.main-article .entry-body .select-area {
+  display: inline-block;
+  position: relative;
+  background-color: #fff;
+  border-radius: 2px;
+}
+
+.main-article .entry-body .select-area::before {
+  position: absolute;
+  top: 50%;
+  right: 3px;
+  font-size: 2.2rem;
+  line-height: 1;
+  font-family: "Material Design Icons";
+  content: '\f0140';
+  margin-top: -10px;
+  z-index: 1;
+}
+
+.main-article .entry-body select {
+  position: relative;
+  font-size: 1.5rem;
+  line-height: 1.56;
+  max-width: 100%;
+  padding: 5px 25px 5px 5px;
+  margin: 0;
+  background-color: transparent;
+  border: 1px solid #d5d5d5;
+  border-radius: 2px;
+  box-sizing: border-box;
+  z-index: 2;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.main-article .entry-body select::-ms-expand {
+  display: none;
+}
+
+.main-article .entry-body textarea {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  vertical-align: top;
+  width: 100%;
+  min-height: 200px;
+  padding: 5px;
+  border: 1px solid #d5d5d5;
+  border-radius: 2px;
+  box-sizing: border-box;
+}
+
+.main-article .entry-body .table-content {
+  position: relative;
+  margin: 20px 0;
+}
+
+.main-article .entry-body .table-content .table-area {
+  overflow-x: auto;
+}
+
+.main-article .entry-body .table-content .table-area table {
+  position: relative;
+}
+
+.main-article .entry-body .table-content .table-arrow {
+  display: none;
+  position: absolute;
+  top: 50%;
+  width: 28px;
+  height: 28px;
+  margin-top: -14px;
+  background-color: #353535;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: .15;
+  z-index: 9;
+}
+
+.main-article .entry-body .table-content .table-arrow::after {
+  display: block;
+  color: #fff;
+  font-size: 26px;
+  text-align: center;
+  line-height: 28px;
+}
+
+.main-article .entry-body .table-content .table-left-arrow {
+  left: 5px;
+}
+
+.main-article .entry-body .table-content .table-left-arrow::after {
+  font-family: "Material Design Icons";
+  content: '\f004d';
+}
+
+.main-article .entry-body .table-content .table-right-arrow {
+  right: 5px;
+}
+
+.main-article .entry-body .table-content .table-right-arrow::after {
+  font-family: "Material Design Icons";
+  content: '\f0054';
+}
+
+.main-article .entry-body .wp-caption {
+  margin: 0;
+}
+
+.main-article .entry-body .wp-caption img {
+  display: inline-block;
+  margin: 0;
+}
+
+.main-article .entry-body .wp-caption.alignnone {
+  margin: 20px 0;
+}
+
+.main-article .entry-body .wp-caption.aligncenter {
+  margin: 20px auto;
+}
+
+.main-article .entry-body .wp-caption.alignleft {
+  margin: 0 25px 20px 0;
+}
+
+.main-article .entry-body .wp-caption.alignright {
+  margin: 0 0 20px 25px;
+}
+
+.main-article .entry-body .wp-caption-text {
+  font-size: .8em;
+  line-height: 1.45;
+  text-align: left;
+  margin: 0;
+  padding: 7px;
+  background-color: #f5f5f5;
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+.main-article .post-password-form {
+  margin-top: 30px;
+  padding: 25px 50px;
+  background-color: #f5f5f5;
+  text-align: center;
+}
+
+.main-article .post-password-form p {
+  font-size: 1em;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.main-article .post-password-form p:first-of-type {
+  display: inline-block;
+  text-align: left;
+}
+
+.main-article .post-password-form p:last-of-type {
+  text-align: center;
+  margin: 15px 0 5px;
+}
+
+.main-article .post-password-form label {
+  font-size: 1em;
+  line-height: 1.5;
+  display: inline-block;
+}
+
+.main-article .post-password-form input[type='password'] {
+  width: 210px;
+  height: 30px;
+  margin: 0 3px;
+}
+
+.main-article .post-password-form input[type='submit'] {
+  min-width: 80px;
+  height: 30px;
+}
+
+.main-article .entry-body .line-height-narrow-lv1 {
+  line-height: 1.5;
+}
+
+.main-article .entry-body .line-height-narrow-lv2 {
+  line-height: 1.3;
+}
+
+.main-article .entry-body .clear-margin {
+  margin: 0;
+}
+
+.main-article .entry-body .margin-top-lv1 {
+  margin-top: 20px;
+}
+
+.main-article .entry-body .margin-top-lv2 {
+  margin-top: 35px;
+}
+
+.main-article .entry-body .margin-top-lv3 {
+  margin-top: 50px;
+}
+
+.main-article .entry-body .margin-bottom-lv1 {
+  margin-bottom: 20px;
+}
+
+.main-article .entry-body .margin-bottom-lv2 {
+  margin-bottom: 35px;
+}
+
+.main-article .entry-body .margin-bottom-lv3 {
+  margin-bottom: 50px;
+}
+
+.main-article .entry-body .overflow-hidden {
+  overflow: hidden;
+}
+
+.main-article .entry-body .clear {
+  clear: both;
+}
+
+.main-article .entry-body .block-center {
+  text-align: center;
+}
+
+.main-article .entry-body .margin-left {
+  margin-left: 25px;
+}
+
+.main-article .entry-body .margin-right {
+  margin-right: 25px;
+}
+
+.main-article .link-pages {
+  font-size: 0;
+  text-align: center;
+  padding: 0;
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+
+.main-article .link-pages .heading {
+  display: inline-block;
+  font-size: 1.3rem;
+  margin-right: 3px;
+}
+
+.main-article .link-pages .heading {
+  margin-right: 10px;
+}
+
+.main-article .link-pages .page {
+  display: inline-block;
+  font-size: 1.4rem;
+  line-height: 36px;
+  width: 36px;
+  height: 36px;
+  margin: 0 2px;
+  background-color: #ebebeb;
+  border: 1px solid #e0e0e0;
+  box-sizing: border-box;
+}
+
+.main-article .link-pages > .page {
+  color: #787878;
+}
+
+.main-article .link-pages > a {
+  display: inline-block;
+  margin: 0 2px;
+}
+
+.main-article .link-pages > a > span.page {
+  margin: 0;
+  border: 1px solid #ebebeb;
+  background-color: #fff;
+  box-sizing: border-box;
+  transition: all .2s;
+}
+
+.main-article .link-pages > a:hover .page {
+  background-color: #f5f5f5;
+  text-decoration: underline;
+}
+
+.main-article .page-navigation {
+  margin-top: 40px;
+  border-top: 1px solid #e0e0e0;
+  padding-top: 15px;
+}
+
+.main-article .page-navigation ul {
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.main-article .page-navigation ul li {
+  width: 50%;
+}
+
+.main-article .page-navigation a {
+  display: block;
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  border: 1px solid #ebebeb;
+  box-sizing: border-box;
+}
+
+.main-article .page-navigation a:hover {
+  background-color: #f5f5f5;
+}
+
+.main-article .page-navigation .dir {
+  position: relative;
+  display: block;
+  color: #a0a0a0;
+  font-size: 1.2rem;
+  margin-bottom: 4px;
+}
+
+.main-article .page-navigation .title {
+  display: inline-block;
+  font-size: 1.5rem;
+  line-height: 1.3;
+  text-align: left;
+}
+
+.main-article .page-navigation .prev {
+  text-align: left;
+  margin-right: 15px;
+}
+
+.main-article .page-navigation .prev .dir {
+  left: -4px;
+}
+
+.main-article .page-navigation .prev .dir::before {
+  font-size: 1.7rem;
+  font-family: "Material Design Icons";
+  content: '\f0141';
+  vertical-align: -2px;
+}
+
+.main-article .page-navigation .next {
+  text-align: right;
+}
+
+.main-article .page-navigation .next .dir {
+  right: -4px;
+}
+
+.main-article .page-navigation .next .dir::after {
+  font-size: 1.7rem;
+  font-family: "Material Design Icons";
+  content: '\f0142';
+  vertical-align: -2px;
+}
+
+#contents.attachment .entry-attachment {
+  margin: 0 auto 35px;
+  max-width: 100%;
+}
+
+#contents.attachment .entry-attachment .image {
+  max-width: 100%;
+}
+
+#contents.attachment .entry-attachment .image a {
+  display: block;
+}
+
+#contents.attachment .entry-attachment .image img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 900px;
+}
+
+#contents.attachment .entry-attachment .caption {
+  font-size: .933333em;
+  line-height: 1.5;
+  text-align: left;
+  margin: 0;
+  padding: 8px 12px;
+  background-color: #f5f5f5;
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+#contents.attachment .page-navigation {
+  text-align: center;
+  margin: -20px 0 20px;
+  border-top: none;
+}
+
+#contents.attachment .page-navigation a {
+  display: inline-block;
+  color: #fff;
+  font-size: 1.5rem;
+  line-height: 40px;
+  height: 40px;
+  max-width: 240px;
+  background-color: #d5d5d5;
+  border: none;
+  border-radius: 4px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: all .2s;
+}
+
+#contents.attachment .page-navigation a:hover {
+  text-decoration: none;
+  background-color: #c7c7c7;
+}
+
+#comments {
+  text-justify: auto;
+  text-align: left;
+  margin-top: 40px;
+  padding-top: 40px;
+  border-top: 1px solid #e0e0e0;
+}
+
+#comments #comments-title {
+  font-size: 2.2rem;
+  font-weight: normal;
+  margin-bottom: 15px;
+}
+
+#comments #reply-title {
+  font-size: 2rem;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+#comments #reply-title small {
+  display: inline-block;
+  font-size: 1.4rem;
+  vertical-align: middle;
+  margin: -2px 0 0 8px;
+}
+
+#comments #reply-title a {
+  color: #fff;
+  text-decoration: none;
+  display: inline-block;
+  padding: 3px 9px 3px 6px;
+  background-color: #d5d5d5;
+  border-radius: 50px;
+}
+
+#comments #reply-title a::before {
+  font-family: "Material Design Icons";
+  content: '\f0156';
+  margin-right: .2em;
+}
+
+#comments #reply-title a:hover {
+  background-color: #a0a0a0;
+}
+
+#comments .comment-list {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  list-style: none;
+}
+
+#comments .comment-list #respond {
+  margin: 10px 0 30px;
+  padding-top: 15px;
+  border-top: 1px dotted #ebebeb;
+}
+
+#comments .comment-list #respond #reply-title {
+  font-size: 2rem;
+}
+
+#comments .comment-list > li {
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px dashed #e0e0e0;
+  overflow: hidden;
+}
+
+#comments .comment-list div.avatar {
+  float: left;
+  margin-right: 20px;
+}
+
+#comments .comment-list div.avatar .thumb {
+  overflow: hidden;
+}
+
+#comments .comment-list div.avatar .reply {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+#comments .comment-list .comment-block {
+  overflow: hidden;
+}
+
+#comments .comment-list .comment-block .header {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  margin-bottom: 5px;
+}
+
+#comments .comment-list .comment-block .author {
+  display: inline-block;
+  font-size: 1.3rem;
+  margin-right: 15px;
+}
+
+#comments .comment-list .comment-block .date {
+  display: inline-block;
+  font-size: 1.3rem;
+  margin-right: 15px;
+}
+
+#comments .comment-list .comment-block .date .year,
+#comments .comment-list .comment-block .date .month,
+#comments .comment-list .comment-block .date .day {
+  margin-right: 3px;
+}
+
+#comments .comment-list .comment-block .comment-text {
+  text-justify: inter-ideograph;
+  text-align: justify;
+}
+
+#comments .comment-list .comment-block .comment-text p {
+  font-size: 1.4rem;
+  line-height: 1.75;
+}
+
+#comments .comment-list .comment-block .awaiting {
+  color: #df0002;
+  margin-bottom: 3px;
+}
+
+#comments .comment-list .children {
+  font-size: 1.5rem;
+  margin: 20px 0 0 30px;
+}
+
+#comments #respond {
+  position: relative;
+  width: 500px;
+}
+
+#comments #respond p {
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+#comments #respond .not-publish {
+  line-height: 1.3;
+}
+
+#comments #respond .logged-in-as {
+  font-size: 1.4rem;
+}
+
+#comments #respond label {
+  display: inline-block;
+  font-size: 1.4rem;
+  line-height: 1.3;
+  margin-bottom: 3px;
+}
+
+#comments #respond input[type='text'] {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #e0e0e0;
+  border-radius: 2px;
+  box-sizing: border-box;
+}
+
+#comments #respond input[type='submit'] {
+  color: #fff;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  height: 40px;
+  width: 160px;
+  background-color: #3b99d8;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#comments #respond input[type='submit']:hover {
+  background-color: #248ac6;
+}
+
+#comments #respond textarea {
+  font-size: 1.5rem;
+  vertical-align: top;
+  width: 100%;
+  height: 150px;
+  padding: 5px;
+  border: 1px solid #e0e0e0;
+  border-radius: 2px;
+  box-sizing: border-box;
+}
+
+#comments #respond .required {
+  color: #df0002;
+  font-size: 1.2rem;
+}
+
+#comments #respond .form-submit {
+  clear: both;
+  margin-bottom: 0;
+  padding-top: 5px;
+}
+
+#comments #respond .not-publish {
+  display: inline-block;
+  font-size: 1.2rem;
+}
+
+#comments .comment-notes {
+  position: absolute;
+  top: 32px;
+  right: 0;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  width: 235px;
+  padding: 0 15px;
+  background-color: #f5f5f5;
+  box-sizing: border-box;
+}
+
+#comments .comment-notes li {
+  margin: 20px 0;
+}
+
+.main-article .entry-body .gallery {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -8px;
+}
+
+.main-article .entry-body .gallery-item {
+  margin: 8px;
+  background-color: #fff;
+  border: 1px solid #ebebeb;
+  box-sizing: border-box;
+}
+
+.main-article .entry-body .gallery-item img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+}
+
+.main-article .entry-body .gallery-columns-1 .gallery-item {
+  width: calc(100% - 16px);
+}
+
+.main-article .entry-body .gallery-columns-2 .gallery-item {
+  width: calc(50% - 16px);
+}
+
+.main-article .entry-body .gallery-columns-3 .gallery-item {
+  width: calc(33.33% - 16px);
+}
+
+.main-article .entry-body .gallery-columns-4 .gallery-item {
+  width: calc(25% - 16px);
+}
+
+.main-article .entry-body .gallery-columns-5 .gallery-item {
+  width: calc(20% - 16px);
+}
+
+.main-article .entry-body .gallery-columns-6 .gallery-item {
+  width: calc(16.66% - 16px);
+}
+
+.main-article .entry-body .gallery-columns-7 .gallery-item {
+  width: calc(14.28% - 16px);
+}
+
+.main-article .entry-body .gallery-columns-8 .gallery-item {
+  width: calc(12.5% - 16px);
+}
+
+.main-article .entry-body .gallery-columns-8 .gallery-item {
+  width: calc(12.5% - 16px);
+}
+
+.main-article .entry-body .gallery-columns-9 .gallery-item {
+  width: calc(11.11% - 16px);
+}
+
+.main-article .entry-body .gallery-icon {
+  padding: 5%;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.main-article .entry-body .gallery-icon a {
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  overflow: hidden;
+}
+
+.main-article .entry-body .gallery-caption {
+  padding: 8px 5%;
+  background-color: transparent;
+  border-top: 1px dotted #ebebeb;
+}
+
+/*# sourceMappingURL=map/style.css.map */

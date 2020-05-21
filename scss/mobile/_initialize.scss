@@ -1,0 +1,23 @@
+@charset 'UTF-8';
+
+//--------------------------------------------------------------------
+// initialize
+//--------------------------------------------------------------------
+body {
+  position: static;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  &:hover,
+  &:active {
+    text-decoration: none;
+  }
+}

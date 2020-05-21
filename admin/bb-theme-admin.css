@@ -1,0 +1,373 @@
+@charset "UTF-8";
+/*
+ *--------------------------------------------------------------------
+ * Theme Name: BlankBlanc
+ * Author: Naoki Yamamoto
+ * Description: 管理画面（外観 » テーマオプション）用スタイルシートです。
+ *--------------------------------------------------------------------
+ */
+#bb-config-edit {
+  min-width: 800px;
+  margin-top: 10px;
+}
+
+#bb-config-edit.bb-config-edit-box {
+  min-width: initial;
+}
+
+#bb-config-edit .nav-tab-wrapper {
+  margin-bottom: 10px;
+}
+
+#bb-config-edit .nav-tab-wrapper li {
+  float: left;
+  margin: 0;
+}
+
+#bb-config-edit .nav-tab-wrapper a:focus {
+  box-shadow: none;
+}
+
+#bb-config-edit .nav-tab-wrapper .nav-tab-active {
+  cursor: default;
+}
+
+#bb-config-edit .col-left {
+  float: left;
+  width: 280px;
+  margin-right: 40px;
+}
+
+#bb-config-edit .col-right {
+  margin-left: 315px;
+  padding-left: 5px;
+  overflow: hidden;
+}
+
+#bb-config-edit fieldset {
+  margin: 0;
+  padding: 15px 0;
+  border: 0;
+  overflow: hidden;
+}
+
+#bb-config-edit fieldset.sub-field {
+  display: none;
+  margin: -10px 0 10px;
+  padding: 10px 15px;
+  background-color: #e5e5e5;
+  box-sizing: border-box;
+}
+
+#bb-config-edit fieldset.sub-field .label-title {
+  border-left: 0;
+  padding: 0;
+}
+
+#bb-config-edit .label-title {
+  position: relative;
+  top: 5px;
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1.3;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  padding: 3px 6px;
+  border-left: 4px dotted #c0c0c0;
+}
+
+#bb-config-edit .label-title em {
+  font-size: .93em;
+  font-weight: normal !important;
+  margin-left: .5em !important;
+}
+
+#bb-config-edit ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#bb-config-edit em {
+  color: #f00;
+  font-style: normal;
+}
+
+#bb-config-edit input {
+  vertical-align: -2px;
+  margin: 1px;
+}
+
+#bb-config-edit input[type=checkbox] {
+  margin-top: 7px;
+}
+
+#bb-config-edit input[type=button] {
+  margin: 6px 3px 0 0;
+}
+
+#bb-config-edit input[type=number] {
+  padding-right: 0;
+}
+
+#bb-config-edit input.error {
+  border-color: #f00;
+  background-color: #fff6f3;
+}
+
+#bb-config-edit .s-text {
+  width: 4em;
+}
+
+#bb-config-edit .m-text {
+  width: 12em;
+}
+
+#bb-config-edit .l-text {
+  width: 30em;
+}
+
+#bb-config-edit .s-num {
+  width: 4.5em;
+}
+
+#bb-config-edit .note {
+  display: block;
+  clear: both;
+  color: #707070;
+  font-size: 11px;
+  line-height: 1.6;
+  margin-top: 12px;
+}
+
+#bb-config-edit .default {
+  display: block;
+  clear: both;
+  color: #909090;
+  font-size: 11px;
+  line-height: 1.6;
+  margin-top: 3px;
+}
+
+#bb-config-edit .input-group {
+  padding-bottom: 3px;
+  overflow: hidden;
+}
+
+#bb-config-edit .group {
+  display: inline-block;
+  margin-left: 1em;
+}
+
+#bb-config-edit .group:first-of-type {
+  margin-left: 0;
+}
+
+#bb-config-edit .image-view {
+  width: auto;
+  max-width: 640px;
+}
+
+#bb-config-edit .image-view img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 480px;
+}
+
+#bb-config-edit .no-image {
+  display: inline-block;
+  color: #b0b0b0;
+  font-size: .83em;
+  line-height: 1;
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+  padding: 25px 50px;
+  margin: 5px 0;
+  border: 1px dashed #d0d0d0;
+  box-sizing: border-box;
+}
+
+#bb-config-edit .submit-btn-top {
+  padding: 3px 3px 15px;
+}
+
+#bb-config-edit .submit-btn-bottom {
+  padding: 5px 3px 3px;
+}
+
+#bb-config-edit .submit-btn input[type=submit] {
+  margin-right: 6px;
+}
+
+#bb-config-edit .submit-btn .button-reset {
+  font-size: .93em;
+  color: #b0b0b0;
+  line-height: 1.2;
+  height: auto;
+  padding: 0;
+  margin: 0 0 0 1.5em;
+  background-color: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+#bb-config-edit .submit-btn .button-reset:hover {
+  color: #00a0d2;
+}
+
+#bb-config-edit .bb-media-upload .input-group {
+  overflow: visible;
+}
+
+#bb-config-edit .bb-media-upload .media-title {
+  display: none;
+}
+
+#bb-config-edit .ui-sortable {
+  position: relative;
+}
+
+#bb-config-edit .ui-sortable > li {
+  margin-bottom: 4px;
+  background-color: #e5e5e5;
+  overflow: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#bb-config-edit .ui-sortable > li.active {
+  background-color: #d0d0d0;
+}
+
+#bb-config-edit .ui-sortable > li input[type=checkbox] {
+  float: left;
+  margin: 9px 0 0 8px;
+}
+
+#bb-config-edit .ui-sortable > li label {
+  display: block;
+  padding: 8px;
+  margin-left: 22px;
+  cursor: move;
+}
+
+#bb-config-edit .ui-sortable > li label span {
+  cursor: inherit;
+}
+
+#bb-config-edit #activate-mobile-nav {
+  display: inline-block;
+}
+
+#bb-config-edit #activate-mobile-nav .widgets-name {
+  margin-right: 5px;
+}
+
+#bb-config-edit #activate-mobile-nav .sidebar-name {
+  display: inline-block;
+  color: #777;
+  font-size: .83em;
+}
+
+#bb-config-edit .wp-editor-wrap {
+  overflow: hidden;
+}
+
+#poststuff .inline-textarea p {
+  margin-bottom: .5em;
+}
+
+#poststuff .inline-textarea textarea {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#poststuff #bb-config-edit fieldset {
+  padding: 5px 0;
+  overflow: visible;
+}
+
+#poststuff #bb-config-edit .input-group {
+  overflow: visible;
+}
+
+#poststuff #bb-config-edit .notes {
+  margin: 10px 0 0;
+}
+
+@media screen and (max-width: 767px) {
+  #bb-config-edit {
+    width: 100%;
+    min-width: initial;
+  }
+  #bb-config-edit .col-left {
+    float: none;
+    width: auto;
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+  #bb-config-edit .col-right {
+    width: auto;
+    margin-left: 0;
+    padding-left: 0;
+  }
+  #bb-config-edit fieldset {
+    width: 100%;
+    border-bottom: 1px dotted #d0d0d0;
+    box-sizing: border-box;
+  }
+  #bb-config-edit fieldset.sub-field {
+    width: 100%;
+    margin-top: 0;
+  }
+  #bb-config-edit fieldset:last-of-type {
+    border-bottom: 0;
+  }
+  #bb-config-edit .label-title {
+    font-size: 15px;
+    width: auto;
+    margin: 0 0 15px;
+    box-sizing: border-box;
+  }
+  #bb-config-edit .l-text {
+    width: 99.5%;
+    box-sizing: border-box;
+  }
+  #bb-config-edit .group {
+    margin-bottom: 8px;
+  }
+  #bb-config-edit .group-full {
+    display: block;
+    margin-right: 0;
+  }
+  #bb-config-edit .input-group {
+    max-width: 400px;
+  }
+  #bb-config-edit .bb-media-upload .image-view {
+    width: 100%;
+  }
+  #bb-config-edit .bb-media-upload .image-view img {
+    max-width: 100%;
+  }
+  #bb-config-edit .ui-sortable {
+    width: 80%;
+  }
+  #bb-config-edit .ui-sortable > li label {
+    padding: 11px 8px;
+    margin-left: 38px;
+  }
+  #bb-config-edit .ui-sortable > li input[type=checkbox] {
+    float: left;
+    margin: 8px;
+  }
+  #bb-config-edit .submit-btn {
+    border-bottom: none;
+  }
+}
+
+/*# sourceMappingURL=../map/admin/bb-theme-admin.css.map */

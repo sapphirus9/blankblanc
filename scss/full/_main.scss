@@ -1,0 +1,47 @@
+@charset 'UTF-8';
+
+//--------------------------------------------------------------------
+// main
+//--------------------------------------------------------------------
+#contents {
+  display: block;
+  padding-bottom: 45px;
+  background-color: $base-white;
+  overflow: hidden;
+  dl,
+  ul,
+  ol {
+    overflow: hidden;
+  }
+  > .wrap {
+    padding-top: 40px;
+  }
+}
+
+#contents-conatiner {
+  display: flex;
+  justify-content: space-between;
+}
+
+#one-column {
+  width: 100%;
+}
+
+#first-column {
+  width: 660px;
+}
+
+#second-column {
+  float: right;
+  width: 250px;
+}
+
+.hidden-column {
+  display: none;
+}
+
+article {
+  line-height: 1.5;
+  word-wrap: break-word;
+  word-break: break-all;
+}
