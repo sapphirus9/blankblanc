@@ -24,7 +24,7 @@
     color: $base-white;
     font-size: 2.8rem;
     line-height: 1.3;
-    font-weight: normal;
+    @include font-weight(normal);
     align-items: center;
     a {
       color: $base-white;

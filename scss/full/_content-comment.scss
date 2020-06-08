@@ -11,12 +11,12 @@
   border-top: 1px solid $base-gray-5;
   #comments-title {
     font-size: 2.2rem;
-    font-weight: normal;
+    @include font-weight(normal);
     margin-bottom: 15px;
   }
   #reply-title {
     font-size: 2rem;
-    font-weight: normal;
+    @include font-weight(normal);
     margin-bottom: 10px;
     small {
       display: inline-block;

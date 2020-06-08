@@ -45,7 +45,7 @@
     .title {
       font-size: 1.6rem;
       line-height: 1.3;
-      font-weight: normal;
+      @include font-weight(normal);
     }
     .meta {
       line-height: 0;

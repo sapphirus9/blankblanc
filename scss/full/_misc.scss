@@ -73,7 +73,7 @@
     color: $base-gray-5;
     font-size: 4rem;
     font-family: Arial, Helvetica, sans-serif;
-    font-weight: normal;
+    @include font-weight(normal);
     text-align: center;
   }
   p {

@@ -5,7 +5,7 @@
  * Theme URI: http://www.sapphirus.biz/wordpress/themes/
  * Author: Naoki Yamamoto
  * Author URI: http://www.sapphirus.biz/
- * Version: 2.4.3
+ * Version: 2.4.4
  * Description: ウェブサイト+ブログを構築するためのベース用テーマとして、オリジナルのデザインやレイアウトを組み込みやすさを主眼に置いた、飾りを抑えたシンプルな2カラムタイプの HTML5 テーマです。カテゴリーやページ毎に設定した slug 名と同じスタイルシートをテーマ内に用意することで、各々スタイルの調整を行うことができます。基本 css ではレスポンシブデザインとして、767px でスマートフォン向けのレイアウト切り替えを設けています。
 
  * Tags: simple, plain, white, two-columns
@@ -15,13 +15,11 @@
  */
 * {
   font-family: 'Helvetica Neue', 'Segoe UI', '游ゴシック', YuGothic, 'Hiragino Kaku Gothic ProN', Meiryo, 'メイリオ', sans-serif;
-  font-weight: 450;
 }
 
 @media all and (-ms-high-contrast: none) {
   * {
     font-family: 'Helvetica Neue', 'Segoe UI', Meiryo, 'メイリオ', sans-serif;
-    font-weight: normal;
   }
 }
 
@@ -33,6 +31,7 @@ html {
 
 body {
   position: relative;
+  font-weight: normal;
   line-height: 1;
   line-break: strict;
   height: 100%;
@@ -41,6 +40,10 @@ body {
   -webkit-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
+}
+
+.os-windows body {
+  font-weight: 450;
 }
 
 h1, h2, h3, h4, h5, h6, p,
@@ -78,6 +81,10 @@ em {
 }
 
 h1, h2, h3, h4, h5, h6, th, strong {
+  font-weight: bold;
+}
+
+.os-windows h1, .os-windows h2, .os-windows h3, .os-windows h4, .os-windows h5, .os-windows h6, .os-windows th, .os-windows strong {
   font-weight: 600;
 }
 
@@ -87,9 +94,14 @@ form {
 }
 
 input, textarea, select, button {
+  font-weight: normal;
   margin: 0;
   transition: all .2s;
   outline: none;
+}
+
+.os-windows input, .os-windows textarea, .os-windows select, .os-windows button {
+  font-weight: 450;
 }
 
 input:focus, textarea:focus, select:focus, button:focus {
@@ -103,7 +115,7 @@ button {
   -moz-appearance: none;
 }
 
-input[type='submit'], input[type='button'], input[type='reset'] {
+input[type='submit'], input[type='button'], input[type='reset'], input[type='search'] {
   -webkit-appearance: none;
   -moz-appearance: none;
 }
@@ -199,6 +211,10 @@ input:focus:-ms-input-placeholder {
   color: #a0a0a0;
   font-size: 1.3rem;
   font-weight: normal;
+}
+
+.os-windows #global-header .copy {
+  font-weight: 450;
 }
 
 #header-nav {
@@ -719,6 +735,10 @@ article {
   border: 1px solid #e0e0e0;
 }
 
+.os-windows .widget_calendar thead th {
+  font-weight: 450;
+}
+
 .widget_calendar thead th:last-of-type {
   color: #df0002;
 }
@@ -772,6 +792,10 @@ article {
   line-height: 1.3;
   font-weight: normal;
   margin-bottom: 10px;
+}
+
+.os-windows #global-widget .widgettitle {
+  font-weight: 450;
 }
 
 #global-widget > ul {
@@ -880,6 +904,10 @@ article {
   border-bottom: 1px solid #d5d5d5;
 }
 
+.os-windows .footer-widgets .widgettitle {
+  font-weight: 450;
+}
+
 .footer-widgets > ul {
   float: left;
   width: 25%;
@@ -975,6 +1003,10 @@ article {
   text-align: center;
 }
 
+.os-windows #contents.error404 .title {
+  font-weight: 450;
+}
+
 #contents.error404 p {
   font-size: 1.4rem;
   margin-top: 10px;
@@ -1004,6 +1036,10 @@ article {
   line-height: 1.3;
   font-weight: normal;
   align-items: center;
+}
+
+.os-windows #main-visual .page-title {
+  font-weight: 450;
 }
 
 #main-visual .page-title a {
@@ -1071,6 +1107,10 @@ article {
   font-size: 2.8rem;
   line-height: 1.3;
   font-weight: normal;
+}
+
+.os-windows .archive-list .archive-header .page-title {
+  font-weight: 450;
 }
 
 .archive-list .entry-article {
@@ -1151,6 +1191,10 @@ article {
   line-height: 1.3;
   font-weight: normal;
   margin-bottom: 5px;
+}
+
+.os-windows .archive-list .entry-header .title {
+  font-weight: 450;
 }
 
 .archive-list .entry-header .meta {
@@ -1289,6 +1333,10 @@ article {
   font-weight: normal;
   margin-bottom: 10px;
   overflow: hidden;
+}
+
+.os-windows .main-article .entry-header .page-title {
+  font-weight: 450;
 }
 
 .main-article .entry-header .page-title a {
@@ -1657,6 +1705,10 @@ article {
 .main-article .entry-body dl > dt {
   font-weight: bold;
   margin-top: 15px;
+}
+
+.os-windows .main-article .entry-body dl > dt {
+  font-weight: 600;
 }
 
 .main-article .entry-body dl > dt:first-child {
@@ -2381,10 +2433,18 @@ article {
   margin-bottom: 15px;
 }
 
+.os-windows #comments #comments-title {
+  font-weight: 450;
+}
+
 #comments #reply-title {
   font-size: 2rem;
   font-weight: normal;
   margin-bottom: 10px;
+}
+
+.os-windows #comments #reply-title {
+  font-weight: 450;
 }
 
 #comments #reply-title small {

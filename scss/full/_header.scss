@@ -34,7 +34,7 @@
     left: 10px;
     color: $base-gray-3;
     font-size: 1.3rem;
-    font-weight: normal;
+    @include font-weight(normal);
   }
 }
 

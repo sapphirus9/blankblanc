@@ -6,6 +6,23 @@
 
 (function ($) {
   /**
+   * ブラウザー確認
+   */
+  $(function () {
+    var ua = navigator.userAgent;
+    // OS
+    var os = '';
+    if (/Windows/.test(ua)) os = 'windows';
+    else if (/Macintosh/.test(ua)) os = 'macosx';
+    else if (/Android/.test(ua)) os = 'android';
+    else if (/iP.*?Mac OS X/.test(ua)) os = 'ios';
+    else if (/Linux/.test(ua)) os = 'linux';
+    $('html').addClass('os-' + os);
+    // Safari
+    if (/Mac OS X(?!.*Chrome)(?=.*Safari)/.test(ua)) $('html').addClass('browser-safari');
+  });
+
+  /**
    * ページ内スクロール＆ページのトップへ
    */
   $(function () {

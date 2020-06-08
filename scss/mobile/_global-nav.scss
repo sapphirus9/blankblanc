@@ -132,7 +132,7 @@ body.nav-window-show {
   .widgettitle {
     color: $base-gray-3;
     font-size: 1.3rem;
-    font-weight: bold;
+    @include font-weight(bold);
     padding: 8px 12px;
     margin: 12px 0 8px;
     background-color: $base-gray-7;

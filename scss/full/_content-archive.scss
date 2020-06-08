@@ -19,7 +19,7 @@
     .page-title {
       font-size: 2.8rem;
       line-height: 1.3;
-      font-weight: normal;
+      @include font-weight(normal);
     }
   }
   .entry-article {
@@ -84,7 +84,7 @@
     .title {
       font-size: 2.2rem;
       line-height: 1.3;
-      font-weight: normal;
+      @include font-weight(normal);
       margin-bottom: 5px;
     }
     .meta {
