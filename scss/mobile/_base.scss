@@ -5,7 +5,7 @@
 //--------------------------------------------------------------------
 #main-screen {
   position: relative;
-  min-width: 320px;
+  min-width: $base-min-width-mobile;
   overflow-x: hidden;
 }
 

@@ -13,6 +13,7 @@
   background-size: cover;
   .wrap {
     position: relative;
+    padding-bottom: 15%;
   }
   .page-title {
     display: flex;
@@ -34,6 +35,11 @@
     p {
       font-size: 2.8rem;
       line-height: 1.3;
+    }
+  }
+  &.mv-home {
+    .wrap {
+      padding-bottom: 50%;
     }
   }
 }
@@ -63,8 +69,15 @@
 
 // w1200px~
 //--------------------------------------------------------------------
-@media screen and (min-width: 1200px) {
-#main-visual .wrap {
-  padding-bottom: 180px;
-}
+@media (min-width: 1200px) {
+  #main-visual {
+    .wrap {
+      padding-bottom: 180px;
+    }
+    &.mv-home {
+      .wrap {
+        padding-bottom: 600px;
+      }
+    }
+  }
 } // @media

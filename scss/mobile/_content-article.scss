@@ -4,7 +4,7 @@
 // article
 //--------------------------------------------------------------------
 .main-article {
-  margin: 0 4.0%;
+  margin: 0 $base-side-space-mobile;
 }
 
 // article header
@@ -33,7 +33,7 @@
 .main-article .post-thumbnail {
   margin-bottom: 25px;
   .entry-content {
-    margin: 0 4.0%;
+    margin: 0 $base-side-space-mobile;
   }
   .caption {
     font-size: 1.2rem;

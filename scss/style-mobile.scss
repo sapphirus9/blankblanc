@@ -18,7 +18,7 @@
 @import 'config';
 
 // extra large
-@media screen and (max-width: 767px) {
+@media (max-width: $media-lg) {
   @import 'mobile/initialize';
   @import 'mobile/base';
   @import 'mobile/header';
@@ -31,9 +31,10 @@
 }
 
 // large
-@media screen and (max-width: 767px) {
+@media (max-width: $media-lg) {
   @import 'mobile/content-common';
   @import 'mobile/content-archive';
+  @import 'mobile/content-archive-tiles';
   @import 'mobile/content-article';
   @import 'mobile/content-attachment';
   @import 'mobile/content-comment';
@@ -42,16 +43,16 @@
 }
 
 // medium
-@media screen and (max-width: 639px) {
+@media (max-width: $media-md) {
   @import 'mobile/media-medium';
 }
 
 // small
-@media screen and (max-width: 539px) {
+@media (max-width: $media-sm) {
   @import 'mobile/media-small';
 }
 
 // extra small
-@media screen and (max-width: 469px) {
+@media (max-width: $media-xs) {
   @import 'mobile/media-xsmall';
 }

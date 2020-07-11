@@ -14,7 +14,7 @@
   .logo {
     position: absolute;
     top: 18px;
-    left: 10px;
+    left: $base-side-space-full;
     a {
       display: block;
       text-decoration: none;
@@ -31,7 +31,7 @@
   .copy {
     position: absolute;
     top: 68px;
-    left: 10px;
+    left: $base-side-space-full;
     color: $base-gray-3;
     font-size: 1.3rem;
     @include font-weight(normal);
@@ -41,7 +41,7 @@
 #header-nav {
   position: absolute;
   top: 15px;
-  right: 10px;
+  right: $base-side-space-full;
   .menu {
     font-size: 0;
     > li {

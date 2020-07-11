@@ -75,7 +75,7 @@ function bb_get_pagination($args = array()) {
     $pages = 1;
   }
   if (1 != $pages) {
-    $src = '<div class="pagination">' . "\n";
+    $src = '<div class="pagination archive-pagination">' . "\n";
     if ($paged <= $range) {
       $range = $number - $paged;
     } elseif ($paged >= $pages - $range) {

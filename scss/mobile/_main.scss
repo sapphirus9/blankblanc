@@ -41,6 +41,6 @@
 #gotop {
   display: block;
   &-button {
-    right: 4.0%;
+    right: $base-side-space-mobile;
   }
 }

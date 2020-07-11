@@ -59,7 +59,7 @@ get_header(); ?>
       </article>
     </div>
 
-    <div id="second-column" class="hidden-column">
+    <div id="second-column">
       <?php get_sidebar(); ?>
     </div>
   </div>

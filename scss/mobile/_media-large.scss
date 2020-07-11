@@ -7,12 +7,12 @@
 // global footer
 //--------------------------------------------------------------------
 #global-footer .copyright {
-  padding-left: 4.0%;
-  padding-right: 4.0%;
+  padding-left: $base-side-space-mobile;
+  padding-right: $base-side-space-mobile;
 }
 
 // footer widgets
 //--------------------------------------------------------------------
 .footer-widgets > ul {
-  padding: 0 4.0%;
+  padding: 0 $base-side-space-mobile;
 }

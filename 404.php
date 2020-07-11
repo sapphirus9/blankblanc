@@ -11,13 +11,17 @@ get_header(); ?>
   <?php get_template_part('includes/inc', 'breadcrumb'); ?>
 
   <div id="contents-conatiner" class="wrap">
-    <div id="wide-column">
+    <div id="one-column">
       <article>
         <section>
           <h1 class="title">404 Not Found</h1>
           <p>お探しのページは見つかりませんでした</p>
         </section>
       </article>
+    </div>
+
+    <div id="second-column">
+      <?php get_sidebar(); ?>
     </div>
   </div>
 </main>

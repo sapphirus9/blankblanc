@@ -75,9 +75,17 @@
       _move(null);
     });
   });
-})(jQuery);
 
-(function ($) {
+  /**
+   * 画像をバックグラウンドイメージに配置
+   */
+  $(window).on('load', function () {
+    $('.background-image-src').each(function () {
+      var img = $('<a>').attr('href', $(this).attr('src')).get(0).href;
+      $(this).hide().parent().css('background-image', 'url(' + img + ')');
+    });
+  });
+
   /**
    * フォーム
    */
