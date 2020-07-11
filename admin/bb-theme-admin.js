@@ -207,6 +207,9 @@
   $('#bb-config-edit [type="submit"]').on('click', function () {
     change_value = false;
   });
+  $('#submitdiv [type="submit"]').on('click', function () {
+    change_value = false;
+  });
   $(window).on('beforeunload', function () {
     if (change_value) {
       return '';

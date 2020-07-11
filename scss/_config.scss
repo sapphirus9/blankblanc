@@ -4,6 +4,15 @@
 // config
 //--------------------------------------------------------------------
 
+
+// width
+//--------------------------------------------------------------------
+$base-width-full: 980px;
+$base-min-width-full: 1024px;
+$base-min-width-mobile: 360px;
+$base-side-space-full: ($base-min-width-full - $base-width-full) / 2;
+$base-side-space-mobile: 4%;
+
 // color
 //--------------------------------------------------------------------
 $base-white: #fff;
@@ -62,10 +71,43 @@ $base-font-bold: 600;
   opacity: $number;
 }
 
-// mobile
+// break point
 //--------------------------------------------------------------------
-@mixin media-mobile($maxWidth: 767px) {
-  @media screen and (max-width: $maxWidth) {
+@mixin media-type($maxWidth: 767px) {
+  @media (max-width: $maxWidth) {
     @content;
+  }
+}
+$media-xl: 999px;
+$media-lg: 767px;
+$media-md: 639px;
+$media-sm: 539px;
+$media-xs: 469px;
+
+@mixin media-type($type: '') {
+  @if $type == 'xl' {
+    @media (max-width: $media-lg) {
+      @content;
+    }
+  } @else if $type == 'lg' {
+    @media (max-width: $media-lg) {
+      @content;
+    }
+  } @else if $type == 'md' {
+    @media (max-width: $media-md) {
+      @content;
+    }
+  } @else if $type == 'sm' {
+    @media (max-width: $media-sm) {
+      @content;
+    }
+  } @else if $type == 'xs' {
+    @media (max-width: $media-xs) {
+      @content;
+    }
+  } @else {
+    @media (max-width: $media-lg) {
+      @content;
+    }
   }
 }

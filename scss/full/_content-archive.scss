@@ -29,6 +29,9 @@
     &:first-of-type {
       padding-top: 0;
     }
+    &:last-of-type {
+      border-bottom: none;
+    }
   }
   .article-container {
     display: flex;
@@ -125,7 +128,7 @@
 
 // pagination
 //--------------------------------------------------------------------
-.archive-list .pagination {
+.archive-pagination {
   font-size: 0;
   text-align: center;
   padding: 0;

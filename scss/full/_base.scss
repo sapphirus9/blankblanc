@@ -18,20 +18,24 @@ a {
 
 // fixed content width
 #main-screen {
-  min-width: 980px;
+  min-width: $base-min-width-full;
   overflow: hidden;
 }
 
 .wrap {
   position: relative;
-  width: 960px;
-  padding: 0 10px;
+  width: $base-width-full;
+  padding: 0 $base-side-space-full;
   margin-left: auto;
   margin-right: auto;
 }
 
 .is-mobile {
   display: none;
+}
+
+.background-image-src {
+  display: none !important;
 }
 
 input {

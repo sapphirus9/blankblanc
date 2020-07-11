@@ -135,20 +135,24 @@ a:hover {
 }
 
 #main-screen {
-  min-width: 980px;
+  min-width: 1024px;
   overflow: hidden;
 }
 
 .wrap {
   position: relative;
-  width: 960px;
-  padding: 0 10px;
+  width: 980px;
+  padding: 0 22px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .is-mobile {
   display: none;
+}
+
+.background-image-src {
+  display: none !important;
 }
 
 input::-webkit-input-placeholder {
@@ -186,7 +190,7 @@ input:focus:-ms-input-placeholder {
 #global-header .logo {
   position: absolute;
   top: 18px;
-  left: 10px;
+  left: 22px;
 }
 
 #global-header .logo a {
@@ -207,7 +211,7 @@ input:focus:-ms-input-placeholder {
 #global-header .copy {
   position: absolute;
   top: 68px;
-  left: 10px;
+  left: 22px;
   color: #a0a0a0;
   font-size: 1.3rem;
   font-weight: normal;
@@ -220,7 +224,7 @@ input:focus:-ms-input-placeholder {
 #header-nav {
   position: absolute;
   top: 15px;
-  right: 10px;
+  right: 22px;
 }
 
 #header-nav .menu {
@@ -427,10 +431,6 @@ input:focus:-ms-input-placeholder {
   justify-content: space-between;
 }
 
-#one-column {
-  width: 100%;
-}
-
 #first-column {
   width: 660px;
 }
@@ -438,6 +438,14 @@ input:focus:-ms-input-placeholder {
 #second-column {
   float: right;
   width: 250px;
+}
+
+#one-column {
+  width: 100%;
+}
+
+#one-column + #second-column {
+  display: none;
 }
 
 .hidden-column {
@@ -1022,6 +1030,7 @@ article {
 
 #main-visual .wrap {
   position: relative;
+  padding-bottom: 15%;
 }
 
 #main-visual .page-title {
@@ -1051,6 +1060,10 @@ article {
   line-height: 1.3;
 }
 
+#main-visual.mv-home .wrap {
+  padding-bottom: 50%;
+}
+
 #contents .meta .font-icon::before {
   color: #d5d5d5;
   font-size: 1.5rem;
@@ -1078,9 +1091,12 @@ article {
   content: '\f03ea';
 }
 
-@media screen and (min-width: 1200px) {
+@media (min-width: 1200px) {
   #main-visual .wrap {
     padding-bottom: 180px;
+  }
+  #main-visual.mv-home .wrap {
+    padding-bottom: 600px;
   }
 }
 
@@ -1121,6 +1137,10 @@ article {
 
 .archive-list .entry-article:first-of-type {
   padding-top: 0;
+}
+
+.archive-list .entry-article:last-of-type {
+  border-bottom: none;
 }
 
 .archive-list .article-container {
@@ -1237,7 +1257,7 @@ article {
   font-size: 1.6rem;
 }
 
-.archive-list .pagination {
+.archive-pagination {
   font-size: 0;
   text-align: center;
   padding: 0;
@@ -1245,7 +1265,7 @@ article {
   overflow: hidden;
 }
 
-.archive-list .pagination .page-numbers {
+.archive-pagination .page-numbers {
   display: inline-block;
   font-size: 1.4rem;
   line-height: 34px;
@@ -1258,63 +1278,213 @@ article {
   box-sizing: border-box;
 }
 
-.archive-list .pagination a {
+.archive-pagination a {
   text-decoration: none;
   transition: all .2s;
 }
 
-.archive-list .pagination a:hover {
+.archive-pagination a:hover {
   background-color: #f5f5f5;
 }
 
-.archive-list .pagination .current {
+.archive-pagination .current {
   color: #787878;
   background-color: #ebebeb;
   border: 1px solid #e0e0e0;
 }
 
-.archive-list .pagination .first,
-.archive-list .pagination .last,
-.archive-list .pagination .prev,
-.archive-list .pagination .next {
+.archive-pagination .first,
+.archive-pagination .last,
+.archive-pagination .prev,
+.archive-pagination .next {
   width: auto;
   padding: 0 8px;
 }
 
-.archive-list .pagination .first::before, .archive-list .pagination .first::after,
-.archive-list .pagination .last::before,
-.archive-list .pagination .last::after,
-.archive-list .pagination .prev::before,
-.archive-list .pagination .prev::after,
-.archive-list .pagination .next::before,
-.archive-list .pagination .next::after {
+.archive-pagination .first::before, .archive-pagination .first::after,
+.archive-pagination .last::before,
+.archive-pagination .last::after,
+.archive-pagination .prev::before,
+.archive-pagination .prev::after,
+.archive-pagination .next::before,
+.archive-pagination .next::after {
   line-height: 1;
   vertical-align: -.07em;
 }
 
-.archive-list .pagination .first::before {
+.archive-pagination .first::before {
   font-family: "Material Design Icons";
   content: '\f0600\0020';
 }
 
-.archive-list .pagination .last::after {
+.archive-pagination .last::after {
   font-family: "Material Design Icons";
   content: '\0020\f0601';
 }
 
-.archive-list .pagination .prev::before {
+.archive-pagination .prev::before {
   font-family: "Material Design Icons";
   content: '\f0141\0020';
 }
 
-.archive-list .pagination .next::after {
+.archive-pagination .next::after {
   font-family: "Material Design Icons";
   content: '\0020\f0142';
 }
 
-.archive-list .pagination .dots {
+.archive-pagination .dots {
   color: #a0a0a0;
   border: none;
+}
+
+.archive-tiles .term-description {
+  padding: 20px;
+  margin-bottom: 30px;
+  border: 1px solid #ebebeb;
+}
+
+.archive-tiles .term-description p {
+  font-size: 1.5rem;
+  line-height: 1.75;
+}
+
+.archive-tiles .entry-articles {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  font-size: 1.5rem;
+  margin: 0 -20px;
+}
+
+.archive-tiles .entry-articles .archive-header {
+  margin-bottom: 25px;
+}
+
+.archive-tiles .entry-articles .archive-header .page-title {
+  font-size: 2.8rem;
+  line-height: 1.3;
+  font-weight: normal;
+}
+
+.os-windows .archive-tiles .entry-articles .archive-header .page-title {
+  font-weight: 450;
+}
+
+.archive-tiles .entry-articles .entry-article {
+  width: calc(100% / 3);
+  padding: 0 20px;
+  margin-bottom: 40px;
+  box-sizing: border-box;
+}
+
+#one-column .archive-tiles .entry-articles .entry-article {
+  width: calc(100% / 4);
+}
+
+.archive-tiles .entry-articles .thumbnail {
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+  margin: 0 auto 15px;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.archive-tiles .entry-articles .thumbnail a {
+  display: block;
+  opacity: 1;
+  transition: all .2s;
+}
+
+.archive-tiles .entry-articles .thumbnail a:hover {
+  opacity: 0.8;
+}
+
+.archive-tiles .entry-articles .thumbnail img {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+}
+
+.archive-tiles .entry-articles .no-thumbnail {
+  position: relative;
+}
+
+.archive-tiles .entry-articles .no-thumbnail a {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #f5f5f5;
+}
+
+.archive-tiles .entry-articles .no-thumbnail a span {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  color: #e0e0e0;
+  font-size: 1.2rem;
+  line-height: 1;
+  text-align: center;
+  margin-top: -.5em;
+}
+
+.archive-tiles .entry-articles .entry-header {
+  margin-bottom: 10px;
+}
+
+.archive-tiles .entry-articles .entry-header .title {
+  font-size: 2rem;
+  line-height: 1.3;
+  font-weight: normal;
+  margin-bottom: 5px;
+}
+
+.os-windows .archive-tiles .entry-articles .entry-header .title {
+  font-weight: 450;
+}
+
+.archive-tiles .entry-articles .entry-header .meta {
+  line-height: 0;
+}
+
+.archive-tiles .entry-articles .entry-header .meta li {
+  display: inline-block;
+  color: #787878;
+  font-size: 1.3rem;
+  line-height: 1.4;
+  margin: 0 20px 2px 0;
+}
+
+.archive-tiles .entry-articles .entry-header .meta .year,
+.archive-tiles .entry-articles .entry-header .meta .month,
+.archive-tiles .entry-articles .entry-header .meta .day {
+  margin-right: 3px;
+}
+
+.archive-tiles .entry-articles .entry-body {
+  text-justify: inter-ideograph;
+  text-align: justify;
+  overflow: hidden;
+}
+
+.archive-tiles .entry-articles .entry-body p {
+  font-size: 1.5rem;
+  line-height: 1.6;
+}
+
+.archive-tiles .entry-articles #no-result {
+  clear: both;
+  text-align: center;
+  padding: 60px 0 80px;
+}
+
+.archive-tiles .entry-articles #no-result p {
+  color: #a0a0a0;
+  font-size: 1.6rem;
 }
 
 .main-article {

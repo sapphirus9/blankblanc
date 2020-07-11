@@ -23,10 +23,6 @@
   justify-content: space-between;
 }
 
-#one-column {
-  width: 100%;
-}
-
 #first-column {
   width: 660px;
 }
@@ -34,6 +30,13 @@
 #second-column {
   float: right;
   width: 250px;
+}
+
+#one-column {
+  width: 100%;
+  & + #second-column {
+    display: none;
+  }
 }
 
 .hidden-column {
