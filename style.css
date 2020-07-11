@@ -152,7 +152,7 @@ a:hover {
 }
 
 .background-image-src {
-  display: none !important;
+  display: none;
 }
 
 input::-webkit-input-placeholder {
