@@ -3,6 +3,16 @@
 //--------------------------------------------------------------------
 // gotop button
 //--------------------------------------------------------------------
-#gotop-button p > span:hover {
+#gotop-button {
   opacity: .5;
+  .symbol {
+    width: 48px;
+    height: 48px;
+    &:hover {
+      opacity: .65;
+    }
+    &::before {
+      font-size: 24px;
+    }
+  }
 }

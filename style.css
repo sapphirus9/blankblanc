@@ -5,7 +5,7 @@
  * Theme URI: http://www.sapphirus.biz/wordpress/themes/
  * Author: Naoki Yamamoto
  * Author URI: http://www.sapphirus.biz/
- * Version: 2.4.4
+ * Version: 2.4.5
  * Description: ウェブサイト+ブログを構築するためのベース用テーマとして、オリジナルのデザインやレイアウトを組み込みやすさを主眼に置いた、飾りを抑えたシンプルな2カラムタイプの HTML5 テーマです。カテゴリーやページ毎に設定した slug 名と同じスタイルシートをテーマ内に用意することで、各々スタイルの調整を行うことができます。基本 css ではレスポンシブデザインとして、767px でスマートフォン向けのレイアウト切り替えを設けています。
 
  * Tags: simple, plain, white, two-columns
@@ -152,7 +152,7 @@ a:hover {
 }
 
 .background-image-src {
-  display: none;
+  display: none !important;
 }
 
 input::-webkit-input-placeholder {
@@ -267,7 +267,7 @@ input:focus:-ms-input-placeholder {
   text-align: center;
   line-height: 40px;
   height: 40px;
-  padding: 0 10px;
+  padding: 0 20px;
   background-color: #ebebeb;
   box-sizing: border-box;
 }
@@ -505,43 +505,32 @@ article {
   font-family: 'Arial Narrow', Helvetica, sans-serif;
 }
 
-#gotop-button p {
-  line-height: 0;
-}
-
-#gotop-button p > span {
+#gotop-button .symbol {
   display: block;
-  color: #a0a0a0;
-  font-size: 12px;
-  line-height: 1;
-  text-align: center;
-  letter-spacing: .1em;
-  width: 50px;
-  height: 50px;
-  padding-top: 8px;
-  padding-left: .1em;
+  width: 54px;
+  height: 54px;
   background-color: #e0e0e0;
   border-radius: 50%;
-  box-sizing: border-box;
   cursor: pointer;
   opacity: .65;
   transition: all .2s;
 }
 
-#gotop-button p > span:hover {
+#gotop-button .symbol:hover {
   text-decoration: none;
   opacity: .9;
 }
 
-#gotop-button p > span::before {
-  display: block;
-  text-align: center;
+#gotop-button .symbol::before {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-family: "Material Design Icons";
   content: '\f005d';
-  font-size: 18px;
+  color: #a0a0a0;
+  font-size: 28px;
   line-height: 1;
-  padding-bottom: 0;
-  margin-bottom: .05em;
+  height: 100%;
 }
 
 .widget {

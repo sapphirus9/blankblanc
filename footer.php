@@ -35,9 +35,7 @@
 </footer>
 
 <div id="gotop">
-  <div id="gotop-button">
-    <p><span>TOP</span></p>
-  </div>
+  <div id="gotop-button"><span class="symbol"></span></div>
 </div>
 </div><!-- /main-screen -->
 <?php wp_footer(); ?>

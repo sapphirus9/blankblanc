@@ -54,7 +54,7 @@
     var upload_field = [
       '#bb-logo-image',
       '#bb-mainvisual',
-      '#bb-mainvisual-home',
+      '#bb-mainvisual-home'
     ];
     $.each(upload_field, function (index, val) {
       var s = val + ' ';
@@ -195,6 +195,7 @@
   });
   var change_value_tinymce = function () {
     setTimeout(function () {
+      if (typeof tinymce != 'function') return;
       tinymce.editors.forEach(function (ed) {
         ed.on('keyup', function () {
           change_value = true;
@@ -205,6 +206,9 @@
   $(window).on('load', change_value_tinymce);
   $('.wp-switch-editor').on('click', change_value_tinymce);
   $('#bb-config-edit [type="submit"]').on('click', function () {
+    change_value = false;
+  });
+  $('#edittag [type="submit"]').on('click', function () {
     change_value = false;
   });
   $('#submitdiv [type="submit"]').on('click', function () {
