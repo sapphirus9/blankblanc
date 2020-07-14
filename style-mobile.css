@@ -348,8 +348,18 @@
   #gotop-button {
     right: 4%;
   }
-  #gotop-button p > span:hover {
+  #gotop-button {
     opacity: .5;
+  }
+  #gotop-button .symbol {
+    width: 48px;
+    height: 48px;
+  }
+  #gotop-button .symbol:hover {
+    opacity: .65;
+  }
+  #gotop-button .symbol::before {
+    font-size: 24px;
   }
   .widget_archive .month-list {
     margin: 4px 2.5% 0;
