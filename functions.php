@@ -18,9 +18,9 @@ function bb_config_default() {
     // アーカイブページのタイトル接尾辞
     'title_suffix'        => 'の一覧',
     // アイキャッチ画像サイズ（幅[数値], 高さ[数値], 切り出し[true/false]）
-    'post_thumbnail'      => array(720, 540, true),
+    'post_thumbnail'      => array(1024, 786, true),
     // アーカイブページのサムネイル画像サイズ（幅[数値], 高さ[数値], 切り出し[true/false]）
-    'archive_thumbnail'   => array(200, 200, true),
+    'archive_thumbnail'   => array(300, 300, true),
     // 記事抜粋時の省略表記
     'excerpt_more'        => ' &#x22ef;',
     // 記事抜粋の文字数

@@ -37,8 +37,8 @@
 |title タグのセパレーター|title_separator|string|｜|
 |title に併記するキャッチフレーズ|title_catchphrase|string|一般設定のキャッチフレーズ|
 |一覧ページのタイトル接尾辞|title_suffix|string|の一覧|
-|アイキャッチ画像|post_thumbnail|array<br>幅[数値], 高さ[数値], 切り出し[true/false]|array(720, 540, true)|
-|一覧ページのサムネイル画像|archive_thumbnail|array<br>幅[数値], 高さ[数値], 切り出し[true/false]|array(200, 200, true)|
+|アイキャッチ画像|post_thumbnail|array<br>幅[数値], 高さ[数値], 切り出し[true/false]|array(1024, 768, true)|
+|一覧ページのサムネイル画像|archive_thumbnail|array<br>幅[数値], 高さ[数値], 切り出し[true/false]|array(300, 300, true)|
 |記事抜粋時の省略表記|excerpt_more|string| &#x22ef;|
 |記事抜粋の文字数|excerpt_length|numeric|110|
 |RSS の記事出力文字数|excerpt_length_rss|numeric|200|
