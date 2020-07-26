@@ -13,7 +13,7 @@ get_header(); ?>
 
   <div id="contents-conatiner" class="wrap">
     <div id="first-column">
-      <div class="archive-list-tiles">
+      <div class="archive-list">
         <?php if (empty($bb_mainvisual_image)) : ?>
           <header class="archive-header">
             <h1 class="page-title"><?php echo get_the_archive_title(); ?></h1>
