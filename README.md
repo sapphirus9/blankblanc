@@ -22,6 +22,7 @@
 - サイトに合わせて CSS 等でデザイン加工やレイアウトを行って利用されることを前提としていますので、完成されたデザインテーマを望まれる方の用途には向いておりません。
 - また、SEO や AMP の対応、計測タグ、ソーシャル関連の設置などもプラグインでの利用を前提としています。<br>
 - BlankBlanc を利用される際は親テーマのアップデートに対応できるよう、[子テーマ（BlankBlanc Child）](https://github.com/sapphirus9/blankblanc-child)を用いてカスタマイズすることをお勧めします。
+- メインビジュアル機能は限定（試用的な期間）公開とさせてただいております。
 - BlankBlanc は日本語向けテーマです。(Language: Japanese)
 
 
@@ -74,7 +75,7 @@
 |カテゴリー毎（複数）のパンくず表示|bread_crumb_multi|bool|false|
 |絵文字を無効化|disable_emoji|bool|true|
 |body に body_class を追加|add_body_class|bool|false|
-|トップページ用メインビジュアル|mv_home_image|url|空|
+|トップページ用メインビジュアル|mv_home_image|url|get_template_directory_uri() . '/img/img-hero.jpg'|
 |トップページ用メインビジュアル内コンテンツ|mv_home_content|html|空|
 <br>
 
