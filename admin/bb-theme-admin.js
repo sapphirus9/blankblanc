@@ -96,8 +96,9 @@
           change_value = true;
           var images = upload.state().get('selection');
           images.each(function (file) {
+            console.log(file);
             img.id.val(file.id);
-            img.view.html('<img src="' + file.attributes.url + '" alt="">');
+            img.view.html('<img src="' + file.attributes.sizes.large.url + '" alt="">');
             btn.reset.show();
           });
         });
