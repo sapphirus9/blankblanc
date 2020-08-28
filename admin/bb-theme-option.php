@@ -68,7 +68,7 @@ function blankblanc_config_edit() {
   }
 ?>
 <div class="wrap">
-  <h1>テーマオプション</h1>
+  <h1>テーマオプション<small> (BlankBlanc)</small></h1>
   <?php if (isset($_POST['blankblanc_config_values']['reset_config'])) : ?>
     <div id="setting-error-settings_updated" class="updated settings-error notice is-dismissible">
       <p><strong>設定を初期化しました</strong></p>
