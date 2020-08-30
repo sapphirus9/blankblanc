@@ -17,13 +17,13 @@
 }
 
 #one-column {
-  max-width: 700px;
+  max-width: $base-max-width-mobile;
   margin: 0 auto;
 }
 
 #first-column {
   width: 100%;
-  max-width: 700px;
+  max-width: $base-max-width-mobile;
   margin: 0 auto;
 }
 

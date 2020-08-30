@@ -5,7 +5,7 @@
  * Theme URI: http://www.sapphirus.biz/wordpress/themes/
  * Author: Naoki Yamamoto
  * Author URI: http://www.sapphirus.biz/
- * Version: 2.4.5
+ * Version: 2.4.6
  * Description: ウェブサイト+ブログを構築するためのベース用テーマとして、オリジナルのデザインやレイアウトを組み込みやすさを主眼に置いた、飾りを抑えたシンプルな2カラムタイプの HTML5 テーマです。カテゴリーやページ毎に設定した slug 名と同じスタイルシートをテーマ内に用意することで、各々スタイルの調整を行うことができます。基本 css ではレスポンシブデザインとして、767px でスマートフォン向けのレイアウト切り替えを設けています。
 
  * Tags: simple, plain, white, two-columns
@@ -40,6 +40,7 @@ body {
   -webkit-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 .os-windows body {
@@ -113,11 +114,13 @@ button {
   vertical-align: top;
   -webkit-appearance: none;
   -moz-appearance: none;
+  appearance: none;
 }
 
 input[type='submit'], input[type='button'], input[type='reset'], input[type='search'] {
   -webkit-appearance: none;
   -moz-appearance: none;
+  appearance: none;
 }
 
 body {
@@ -617,6 +620,7 @@ article {
   z-index: 2;
   -webkit-appearance: none;
   -moz-appearance: none;
+  appearance: none;
 }
 
 .widget select::-ms-expand {
@@ -1027,8 +1031,8 @@ article {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 10px;
-  right: 10px;
+  left: 22px;
+  right: 22px;
   color: #fff;
   font-size: 2.8rem;
   line-height: 1.3;
@@ -1042,6 +1046,11 @@ article {
 
 #main-visual .page-title a {
   color: #fff;
+}
+
+#main-visual .mv-title {
+  font-size: 2.8rem;
+  line-height: 1.3;
 }
 
 #main-visual .mv-title-content p {
@@ -2189,6 +2198,7 @@ article {
   z-index: 2;
   -webkit-appearance: none;
   -moz-appearance: none;
+  appearance: none;
 }
 
 .main-article .entry-body select::-ms-expand {

@@ -205,9 +205,9 @@
       background-color: #e5e5e5;
       overflow: hidden;
       -webkit-user-select: none;
-      -moz-user-select: -moz-none;
-      -ms-user-select: none;
-      user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none;
       &.active {
         background-color: #d0d0d0;
       }
@@ -266,6 +266,12 @@
     .notes {
       margin: 10px 0 0;
     }
+  }
+}
+
+#bb-mainvisual {
+  .edit-tags-php & {
+    max-width: 95%;
   }
 }
 

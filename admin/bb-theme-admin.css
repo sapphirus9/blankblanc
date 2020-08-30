@@ -235,7 +235,7 @@
   background-color: #e5e5e5;
   overflow: hidden;
   -webkit-user-select: none;
-  -moz-user-select: -moz-none;
+  -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
@@ -298,6 +298,10 @@
 
 #poststuff #bb-config-edit .notes {
   margin: 10px 0 0;
+}
+
+.edit-tags-php #bb-mainvisual {
+  max-width: 95%;
 }
 
 @media screen and (max-width: 767px) {

@@ -7,7 +7,7 @@
 // global footer
 //--------------------------------------------------------------------
 #global-footer {
-  max-width: 700px;
+  max-width: $base-max-width-mobile;
   margin: 0 auto;
   .wrap {
     min-height: 0;
@@ -48,7 +48,7 @@
         text-decoration: none;
         padding: 15px 2.4%;
         background-color: transparent;
-        -webkit-tap-highlight-color: rgba(0,0,0,.06);
+        -webkit-tap-highlight-color: rgba(0, 0, 0, .06);
       }
     }
     ul > li {
@@ -111,7 +111,7 @@
         padding: 9px;
         margin: 5px;
         background-color: $base-gray-6;
-        -webkit-tap-highlight-color: rgba(0,0,0,.06);
+        -webkit-tap-highlight-color: rgba(0, 0, 0, .06);
       }
     }
   }

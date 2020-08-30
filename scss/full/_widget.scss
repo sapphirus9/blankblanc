@@ -76,7 +76,8 @@
     box-sizing: border-box;
     z-index: 2;
     -webkit-appearance: none;
-    -moz-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
     &::-ms-expand {
       display: none;
     }

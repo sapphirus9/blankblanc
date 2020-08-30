@@ -53,7 +53,7 @@ if (!empty($bb_mainvisual_image)) : ?>
               <?php echo apply_filters('the_content', ($mv_home_content)); ?>
             </div>
           <?php else : ?>
-            <p class="page-title"><?php echo $bb_mainvisual_title; ?></p>
+            <p class="mv-title"><?php echo $bb_mainvisual_title; ?></p>
           <?php endif; ?>
         </div>
       <?php else : ?>
