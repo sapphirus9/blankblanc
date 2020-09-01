@@ -49,25 +49,25 @@ class bbInlineCssJsPostMeta
   // 追加ボックス [css]
   public function inline_css_post_meta() {
     global $post;
-  ?>
+    ?>
 <div class="inline-textarea">
   <p>head タグ内 css ファイルの後に挿入されます</p>
   <textarea name="bb_inline_css_head" id="bb_inline_css_head" rows="7" cols="100"><?php echo get_post_meta($post->ID, 'bb_inline_css_head', true); ?></textarea>
 </div>
-  <?php
+    <?php
   }
 
   // 追加ボックス [js]
   public function inline_js_post_meta() {
     global $post;
-  ?>
+    ?>
 <div class="inline-textarea">
   <p>head タグ内 JavaScript ファイルの後に挿入されます</p>
   <textarea name="bb_inline_js_head" id="bb_inline_js_head" rows="7" cols="100"><?php echo get_post_meta($post->ID, 'bb_inline_js_head', true); ?></textarea>
   <p>body タグが閉じられる直前に挿入されます</p>
   <textarea name="bb_inline_js_body" id="bb_inline_js_body" rows="7" cols="100"><?php echo get_post_meta($post->ID, 'bb_inline_js_body', true); ?></textarea>
 </div>
-  <?php
+    <?php
   }
 
   // 保存・削除

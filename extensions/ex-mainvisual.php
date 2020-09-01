@@ -46,30 +46,30 @@ class bbMainvisualPostMeta
     wp_enqueue_script('bb-theme-admin-js', get_template_directory_uri() . '/admin/bb-theme-admin.js');
     wp_enqueue_media();
     $bb_mv_id = get_post_meta($post->ID, 'bb_mainvisual', true);
-  ?>
-  <div id="bb-config-edit" class="bb-config-edit-box">
-    <fieldset id="bb-mainvisual" class="bb-media-upload">
-      <div class="media-title">メインビジュアル画像</div>
-      <div class="input-group">
-        <?php
-        if (!empty($bb_mv_id)) {
-          $tmp_img = wp_get_attachment_image_src($bb_mv_id, 'large');
-          $bb_mv_img = '<img src="' . $tmp_img[0] . '" alt="">';
-        } else {
-          $bb_mv_id  = '';
-          $bb_mv_img = '';
-        }
-        ?>
-        <div class="image-view"><?php echo $bb_mv_img; ?></div>
-        <input type="hidden" name="bb_mainvisual" class="image-id" value="<?php echo $bb_mv_id; ?>">
-        <input type="button" name="select" value="画像を選択" class="button-secondary">
-        <input type="button" name="reset" value="キャンセル" class="button button-secondary">
-        <input type="button" name="delete" value="削除" class="button-secondary">
-      </div>
-      <p class="notes">ページタイトルの背景としてブロックの横幅に合わせて設定されますので、十分に幅のある画像を用意してください</p>
-    </fieldset>
-  </div>
-  <?php
+    ?>
+<div id="bb-config-edit" class="bb-config-edit-box">
+  <fieldset id="bb-mainvisual" class="bb-media-upload">
+    <div class="media-title">メインビジュアル画像</div>
+    <div class="input-group">
+      <?php
+      if (!empty($bb_mv_id)) {
+        $tmp_img = wp_get_attachment_image_src($bb_mv_id, 'large');
+        $bb_mv_img = '<img src="' . $tmp_img[0] . '" alt="">';
+      } else {
+        $bb_mv_id  = '';
+        $bb_mv_img = '';
+      }
+      ?>
+      <div class="image-view"><?php echo $bb_mv_img; ?></div>
+      <input type="hidden" name="bb_mainvisual" class="image-id" value="<?php echo $bb_mv_id; ?>">
+      <input type="button" name="select" value="画像を選択" class="button-secondary">
+      <input type="button" name="reset" value="キャンセル" class="button button-secondary">
+      <input type="button" name="delete" value="削除" class="button-secondary">
+    </div>
+    <p class="notes">ページタイトルの背景としてブロックの横幅に合わせて設定されますので、十分に幅のある画像を用意してください</p>
+  </fieldset>
+</div>
+    <?php
   }
 
   // 保存・削除
@@ -119,7 +119,7 @@ class bbMainvisualTermMeta
     wp_enqueue_media();
     $bb_mv_id  = '';
     $bb_mv_img = '';
-  ?>
+    ?>
 <div class="form-field mainvisual-term-wrap bb-config-edit-box" id="bb-config-edit">
   <label>メインビジュアル画像</label>
   <div id="bb-mainvisual">
@@ -132,7 +132,7 @@ class bbMainvisualTermMeta
     </div>
   </div>
 </div>
-  <?php
+    <?php
   }
 
   // 編集
@@ -140,7 +140,7 @@ class bbMainvisualTermMeta
     wp_enqueue_script('bb-theme-admin-js', get_template_directory_uri() . '/admin/bb-theme-admin.js');
     wp_enqueue_media();
     $bb_mv_id = get_term_meta($tag->term_id, 'bb_mainvisual', true);
-  ?>
+    ?>
 <tr id="bb-config-edit" class="form-field term-image-wrap bb-config-edit-box">
   <th scope="row">
     <label for="select-image">メインビジュアル画像</label>
@@ -166,7 +166,7 @@ class bbMainvisualTermMeta
     </div>
   </td>
 </tr>
-  <?php
+    <?php
   }
 
   // 保存・削除

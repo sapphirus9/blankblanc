@@ -96,7 +96,6 @@
           change_value = true;
           var images = upload.state().get('selection');
           images.each(function (file) {
-            console.log(file);
             img.id.val(file.id);
             img.view.html('<img src="' + file.attributes.sizes.large.url + '" alt="">');
             btn.reset.show();
@@ -149,7 +148,7 @@
       if ($.inArray('action=add-tag', queryStringArr) !== -1) {
         var xml = xhr.responseXML;
         $response = $(xml).find('term_id').text();
-        if ($response != '') {
+        if (typeof img !== 'undefined' && $response != '') {
           img.view.html(no_img);
         }
       }
@@ -157,7 +156,7 @@
   });
 
   // タブ
-  if ($.ui.tabs) {
+  if ($.ui) {
     $(function () {
       $('#nav-tabs').tabs({
         activate: function (event, ui) {
@@ -169,7 +168,7 @@
   }
 
   // モバイルナビ用ウィジェットの並べ替え
-  if ($.ui.sortable) {
+  if ($.ui) {
     $(function () {
       $('#activate-mobile-nav').sortable({
         delay: 200,

@@ -43,6 +43,7 @@ function bb_setup_theme_config() {
   }
   if (is_admin()) {
     require_once dirname(__DIR__) . '/admin/bb-theme-option.php';
+    require_once dirname(__DIR__) . '/admin/bb-theme-taxonomy-option.php';
   }
 }
 add_action('after_setup_theme', 'bb_setup_theme_config');

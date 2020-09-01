@@ -304,6 +304,52 @@
   max-width: 95%;
 }
 
+#bb-taxonomy-layout {
+  display: flex;
+  margin: 5px 0;
+}
+
+#bb-taxonomy-layout li {
+  display: flex;
+  align-items: center;
+  margin-right: 12px;
+}
+
+#bb-taxonomy-layout .box {
+  display: block;
+  padding: 7px 10px;
+  background-color: #fff;
+  border: 1px solid #7e8993;
+  border-radius: 5px;
+  opacity: .35;
+  z-index: 2;
+}
+
+#bb-taxonomy-layout .dashicons {
+  display: block;
+  color: #666;
+  font-size: 60px;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto;
+}
+
+#bb-taxonomy-layout .title {
+  display: block;
+  color: #666;
+  font-size: .83em;
+  margin-top: 4px;
+}
+
+#bb-taxonomy-layout input[type='radio'] {
+  display: none;
+  z-index: 1;
+}
+
+#bb-taxonomy-layout input[type='radio']:checked + .box {
+  opacity: 1;
+}
+
 @media screen and (max-width: 767px) {
   #bb-config-edit {
     width: 100%;
