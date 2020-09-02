@@ -530,7 +530,7 @@
     padding: 15px;
   }
   .archive-list .archive-header {
-    margin: 0 4% 10px;
+    margin: 0 4% 15px;
   }
   .archive-list .archive-header .page-title {
     font-size: 2rem;
@@ -623,6 +623,13 @@
   .archive-tiles .term-description {
     padding: 15px;
   }
+  .archive-tiles .archive-header {
+    margin: 0 0 15px;
+  }
+  .archive-tiles .archive-header .page-title {
+    font-size: 2rem;
+    line-height: 1.25;
+  }
   .archive-tiles .entry-articles {
     margin: 0 -15px;
   }
@@ -635,60 +642,53 @@
 }
 
 @media (max-width: 767px) {
-  .archive-tiles .entry-articles .archive-header {
-    margin: 0 4% 10px;
-  }
-  .archive-tiles .entry-articles .archive-header .page-title {
-    font-size: 2rem;
-    line-height: 1.25;
-  }
-  .archive-tiles .entry-articles .entry-article {
+  .archive-tiles .entry-article {
     padding: 0 15px;
     margin-bottom: 30px;
   }
-  #one-column .archive-tiles .entry-articles .entry-article {
+  #one-column .archive-tiles .entry-article {
     width: calc(100% / 3);
   }
 }
 
 @media (max-width: 767px) and (max-width: 639px) {
-  .archive-tiles .entry-articles .entry-article {
+  .archive-tiles .entry-article {
     padding: 0 10px;
   }
 }
 
 @media (max-width: 767px) and (max-width: 539px) {
-  .archive-tiles .entry-articles .entry-article {
+  .archive-tiles .entry-article {
     width: calc(100% / 2);
   }
-  #one-column .archive-tiles .entry-articles .entry-article {
+  #one-column .archive-tiles .entry-article {
     width: calc(100% / 2);
   }
 }
 
 @media (max-width: 767px) {
-  .archive-tiles .entry-articles .entry-header .title {
+  .archive-tiles .entry-header .title {
     font-size: 1.6rem;
     line-height: 1.3;
   }
-  .archive-tiles .entry-articles .entry-header .meta li {
+  .archive-tiles .entry-header .meta li {
     font-size: 1.2rem;
     margin: 0 10px 2px 0;
   }
-  .archive-tiles .entry-articles .entry-header .meta li .year,
-  .archive-tiles .entry-articles .entry-header .meta li .month,
-  .archive-tiles .entry-articles .entry-header .meta li .day {
+  .archive-tiles .entry-header .meta li .year,
+  .archive-tiles .entry-header .meta li .month,
+  .archive-tiles .entry-header .meta li .day {
     margin-right: 0;
   }
-  .archive-tiles .entry-articles .entry-body {
+  .archive-tiles .entry-body {
     padding-bottom: 15px;
     clear: both;
   }
-  .archive-tiles .entry-articles .entry-body p {
+  .archive-tiles .entry-body p {
     font-size: 1em;
     line-height: 1.65;
   }
-  .archive-tiles .entry-articles #no-result {
+  .archive-tiles #no-result {
     padding: 80px 0;
   }
   .archive-list .pagination {

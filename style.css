@@ -1346,6 +1346,20 @@ article {
   line-height: 1.75;
 }
 
+.archive-tiles .archive-header {
+  margin-bottom: 25px;
+}
+
+.archive-tiles .archive-header .page-title {
+  font-size: 2.8rem;
+  line-height: 1.3;
+  font-weight: normal;
+}
+
+.os-windows .archive-tiles .archive-header .page-title {
+  font-weight: 450;
+}
+
 .archive-tiles .entry-articles {
   display: flex;
   flex-wrap: wrap;
@@ -1354,32 +1368,18 @@ article {
   margin: 0 -20px;
 }
 
-.archive-tiles .entry-articles .archive-header {
-  margin-bottom: 25px;
-}
-
-.archive-tiles .entry-articles .archive-header .page-title {
-  font-size: 2.8rem;
-  line-height: 1.3;
-  font-weight: normal;
-}
-
-.os-windows .archive-tiles .entry-articles .archive-header .page-title {
-  font-weight: 450;
-}
-
-.archive-tiles .entry-articles .entry-article {
+.archive-tiles .entry-article {
   width: calc(100% / 3);
   padding: 0 20px;
   margin-bottom: 40px;
   box-sizing: border-box;
 }
 
-#one-column .archive-tiles .entry-articles .entry-article {
+#one-column .archive-tiles .entry-article {
   width: calc(100% / 4);
 }
 
-.archive-tiles .entry-articles .thumbnail {
+.archive-tiles .thumbnail {
   width: 100%;
   height: 0;
   padding-bottom: 100%;
@@ -1388,27 +1388,27 @@ article {
   overflow: hidden;
 }
 
-.archive-tiles .entry-articles .thumbnail a {
+.archive-tiles .thumbnail a {
   display: block;
   opacity: 1;
   transition: all .2s;
 }
 
-.archive-tiles .entry-articles .thumbnail a:hover {
+.archive-tiles .thumbnail a:hover {
   opacity: 0.8;
 }
 
-.archive-tiles .entry-articles .thumbnail img {
+.archive-tiles .thumbnail img {
   width: 100%;
   height: auto;
   max-height: 100%;
 }
 
-.archive-tiles .entry-articles .no-thumbnail {
+.archive-tiles .no-thumbnail {
   position: relative;
 }
 
-.archive-tiles .entry-articles .no-thumbnail a {
+.archive-tiles .no-thumbnail a {
   display: block;
   position: absolute;
   top: 0;
@@ -1418,7 +1418,7 @@ article {
   background-color: #f5f5f5;
 }
 
-.archive-tiles .entry-articles .no-thumbnail a span {
+.archive-tiles .no-thumbnail a span {
   position: absolute;
   top: 50%;
   right: 0;
@@ -1430,26 +1430,26 @@ article {
   margin-top: -.5em;
 }
 
-.archive-tiles .entry-articles .entry-header {
+.archive-tiles .entry-header {
   margin-bottom: 10px;
 }
 
-.archive-tiles .entry-articles .entry-header .title {
+.archive-tiles .entry-header .title {
   font-size: 2rem;
   line-height: 1.3;
   font-weight: normal;
   margin-bottom: 5px;
 }
 
-.os-windows .archive-tiles .entry-articles .entry-header .title {
+.os-windows .archive-tiles .entry-header .title {
   font-weight: 450;
 }
 
-.archive-tiles .entry-articles .entry-header .meta {
+.archive-tiles .entry-header .meta {
   line-height: 0;
 }
 
-.archive-tiles .entry-articles .entry-header .meta li {
+.archive-tiles .entry-header .meta li {
   display: inline-block;
   color: #787878;
   font-size: 1.3rem;
@@ -1457,30 +1457,30 @@ article {
   margin: 0 20px 2px 0;
 }
 
-.archive-tiles .entry-articles .entry-header .meta .year,
-.archive-tiles .entry-articles .entry-header .meta .month,
-.archive-tiles .entry-articles .entry-header .meta .day {
+.archive-tiles .entry-header .meta .year,
+.archive-tiles .entry-header .meta .month,
+.archive-tiles .entry-header .meta .day {
   margin-right: 3px;
 }
 
-.archive-tiles .entry-articles .entry-body {
+.archive-tiles .entry-body {
   text-justify: inter-ideograph;
   text-align: justify;
   overflow: hidden;
 }
 
-.archive-tiles .entry-articles .entry-body p {
+.archive-tiles .entry-body p {
   font-size: 1.5rem;
   line-height: 1.6;
 }
 
-.archive-tiles .entry-articles #no-result {
+.archive-tiles #no-result {
   clear: both;
   text-align: center;
   padding: 60px 0 80px;
 }
 
-.archive-tiles .entry-articles #no-result p {
+.archive-tiles #no-result p {
   color: #a0a0a0;
   font-size: 1.6rem;
 }
