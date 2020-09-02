@@ -1,4 +1,10 @@
 <?php
+/**
+ * Theme Name: BlankBlanc
+ * Author: Naoki Yamamoto
+ * Description: 管理画面：タクソノミー（カテゴリー・タグ等）に項目を追加
+ */
+
 if (is_admin() && current_user_can('edit_pages')) {
   add_action('load-edit-tags.php', 'call_bb_taxonomy_options');
   // 新規カテゴリーを追加時の ajax 処理
@@ -74,11 +80,11 @@ class bbTaxonomyLayoutOptions
     ?>
 <ul id="bb-taxonomy-layout">
   <li>
-    <input type="radio" name="<?php echo $this->meta_key; ?>[layout][value]" value="list" id="bb-taxonomy-layout-1" <?php echo $meta_data['layout']['value'] == 'list' ? 'checked' : ''; ?>>
+    <input type="radio" name="<?php echo $this->meta_key; ?>[layout][value]" value="list" id="bb-taxonomy-layout-1"<?php echo $meta_data['layout']['value'] == 'list' ? ' checked' : ''; ?>>
     <label for="bb-taxonomy-layout-1" class="box"><span class="dashicons dashicons-list-view"></span><span class="title">リスト表示</span></label>
   </li>
   <li>
-    <input type="radio" name="<?php echo $this->meta_key; ?>[layout][value]" value="tiles" id="bb-taxonomy-layout-2" <?php echo $meta_data['layout']['value'] == 'tiles' ? 'checked' : ''; ?>>
+    <input type="radio" name="<?php echo $this->meta_key; ?>[layout][value]" value="tiles" id="bb-taxonomy-layout-2"<?php echo $meta_data['layout']['value'] == 'tiles' ? ' checked' : ''; ?>>
     <label for="bb-taxonomy-layout-2" class="box"><span class="dashicons dashicons-grid-view"></span><span class="title">タイル表示</span></label>
   </li>
 </ul>

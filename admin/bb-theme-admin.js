@@ -208,7 +208,7 @@
   $('#bb-config-edit [type="submit"]').on('click', function () {
     change_value = false;
   });
-  $('#edittag [type="submit"]').on('click', function () {
+  $('#addtag [type="submit"], #edittag [type="submit"]').on('click', function () {
     change_value = false;
   });
   $('#submitdiv [type="submit"]').on('click', function () {

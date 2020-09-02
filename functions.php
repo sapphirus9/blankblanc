@@ -67,7 +67,7 @@ function bb_config_default() {
     'disable_emoji'       => true,
     // body に body_class を追加
     'add_body_class'      => false,
-    // タクソノミー（カテゴリー・タグ etc.）のレイアウトタイプ（list/tiles）
+    // タクソノミー（カテゴリー・タグ等）のレイアウトタイプ（list/tiles）
     'taxonomy_layout'     => 'list',
     // トップページメインビジュアル（Home または Front Page が対象）
     'mv_home_image'       => get_template_directory_uri() . '/img/img-hero.jpg',

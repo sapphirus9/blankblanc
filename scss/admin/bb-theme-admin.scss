@@ -19,6 +19,7 @@
     li {
       float: left;
       margin: 0;
+      outline: none;
     }
     a {
       &:focus {
@@ -64,8 +65,7 @@
     display: block;
     font-size: 14px;
     font-weight: bold;
-    line-height: 1.3;
-    margin-right: 20px;
+    line-height: 1.4;
     margin-bottom: 10px;
     padding: 3px 6px;
     border-left: 4px dotted #c0c0c0;
@@ -177,7 +177,7 @@
     }
     .button-reset {
       font-size: .93em;
-      color: #b0b0b0;
+      color: #a00;
       line-height: 1.2;
       height: auto;
       padding: 0;
@@ -186,7 +186,7 @@
       border: 0;
       box-shadow: none;
       &:hover {
-        color: #00a0d2;
+        color: #dc3232;
       }
     }
   }
