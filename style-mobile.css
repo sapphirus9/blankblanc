@@ -388,15 +388,15 @@
   #gotop-button {
     opacity: .5;
   }
-  #gotop-button .symbol {
+  #gotop-button .gotop-symbol {
     width: 48px;
     height: 48px;
   }
-  #gotop-button .symbol:hover {
+  #gotop-button .gotop-symbol:hover {
     opacity: .65;
   }
-  #gotop-button .symbol::before {
-    font-size: 24px;
+  #gotop-button .gotop-symbol .symbol {
+    top: 16px;
   }
   .widget_archive .month-list {
     margin: 4px 2.5% 0;

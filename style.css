@@ -508,8 +508,8 @@ article {
   font-family: 'Arial Narrow', Helvetica, sans-serif;
 }
 
-#gotop-button .symbol {
-  display: block;
+#gotop-button .gotop-symbol {
+  position: relative;
   width: 54px;
   height: 54px;
   background-color: #e0e0e0;
@@ -519,21 +519,39 @@ article {
   transition: all .2s;
 }
 
-#gotop-button .symbol:hover {
+#gotop-button .gotop-symbol:hover {
   text-decoration: none;
   opacity: .9;
 }
 
-#gotop-button .symbol::before {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: "Material Design Icons";
-  content: '\f005d';
-  color: #a0a0a0;
-  font-size: 28px;
-  line-height: 1;
-  height: 100%;
+#gotop-button .gotop-symbol .symbol {
+  display: block;
+  position: absolute;
+  top: 18px;
+  left: 0;
+  right: 0;
+  width: 16px;
+  height: 16px;
+  margin: 0 auto;
+  border-top: 2px solid #a0a0a0;
+  border-left: 2px solid #a0a0a0;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  box-sizing: border-box;
+}
+
+#gotop-button .gotop-symbol .symbol:before {
+  position: absolute;
+  top: 0;
+  left: -1.6px;
+  content: '';
+  width: 2px;
+  height: 22px;
+  background-color: #a0a0a0;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
 }
 
 .widget {

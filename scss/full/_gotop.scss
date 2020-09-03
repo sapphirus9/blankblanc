@@ -42,8 +42,8 @@
     * {
       font-family: 'Arial Narrow', Helvetica, sans-serif;
     }
-    .symbol {
-      display: block;
+    .gotop-symbol {
+      position: relative;
       width: 54px;
       height: 54px;
       background-color: $base-gray-5;
@@ -55,15 +55,33 @@
         text-decoration: none;
         opacity: .9;
       }
-      &::before {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        @include icon-font('f005d');
-        color: $base-gray-3;
-        font-size: 28px;
-        line-height: 1;
-        height: 100%;
+      .symbol {
+        display: block;
+        position: absolute;
+        top: 18px;
+        left: 0;
+        right: 0;
+        width: 16px;
+        height: 16px;
+        margin: 0 auto;
+        border-top: 2px solid $base-gray-3;
+        border-left: 2px solid $base-gray-3;
+        -webkit-transform: rotate(45deg);
+                transform: rotate(45deg);
+        box-sizing: border-box;
+        &:before {
+          position: absolute;
+          top: 0;
+          left: -1.6px;
+          content: '';
+          width: 2px;
+          height: 22px;
+          background-color: $base-gray-3;
+          -webkit-transform-origin: 0 0;
+                  transform-origin: 0 0;
+          -webkit-transform: rotate(-45deg);
+                  transform: rotate(-45deg);
+        }
       }
     }
   }
