@@ -13,11 +13,19 @@ get_header(); ?>
 
   <div id="contents-conatiner" class="wrap">
     <div id="first-column">
-      <div class="archive-tiles">
-        <?php if (have_posts()) : ?>
-          <?php get_template_part('includes/inc', 'archive'); ?>
-        <?php endif; ?>
-      </div>
+      <?php if (is_page()) : // 固定ページ ?>
+        <article class="main-article">
+          <?php if (have_posts()) : ?>
+            <?php get_template_part('includes/inc', 'page'); ?>
+          <?php endif; ?>
+        </article>
+      <?php else : // 最新の投稿 ?>
+        <div class="archive-tiles">
+          <?php if (have_posts()) : ?>
+            <?php get_template_part('includes/inc', 'archive'); ?>
+          <?php endif; ?>
+        </div>
+      <?php endif; ?>
     </div>
 
     <div id="second-column">
