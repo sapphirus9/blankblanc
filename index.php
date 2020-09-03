@@ -13,7 +13,7 @@ get_header(); ?>
 
   <div id="contents-conatiner" class="wrap">
     <div id="first-column">
-      <div class="archive-list">
+      <div class="archive-<?php echo bb_get_taxonomy_layout(); ?>">
         <?php if (have_posts()) : ?>
           <?php get_template_part('includes/inc', 'archive'); ?>
         <?php endif; ?>

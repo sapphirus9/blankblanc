@@ -42,7 +42,6 @@ if (!function_exists('set_theme_support')) {
 add_action('after_setup_theme', 'set_theme_support');
 
 
-
 /**
  * ヘッダー情報の登録を無効化
  */
@@ -57,7 +56,6 @@ if (!function_exists('set_wp_head')) {
   }
 }
 add_action('wp_head', 'set_wp_head', 3);
-
 
 
 /**
@@ -103,7 +101,6 @@ if (!function_exists('bb_feed_links')) {
 add_action('wp_head', 'bb_feed_links', 3);
 
 
-
 /**
  * ナビゲーションメニューを利用
  */
@@ -111,7 +108,6 @@ register_nav_menus(array(
   'header_nav' => 'ヘッダーナビゲーション',
   'global_nav' => 'グローバルナビゲーション'
 ));
-
 
 
 /**
@@ -159,7 +155,6 @@ if (!function_exists('add_widgets_init')) {
 add_action('widgets_init', 'add_widgets_init');
 
 
-
 /**
  * ページタイトルを設定
  */
@@ -199,7 +194,6 @@ if (!function_exists('bb_get_document_title')) {
   }
 }
 add_filter('pre_get_document_title', 'bb_get_document_title');
-
 
 
 /**
@@ -279,7 +273,6 @@ function add_cfg_styles_scripts() {
 add_action('wp_enqueue_scripts', 'add_cfg_styles_scripts', 90);
 
 
-
 /**
  * インライン css / js
  */
@@ -323,7 +316,6 @@ function add_inline_js_body() {
 add_action('wp_footer', 'add_inline_js_body', 99);
 
 
-
 /**
  * 子テーマ用 JS, CSS の読込
  */
@@ -364,7 +356,6 @@ if (is_child_theme()) {
 }
 
 
-
 /**
  * 絵文字を無効化
  */
@@ -395,7 +386,6 @@ function customize_disable_emoji() {
   }
 }
 add_action('after_setup_theme', 'customize_disable_emoji');
-
 
 
 /**
@@ -466,7 +456,6 @@ function customize_output_canonical() {
 add_action('after_setup_theme', 'customize_output_canonical');
 
 
-
 /**
  * カテゴリータイトルを変更
  */
@@ -498,7 +487,6 @@ if (!function_exists('customize_archive_title')) {
 add_filter('get_the_archive_title', 'customize_archive_title');
 
 
-
 /**
  * 投稿コンテンツから br 後の改行を除去
  */
@@ -511,7 +499,6 @@ if (!function_exists('remove_br_after_lf')) {
   }
 }
 add_filter('the_content', 'remove_br_after_lf');
-
 
 
 /**
@@ -533,7 +520,6 @@ if (!function_exists('add_attachment_image_alt')) {
   }
 }
 add_filter('wp_get_attachment_image_attributes', 'add_attachment_image_alt', 10, 2);
-
 
 
 /**
@@ -558,7 +544,6 @@ if (!function_exists('add_alt_image_send_to_editor')) {
   }
 }
 add_filter('image_send_to_editor', 'add_alt_image_send_to_editor', 10, 8);
-
 
 
 /**
@@ -586,7 +571,6 @@ if (!function_exists('remove_cat_title')) {
 add_filter('widget_categories_args', 'remove_cat_title');
 
 
-
 /**
  * ウィジェットタイトルを表示・非表示
  */
@@ -597,7 +581,6 @@ function remove_widget_title($title) {
   return $title;
 }
 add_filter('widget_title', 'remove_widget_title');
-
 
 
 /**
@@ -619,7 +602,6 @@ if (!function_exists('bb_auto_post_slug')) {
   }
 }
 add_filter('wp_unique_post_slug', 'bb_auto_post_slug', 10, 4);
-
 
 
 /**
@@ -716,7 +698,6 @@ add_filter('tiny_mce_before_init', 'customize_tiny_mce', 1000);
 add_editor_style('admin/editor-style.css');
 
 
-
 /**
  * Recent Comments のインラインスタイル を除去
  */
@@ -725,7 +706,6 @@ function remove_recent_comments_style() {
   remove_action('wp_head', array($wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style'));
 }
 add_action('widgets_init', 'remove_recent_comments_style');
-
 
 
 /**
@@ -760,7 +740,6 @@ function bb_theme_comment($comment, $args, $depth) {
 }
 
 
-
 /**
  * アーカイブの記事数表示を変更（対象: 日本語の一覧表示）
  */
@@ -792,7 +771,6 @@ if (!function_exists('bb_get_archives_link')) {
 add_filter('get_archives_link', 'bb_get_archives_link', 10, 4);
 
 
-
 /**
  * カテゴリーの記事数表示を変更
  */
@@ -804,7 +782,6 @@ if (!function_exists('bb_list_categories')) {
   }
 }
 add_filter('wp_list_categories', 'bb_list_categories', 10, 2);
-
 
 
 /**
@@ -839,7 +816,6 @@ if (!function_exists('bb_logo_image')) {
 }
 
 
-
 /**
  * コピーライトを出力
  * @return output  prefix (copyright sign) year text
@@ -871,7 +847,6 @@ if (!function_exists('bb_copyright')) {
 }
 
 
-
 /**
  * the_content の出力時、more 以降を div で囲む
  * @param string  $more_text  more の テキスト（デフォルトは bb_config_default で指定）
@@ -897,7 +872,6 @@ if (!function_exists('bb_the_content')) {
 }
 
 
-
 /**
  * タームの説明文を出力
  * @param string  CSSのクラス名（デフォルトは term-description）
@@ -914,6 +888,22 @@ if (!function_exists('bb_get_term_description')) {
   }
 }
 
+
+/**
+ * タクソノミーのレイアウトタイプを出力
+ * @return output  list|tiles
+ */
+if (!function_exists('bb_get_taxonomy_layout')) {
+  function bb_get_taxonomy_layout() {
+    global $bb_theme_config;
+    if ($bb_taxonomy_layout = get_term_meta(get_queried_object_id(), 'bb_taxonomy_option', true)) {
+      $bb_taxonomy_layout = $bb_taxonomy_layout['layout']['value'];
+    } else {
+      $bb_taxonomy_layout = $bb_theme_config['taxonomy_layout'];
+    }
+    return $bb_taxonomy_layout;
+  }
+}
 
 
 /**

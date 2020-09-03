@@ -24,6 +24,7 @@ if (!function_exists('bb_get_bread_crumb')) {
   }
 }
 
+
 class bbBreadCrumb
 {
   public $args;
@@ -39,6 +40,7 @@ class bbBreadCrumb
       'before'   => null,
     ), $args);
   }
+
 
   /**
    * パンくず用配列を生成
@@ -273,6 +275,7 @@ class bbBreadCrumb
     $bc = apply_filters('bb_get_bread_crumb_link', $bc);
     return $bc;
   }
+
 
   /**
    *  HTMLコードを生成

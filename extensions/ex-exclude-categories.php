@@ -7,6 +7,7 @@
 
 new bbExcludeCategories();
 
+
 class bbExcludeCategories
 {
   public function __construct() {

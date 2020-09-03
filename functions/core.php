@@ -26,7 +26,6 @@ function bb_body_id_class($classes = array()) {
 }
 
 
-
 /**
  * 年月日を個別タグ囲みで出力
  * @param string $type  コメントでの使用は comment と記述
@@ -46,7 +45,6 @@ function bb_get_custom_date($type = null) {
   $src = apply_filters('bb_get_custom_date', $src);
   return $src;
 }
-
 
 
 /**
@@ -103,7 +101,6 @@ function bb_get_pagination($args = array()) {
     echo $src;
   }
 }
-
 
 
 /**
@@ -189,7 +186,6 @@ function bb_setup_theme_id_class() {
 add_action('wp', 'bb_setup_theme_id_class');
 
 
-
 /**
  * カテゴリーのスラッグ名のある投稿用テンプレートが存在する場合テンプレートを差し替え
  * @template ex.)single-catslug.php
@@ -211,7 +207,6 @@ function custom_template_include($template) {
   return $template;
 }
 add_filter('template_include', 'custom_template_include', 99);
-
 
 
 /**
@@ -238,7 +233,6 @@ function get_upload_url() {
 add_shortcode('upload_url', 'get_upload_url');
 
 
-
 /**
  * 記事抜粋時の続き文字
  */
@@ -252,7 +246,6 @@ function customize_excerpt_more($more) {
 add_filter('excerpt_more', 'customize_excerpt_more');
 
 
-
 /**
  * 共通の抜粋最大文字数を変更
  */
@@ -264,7 +257,6 @@ function customize_excerpt_length($length) {
   return $length;
 }
 add_filter('excerpt_mblength', 'customize_excerpt_length');
-
 
 
 /**
@@ -281,7 +273,6 @@ add_filter('the_excerpt_rss', 'customize_feeds_excerpt');
 add_filter('the_content_feed', 'customize_feeds_excerpt');
 
 
-
 /**
  * 検索結果が空の場合
  */
@@ -293,7 +284,6 @@ function redirect_search_empty($search) {
   return $search;
 }
 add_filter('posts_search', 'redirect_search_empty');
-
 
 
 /**

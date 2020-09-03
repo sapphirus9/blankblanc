@@ -88,7 +88,6 @@ class bbMainvisualPostMeta
 }
 
 
-
 /**
  * カテゴリー
  */

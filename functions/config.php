@@ -16,7 +16,6 @@ if (version_compare($GLOBALS['wp_version'], '4.7', '<')) {
 }
 
 
-
 /**
  * PHP のバージョンを確認
  */
@@ -26,7 +25,6 @@ if (version_compare(phpversion(), '5.6.20', '<')) {
   }
   add_action('admin_notices', 'bb_php_version_notice');
 }
-
 
 
 /**
@@ -47,7 +45,6 @@ function bb_setup_theme_config() {
   }
 }
 add_action('after_setup_theme', 'bb_setup_theme_config');
-
 
 
 /**

@@ -14,6 +14,7 @@ function call_bb_inline_css_js_post_meta() {
   new bbInlineCssJsPostMeta();
 }
 
+
 class bbInlineCssJsPostMeta
 {
   public function __construct() {
