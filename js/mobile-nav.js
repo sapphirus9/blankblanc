@@ -44,9 +44,9 @@
       }
     });
     // CLOSEボタン
-    $('#nav-window-area').prepend('<div id="nav-window-close-btn">');
+    $('#nav-window-area').prepend('<div id="nav-window-close-btn"><span class="btn-symbol">');
     // ヘッダーにOPENボタン
-    $('#global-header').append('<div id="nav-window-open-btn" class="is-mobile">');
+    $('#global-header').append('<div id="nav-window-open-btn" class="is-mobile"><span class="btn-symbol">');
     var sw = '#main-screen-mask, #nav-window-area, #nav-window-close-btn, ' + main_screen;
     var pos_y = $(window).scrollTop();
     // 開く
