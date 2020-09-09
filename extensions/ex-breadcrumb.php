@@ -46,7 +46,7 @@ class bbBreadCrumb
    * パンくず用配列を生成
    */
   private function bb_get_bread_crumb_link() {
-    global $post, $authordata, $bb_theme_config;
+    global $post, $bb_theme_config;
     $bc = array();
     $i = 0;
     if (is_home() || is_front_page()) {
@@ -246,8 +246,8 @@ class bbBreadCrumb
       // 投稿者のアーカイブページ
       elseif (is_author()) {
         $bc[$i][99] = array(
-          'url' => get_author_posts_url($authordata->ID),
-          'val' => '<span class="prefix">投稿者：</span>' . esc_attr($authordata->display_name)
+          'url' => get_author_posts_url(get_the_author_meta('ID', get_query_var('author'))),
+          'val' => '<span class="prefix">投稿者：</span>' . esc_attr(get_the_author_meta('nickname', get_query_var('author')))
         );
       }
       // タグのアーカイブページ
