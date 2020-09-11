@@ -9,4 +9,8 @@
 #nav-window-area {
   left: -85vw;
   width: 85vw;
+  .nav-window-right & {
+    left: auto;
+    right: -85vw;
+  }
 }

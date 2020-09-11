@@ -434,12 +434,15 @@ input:focus:-ms-input-placeholder {
   justify-content: space-between;
 }
 
+.second-column-right #contents-conatiner {
+  flex-direction: row-reverse;
+}
+
 #first-column {
   width: 660px;
 }
 
 #second-column {
-  float: right;
   width: 250px;
 }
 

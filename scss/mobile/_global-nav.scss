@@ -14,7 +14,6 @@
   z-index: 2;
   width: 100%;
   min-height: 100%;
-  background-color: $base-gray-7;
 }
 
 // screen mask
@@ -57,6 +56,14 @@ body.nav-window-show {
   &.nav-window-show {
     left: 0;
   }
+  .nav-window-right & {
+    left: auto;
+    right: -400px;
+    transition: right .3s;
+    &.nav-window-show {
+      right: 0;
+    }
+  }
 }
 
 // open button
@@ -98,6 +105,10 @@ body.nav-window-show {
       background-color: #a0a0a0;
     }
   }
+  .nav-window-right & {
+    left: auto;
+    right: 0;
+  }
 }
 
 // close button
@@ -113,6 +124,14 @@ body.nav-window-show {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   &.nav-window-show {
     right: -48px;
+  }
+  .nav-window-right & {
+    right: auto;
+    left: 0;
+    transition: left .6s;
+    &.nav-window-show {
+      left: -48px;
+    }
   }
   .btn-symbol {
     display: block;
@@ -165,6 +184,9 @@ body.nav-window-show {
   .widget,
   .menu {
     margin: 12px $base-side-space-mobile;
+    .menu {
+      margin: 0;
+    }
   }
   .widgettitle {
     color: $base-gray-3;
@@ -240,10 +262,17 @@ body.nav-window-show {
   .widget_meta {
     a {
       position: relative;
+      padding-left: 25px;
       &::before {
         position: absolute;
-        margin-left: -1em;
+        margin-left: -1.25em;
         @include icon-font('f0142');
+      }
+    }
+    .children {
+      margin-bottom: 0;
+      a {
+        padding-left: 40px;
       }
     }
   }
