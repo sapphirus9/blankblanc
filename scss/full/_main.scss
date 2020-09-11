@@ -21,6 +21,9 @@
 #contents-conatiner {
   display: flex;
   justify-content: space-between;
+  .second-column-right & {
+    flex-direction: row-reverse;
+  }
 }
 
 #first-column {
@@ -28,7 +31,6 @@
 }
 
 #second-column {
-  float: right;
   width: 250px;
 }
 

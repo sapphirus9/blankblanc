@@ -31,6 +31,7 @@
     position: relative;
     min-width: 360px;
     overflow-x: hidden;
+    background-color: #f5f5f5;
   }
   .wrap {
     width: 100%;
@@ -92,7 +93,6 @@
     z-index: 2;
     width: 100%;
     min-height: 100%;
-    background-color: #f5f5f5;
   }
   #main-screen-mask {
     display: block;
@@ -128,6 +128,14 @@
   }
   #nav-window-area.nav-window-show {
     left: 0;
+  }
+  .nav-window-right #nav-window-area {
+    left: auto;
+    right: -400px;
+    transition: right .3s;
+  }
+  .nav-window-right #nav-window-area.nav-window-show {
+    right: 0;
   }
   #nav-window-open-btn {
     position: absolute;
@@ -167,6 +175,10 @@
     height: 2px;
     background-color: #a0a0a0;
   }
+  .nav-window-right #nav-window-open-btn {
+    left: auto;
+    right: 0;
+  }
   #nav-window-close-btn {
     position: absolute;
     top: 0;
@@ -179,6 +191,14 @@
   }
   #nav-window-close-btn.nav-window-show {
     right: -48px;
+  }
+  .nav-window-right #nav-window-close-btn {
+    right: auto;
+    left: 0;
+    transition: left .6s;
+  }
+  .nav-window-right #nav-window-close-btn.nav-window-show {
+    left: -48px;
   }
   #nav-window-close-btn .btn-symbol {
     display: block;
@@ -228,6 +248,10 @@
   #nav-window-scroll .widget,
   #nav-window-scroll .menu {
     margin: 12px 4%;
+  }
+  #nav-window-scroll .widget .menu,
+  #nav-window-scroll .menu .menu {
+    margin: 0;
   }
   #nav-window-scroll .widgettitle {
     color: #a0a0a0;
@@ -300,14 +324,25 @@
   #nav-window-scroll .widget_categories a,
   #nav-window-scroll .widget_meta a {
     position: relative;
+    padding-left: 25px;
   }
   #nav-window-scroll .menu a::before,
   #nav-window-scroll .widget_categories a::before,
   #nav-window-scroll .widget_meta a::before {
     position: absolute;
-    margin-left: -1em;
+    margin-left: -1.25em;
     font-family: "Material Design Icons";
     content: '\f0142';
+  }
+  #nav-window-scroll .menu .children,
+  #nav-window-scroll .widget_categories .children,
+  #nav-window-scroll .widget_meta .children {
+    margin-bottom: 0;
+  }
+  #nav-window-scroll .menu .children a,
+  #nav-window-scroll .widget_categories .children a,
+  #nav-window-scroll .widget_meta .children a {
+    padding-left: 40px;
   }
   #nav-window-scroll .select-area {
     margin: 0 4% 10px;
@@ -1165,6 +1200,10 @@
   #nav-window-area {
     left: -85vw;
     width: 85vw;
+  }
+  .nav-window-right #nav-window-area {
+    left: auto;
+    right: -85vw;
   }
 }
 
