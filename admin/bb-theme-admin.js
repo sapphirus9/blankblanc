@@ -156,7 +156,7 @@
   });
 
   // タブ
-  if ($.ui) {
+  if ($.ui && $.ui.tabs) {
     $(function () {
       $('#nav-tabs').tabs({
         activate: function (event, ui) {
@@ -168,7 +168,7 @@
   }
 
   // モバイルナビ用ウィジェットの並べ替え
-  if ($.ui) {
+  if ($.ui && $.ui.sortable) {
     $(function () {
       $('#activate-mobile-nav').sortable({
         delay: 200,
