@@ -20,14 +20,28 @@
     * {
       font-family: Arial, Helvetica, sans-serif;
     }
-    .prefix {
-      margin-right: .3em;
+    .copyright-text {
+      display: inline-block;
+      vertical-align: top;
     }
     .sign {
-      margin-right: .3em;
+      margin: 0 .15em;
     }
     .year {
-      margin-right: .3em;
+      margin: 0 .15em;
+    }
+    .text {
+      margin: 0 .15em;
+    }
+    .prefix {
+      display: inline-block;
+      vertical-align: top;
+      margin: 0 .15em;
+    }
+    .suffix {
+      display: inline-block;
+      vertical-align: top;
+      margin: 0 .15em;
     }
   }
 }

@@ -14,8 +14,12 @@
     </div>
     <div class="group">
       <label for="bb-config-copyright-text-3" class="prefix">テキスト</label>
-      <input type="text" name="blankblanc_config_values[copyright_text]" id="bb-config-copyright-text-3" class="m-text" value="<?php echo $config_values['copyright_text']; ?>">
+      <input type="text" name="blankblanc_config_values[copyright_text]" id="bb-config-copyright-text-3" class="l-text" value="<?php echo $config_values['copyright_text']; ?>">
     </div>
-    <div class="default">初期値: 接頭辞 <?php _echo(@$bb_theme_default['copyright_prefix']); ?>／開始年 <?php _echo(@$bb_theme_default['start_year']); ?>／テキスト <?php _echo(@$bb_theme_default['copyright_text']); ?></div>
+    <div class="group">
+      <label for="bb-config-copyright-text-4" class="suffix">接尾辞</label>
+      <input type="text" name="blankblanc_config_values[copyright_suffix]" id="bb-config-copyright-text-4" class="m-text" value="<?php echo $config_values['copyright_suffix']; ?>">
+    </div>
+    <div class="default">初期値: 接頭辞 <?php _echo(@$bb_theme_default['copyright_prefix']); ?>／開始年 <?php _echo(@$bb_theme_default['start_year']); ?>／テキスト <?php _echo(@$bb_theme_default['copyright_text']); ?>／接尾辞 <?php _echo(@$bb_theme_default['copyright_suffix']); ?></div>
   </div>
 </fieldset>

@@ -839,7 +839,11 @@ if (!function_exists('bb_copyright')) {
       }
       $year = "<span class=\"year\">{$year}</span>";
     }
-    $src = "{$prefix}<span class=\"sign\">&#169;</span>{$year}<span class=\"text\">{$bb_theme_config['copyright_text']}.</span>";
+    $suffix = '';
+    if (!empty($bb_theme_config['copyright_suffix'])) {
+      $suffix = "<span class=\"suffix\">{$bb_theme_config['copyright_suffix']}</span>";
+    }
+    $src = "{$prefix}<span class=\"copyright-text\"><span class=\"sign\">&#169;</span>{$year}<span class=\"text\">{$bb_theme_config['copyright_text']}</span></span>{$suffix}";
     $src = apply_filters('bb_copyright', $src);
     echo $src;
     return;

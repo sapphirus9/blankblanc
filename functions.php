@@ -45,10 +45,12 @@ function bb_config_default() {
     'mv_image'            => '',
     // コピーライトの接頭辞（デフォルトは無指定）
     'copyright_prefix'    => '',
+    // コピーライトの接尾時（デフォルトは無指定）
+    'copyright_suffix'    => '',
     // サイト開始年（コピーライト箇所で使用）
     'start_year'          => date_i18n('Y'),
     // コピーライトの表示テキスト（デフォルトはブログ名）
-    'copyright_text'      => get_bloginfo('name'),
+    'copyright_text'      => get_bloginfo('name') . '.',
     // カノニカル出力の有無（true/false）
     'output_canonical'    => true,
     // 子テーマ利用時に親テーマの CSS ファイルを読み込む（true/false）

@@ -74,11 +74,6 @@ $base-font-bold: 600;
 
 // break point
 //--------------------------------------------------------------------
-@mixin media-type($maxWidth: 767px) {
-  @media (max-width: $maxWidth) {
-    @content;
-  }
-}
 $media-xl: 999px;
 $media-lg: 767px;
 $media-md: 639px;
@@ -104,6 +99,10 @@ $media-xs: 469px;
     }
   } @else if $type == 'xs' {
     @media (max-width: $media-xs) {
+      @content;
+    }
+  } @else if $type != '' {
+    @media (max-width: $type) {
       @content;
     }
   } @else {
