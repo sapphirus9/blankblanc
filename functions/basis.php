@@ -188,6 +188,8 @@ if (!function_exists('bb_get_document_title')) {
     } elseif (is_tax()) {
       $term = get_term_by('slug', get_query_var('term'), get_query_var('taxonomy'));
       $title = $term->name . $_paged . $sep . $_title;
+    } elseif (is_404()) {
+      $title = 'ページが見つかりません' . $sep . $_title;
     }
     $title = apply_filters('bb_get_document_title', $title);
     return esc_attr($title);
