@@ -143,37 +143,37 @@
       width: 100%;
       max-width: 350px;
     }
+    &[type='checkbox'] {
+      margin: 15px 0 0 15px;
+      & + label,
+      & + span {
+        font-size: 1.7rem;
+        padding: 7px;
+        &::before {
+          font-size: 26px;
+          width: 26px;
+          height: 26px;
+        }
+      }
+    }
     &[type='radio'] {
       margin: 15px 0 0 15px;
       & + label,
       & + span {
         font-size: 1.7rem;
+        padding: 7px;
         &::before {
-          width: 34px;
-          height: 34px;
-          vertical-align: -11px;
+          width: 26px;
+          height: 26px;
+          border-width: 6px;
         }
       }
       &:checked {
         & + label,
         & + span {
           &::before {
-            border-width: 9px;
+            border-width: 6px;
           }
-        }
-      }
-    }
-    &[type='checkbox'] {
-      margin: 15px 0 0 15px;
-      & + label,
-      & + span {
-        font-size: 1.7rem;
-        &::before {
-          font-size: 2.4rem;
-          width: 34px;
-          height: 34px;
-          vertical-align: -2px;
-          padding-top: 3px;
         }
       }
     }

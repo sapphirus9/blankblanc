@@ -139,7 +139,6 @@ a:hover {
 
 #main-screen {
   min-width: 1024px;
-  overflow: hidden;
 }
 
 .wrap {
@@ -394,7 +393,9 @@ input:focus:-ms-input-placeholder {
 
 #bread-crumb .bread-crumb-list li a,
 #bread-crumb .bread-crumb-list div a {
+  position: relative;
   margin: 0 6px;
+  z-index: 2;
 }
 
 #bread-crumb .bread-crumb-list li i,
@@ -416,7 +417,6 @@ input:focus:-ms-input-placeholder {
   display: block;
   padding-bottom: 45px;
   background-color: #fff;
-  overflow: hidden;
 }
 
 #contents dl,
@@ -827,7 +827,6 @@ article {
 #global-widget .widget_nav_menu .menu {
   margin-bottom: 30px;
   background-color: #fff;
-  overflow: hidden;
 }
 
 #global-widget .widget_nav_menu .menu li {
@@ -1168,7 +1167,6 @@ article {
 .archive-list .entry-article {
   padding: 20px 0;
   border-bottom: 1px solid #ebebeb;
-  overflow: hidden;
 }
 
 .archive-list .entry-article:first-of-type {
@@ -1274,7 +1272,6 @@ article {
 .archive-list .entry-body {
   text-justify: inter-ideograph;
   text-align: justify;
-  overflow: hidden;
 }
 
 .archive-list .entry-body p {
@@ -1298,7 +1295,6 @@ article {
   text-align: center;
   padding: 0;
   margin: 30px 0;
-  overflow: hidden;
 }
 
 .archive-pagination .page-numbers {
@@ -1504,7 +1500,6 @@ article {
 .archive-tiles .entry-body {
   text-justify: inter-ideograph;
   text-align: justify;
-  overflow: hidden;
 }
 
 .archive-tiles .entry-body p {
@@ -1525,12 +1520,10 @@ article {
 
 .main-article {
   font-size: 1.5rem;
-  overflow: hidden;
 }
 
 .main-article .entry-header {
   margin-bottom: 30px;
-  overflow: hidden;
 }
 
 .main-article .entry-header .page-title {
@@ -1538,7 +1531,6 @@ article {
   line-height: 1.3;
   font-weight: normal;
   margin-bottom: 10px;
-  overflow: hidden;
 }
 
 .os-windows .main-article .entry-header .page-title {
@@ -1551,7 +1543,6 @@ article {
 
 .main-article .entry-header .meta {
   line-height: 0;
-  overflow: hidden;
 }
 
 .main-article .entry-header .meta > li {
@@ -2030,16 +2021,6 @@ article {
   box-sizing: border-box;
 }
 
-.main-article .entry-body input[type='number'] {
-  font-size: 1.5rem;
-  width: 60px;
-  min-width: 60px;
-  padding: 6px;
-  border: 1px solid #d5d5d5;
-  border-radius: 2px;
-  box-sizing: border-box;
-}
-
 .main-article .entry-body input[type='checkbox'] {
   display: inline;
   position: absolute;
@@ -2049,9 +2030,10 @@ article {
 
 .main-article .entry-body input[type='checkbox'] + label,
 .main-article .entry-body input[type='checkbox'] + span {
-  display: inline-block;
-  font-size: 1.5rem;
-  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  font-size: 1.6rem;
+  line-height: 1.3;
   padding: 5px;
   margin: 0 5px 5px 0;
   border-radius: 2px;
@@ -2061,20 +2043,18 @@ article {
 
 .main-article .entry-body input[type='checkbox'] + label::before,
 .main-article .entry-body input[type='checkbox'] + span::before {
-  position: relative;
-  display: inline-block;
+  display: block;
+  flex: none;
   color: transparent;
-  font-size: 1.8rem;
+  font-size: 20px;
   text-align: center;
   font-family: "Material Design Icons";
   content: '\f012c';
   line-height: 1;
-  vertical-align: -1px;
   width: 20px;
   height: 20px;
   margin-right: 6px;
-  background-color: #fff;
-  border: 1px solid #d5d5d5;
+  background-color: #ebebeb;
   border-radius: 2px;
   box-sizing: border-box;
   transition: all .2s;
@@ -2087,9 +2067,8 @@ article {
 
 .main-article .entry-body input[type='checkbox']:checked + label::before,
 .main-article .entry-body input[type='checkbox']:checked + span::before {
-  color: #fff;
-  background-color: #787878;
-  border-color: #787878;
+  color: #353535;
+  background-color: #d5d5d5;
 }
 
 .main-article .entry-body input[type='radio'] {
@@ -2101,9 +2080,10 @@ article {
 
 .main-article .entry-body input[type='radio'] + label,
 .main-article .entry-body input[type='radio'] + span {
-  display: inline-block;
-  font-size: 1.5rem;
-  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  font-size: 1.6rem;
+  line-height: 1.3;
   padding: 5px;
   margin: 0 5px 5px 0;
   border-radius: 2px;
@@ -2113,15 +2093,14 @@ article {
 
 .main-article .entry-body input[type='radio'] + label::before,
 .main-article .entry-body input[type='radio'] + span::before {
-  position: relative;
-  display: inline-block;
-  vertical-align: -4px;
+  display: block;
+  flex: none;
   content: '';
   width: 20px;
   height: 20px;
   margin-right: 6px;
-  background-color: #fff;
-  border: 1px solid #d5d5d5;
+  background-color: #d5d5d5;
+  border: 4px solid #ebebeb;
   border-radius: 50%;
   box-sizing: border-box;
   transition: all .2s;
@@ -2134,8 +2113,8 @@ article {
 
 .main-article .entry-body input[type='radio']:checked + label::before,
 .main-article .entry-body input[type='radio']:checked + span::before {
-  background-color: #fff;
-  border: 6px solid #787878;
+  background-color: #353535;
+  border: 4px solid #d5d5d5;
 }
 
 .main-article .entry-body input[type='range'] {
@@ -2445,7 +2424,6 @@ article {
   text-align: center;
   padding: 0;
   margin-bottom: 30px;
-  overflow: hidden;
 }
 
 .main-article .link-pages .heading {
@@ -2501,7 +2479,6 @@ article {
 .main-article .page-navigation ul {
   display: flex;
   justify-content: space-between;
-  overflow: hidden;
 }
 
 .main-article .page-navigation ul li {
