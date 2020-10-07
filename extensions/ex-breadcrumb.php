@@ -33,7 +33,7 @@ class bbBreadCrumb
     global $bb_theme_config;
     $this->args = array_merge(array(
       'home'     => 'HOME',
-      'symbol'   => '<span class="mdi mdi-chevron-right"></span>',
+      'symbol'   => '',
       'child'    => true,
       'notfound' => '404 Not found',
       'multi'    => $bb_theme_config['bread_crumb_multi'],
