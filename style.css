@@ -5,7 +5,7 @@
  * Theme URI: https://github.com/sapphirus9/blankblanc
  * Author: Sapphirus9 (Naoki Yamamoto)
  * Author URI: https://github.com/sapphirus9/blankblanc
- * Version: 2.4.6.5
+ * Version: 2.4.6.6
  * Description: ウェブサイト+ブログを構築するためのベース用テーマとして、オリジナルのデザインやレイアウトを組み込みやすさを主眼に置いた、飾りを抑えたシンプルな2カラムタイプの HTML5 テーマです。カテゴリーやページ毎に設定した slug 名と同じスタイルシートをテーマ内に用意することで、各々スタイルの調整を行うことができます。基本 css ではレスポンシブデザインとして、767px でスマートフォン向けのレイアウト切り替えを設けています。
 
  * Tags: simple, plain, white, two-columns
@@ -386,6 +386,23 @@ input:focus:-ms-input-placeholder {
   line-height: 1.3;
 }
 
+#bread-crumb .bread-crumb-list li::after,
+#bread-crumb .bread-crumb-list div::after {
+  position: relative;
+  top: -2px;
+  display: inline-block;
+  content: '';
+  width: 4px;
+  height: 4px;
+  margin-right: 5px;
+  border-top: 1px solid #787878;
+  border-right: 1px solid #787878;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-transform-origin: center;
+  transform-origin: center;
+}
+
 #bread-crumb .bread-crumb-list li:first-child > a,
 #bread-crumb .bread-crumb-list div:first-child > a {
   margin-left: 0;
@@ -407,6 +424,10 @@ input:focus:-ms-input-placeholder {
 
 #bread-crumb .bread-crumb-list .page {
   margin-left: -10px;
+}
+
+#bread-crumb .bread-crumb-list .current::after {
+  display: none;
 }
 
 #bread-crumb .bread-crumb-list .current span {
@@ -612,14 +633,19 @@ article {
 }
 
 .widget .select-area::before {
+  display: block;
   position: absolute;
-  top: 50%;
-  right: 3px;
-  font-size: 2.2rem;
-  line-height: 1;
-  font-family: "Material Design Icons";
-  content: '\f0140';
-  margin-top: -.46em;
+  top: calc(50% - 6px);
+  right: 8px;
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-bottom: 2px solid #787878;
+  border-right: 2px solid #787878;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-transform-origin: center;
+  transform-origin: center;
   z-index: 1;
 }
 
