@@ -15,6 +15,7 @@
           $img = $mv_image[0];
         } else {
           $img = $bb_theme_default['mv_image'];
+          $config_values['mv_image'] = $bb_theme_default['mv_image'];
         }
         ?>
         <div class="image-view">

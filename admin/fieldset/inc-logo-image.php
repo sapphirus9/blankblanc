@@ -11,6 +11,7 @@
         $img = $logo_image[0];
       } else {
         $img = $bb_theme_default['logo_image'];
+        $config_values['logo_image'] = $bb_theme_default['logo_image'];
       }
       ?>
       <div class="image-view">
