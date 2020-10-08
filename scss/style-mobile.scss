@@ -33,8 +33,9 @@
 // large
 @media (max-width: $media-lg) {
   @import 'mobile/content-common';
-  @import 'mobile/content-archive';
-  @import 'mobile/content-archive-tiles';
+  @import 'mobile/archive-common';
+  @import 'mobile/archive-tiles';
+  @import 'mobile/archive-pagination';
   @import 'mobile/content-article';
   @import 'mobile/content-attachment';
   @import 'mobile/content-comment';
