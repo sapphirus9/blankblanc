@@ -45,7 +45,4 @@
     </div>
   <?php endwhile; ?>
 </div>
------the_posts_pagination-----
-<?php the_posts_pagination(); ?>
------the_posts_pagination-----
 <?php bb_get_pagination();

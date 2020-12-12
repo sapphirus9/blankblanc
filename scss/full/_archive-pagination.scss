@@ -1,7 +1,7 @@
 //--------------------------------------------------------------------
-// archive pagination (BlankBlanc)
+// pagination
 //--------------------------------------------------------------------
-.archive-pagination {
+.pagination {
   font-size: 0;
   text-align: center;
   padding: 0;
@@ -58,9 +58,7 @@
     color: $base-gray-3;
     border: none;
   }
+  .screen-reader-text {
+    display: none;
+  }
 }
-
-//--------------------------------------------------------------------
-// archive pagination (the_posts_pagination)
-//--------------------------------------------------------------------
-.navigation.pagination {}

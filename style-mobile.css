@@ -763,37 +763,58 @@
   .archive-list .pagination .last {
     display: none;
   }
-  .archive-pagination {
+  .pagination {
     margin: 15px 0;
   }
-  .archive-pagination .page-numbers {
+  .pagination .page-numbers {
     line-height: 44px;
     width: 44px;
     height: 44px;
-    margin: 0 3.5%;
+    margin: 0 1%;
   }
-  .archive-pagination a {
+  .pagination a {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0.06);
     background-color: transparent;
   }
-  .archive-pagination .current {
-    color: inherit;
+  .pagination .prev {
     width: auto;
-    border: none;
-    background-color: transparent;
+    padding: 0 3% 0 2%;
   }
-  .archive-pagination .current::after {
-    content: 'ページ';
-  }
-  .archive-pagination .prev,
-  .archive-pagination .next {
+  .pagination .next {
     width: auto;
-    padding: 0 4.5%;
+    padding: 0 2% 0 3%;
   }
-  .archive-pagination .inactive,
-  .archive-pagination .first,
-  .archive-pagination .last {
+  .pagination .current {
+    margin: 0 4%;
+  }
+  .pagination .inactive,
+  .pagination .first,
+  .pagination .last {
     display: none;
+  }
+  .pagination .dots {
+    display: none;
+  }
+  .pagination .nav-links .page-numbers:not(.current) {
+    display: none;
+  }
+  .pagination .nav-links .page-numbers.next {
+    display: inline-block;
+  }
+  .pagination .nav-links .page-numbers.prev {
+    display: inline-block;
+  }
+  .pagination .nav-links .page-numbers.prev ~ .page-numbers:nth-child(2) {
+    display: inline-block;
+  }
+  .pagination .nav-links .page-numbers.prev ~ .page-numbers:nth-last-child(2) {
+    display: inline-block;
+  }
+  .pagination .nav-links .page-numbers.prev ~ .page-numbers.dots:nth-last-child(3) + .page-numbers:nth-last-child(2) {
+    display: none;
+  }
+  .pagination .nav-links .page-numbers.current ~ .page-numbers.dots:nth-last-child(3) + .page-numbers:nth-last-child(2) {
+    display: inline-block;
   }
   .main-article {
     margin: 0 4%;

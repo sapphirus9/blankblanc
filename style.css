@@ -5,7 +5,7 @@
  * Theme URI: https://github.com/sapphirus9/blankblanc
  * Author: Sapphirus9 (Naoki Yamamoto)
  * Author URI: https://github.com/sapphirus9/blankblanc
- * Version: 2.4.6.7
+ * Version: 2.4.6.8
  * Description: ウェブサイト+ブログを構築するためのベース用テーマとして、オリジナルのデザインやレイアウトを組み込みやすさを主眼に置いた、飾りを抑えたシンプルな2カラムタイプの HTML5 テーマです。カテゴリーやページ毎に設定した slug 名と同じスタイルシートをテーマ内に用意することで、各々スタイルの調整を行うことができます。基本 css ではレスポンシブデザインとして、767px でスマートフォン向けのレイアウト切り替えを設けています。
 
  * Tags: simple, plain, white, two-columns
@@ -1465,14 +1465,14 @@ article {
   font-size: 1.6rem;
 }
 
-.archive-pagination {
+.pagination {
   font-size: 0;
   text-align: center;
   padding: 0;
   margin: 30px 0;
 }
 
-.archive-pagination .page-numbers {
+.pagination .page-numbers {
   display: inline-block;
   font-size: 1.4rem;
   line-height: 34px;
@@ -1485,63 +1485,67 @@ article {
   box-sizing: border-box;
 }
 
-.archive-pagination a {
+.pagination a {
   text-decoration: none;
   transition: all .2s;
 }
 
-.archive-pagination a:hover {
+.pagination a:hover {
   background-color: #f5f5f5;
 }
 
-.archive-pagination .current {
+.pagination .current {
   color: #787878;
   background-color: #ebebeb;
   border: 1px solid #e0e0e0;
 }
 
-.archive-pagination .first,
-.archive-pagination .last,
-.archive-pagination .prev,
-.archive-pagination .next {
+.pagination .first,
+.pagination .last,
+.pagination .prev,
+.pagination .next {
   width: auto;
   padding: 0 8px;
 }
 
-.archive-pagination .first::before, .archive-pagination .first::after,
-.archive-pagination .last::before,
-.archive-pagination .last::after,
-.archive-pagination .prev::before,
-.archive-pagination .prev::after,
-.archive-pagination .next::before,
-.archive-pagination .next::after {
+.pagination .first::before, .pagination .first::after,
+.pagination .last::before,
+.pagination .last::after,
+.pagination .prev::before,
+.pagination .prev::after,
+.pagination .next::before,
+.pagination .next::after {
   line-height: 1;
   vertical-align: -.07em;
 }
 
-.archive-pagination .first::before {
+.pagination .first::before {
   font-family: "Material Design Icons";
   content: '\f0600\0020';
 }
 
-.archive-pagination .last::after {
+.pagination .last::after {
   font-family: "Material Design Icons";
   content: '\0020\f0601';
 }
 
-.archive-pagination .prev::before {
+.pagination .prev::before {
   font-family: "Material Design Icons";
   content: '\f0141\0020';
 }
 
-.archive-pagination .next::after {
+.pagination .next::after {
   font-family: "Material Design Icons";
   content: '\0020\f0142';
 }
 
-.archive-pagination .dots {
+.pagination .dots {
   color: #a0a0a0;
   border: none;
+}
+
+.pagination .screen-reader-text {
+  display: none;
 }
 
 .main-article {
