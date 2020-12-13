@@ -281,7 +281,7 @@ add_action('wp_enqueue_scripts', 'add_cfg_styles_scripts', 90);
 // head | css
 function add_inline_css_head() {
   global $post;
-  if (!is_object($post)) {
+  if (!is_object($post) || !is_singular()) {
     return;
   }
   if ($src = get_post_meta($post->ID, 'bb_inline_css_head', true)) {
@@ -294,7 +294,7 @@ add_action('wp_head', 'add_inline_css_head', 8);
 // head | js
 function add_inline_js_head() {
   global $post;
-  if (!is_object($post)) {
+  if (!is_object($post) || !is_singular()) {
     return;
   }
   if ($src = get_post_meta($post->ID, 'bb_inline_js_head', true)) {
@@ -307,7 +307,7 @@ add_action('wp_head', 'add_inline_js_head', 99);
 // body | js
 function add_inline_js_body() {
   global $post;
-  if (!is_object($post)) {
+  if (!is_object($post) || !is_singular()) {
     return;
   }
   if ($src = get_post_meta($post->ID, 'bb_inline_js_body', true)) {

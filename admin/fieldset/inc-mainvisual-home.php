@@ -13,6 +13,7 @@
           $img = $mv_home_image[0];
         } else {
           $img = $bb_theme_default['mv_home_image'];
+          $config_values['mv_home_image'] = $bb_theme_default['mv_home_image'];
         }
         ?>
         <div class="image-view">
