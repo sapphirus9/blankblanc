@@ -1162,7 +1162,7 @@ article {
 }
 
 .archive-list {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
 }
 
 .archive-list .term-description {
@@ -1172,7 +1172,7 @@ article {
 }
 
 .archive-list .term-description p {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   line-height: 1.75;
 }
 
@@ -1301,7 +1301,7 @@ article {
 }
 
 .archive-list .entry-body p {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   line-height: 1.6;
 }
 
@@ -1549,7 +1549,7 @@ article {
 }
 
 .main-article {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
 }
 
 .main-article .entry-header {
@@ -1633,7 +1633,7 @@ article {
 }
 
 .main-article .entry-body {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   text-justify: inter-ideograph;
   text-align: justify;
   margin-bottom: 50px;
@@ -2016,7 +2016,7 @@ article {
 }
 
 .main-article .entry-body input[type='text'] {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   width: 100%;
   padding: 6px;
   border: 1px solid #d5d5d5;
@@ -2025,7 +2025,7 @@ article {
 }
 
 .main-article .entry-body input[type='password'] {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   width: 100%;
   padding: 6px;
   border: 1px solid #d5d5d5;
@@ -2034,7 +2034,7 @@ article {
 }
 
 .main-article .entry-body input[type='email'] {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   width: 100%;
   padding: 6px;
   border: 1px solid #d5d5d5;
@@ -2043,7 +2043,7 @@ article {
 }
 
 .main-article .entry-body input[type='url'] {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   width: 100%;
   padding: 6px;
   border: 1px solid #d5d5d5;
@@ -2158,7 +2158,7 @@ article {
 
 .main-article .entry-body input[type='submit'] {
   color: #fff;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   line-height: 1;
   vertical-align: top;
   height: 40px;
@@ -2176,7 +2176,7 @@ article {
 
 .main-article .entry-body input[type='reset'] {
   color: #fff;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   line-height: 1;
   vertical-align: top;
   height: 40px;
@@ -2195,7 +2195,7 @@ article {
 .main-article .entry-body input[type='button'],
 .main-article .entry-body button {
   color: #fff;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   line-height: 1;
   vertical-align: top;
   height: 40px;
@@ -2233,7 +2233,7 @@ article {
 
 .main-article .entry-body select {
   position: relative;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   line-height: 1.56;
   max-width: 100%;
   padding: 5px 25px 5px 5px;
@@ -2253,7 +2253,7 @@ article {
 }
 
 .main-article .entry-body textarea {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   line-height: 1.5;
   vertical-align: top;
   width: 100%;
