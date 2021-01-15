@@ -8,7 +8,7 @@
 get_header(); ?>
 
 <main role="main" id="contents" class="article attachment">
-  <div id="contents-conatiner" class="wrap">
+  <div id="contents-container" class="wrap">
     <div id="one-column">
       <article class="main-article">
         <?php if (have_posts()) :

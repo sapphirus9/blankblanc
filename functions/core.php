@@ -217,7 +217,7 @@ add_filter('template_include', 'custom_template_include', 99);
  */
 add_filter('widget_text', 'do_shortcode');
 function add_sc_template_url() {
-  return get_bloginfo('template_url');
+  return get_stylesheet_directory_uri();
 }
 add_shortcode('template_url', 'add_sc_template_url');
 

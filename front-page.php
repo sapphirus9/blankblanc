@@ -11,7 +11,7 @@ get_header(); ?>
   <?php get_template_part('includes/inc', 'mainvisual'); ?>
   <?php get_template_part('includes/inc', 'breadcrumb'); ?>
 
-  <div id="contents-conatiner" class="wrap">
+  <div id="contents-container" class="wrap">
     <div id="first-column">
       <?php if (is_page()) : // 固定ページ ?>
         <article class="main-article">

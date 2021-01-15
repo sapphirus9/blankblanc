@@ -10,7 +10,7 @@ get_header(); ?>
 <main role="main" id="contents" class="search archive">
   <?php get_template_part('includes/inc', 'breadcrumb'); ?>
 
-  <div id="contents-conatiner" class="wrap">
+  <div id="contents-container" class="wrap">
     <div id="first-column">
       <div class="archive-list">
         <header class="archive-header">
