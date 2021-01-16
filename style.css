@@ -131,13 +131,13 @@ a:hover {
 }
 
 #main-screen {
-  min-width: 1024px;
+  min-width: 1100px;
 }
 
 .wrap {
   position: relative;
-  width: 980px;
-  padding: 0 22px;
+  width: 1050px;
+  padding: 0 25px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -178,7 +178,7 @@ input:focus:-ms-input-placeholder {
 #global-header .logo {
   position: absolute;
   top: 18px;
-  left: 22px;
+  left: 25px;
 }
 #global-header .logo a {
   display: block;
@@ -195,7 +195,7 @@ input:focus:-ms-input-placeholder {
 #global-header .copy {
   position: absolute;
   top: 68px;
-  left: 22px;
+  left: 25px;
   color: #a0a0a0;
   font-size: 1.3rem;
   font-weight: normal;
@@ -207,7 +207,7 @@ input:focus:-ms-input-placeholder {
 #header-nav {
   position: absolute;
   top: 15px;
-  right: 22px;
+  right: 25px;
 }
 #header-nav .menu {
   font-size: 0;
@@ -406,11 +406,11 @@ input:focus:-ms-input-placeholder {
 }
 
 #first-column {
-  width: 660px;
+  width: 720px;
 }
 
 #second-column {
-  width: 250px;
+  width: 280px;
 }
 
 #one-column {
@@ -945,8 +945,8 @@ article {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 22px;
-  right: 22px;
+  left: 25px;
+  right: 25px;
   color: #fff;
   font-size: 2.8rem;
   line-height: 1.3;

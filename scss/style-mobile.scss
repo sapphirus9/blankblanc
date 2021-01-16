@@ -4,10 +4,10 @@
  *--------------------------------------------------------------------
  * Theme Name: BlankBlanc
  * Author: Naoki Yamamoto
- * Description: 画面幅 768px (1000px) 未満用レスポンシブスタイルシートです。
+ * Description: 画面幅 767px (Original 999px) 以下用レスポンシブスタイルシートです。
  *
  * [breakpoint]
- * extra large ~767px (original width ~999px)
+ * extra large ~767px (Original 999px:xl)
  * large       ~767px
  * medium      ~639px
  * small       ~539px
@@ -17,8 +17,8 @@
 
 @import 'config';
 
-// extra large
-@media (max-width: $media-lg) {
+// extra large (xl -> lg)
+@include media-type(lg) {
   @import 'mobile/initialize';
   @import 'mobile/base';
   @import 'mobile/header';
@@ -31,7 +31,7 @@
 }
 
 // large
-@media (max-width: $media-lg) {
+@include media-type(lg) {
   @import 'mobile/content-common';
   @import 'mobile/archive-common';
   @import 'mobile/archive-tiles';
@@ -44,16 +44,16 @@
 }
 
 // medium
-@media (max-width: $media-md) {
+@include media-type(md) {
   @import 'mobile/media-medium';
 }
 
 // small
-@media (max-width: $media-sm) {
+@include media-type(sm) {
   @import 'mobile/media-small';
 }
 
 // extra small
-@media (max-width: $media-xs) {
+@include media-type(xs) {
   @import 'mobile/media-xsmall';
 }

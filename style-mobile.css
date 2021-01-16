@@ -3,10 +3,10 @@
  *--------------------------------------------------------------------
  * Theme Name: BlankBlanc
  * Author: Naoki Yamamoto
- * Description: 画面幅 768px (1000px) 未満用レスポンシブスタイルシートです。
+ * Description: 画面幅 767px (Original 999px) 以下用レスポンシブスタイルシートです。
  *
  * [breakpoint]
- * extra large ~767px (original width ~999px)
+ * extra large ~767px (Original 999px:xl)
  * large       ~767px
  * medium      ~639px
  * small       ~539px
@@ -263,7 +263,7 @@
   }
   #nav-window-scroll .widget,
 #nav-window-scroll .menu {
-    margin: 12px 4%;
+    margin: 12px 4.2vw;
   }
   #nav-window-scroll .widget .menu,
 #nav-window-scroll .menu .menu {
@@ -367,7 +367,7 @@
     padding-left: 40px;
   }
   #nav-window-scroll .select-area {
-    margin: 0 4% 10px;
+    margin: 0 4.2vw 10px;
   }
   #nav-window-scroll .recentcomments .entry-title:hover {
     text-decoration: none;
@@ -408,7 +408,7 @@
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0.06);
   }
   #nav-window-scroll .calendar_wrap {
-    margin: 5px 4% 10px;
+    margin: 5px 4.2vw 10px;
   }
 
   #contents {
@@ -447,7 +447,7 @@
     display: block;
   }
   #gotop-button {
-    right: 4%;
+    right: 4.2vw;
   }
 
   #gotop-button {
@@ -591,7 +591,7 @@
   }
 
   .search-form {
-    margin: 0 4%;
+    margin: 0 4.2vw;
   }
   .search-form .search-field {
     border-color: #d5d5d5;
@@ -620,7 +620,7 @@
     font-size: 2.2rem;
     line-height: 1.25;
     max-width: 700px;
-    padding: 0 4%;
+    padding: 0 4.2vw;
     margin: 0 auto;
     box-sizing: border-box;
   }
@@ -632,19 +632,19 @@
   }
 
   .archive-list .term-description {
-    margin-left: 4%;
-    margin-right: 4%;
+    margin-left: 4.2vw;
+    margin-right: 4.2vw;
     padding: 15px;
   }
   .archive-list .archive-header {
-    margin: 0 4% 15px;
+    margin: 0 4.2vw 15px;
   }
   .archive-list .archive-header .page-title {
     font-size: 2rem;
     line-height: 1.25;
   }
   .archive-list .entry-articles {
-    margin: 0 4%;
+    margin: 0 4.2vw;
   }
   .archive-list .entry-article {
     padding: 15px 0 0;
@@ -693,8 +693,8 @@
   }
 
   .archive-tiles {
-    margin-left: 4%;
-    margin-right: 4%;
+    margin-left: 4.2vw;
+    margin-right: 4.2vw;
   }
   .archive-tiles .term-description {
     padding: 15px;
@@ -769,13 +769,13 @@
 }
 @media (max-width: 767px) {
   .archive-list .pagination {
-    margin: 15px 4% 0;
+    margin: 15px 4.2vw 0;
   }
   .archive-list .pagination .page-numbers {
     line-height: 44px;
     width: 44px;
     height: 44px;
-    margin: 0 4%;
+    margin: 0 4.2vw;
   }
   .archive-list .pagination a {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0.06);
@@ -793,7 +793,7 @@
   .archive-list .pagination .prev,
 .archive-list .pagination .next {
     width: auto;
-    padding: 0 4%;
+    padding: 0 4.2vw;
   }
   .archive-list .pagination .inactive,
 .archive-list .pagination .first,
@@ -858,7 +858,7 @@
 }
 @media (max-width: 767px) {
   .main-article {
-    margin: 0 4%;
+    margin: 0 4.2vw;
   }
 }
 @media (max-width: 767px) {
@@ -886,7 +886,7 @@
     margin-bottom: 25px;
   }
   .main-article .post-thumbnail .entry-content {
-    margin: 0 4%;
+    margin: 0 4.2vw;
   }
   .main-article .post-thumbnail .caption {
     font-size: 1.2rem;
@@ -1247,13 +1247,13 @@
 }
 @media (max-width: 767px) {
   #global-footer .copyright {
-    padding-left: 4%;
-    padding-right: 4%;
+    padding-left: 4.2vw;
+    padding-right: 4.2vw;
   }
 }
 @media (max-width: 767px) {
   .footer-widgets > ul {
-    padding: 0 4%;
+    padding: 0 4.2vw;
   }
 }
 @media (max-width: 639px) {

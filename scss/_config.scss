@@ -5,12 +5,12 @@
 
 // width
 //--------------------------------------------------------------------
-$base-width-full: 980px;
-$base-min-width-full: 1024px;
+$base-width-full: 1050px;
+$base-min-width-full: 1100px;
 $base-max-width-mobile: 700px;
 $base-min-width-mobile: 360px;
 $base-side-space-full: ($base-min-width-full - $base-width-full) / 2;
-$base-side-space-mobile: 4%;
+$base-side-space-mobile: 4.2vw;
 
 // color
 //--------------------------------------------------------------------
@@ -80,7 +80,7 @@ $media-xs: 469px;
 
 @mixin media-type($type: '') {
   @if $type == 'xl' {
-    @media (max-width: $media-lg) {
+    @media (max-width: $media-xl) {
       @content;
     }
   } @else if $type == 'lg' {
