@@ -146,8 +146,7 @@ body.nav-window-show {
       content: '';
       height: 2px;
       background-color: #a0a0a0;
-      -webkit-transform: rotate(45deg);
-              transform: rotate(45deg);
+      transform: rotate(45deg);
     }
     &::after {
       display: block;
@@ -158,8 +157,7 @@ body.nav-window-show {
       content: '';
       height: 2px;
       background-color: #a0a0a0;
-      -webkit-transform: rotate(-45deg);
-              transform: rotate(-45deg);
+      transform: rotate(-45deg);
     }
   }
 }

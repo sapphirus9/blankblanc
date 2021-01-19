@@ -22,10 +22,7 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  -webkit-text-size-adjust: 100%;
-     -moz-text-size-adjust: 100%;
-      -ms-text-size-adjust: 100%;
-          text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 h1, h2, h3, h4, h5, h6, p,
@@ -87,15 +84,11 @@ input, textarea, select, button {
 
 button {
   vertical-align: top;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  appearance: none;
 }
 
 input {
   &[type='submit'], &[type='button'], &[type='reset'], &[type='search'] {
-    -webkit-appearance: none;
-       -moz-appearance: none;
-            appearance: none;
+    appearance: none;
   }
 }

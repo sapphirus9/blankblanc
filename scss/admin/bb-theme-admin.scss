@@ -204,10 +204,7 @@
       margin-bottom: 4px;
       background-color: #e5e5e5;
       overflow: hidden;
-      -webkit-user-select: none;
-         -moz-user-select: none;
-          -ms-user-select: none;
-              user-select: none;
+      user-select: none;
       &.active {
         background-color: #d0d0d0;
       }

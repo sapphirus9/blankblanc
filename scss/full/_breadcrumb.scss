@@ -29,10 +29,8 @@
         margin-right: 5px;
         border-top: 1px solid $base-gray-2;
         border-right: 1px solid $base-gray-2;
-        -webkit-transform: rotate(45deg);
-                transform: rotate(45deg);
-        -webkit-transform-origin: center;
-                transform-origin: center;
+        transform: rotate(45deg);
+        transform-origin: center;
       }
       &:first-child > a {
         margin-left: 0;
