@@ -440,9 +440,11 @@ article {
 #gotop .gotop-start {
   top: 100px;
 }
+#gotop .gotop-end {
+  bottom: 0;
+}
 #gotop .gotop-bottom {
   position: absolute;
-  bottom: 0;
 }
 #gotop .gotop-offset {
   width: 767px;

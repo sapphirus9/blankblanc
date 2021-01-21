@@ -29,7 +29,7 @@
     var gotop = $('#gotop');
     var gotopBtn = $('#gotop-button');
     var spWin;
-    gotop.prepend('<div class="gotop-cfg gotop-start gotop-bottom gotop-offset">');
+    gotop.prepend('<div class="gotop-cfg gotop-start gotop-end gotop-offset">');
     var cfg = $('.gotop-cfg', gotop);
     var start = parseInt(cfg.css('top')) || 0;
     var bottom = parseInt(cfg.css('bottom')) || 0;
@@ -43,12 +43,15 @@
       var pos = !offset ? 0 : offset.top - offt;
       $('html,body').stop().animate({ scrollTop: pos }, 'normal', 'easeOutExpo');
     };
-    $(window).on('scroll resize', function (e) {
+    var _show = function (e) {
       var scrT = $(document).scrollTop();
       var btmT = $(document).height() - document.documentElement.clientHeight - bottom;
       gotopBtn.toggleClass('gotop-show', start <= scrT ? true : false);
       gotopBtn.toggleClass('gotop-bottom', btmT <= scrT ? true : false);
-    });
+    };
+    // 状態
+    _show();
+    $(window).on('scroll resize', _show);
     // リンク
     $('a[href*="#"]').on('click', function (e) {
       $(this).blur();
