@@ -3,8 +3,8 @@
  * Theme Name: BlankBlanc
  * Author: Naoki Yamamoto
  * Template: onecolumn-page
- * Template Name: 1カラムレイアウト
  * Description: 1カラムレイアウト固定ページ
+ * Template Name: 1カラムレイアウト
  */
 get_header(); ?>
 
@@ -15,31 +15,13 @@ get_header(); ?>
   <div id="contents-container" class="wrap">
     <div id="one-column">
       <article class="main-article">
-        <?php if (have_posts()) :
-          while (have_posts()) :
-            the_post(); ?>
-          <header class="entry-header">
-            <?php if (empty($bb_mainvisual_image)) : ?>
-              <h1 class="page-title"><?php echo esc_attr(get_the_title()); ?></h1>
-            <?php endif; ?>
-            <ul class="meta">
-              <li class="date font-icon"><time datetime="<?php echo get_the_date('Y-m-d'); ?>"><?php echo bb_get_custom_date(); ?></time></li>
-              <li class="author font-icon"><?php echo the_author_posts_link(); ?></li>
-            </ul>
-          </header>
-
-          <section id="post-<?php echo get_the_ID(); ?>" <?php post_class('entry-content'); ?>>
-            <?php get_template_part('includes/inc', 'thumbnail'); ?>
-            <div class="entry-body">
-              <?php bb_the_content(); ?>
-            </div>
-            <?php get_template_part('includes/inc', 'linkpages'); ?>
-          </section>
-
-          <?php comments_template('', true); ?>
-
-        <?php endwhile;
-          endif; ?>
+        <?php if (have_posts()) : ?>
+          <?php get_template_part('includes/inc', 'page'); ?>
+        <?php else : ?>
+          <div id="no-result">
+            <p>コンテンツはありません</p>
+          </div>
+        <?php endif; ?>
       </article>
     </div>
 

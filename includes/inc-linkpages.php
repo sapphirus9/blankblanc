@@ -5,7 +5,8 @@
  * Template: inc-linkpages
  * Description: 投稿／固定ページ内のページ送り
  */
-
+?>
+<?php
 if (!post_password_required()) {
   wp_link_pages(array(
     'next_or_number' => 'number',
