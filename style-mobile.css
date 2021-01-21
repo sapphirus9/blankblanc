@@ -1281,7 +1281,7 @@
     height: auto;
   }
 }
-@media (max-width: 469px) {
+@media (max-width: 449px) {
   #nav-window-area {
     left: -85vw;
     width: 85vw;

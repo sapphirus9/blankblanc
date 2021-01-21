@@ -72,40 +72,25 @@ $base-font-bold: 600;
 
 // break point
 //--------------------------------------------------------------------
-$media-xl: 999px;
-$media-lg: 767px;
-$media-md: 639px;
-$media-sm: 539px;
-$media-xs: 469px;
-
-@mixin media-type($type: '') {
-  @if $type == 'xl' {
-    @media (max-width: $media-xl) {
-      @content;
-    }
-  } @else if $type == 'lg' {
-    @media (max-width: $media-lg) {
-      @content;
-    }
-  } @else if $type == 'md' {
-    @media (max-width: $media-md) {
-      @content;
-    }
-  } @else if $type == 'sm' {
-    @media (max-width: $media-sm) {
-      @content;
-    }
-  } @else if $type == 'xs' {
-    @media (max-width: $media-xs) {
-      @content;
-    }
-  } @else if $type != '' {
-    @media (max-width: $type) {
-      @content;
-    }
-  } @else {
-    @media (max-width: $media-lg) {
-      @content;
-    }
+//  @media (max-width:)
+//  |max: 1000px ~ 1200px ------------------>|
+//  |xl: 768px ~ 999px --------------->|
+//  |lg: 640px ~ 767px ---------->|
+//  |md: 540px ~ 639px ------>|
+//  |sm: 450px ~ 539px --->|
+//  |xs: 360px ~ 449px ->|
+//  |min: ~ 359px ---->|
+$breakpoints: (
+  max: 1200px,
+  xl: 1000px,
+  lg: 768px,
+  md: 640px,
+  sm: 540px,
+  xs: 450px,
+  min: 360px
+);
+@mixin media-type($type: lg) {
+  @media (max-width: map-get($breakpoints, $type) - 1) {
+    @content;
   }
 }
