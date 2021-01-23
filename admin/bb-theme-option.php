@@ -138,6 +138,7 @@ function blankblanc_config_edit() {
 
         <!-- tab-4 -->
         <div id="tab-4">
+          <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-mobile-nav-position.php'; ?>
           <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-mobile-nav.php'; ?>
         </div>
         <!-- /tab-4 -->

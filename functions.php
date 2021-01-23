@@ -59,6 +59,8 @@ function bb_config_default() {
     'with_parent_script'  => true,
     // モバイル時に使用するウィジェットの指定（#global-nav はグローバルナビ）
     'mobile_nav'          => array('#global-nav', '#header-nav'),
+    // モバイル時のスライドナビの方向（左：false/右：true）
+    'mobile_nav_position' => false,
     // モバイル時フッターに追加するウィジェットの指定
     'mobile_nav_footer'   => array(),
     // 除外対象のカテゴリ ID（カテゴリーウィジェット・フィード等） [extension]
