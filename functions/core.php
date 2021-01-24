@@ -14,7 +14,7 @@ function bb_body_id_class($classes = array()) {
   if (!empty($bb_theme_id_class->class)) {
     array_push($classes, $bb_theme_id_class->class);
   }
-  if ($bb_theme_config['mobile_nav_position'] == 'right') {
+  if ($bb_theme_config['mobile_nav_position'] === 'right') {
     array_push($classes, 'nav-window-right');
   }
   if ($bb_theme_config['add_body_class']) {
