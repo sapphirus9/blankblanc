@@ -22,7 +22,7 @@ function bb_body_id_class($classes = array()) {
   }
   $class = '';
   if (!empty($classes)) {
-    $class = ' class="' . join(' ', $classes) . '"';
+    $class = ' class="' . join(' ', array_unique($classes)) . '"';
   } else {
   }
   echo "id=\"{$bb_theme_id_class->id}\"{$class}";
