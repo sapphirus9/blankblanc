@@ -60,7 +60,7 @@ function bb_config_default() {
     // モバイル時に使用するウィジェットの指定（#global-nav はグローバルナビ）
     'mobile_nav'          => array('#global-nav', '#header-nav'),
     // モバイル時のスライドナビの方向（左：無指定/右：right）
-    'mobile_nav_position' => false,
+    'mobile_nav_position' => '',
     // モバイル時フッターに追加するウィジェットの指定
     'mobile_nav_footer'   => array(),
     // 除外対象のカテゴリ ID（カテゴリーウィジェット・フィード等） [extension]
