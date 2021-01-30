@@ -1427,17 +1427,17 @@ article {
 }
 .main-article .entry-body img.alignnone {
   display: block;
-  margin: 20px 0;
+  margin: 30px 0;
 }
 .main-article .entry-body img.aligncenter {
   display: block;
-  margin: 20px auto;
+  margin: 30px auto;
 }
 .main-article .entry-body img.alignleft {
-  margin: 0 25px 20px 0;
+  margin: 5px 30px 25px 0;
 }
 .main-article .entry-body img.alignright {
-  margin: 0 0 20px 25px;
+  margin: 5px 0 25px 30px;
 }
 .main-article .entry-body a.more-link {
   position: relative;
@@ -1990,16 +1990,16 @@ article {
   margin: 0;
 }
 .main-article .entry-body .wp-caption.alignnone {
-  margin: 20px 0;
+  margin: 30px 0;
 }
 .main-article .entry-body .wp-caption.aligncenter {
-  margin: 20px auto;
+  margin: 30px auto;
 }
 .main-article .entry-body .wp-caption.alignleft {
-  margin: 0 25px 20px 0;
+  margin: 5px 30px 25px 0;
 }
 .main-article .entry-body .wp-caption.alignright {
-  margin: 0 0 20px 25px;
+  margin: 5px 0 25px 30px;
 }
 .main-article .entry-body .wp-caption-text {
   font-size: 0.8em;
