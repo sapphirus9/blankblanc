@@ -47,7 +47,7 @@
       var scrT = $(document).scrollTop();
       var btmT = $(document).height() - document.documentElement.clientHeight - bottom;
       gotopBtn.toggleClass('gotop-show', start <= scrT ? true : false);
-      gotopBtn.toggleClass('gotop-bottom', btmT <= scrT ? true : false);
+      gotopBtn.toggleClass('gotop-bottom gotop-end', btmT <= scrT ? true : false);
     };
     // 状態
     _show();
