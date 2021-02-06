@@ -55,7 +55,7 @@ function bb_config_default() {
     'output_canonical'    => true,
     // 子テーマ利用時に親テーマの CSS ファイルを読み込む（true/false）
     'with_parent_css'     => true,
-    // 子テーマ利用時に親テーマの function.js ファイルを読み込む（true/false）
+    // 子テーマ利用時に親テーマの functions.js ファイルを読み込む（true/false）
     'with_parent_script'  => true,
     // モバイル時に使用するウィジェットの指定（#global-nav はグローバルナビ）
     'mobile_nav'          => array('#global-nav', '#header-nav'),
