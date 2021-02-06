@@ -611,9 +611,6 @@
   }
 }
 @media (max-width: 767px) {
-  #main-visual {
-    margin: 0 auto 0%;
-  }
   #main-visual .page-title {
     left: 0;
     right: 0;

@@ -13,6 +13,12 @@
     font-family: "Helvetica Neue", "Segoe UI", Meiryo, "メイリオ", sans-serif;
   }
 }
+.mce-content-body hr {
+  height: 0;
+  margin: 25px 0;
+  border: none;
+  border-bottom: 1px solid #ebebeb;
+}
 
 .text-highlighter {
   font-style: normal;
