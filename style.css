@@ -1534,6 +1534,9 @@ article {
 .main-article .entry-body p:first-of-type {
   margin-top: 0;
 }
+.main-article .entry-body p:last-of-type {
+  margin-bottom: 0;
+}
 .main-article .entry-body h1 {
   font-size: 1.8em;
   line-height: 1.3;
