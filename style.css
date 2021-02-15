@@ -1953,32 +1953,33 @@ article {
 .main-article .entry-body .table-content .table-arrow {
   display: none;
   position: absolute;
-  top: 50%;
-  width: 28px;
-  height: 28px;
-  margin-top: -14px;
-  background-color: #353535;
-  border-radius: 50%;
+  top: 0;
+  bottom: 0;
+  width: 36px;
   cursor: pointer;
-  opacity: 0.15;
   z-index: 9;
 }
 .main-article .entry-body .table-content .table-arrow::after {
   display: block;
-  color: #fff;
-  font-size: 26px;
+  position: absolute;
+  top: calc(50% - 18px);
+  color: rgba(0, 0, 0, 0.25);
+  font-size: 30px;
+  line-height: 36px;
   text-align: center;
-  line-height: 28px;
+  width: 100%;
 }
 .main-article .entry-body .table-content .table-left-arrow {
-  left: 5px;
+  left: 0;
+  background: linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, white 100%);
 }
 .main-article .entry-body .table-content .table-left-arrow::after {
   font-family: "Material Design Icons";
   content: '\f004d';
 }
 .main-article .entry-body .table-content .table-right-arrow {
-  right: 5px;
+  right: 0;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, white 100%);
 }
 .main-article .entry-body .table-content .table-right-arrow::after {
   font-family: "Material Design Icons";
