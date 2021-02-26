@@ -6,9 +6,7 @@
   .gotop-symbol {
     width: 48px;
     height: 48px;
-    &:hover {
-      opacity: .65;
-    }
+    opacity: .65 !important;
     .symbol {
       top: 16px;
     }

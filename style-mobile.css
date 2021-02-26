@@ -456,9 +456,7 @@
   #gotop-button .gotop-symbol {
     width: 48px;
     height: 48px;
-  }
-  #gotop-button .gotop-symbol:hover {
-    opacity: 0.65;
+    opacity: 0.65 !important;
   }
   #gotop-button .gotop-symbol .symbol {
     top: 16px;
