@@ -119,7 +119,7 @@ class bbMainvisualTermMeta
     $bb_mv_id  = '';
     $bb_mv_img = '';
     ?>
-<div class="form-field mainvisual-term-wrap bb-config-edit-box" id="bb-config-edit">
+<div class="form-field mainvisual-term-wrap bb-config-edit-box" id="bb-config-edit-mv-term">
   <label>メインビジュアル画像</label>
   <div id="bb-mainvisual">
     <div id="bb-upload-image">
@@ -140,7 +140,8 @@ class bbMainvisualTermMeta
     wp_enqueue_media();
     $bb_mv_id = get_term_meta($tag->term_id, 'bb_mainvisual', true);
     ?>
-<tr id="bb-config-edit" class="form-field term-image-wrap bb-config-edit-box">
+<table class="form-table" id="bb-config-edit-mv-term">
+<tr class="form-field term-image-wrap bb-config-edit-box">
   <th scope="row">
     <label for="select-image">メインビジュアル画像</label>
   </th>
@@ -165,6 +166,7 @@ class bbMainvisualTermMeta
     </div>
   </td>
 </tr>
+</table>
     <?php
   }
 

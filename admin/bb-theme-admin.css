@@ -229,6 +229,40 @@
 #bb-config-edit .wp-editor-wrap {
   overflow: hidden;
 }
+#bb-config-edit-mv-term input {
+  vertical-align: -2px;
+  margin: 1px;
+}
+#bb-config-edit-mv-term input[type=button] {
+  margin: 6px 3px 0 0;
+}
+#bb-config-edit-mv-term input.error {
+  border-color: #f00;
+  background-color: #fff6f3;
+}
+#bb-config-edit-mv-term .image-view {
+  width: auto;
+  max-width: 640px;
+}
+#bb-config-edit-mv-term .image-view img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 480px;
+}
+#bb-config-edit-mv-term .no-image {
+  display: inline-block;
+  color: #b0b0b0;
+  font-size: 0.83em;
+  line-height: 1;
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+  padding: 25px 50px;
+  margin: 5px 0;
+  border: 1px dashed #d0d0d0;
+  box-sizing: border-box;
+}
 
 #poststuff .inline-textarea p {
   margin-bottom: 0.5em;

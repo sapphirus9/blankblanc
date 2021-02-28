@@ -193,6 +193,9 @@
   $('#bb-config-edit form').on('change', function () {
     change_value = true;
   });
+  $('#bb-taxonomy-layout').on('change', function () {
+    change_value = true;
+  });
   var change_value_tinymce = function () {
     setTimeout(function () {
       if (typeof tinymce != 'function') return;

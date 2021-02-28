@@ -64,14 +64,16 @@ class bbTaxonomyLayoutOptions
       }
       $meta_data = array_merge($this->taxonomy_layout_meta(), $meta_data);
     ?>
-<tr id="bb-config-edit" class="form-field bb-config-edit-box">
-  <th scope="row">
-    <label><?php echo $meta_data['layout']['label']; ?></label>
-  </th>
-  <td>
-    <?php $this->taxonomy_layout_html($meta_data); ?>
-  </td>
-</tr>
+<table class="form-table" id="bb-config-edit">
+  <tr class="form-field bb-config-edit-box">
+    <th scope="row">
+      <label><?php echo $meta_data['layout']['label']; ?></label>
+    </th>
+    <td>
+      <?php $this->taxonomy_layout_html($meta_data); ?>
+    </td>
+  </tr>
+</table>
     <?php
   }
 
