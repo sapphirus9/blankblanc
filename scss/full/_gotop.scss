@@ -2,8 +2,14 @@
 // gotop button
 //--------------------------------------------------------------------
 #gotop {
-  position: relative;
   display: block;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100px;
+  height: 200px;
+  overflow: hidden;
+  pointer-events: none;
   .gotop {
     &-cfg {
       display: none;
@@ -39,9 +45,7 @@
     opacity: 0;
     z-index: 98;
     transition: visibility .5s, margin-bottom .5s, opacity .5s;
-    * {
-      font-family: 'Arial Narrow', Helvetica, sans-serif;
-    }
+    pointer-events: auto;
     .gotop-symbol {
       position: relative;
       width: 54px;

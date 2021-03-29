@@ -16,6 +16,7 @@ a {
 
 // fixed content width
 #main-screen {
+  position: relative;
   min-width: $base-min-width-full;
 }
 

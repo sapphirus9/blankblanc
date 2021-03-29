@@ -17,9 +17,12 @@
     else if (/Android/.test(ua)) os = 'android';
     else if (/iP.*?Mac OS X/.test(ua)) os = 'ios';
     else if (/Linux/.test(ua)) os = 'linux';
-    $('html').addClass('os-' + os);
-    // Safari
-    if (/Mac OS X(?!.*Chrome)(?=.*Safari)/.test(ua)) $('html').addClass('browser-safari');
+    if (os) $('html').addClass('os-' + os);
+    // Browser
+    var browser = '';
+    if (/Mac OS X(?!.*Chrome)(?=.*Safari)/.test(ua)) browser = 'safari';
+    else if (/Trident\/7\.0/.test(ua)) browser = 'ie11';
+    if (browser) $('html').addClass('browser-' + browser);
   });
 
   /**
@@ -41,20 +44,28 @@
       var offset = $(anchor).offset();
       var offt = document.documentElement.clientWidth <= spWin['bp'] ? spWin['off'] : 0;
       var pos = !offset ? 0 : offset.top - offt;
-      $('html,body').stop().animate({ scrollTop: pos }, 'normal', 'easeOutExpo');
+      $('html,body').stop().animate({ scrollTop: pos }, 'normal', 'easing');
     };
+    // easing
+    $.extend($.easing, {
+      easing: function (x) {
+        return 1 - Math.pow(1 - x, 5);
+      }
+    });
     var _show = function (e) {
       var scrT = $(document).scrollTop();
-      var btmT = $(document).height() - document.documentElement.clientHeight - bottom;
-      gotopBtn.toggleClass('gotop-show', start <= scrT ? true : false);
-      gotopBtn.toggleClass('gotop-bottom gotop-end', btmT <= scrT ? true : false);
+      var btmT = $(document).height() - document.documentElement.clientHeight;
+      if (btmT > start) {
+        gotopBtn.toggleClass('gotop-show', start <= scrT ? true : false);
+        gotopBtn.toggleClass('gotop-bottom gotop-end', btmT - bottom <= scrT ? true : false);
+      }
     };
     // 状態
     _show();
     $(window).on('scroll resize', _show);
     // リンク
     $('a[href*="#"]').on('click', function (e) {
-      $(this).blur();
+      $(this).trigger('blur');
       var _anchor = $(this).attr('href').split('#');
       var anchor = '#PageTop';
       if (_anchor[1]) {
@@ -73,7 +84,7 @@
     });
     // トップへ
     gotop.on('click', function (e) {
-      $(this).blur();
+      $(this).trigger('blur');
       e.preventDefault();
       _move(null);
     });
@@ -196,17 +207,6 @@
       var txt = $('.comment-author-link', this).text();
       $(this).html(a);
       $('a', this).wrapInner('<span class="entry-title"></span>').append('<span class="comment-user">（' + txt + '）</span>');
-    });
-  });
-
-  /**
-   * Easing
-   */
-  $(function () {
-    $.extend($.easing, {
-      easeOutExpo: function (x, t, b, c, d) {
-        return (t == d) ? b + c : c * (-Math.pow(2, -10 * t / d) + 1) + b;
-      }
     });
   });
 })(jQuery);

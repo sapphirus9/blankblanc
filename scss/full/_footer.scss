@@ -47,9 +47,10 @@
 // footer widgets
 //--------------------------------------------------------------------
 .footer-widgets {
+  display: flex;
+  flex-wrap: wrap;
   padding-top: 30px;
   margin: 0 -15px;
-  overflow: hidden;
   .widget ul {
     font-size: 1.5rem;
   }
@@ -63,7 +64,6 @@
     border-bottom: 1px solid $base-gray-4;
   }
   > ul {
-    float: left;
     width: 25%;
     padding: 0 15px;
     box-sizing: border-box;

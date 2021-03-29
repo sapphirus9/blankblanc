@@ -33,7 +33,6 @@
   #main-screen {
     position: relative;
     min-width: 360px;
-    overflow-x: hidden;
     background-color: #f5f5f5;
   }
 
@@ -760,40 +759,6 @@
 @media (max-width: 767px) {
   .archive-tiles #no-result {
     padding: 80px 0;
-  }
-}
-@media (max-width: 767px) {
-  .archive-list .pagination {
-    margin: 15px 4.2vw 0;
-  }
-  .archive-list .pagination .page-numbers {
-    line-height: 44px;
-    width: 44px;
-    height: 44px;
-    margin: 0 4.2vw;
-  }
-  .archive-list .pagination a {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.06);
-    background-color: transparent;
-  }
-  .archive-list .pagination .current {
-    color: inherit;
-    width: auto;
-    border: none;
-    background-color: transparent;
-  }
-  .archive-list .pagination .current::after {
-    content: "ページ";
-  }
-  .archive-list .pagination .prev,
-.archive-list .pagination .next {
-    width: auto;
-    padding: 0 4.2vw;
-  }
-  .archive-list .pagination .inactive,
-.archive-list .pagination .first,
-.archive-list .pagination .last {
-    display: none;
   }
 }
 @media (max-width: 767px) {

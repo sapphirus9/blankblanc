@@ -80,7 +80,6 @@
   text-justify: inter-ideograph;
   text-align: justify;
   margin-bottom: 50px;
-  overflow: hidden;
   abbr,
   acronym {
     text-decoration: none;
@@ -181,7 +180,6 @@
   h1,
   h2,
   h3 {
-    overflow: hidden;
     &:first-of-type {
       margin-top: 0;
     }
@@ -189,7 +187,6 @@
   h4,
   h5,
   h6 {
-    overflow: hidden;
     & + p,
     &:first-of-type {
       margin-top: 0;
