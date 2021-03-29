@@ -17,6 +17,9 @@ function bb_body_id_class($classes = array()) {
   if ($bb_theme_config['mobile_nav_position'] === 'right') {
     array_push($classes, 'nav-window-right');
   }
+  if (is_admin_bar_showing()) {
+    array_push($classes, 'show-wp-admin-bar');
+  }
   if ($bb_theme_config['add_body_class']) {
     $classes = get_body_class($classes);
   }
