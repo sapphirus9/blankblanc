@@ -55,20 +55,25 @@ if (!function_exists('set_wp_head')) {
     remove_action('wp_head', 'rel_canonical');
   }
 }
-add_action('wp_head', 'set_wp_head', 3);
+add_action('init', 'set_wp_head');
 
 
 /**
  * フィード
  */
+if (!function_exists('set_automatic_feed_links')) {
+  function set_automatic_feed_links() {
+    add_theme_support('automatic-feed-links');
+  }
+}
+add_action('after_setup_theme', 'set_automatic_feed_links');
 if (!function_exists('set_feed_links')) {
   function set_feed_links() {
-    add_theme_support('automatic-feed-links');
     remove_action('wp_head', 'feed_links', 2);
     remove_action('wp_head', 'feed_links_extra', 3);
   }
 }
-add_action('wp_head', 'set_feed_links', 1);
+add_action('init', 'set_feed_links');
 if (!function_exists('bb_feed_links')) {
   function bb_feed_links($args = array()) {
     if (!current_theme_supports('automatic-feed-links')) return;
