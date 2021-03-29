@@ -5,7 +5,7 @@
  * Theme URI: https://github.com/sapphirus9/blankblanc
  * Author: Sapphirus9 (Naoki Yamamoto)
  * Author URI: https://github.com/sapphirus9
- * Version: 2.4.9.3
+ * Version: 2.4.10
  * Description: ウェブサイト+ブログを構築するためのベース用テーマとして、オリジナルのデザインやレイアウトを組み込みやすさを主眼に置いた、飾りを抑えたシンプルな2カラムタイプの HTML5 テーマです。カテゴリーやページ毎に設定した slug 名と同じスタイルシートをテーマ内に用意することで、各々スタイルの調整を行うことができます。基本 css ではレスポンシブデザインとして、767px でスマートフォン向けのレイアウト切り替えを設けています。
 
  * Tags: simple, plain, white, two-columns
@@ -131,6 +131,7 @@ a:hover {
 }
 
 #main-screen {
+  position: relative;
   min-width: 1100px;
 }
 
@@ -388,11 +389,6 @@ input:focus:-ms-input-placeholder {
   padding-bottom: 80px;
   background-color: #fff;
 }
-#contents dl,
-#contents ul,
-#contents ol {
-  overflow: hidden;
-}
 #contents > .wrap {
   padding-top: 40px;
 }
@@ -431,8 +427,14 @@ article {
 }
 
 #gotop {
-  position: relative;
   display: block;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100px;
+  height: 200px;
+  overflow: hidden;
+  pointer-events: none;
 }
 #gotop .gotop-cfg {
   display: none;
@@ -467,9 +469,7 @@ article {
   opacity: 0;
   z-index: 98;
   transition: visibility 0.5s, margin-bottom 0.5s, opacity 0.5s;
-}
-#gotop-button * {
-  font-family: "Arial Narrow", Helvetica, sans-serif;
+  pointer-events: auto;
 }
 #gotop-button .gotop-symbol {
   position: relative;
@@ -737,9 +737,6 @@ article {
 .os-windows #global-widget .widgettitle {
   font-weight: 450;
 }
-#global-widget > ul {
-  overflow: visible;
-}
 #global-widget .widget_nav_menu .menu {
   margin-bottom: 30px;
   background-color: #fff;
@@ -821,9 +818,10 @@ article {
 }
 
 .footer-widgets {
+  display: flex;
+  flex-wrap: wrap;
   padding-top: 30px;
   margin: 0 -15px;
-  overflow: hidden;
 }
 .footer-widgets .widget ul {
   font-size: 1.5rem;
@@ -841,7 +839,6 @@ article {
   font-weight: 450;
 }
 .footer-widgets > ul {
-  float: left;
   width: 25%;
   padding: 0 15px;
   box-sizing: border-box;
@@ -1405,7 +1402,6 @@ article {
   text-justify: inter-ideograph;
   text-align: justify;
   margin-bottom: 50px;
-  overflow: hidden;
 }
 .main-article .entry-body abbr,
 .main-article .entry-body acronym {
@@ -1504,20 +1500,10 @@ article {
   margin-left: auto;
   margin-right: auto;
 }
-.main-article .entry-body h1,
-.main-article .entry-body h2,
-.main-article .entry-body h3 {
-  overflow: hidden;
-}
 .main-article .entry-body h1:first-of-type,
 .main-article .entry-body h2:first-of-type,
 .main-article .entry-body h3:first-of-type {
   margin-top: 0;
-}
-.main-article .entry-body h4,
-.main-article .entry-body h5,
-.main-article .entry-body h6 {
-  overflow: hidden;
 }
 .main-article .entry-body h4 + p, .main-article .entry-body h4:first-of-type,
 .main-article .entry-body h5 + p,
@@ -2267,14 +2253,16 @@ article {
 #comments .comment-list #respond #reply-title {
   font-size: 2rem;
 }
-#comments .comment-list > li {
+#comments .comment-list > .comment {
   padding-bottom: 20px;
   margin-bottom: 20px;
   border-bottom: 1px dashed #e0e0e0;
-  overflow: hidden;
+}
+#comments .comment-list .comment > div {
+  display: flex;
+  flex-wrap: wrap;
 }
 #comments .comment-list div.avatar {
-  float: left;
   margin-right: 20px;
 }
 #comments .comment-list div.avatar .thumb {
@@ -2285,7 +2273,7 @@ article {
   margin-top: 10px;
 }
 #comments .comment-list .comment-block {
-  overflow: hidden;
+  flex: 1;
 }
 #comments .comment-list .comment-block .header {
   font-size: 1.2rem;
