@@ -83,7 +83,7 @@
       _move(anchor);
     });
     // トップへ
-    gotop.on('click', function (e) {
+    gotop.on('click', '.gotop-symbol', function (e) {
       $(this).trigger('blur');
       e.preventDefault();
       _move(null);
