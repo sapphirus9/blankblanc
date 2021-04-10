@@ -29,7 +29,7 @@
     var main_screen = '#main-screen';
     var action = 'click'; // 'touchstart mousedown';
     $(main_screen).after('<div id="nav-window-area" class="is-mobile">');
-    $(main_screen).after('<div id="main-screen-mask" class="is-mobile">');
+    $(main_screen).append('<div id="main-screen-mask" class="is-mobile">');
     $('#nav-window-area').prepend('<div id="nav-window-scroll">');
     var s_id = function (i, val) {
       return val + '-slidenav';

@@ -848,6 +848,7 @@ function bb_get_category_list($args = '') {
   }
   $args = array_merge(array(
     'posts_per_page' => 5, // デフォルト5件
+    'no_found_rows'  => true, // ページネーション不要
   ), $args);
   $cat = new WP_Query($args);
   $src = '';
