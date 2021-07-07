@@ -8,11 +8,6 @@
   font-family: "Helvetica Neue", "Segoe UI", "游ゴシック", YuGothic, "Hiragino Kaku Gothic ProN", Meiryo, "メイリオ", sans-serif;
   line-height: 1.7;
 }
-@media all and (-ms-high-contrast: none) {
-  .mce-content-body {
-    font-family: "Helvetica Neue", "Segoe UI", Meiryo, "メイリオ", sans-serif;
-  }
-}
 .mce-content-body hr {
   height: 0;
   margin: 25px 0;
@@ -118,8 +113,7 @@
   content: "";
   clear: both;
 }
-
-@media (max-width: 767px) {
+@media (max-width: 767px){
   .margin-top-lv1 {
     margin-top: 20px;
   }
@@ -147,6 +141,11 @@
 
   .section-block {
     margin-bottom: 40px;
+  }
+}
+@media all and (-ms-high-contrast: none){
+  .mce-content-body {
+    font-family: "Helvetica Neue", "Segoe UI", Meiryo, "メイリオ", sans-serif;
   }
 }
 /*# sourceMappingURL=../map/admin/editor-style.css.map */

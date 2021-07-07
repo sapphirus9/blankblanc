@@ -5,7 +5,7 @@
  * Theme URI: https://github.com/sapphirus9/blankblanc
  * Author: Sapphirus9 (Naoki Yamamoto)
  * Author URI: https://github.com/sapphirus9
- * Version: 2.4.11.2
+ * Version: 2.4.11.3
  * Description: ウェブサイト+ブログを構築するためのベース用テーマとして、オリジナルのデザインやレイアウトを組み込みやすさを主眼に置いた、飾りを抑えたシンプルな2カラムタイプの HTML5 テーマです。カテゴリーやページ毎に設定した slug 名と同じスタイルシートをテーマ内に用意することで、各々スタイルの調整を行うことができます。基本 css ではレスポンシブデザインとして、767px でスマートフォン向けのレイアウト切り替えを設けています。
 
  * Tags: simple, plain, white, two-columns
@@ -16,16 +16,14 @@
 * {
   font-family: "Helvetica Neue", "Segoe UI", "游ゴシック", YuGothic, "Hiragino Kaku Gothic ProN", Meiryo, "メイリオ", sans-serif;
 }
-@media all and (-ms-high-contrast: none) {
-  * {
-    font-family: "Helvetica Neue", "Segoe UI", Meiryo, "メイリオ", sans-serif;
-  }
-}
 
 html {
   font-size: 62.5%;
-  height: 100%;
   min-width: 320px;
+}
+
+html,body {
+  height: 100%;
 }
 
 body {
@@ -33,7 +31,6 @@ body {
   font-weight: normal;
   line-height: 1;
   line-break: strict;
-  height: 100%;
   margin: 0;
   padding: 0;
   -webkit-text-size-adjust: 100%;
@@ -106,12 +103,9 @@ input:focus, textarea:focus, select:focus, button:focus {
 
 button {
   vertical-align: top;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
 }
 
-input[type=submit], input[type=button], input[type=reset], input[type=search] {
+button,input[type=submit], input[type=button], input[type=reset], input[type=search] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -412,11 +406,8 @@ input:focus:-ms-input-placeholder {
 #one-column {
   width: 100%;
 }
-#one-column + #second-column {
-  display: none;
-}
 
-.hidden-column {
+#one-column + #second-column,.hidden-column {
   display: none;
 }
 
@@ -662,18 +653,13 @@ article {
   border-collapse: collapse;
 }
 .widget_calendar caption {
-  font-size: 1.5rem;
-  line-height: 1;
   margin-bottom: 7px;
 }
-.widget_calendar tr {
+.widget_calendar caption,.widget_calendar tr {
   font-size: 1.5rem;
   line-height: 1;
 }
-.widget_calendar th {
-  padding: 8px 0 7px;
-}
-.widget_calendar td {
+.widget_calendar th,.widget_calendar td {
   padding: 8px 0 7px;
 }
 .widget_calendar thead {
@@ -797,21 +783,10 @@ article {
   display: inline-block;
   vertical-align: top;
 }
-#global-footer .copyright .sign {
+#global-footer .copyright .sign,#global-footer .copyright .year,#global-footer .copyright .text {
   margin: 0 0.15em;
 }
-#global-footer .copyright .year {
-  margin: 0 0.15em;
-}
-#global-footer .copyright .text {
-  margin: 0 0.15em;
-}
-#global-footer .copyright .prefix {
-  display: inline-block;
-  vertical-align: top;
-  margin: 0 0.15em;
-}
-#global-footer .copyright .suffix {
+#global-footer .copyright .prefix,#global-footer .copyright .suffix {
   display: inline-block;
   vertical-align: top;
   margin: 0 0.15em;
@@ -958,11 +933,7 @@ article {
 #main-visual .page-title a {
   color: #fff;
 }
-#main-visual .mv-title {
-  font-size: 2.8rem;
-  line-height: 1.3;
-}
-#main-visual .mv-title-content p {
+#main-visual .mv-title,#main-visual .mv-title-content p {
   font-size: 2.8rem;
   line-height: 1.3;
 }
@@ -991,15 +962,6 @@ article {
 #contents .meta .author::before {
   font-family: "Material Design Icons";
   content: '\f03ea';
-}
-
-@media (min-width: 1200px) {
-  #main-visual .wrap {
-    padding-bottom: 180px;
-  }
-  #main-visual.mv-home .wrap {
-    padding-bottom: 600px;
-  }
 }
 .archive-list {
   font-size: 1.6rem;
@@ -1502,10 +1464,7 @@ article {
 }
 .main-article .entry-body h1:first-of-type,
 .main-article .entry-body h2:first-of-type,
-.main-article .entry-body h3:first-of-type {
-  margin-top: 0;
-}
-.main-article .entry-body h4 + p, .main-article .entry-body h4:first-of-type,
+.main-article .entry-body h3:first-of-type,.main-article .entry-body h4 + p, .main-article .entry-body h4:first-of-type,
 .main-article .entry-body h5 + p,
 .main-article .entry-body h5:first-of-type,
 .main-article .entry-body h6 + p,
@@ -1562,15 +1521,7 @@ article {
   border: none;
   border-bottom: 1px solid #ebebeb;
 }
-.main-article .entry-body pre {
-  position: relative;
-  font-size: 0.933333em;
-  line-height: 1.75;
-  margin: 25px 0;
-  padding: 30px;
-  background-color: #f5f5f5;
-}
-.main-article .entry-body blockquote {
+.main-article .entry-body pre,.main-article .entry-body blockquote {
   position: relative;
   font-size: 0.933333em;
   line-height: 1.75;
@@ -1582,26 +1533,22 @@ article {
   margin: 0;
 }
 .main-article .entry-body blockquote::before {
-  display: inline-block;
-  position: absolute;
   top: 3px;
   left: 5px;
-  font-family: "Material Design Icons";
   content: '\f0757';
+}
+.main-article .entry-body blockquote::before,.main-article .entry-body blockquote::after {
+  display: inline-block;
+  position: absolute;
+  font-family: "Material Design Icons";
   font-size: 3.2rem;
   line-height: 1;
   color: #d5d5d5;
 }
 .main-article .entry-body blockquote::after {
-  display: inline-block;
-  position: absolute;
   bottom: 3px;
   right: 5px;
-  font-family: "Material Design Icons";
   content: '\f027e';
-  font-size: 3.2rem;
-  line-height: 1;
-  color: #d5d5d5;
 }
 .main-article .entry-body ul,
 .main-article .entry-body ol {
@@ -1674,13 +1621,7 @@ article {
   border: 1px solid #d5d5d5;
 }
 .main-article .entry-body table thead td,
-.main-article .entry-body table tfoot td {
-  font-size: 1em;
-  padding: 7px;
-  background-color: #f5f5f5;
-  border: 1px solid #d5d5d5;
-}
-.main-article .entry-body table tbody th {
+.main-article .entry-body table tfoot td,.main-article .entry-body table tbody th {
   font-size: 1em;
   padding: 7px;
   background-color: #f5f5f5;
@@ -1711,31 +1652,7 @@ article {
 .main-article .entry-body input {
   line-height: 1.5;
 }
-.main-article .entry-body input[type=text] {
-  font-size: 1.6rem;
-  width: 100%;
-  padding: 6px;
-  border: 1px solid #d5d5d5;
-  border-radius: 2px;
-  box-sizing: border-box;
-}
-.main-article .entry-body input[type=password] {
-  font-size: 1.6rem;
-  width: 100%;
-  padding: 6px;
-  border: 1px solid #d5d5d5;
-  border-radius: 2px;
-  box-sizing: border-box;
-}
-.main-article .entry-body input[type=email] {
-  font-size: 1.6rem;
-  width: 100%;
-  padding: 6px;
-  border: 1px solid #d5d5d5;
-  border-radius: 2px;
-  box-sizing: border-box;
-}
-.main-article .entry-body input[type=url] {
+.main-article .entry-body input[type=text],.main-article .entry-body input[type=password],.main-article .entry-body input[type=email],.main-article .entry-body input[type=url] {
   font-size: 1.6rem;
   width: 100%;
   padding: 6px;
@@ -2045,9 +1962,6 @@ article {
 .main-article .link-pages .heading {
   display: inline-block;
   font-size: 1.3rem;
-  margin-right: 3px;
-}
-.main-article .link-pages .heading {
   margin-right: 10px;
 }
 .main-article .link-pages .page {
@@ -2280,12 +2194,7 @@ article {
   line-height: 1.5;
   margin-bottom: 5px;
 }
-#comments .comment-list .comment-block .author {
-  display: inline-block;
-  font-size: 1.3rem;
-  margin-right: 15px;
-}
-#comments .comment-list .comment-block .date {
+#comments .comment-list .comment-block .author,#comments .comment-list .comment-block .date {
   display: inline-block;
   font-size: 1.3rem;
   margin-right: 15px;
@@ -2429,10 +2338,7 @@ article {
 .main-article .entry-body .gallery-columns-7 .gallery-item {
   width: calc(14.28% - 16px);
 }
-.main-article .entry-body .gallery-columns-8 .gallery-item {
-  width: calc(12.5% - 16px);
-}
-.main-article .entry-body .gallery-columns-8 .gallery-item {
+.main-article .entry-body .gallery-columns-8 .gallery-item,.main-article .entry-body .gallery-columns-8 .gallery-item {
   width: calc(12.5% - 16px);
 }
 .main-article .entry-body .gallery-columns-9 .gallery-item {
@@ -2546,5 +2452,18 @@ article {
   display: block;
   content: "";
   clear: both;
+}
+@media (min-width: 1200px){
+  #main-visual .wrap {
+    padding-bottom: 180px;
+  }
+  #main-visual.mv-home .wrap {
+    padding-bottom: 600px;
+  }
+}
+@media all and (-ms-high-contrast: none){
+  * {
+    font-family: "Helvetica Neue", "Segoe UI", Meiryo, "メイリオ", sans-serif;
+  }
 }
 /*# sourceMappingURL=map/style.css.map */

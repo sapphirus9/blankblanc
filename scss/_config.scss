@@ -1,7 +1,7 @@
 //--------------------------------------------------------------------
 // config
 //--------------------------------------------------------------------
-
+@use 'sass:math';
 
 // width
 //--------------------------------------------------------------------
@@ -9,7 +9,7 @@ $base-width-full: 1050px;
 $base-min-width-full: 1100px;
 $base-max-width-mobile: 700px;
 $base-min-width-mobile: 360px;
-$base-side-space-full: ($base-min-width-full - $base-width-full) / 2;
+$base-side-space-full: math.div($base-min-width-full - $base-width-full, 2);
 $base-side-space-mobile: 4.2vw;
 
 // color
