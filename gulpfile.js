@@ -29,15 +29,15 @@ const _src = {
 const _dist = {
   css: path.resolve(_root.dist, cfg.cssDist),
 }
-const mapDir = path.resolve(cfg.distDir, cfg.mapDist)
+const mapDir = path.resolve(_root.dist, cfg.mapDist)
 const _map = {
-  scss: path.relative(mapDir, path.resolve(cfg.srcDir, cfg.scssDir)),
+  scss: cfg.distDir ? path.relative(mapDir, path.resolve(_root.src, cfg.scssDir)) : `./${cfg.scssDir}`,
 }
 
 /**
  * モジュール
  */
-const { src, dest, watch, parallel } = require('gulp')
+const { src, dest, parallel } = require('gulp')
 const cache        = require('gulp-cached')
 const notify       = require('gulp-notify')
 const plumber      = require('gulp-plumber')
