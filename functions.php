@@ -77,6 +77,8 @@ function bb_config_default() {
     'mv_home_image'       => get_template_directory_uri() . '/img/img-hero.jpg',
     // トップページメインビジュアル内コンテンツ（Home または Front Page が対象）
     'mv_home_content'     => '',
+    // テーマ用CSS/JSのバージョンパラメータを別で指定（デフォルトは false）※ブラウザキャッシュ対策用
+    'version_param'       => false,
   );
 }
 
