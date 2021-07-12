@@ -180,26 +180,32 @@
   h1,
   h2,
   h3 {
-    &:first-of-type {
+    &:first-child {
       margin-top: 0;
+    }
+    &:last-child {
+      margin-bottom: 0;
     }
   }
   h4,
   h5,
   h6 {
     & + p,
-    &:first-of-type {
+    &:first-child {
       margin-top: 0;
+    }
+    &:last-child {
+      margin-bottom: 0;
     }
   }
   p {
     font-size: 1em;
     line-height: 1.75;
     margin: 20px 0;
-    &:first-of-type {
+    &:first-child {
       margin-top: 0;
     }
-    &:last-of-type {
+    &:last-child {
       margin-bottom: 0;
     }
   }

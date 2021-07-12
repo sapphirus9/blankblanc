@@ -5,7 +5,7 @@
  * Theme URI: https://github.com/sapphirus9/blankblanc
  * Author: Sapphirus9 (Naoki Yamamoto)
  * Author URI: https://github.com/sapphirus9
- * Version: 2.4.12
+ * Version: 2.4.13
  * Description: ウェブサイト+ブログを構築するためのベース用テーマとして、オリジナルのデザインやレイアウトを組み込みやすさを主眼に置いた、飾りを抑えたシンプルな2カラムタイプの HTML5 テーマです。カテゴリーやページ毎に設定した slug 名と同じスタイルシートをテーマ内に用意することで、各々スタイルの調整を行うことができます。基本 css ではレスポンシブデザインとして、767px でスマートフォン向けのレイアウト切り替えを設けています。
 
  * Tags: simple, plain, white, two-columns
@@ -1462,24 +1462,37 @@ article {
   margin-left: auto;
   margin-right: auto;
 }
-.main-article .entry-body h1:first-of-type,
-.main-article .entry-body h2:first-of-type,
-.main-article .entry-body h3:first-of-type,.main-article .entry-body h4 + p, .main-article .entry-body h4:first-of-type,
-.main-article .entry-body h5 + p,
-.main-article .entry-body h5:first-of-type,
-.main-article .entry-body h6 + p,
-.main-article .entry-body h6:first-of-type {
+.main-article .entry-body h1:first-child,
+.main-article .entry-body h2:first-child,
+.main-article .entry-body h3:first-child {
   margin-top: 0;
+}
+.main-article .entry-body h1:last-child,
+.main-article .entry-body h2:last-child,
+.main-article .entry-body h3:last-child {
+  margin-bottom: 0;
+}
+.main-article .entry-body h4 + p, .main-article .entry-body h4:first-child,
+.main-article .entry-body h5 + p,
+.main-article .entry-body h5:first-child,
+.main-article .entry-body h6 + p,
+.main-article .entry-body h6:first-child {
+  margin-top: 0;
+}
+.main-article .entry-body h4:last-child,
+.main-article .entry-body h5:last-child,
+.main-article .entry-body h6:last-child {
+  margin-bottom: 0;
 }
 .main-article .entry-body p {
   font-size: 1em;
   line-height: 1.75;
   margin: 20px 0;
 }
-.main-article .entry-body p:first-of-type {
+.main-article .entry-body p:first-child {
   margin-top: 0;
 }
-.main-article .entry-body p:last-of-type {
+.main-article .entry-body p:last-child {
   margin-bottom: 0;
 }
 .main-article .entry-body h1 {
