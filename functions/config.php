@@ -54,3 +54,13 @@ add_action('after_setup_theme', 'bb_setup_theme_config');
 require_once __DIR__ . '/core.php';
 require_once __DIR__ . '/basis.php';
 require_once __DIR__ . '/extensions.php';
+
+
+/**
+ * ウィジェットのブロックエディターを停止
+ * ※プラグイン等で一部不具合がでるため暫定的な処置
+ */
+function temporary_theme_support() {
+  remove_theme_support('widgets-block-editor');
+}
+add_action('after_setup_theme', 'temporary_theme_support');

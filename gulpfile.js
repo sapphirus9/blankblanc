@@ -2,16 +2,16 @@
  * 設定
  */
 const cfg = {
-  mode     : 'development', // development または production
+  mode     : 'production', // development または production
 
   rootDir  : '', // 対象のトップディレクトリ
-  srcDir   : '', // ソースファイルのディレクトリ
+  srcDir   : 'src', // ソースファイルのディレクトリ
   scssDir  : 'scss', // 対象の scss ディレクトリ
   scssFiles: '**/*.scss', // 対象の scss ファイル
 
   distDir  : '', // 出力対象のディレクトリ
-  cssDist  : '', // css の出力先ディレクトリ
-  mapDist  : 'map', // map の出力先ディレクトリ（css 内）
+  cssDist  : 'css', // css の出力先ディレクトリ
+  mapDist  : '', // map の出力先ディレクトリ（css 内）
 }
 
 const path = require('path')
@@ -31,7 +31,7 @@ const _dist = {
 }
 const mapDir = path.resolve(_root.dist, cfg.mapDist)
 const _map = {
-  scss: cfg.distDir ? path.relative(mapDir, path.resolve(_root.src, cfg.scssDir)) : `./${cfg.scssDir}`,
+  scss: path.relative(path.resolve(_root.dist, cfg.cssDist), path.resolve(_root.src, cfg.scssDir)),
 }
 
 /**
@@ -47,6 +47,7 @@ const sass         = require('gulp-sass')(require('sass'))
 const sourcemaps   = require('gulp-sourcemaps')
 const autoprefixer = require('autoprefixer')
 const mergerules   = require('postcss-merge-rules')
+const normcharset  = require('postcss-normalize-charset')
 const smqueries    = require('postcss-sort-media-queries')
 
 /**
@@ -86,6 +87,7 @@ const ScssProd = () =>
     }))
     .pipe(postcss([
       autoprefixer({ cascade: false }),
+      normcharset(),
       mergerules(),
       smqueries()
     ]))
