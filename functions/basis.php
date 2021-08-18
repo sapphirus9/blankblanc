@@ -212,7 +212,7 @@ if (!function_exists('add_styles_scripts')) {
     wp_enqueue_script('vendors-jquery', get_template_directory_uri() . '/vendors/jquery/jquery-3.6.0.min.js', array(), null, false);
     wp_enqueue_style('materialdesign-webfont', get_template_directory_uri() . '/vendors/materialdesign-webfont/css/materialdesignicons.min.css');
     if ($bb_theme_config['with_parent_css'] === true) {
-      wp_enqueue_style('style', get_template_directory_uri() . '/style.css', array(), VERSION_PARAM);
+      wp_enqueue_style('style', get_template_directory_uri() . '/css/theme.css', array(), VERSION_PARAM);
     }
     // comments
     if (is_singular() && comments_open() && get_option('thread_comments')) {
@@ -226,9 +226,6 @@ add_action('wp_enqueue_scripts', 'add_styles_scripts');
 if (!function_exists('add_mobile_styles_scripts')) {
   function add_mobile_styles_scripts() {
     global $bb_theme_config;
-    if ($bb_theme_config['with_parent_css'] === true) {
-      wp_enqueue_style('mobile', get_template_directory_uri() . '/style-mobile.css', array(), VERSION_PARAM);
-    }
     if ($bb_theme_config['with_parent_script'] === true) {
       wp_enqueue_script('mobile-nav', get_template_directory_uri() . '/js/mobile-nav.js', array(), VERSION_PARAM, true);
     }
@@ -349,17 +346,6 @@ if (is_child_theme()) {
     }
   }
   add_action('wp_enqueue_scripts', 'theme_styles', 30);
-
-  // モバイル用 css
-  if (!function_exists('theme_mobile_styles')) {
-    function theme_mobile_styles() {
-      $filename = '/style-mobile.css';
-      if (is_file(get_stylesheet_directory() . $filename)) {
-        wp_enqueue_style('mobile-child', get_stylesheet_directory_uri() . $filename, array(), VERSION_PARAM);
-      }
-    }
-  }
-  add_action('wp_enqueue_scripts', 'theme_mobile_styles', 50);
 }
 
 

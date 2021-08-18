@@ -1,0 +1,99 @@
+//--------------------------------------------------------------------
+// misc
+//--------------------------------------------------------------------
+
+// search
+//--------------------------------------------------------------------
+.widget_search.widget label {
+  display: block;
+}
+.search-form {
+  position: relative;
+  @include media-type(xl) {
+    margin: 0 $base-side-space-mobile;
+  }
+  .screen-reader-text {
+    display: none;
+  }
+  label {
+    position: relative;
+    &::after {
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      right: 6px;
+      color: $base-gray-4;
+      @include icon-font('f0349');
+      font-size: 24px;
+      line-height: 1;
+      margin-top: -.46em;
+      cursor: pointer;
+      transition: all .2s;
+    }
+    &.hover {
+      &::after {
+        color: $base-gray-3;
+      }
+    }
+  }
+  .search-field {
+    font-size: 14px;
+    vertical-align: middle;
+    width: 100%;
+    padding: 8px 35px 8px 8px;
+    background-color: $base-white;
+    border: 1px solid $base-gray-5;
+    border-radius: 2px;
+    box-sizing: border-box;
+    @include media-type(xl) {
+      border-color: $base-gray-4;
+    }
+  }
+  .search-submit {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    color: transparent;
+    width: 35px;
+    padding: 0;
+    background-color: transparent;
+    border-width: 0;
+    cursor: pointer;
+    &:focus {
+      border-width: 0 !important;
+      box-shadow: none;
+    }
+  }
+}
+
+// error404
+//--------------------------------------------------------------------
+#contents.error404 {
+  > .wrap {
+    padding: 140px 0 140px;
+    @include media-type(xl) {
+      padding: 100px 0 50px;
+    }
+  }
+  .title {
+    color: $base-gray-5;
+    font-size: 4rem;
+    font-family: Arial, Helvetica, sans-serif;
+    @include font-weight(normal);
+    line-height: 1;
+    text-align: center;
+    @include media-type(xl) {
+      font-size: 3.8rem;
+    }
+  }
+  p {
+    font-size: 1.4rem;
+    line-height: 1;
+    text-align: center;
+    margin-top: 10px;
+    @include media-type(xl) {
+      font-size: 1.3rem;
+    }
+  }
+}

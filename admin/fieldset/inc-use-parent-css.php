@@ -2,8 +2,8 @@
   <fieldset class="use-parent-css">
     <div class="col-left">
       <div class="label-title">親テーマの CSS を利用</div>
-      <div class="note">子テーマを利用時に親テーマの CSS ファイル（style.css, style-mobile.css）を読み込みます。<br>
-      ※指定しない場合は、親テーマの CSS を子テーマにコピーして利用してください。</div>
+      <div class="note">子テーマを利用時に親テーマの CSS ファイル（theme.css）を読み込みます。<br>
+      ※指定しない場合は、親テーマの CSS を子テーマにコピー（style.css）して利用してください。</div>
     </div>
     <div class="col-right">
       <div class="group">

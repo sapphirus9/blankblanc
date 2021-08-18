@@ -1,0 +1,200 @@
+//--------------------------------------------------------------------
+// header
+//--------------------------------------------------------------------
+
+// global header
+//--------------------------------------------------------------------
+#global-header {
+  background-color: $base-white;
+  @include media-type(xl) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba($base-white, .8);
+    border-bottom: 1px solid $base-gray-5;
+    z-index: 1000;
+  }
+  .wrap {
+    height: 100px;
+    @include media-type(xl) {
+      height: 54px;
+    }
+  }
+  .logo {
+    position: absolute;
+    top: 18px;
+    left: $base-side-space-full;
+    @include media-type(xl) {
+      top: 9px;
+      left: 0;
+      right: 0;
+      text-align: center;
+    }
+    a {
+      display: block;
+      text-decoration: none;
+      @include media-type(xl) {
+        display: inline-block;
+      }
+    }
+    img {
+      width: auto;
+      height: 40px;
+      @include media-type(xl) {
+        height: 22px;
+      }
+    }
+  }
+  .site-title {
+    display: block;
+    font-size: 4rem;
+    @include media-type(xl) {
+      font-size: 2rem;
+    }
+  }
+  .copy {
+    position: absolute;
+    top: 68px;
+    left: $base-side-space-full;
+    color: $base-gray-3;
+    font-size: 1.3rem;
+    @include font-weight(normal);
+    @include media-type(xl) {
+      top: auto;
+      left: 0;
+      right: 0;
+      bottom: 6px;
+      font-size: 1.125rem;
+      text-align: center;
+    }
+  }
+}
+
+#header-nav {
+  position: absolute;
+  top: 15px;
+  right: $base-side-space-full;
+  @include media-type(xl) {
+    display: none;
+  }
+  .menu {
+    font-size: 0;
+    > li {
+      display: inline-block;
+      font-size: 1.5rem;
+      line-height: 1.3;
+      margin-right: 30px;
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+// global nav
+//--------------------------------------------------------------------
+#global-nav {
+  background-color: $base-gray-7;
+  @include media-type(xl) {
+    display: none;
+  }
+  ul {
+    font-size: 1.4rem;
+  }
+  .menu {
+    padding-bottom: 40px;
+    > li {
+      position: relative;
+      float: left;
+      border-right: 1px solid $base-gray-7;
+      box-sizing: border-box;
+      > a {
+        display: block;
+        font-size: 1.5rem;
+        text-align: center;
+        line-height: 40px;
+        height: 40px;
+        padding: 0 20px;
+        background-color: $base-gray-6;
+        box-sizing: border-box;
+      }
+      a {
+        color: $base-gray-3;
+        transition: all .2s;
+        &:hover {
+          color: $base-gray-2;
+          text-decoration: none;
+          background-color: $base-gray-5;
+        }
+      }
+      &.current-menu-parent > a,
+      &.current-menu-item > a {
+        background-color: $base-gray-5;
+      }
+      // pull-down menu
+      > .sub-menu {
+        position: absolute;
+        top: auto;
+        left: 0;
+        min-width: 160px;
+        padding: 0;
+        background-color: $base-white;
+        border: 1px solid $base-gray-5;
+        z-index: 99;
+        box-sizing: border-box;
+        visibility: hidden;
+        li {
+          border-top: 1px solid $base-gray-6;
+          a {
+            display: block;
+            text-align: left;
+            font-size: 1.4rem;
+            line-height: 1.3;
+            white-space: nowrap;
+            width: auto;
+            height: auto;
+            padding: 10px 15px;
+            &:hover {
+              text-decoration: none;
+              background-color: $base-gray-7;
+            }
+          }
+          > .sub-menu > li {
+            border-top-style: dashed;
+            > a {
+              font-size: .933333em;
+              line-height: 1.4;
+              padding-left: 12px;
+              &::before {
+                @include icon-font('f0142');
+                color: $base-gray-4;
+                vertical-align: -1px;
+                margin-right: 3px;
+              }
+            }
+          }
+          &.current-menu-item > a {
+            background-color: $base-gray-7;
+          }
+        }
+        > li:first-child {
+          border-top: none;
+        }
+      }
+      // submenu animation
+      .sub-menu {
+        max-height: 0; // accordion
+        // opacity: 0; // fade
+        transition: all 200ms ease-out;
+        overflow: hidden;
+      }
+      &:hover .sub-menu {
+        max-height: 40vh; // accordion
+        // opacity: 1; // fade
+        transition: all 400ms linear;
+        visibility: visible;
+      }
+    }
+  }
+}

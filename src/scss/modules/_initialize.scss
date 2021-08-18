@@ -1,0 +1,105 @@
+//--------------------------------------------------------------------
+// initialize
+//--------------------------------------------------------------------
+* {
+  font-family: 'Helvetica Neue', 'Segoe UI', '游ゴシック', YuGothic, 'Hiragino Kaku Gothic ProN', Meiryo, 'メイリオ', sans-serif;
+  @media all and (-ms-high-contrast: none) { // ie11
+    font-family: 'Helvetica Neue', 'Segoe UI', Meiryo, 'メイリオ', sans-serif;
+  }
+}
+
+html {
+  font-size: 62.5%;
+  height: 100%;
+  min-width: 320px;
+}
+
+body {
+  position: relative;
+  @include font-weight(normal);
+  line-height: 1;
+  line-break: strict;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  text-size-adjust: 100%;
+  @include media-type(xl) {
+    position: static;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow-x: hidden;
+  }
+}
+
+h1, h2, h3, h4, h5, h6, p,
+dl, ul, ol, table, blockquote {
+  font-size: 1rem;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+}
+
+dt, dd, li {
+  margin: 0;
+  padding: 0;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+  border: none;
+  @include media-type(xl) {
+    max-width: 100%;
+  }
+}
+
+a {
+  &:link, &:visited {
+    text-decoration: none;
+  }
+  &:hover, &:active {
+    text-decoration: underline;
+    @include media-type(xl) {
+      text-decoration: none;
+    }
+  }
+}
+
+em {
+  font-style: normal;
+}
+
+h1, h2, h3, h4, h5, h6, th, strong {
+  @include font-weight(bold);
+}
+
+form {
+  margin: 0;
+  padding: 0;
+}
+
+input, textarea, select, button {
+  @include font-weight(normal);
+  margin: 0;
+  transition: all .2s;
+  outline: none;
+  &:focus {
+    border: 1px solid #6ac !important;
+    box-shadow: 0 0 8px -2px #6af;
+  }
+}
+
+button {
+  vertical-align: top;
+  appearance: none;
+}
+
+input {
+  &[type='submit'], &[type='button'], &[type='reset'], &[type='search'] {
+    appearance: none;
+  }
+}

@@ -1,0 +1,270 @@
+//--------------------------------------------------------------------
+// comment
+//--------------------------------------------------------------------
+#comments {
+  text-justify: auto;
+  text-align: left;
+  margin-top: 40px;
+  padding-top: 40px;
+  border-top: 1px solid $base-gray-5;
+  @include media-type(lg) {
+    font-size: 1.4rem;
+    margin-top: 40px;
+    padding-top: 20px;
+    @include media-type(lg) {
+      font-size: 1.8rem;
+    }
+  }
+  #comments-title {
+    font-size: 2.2rem;
+    @include font-weight(normal);
+    margin-bottom: 15px;
+  }
+  #reply-title {
+    font-size: 2rem;
+    @include font-weight(normal);
+    margin-bottom: 10px;
+    @include media-type(lg) {
+      font-size: 1.7rem;
+    }
+    small {
+      display: inline-block;
+      font-size: 1.4rem;
+      vertical-align: middle;
+      margin: -2px 0 0 8px;
+      @include media-type(lg) {
+        font-size: 1.2rem;
+      }
+    }
+    a {
+      color: $base-white;
+      text-decoration: none;
+      display: inline-block;
+      padding: 3px 9px 3px 6px;
+      background-color: $base-gray-4;
+      border-radius: 50px;
+      @include media-type(lg) {
+        padding: 2px 8px;
+      }
+      &::before {
+        @include icon-font('f0156');
+        margin-right: .2em;
+      }
+      &:hover {
+        background-color: $base-gray-3;
+      }
+    }
+  }
+  .comment-list {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    list-style: none;
+    @include media-type(lg) {
+      overflow: visible;
+    }
+    #respond {
+      margin: 10px 0 30px;
+      padding-top: 15px;
+      border-top: 1px dotted $base-gray-6;
+      #reply-title {
+        font-size: 2rem;
+        @include media-type(lg) {
+          font-size: 1.7rem;
+        }
+      }
+    }
+    > .comment {
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+      border-bottom: 1px dashed $base-gray-5;
+    }
+    .comment {
+      @include media-type(lg) {
+        overflow: visible;
+      }
+      > div {
+        display: flex;
+        flex-wrap: wrap;
+      }
+    }
+    div.avatar {
+      margin-right: 20px;
+      @include media-type(lg) {
+        margin-right: 10px;
+      }
+      .thumb {
+        overflow: hidden;
+      }
+      .reply {
+        font-size: 1.2rem;
+        margin-top: 10px;
+      }
+    }
+    .comment-block {
+      flex: 1;
+      .header {
+        font-size: 1.2rem;
+        line-height: 1.5;
+        margin-bottom: 5px;
+        @include media-type(lg) {
+          font-size: 1.2rem;
+        }
+      }
+      .author {
+        display: inline-block;
+        font-size: 1.3rem;
+        margin-right: 15px;
+        @include media-type(lg) {
+          margin-right: 10px;
+        }
+      }
+      .date {
+        display: inline-block;
+        font-size: 1.3rem;
+        margin-right: 15px;
+        @include media-type(lg) {
+          margin-right: 10px;
+        }
+        .year,
+        .month,
+        .day {
+          margin-right: 3px;
+          @include media-type(lg) {
+            margin-right: 0;
+          }
+        }
+      }
+      .comment-text {
+        text-justify: inter-ideograph;
+        text-align: justify;
+        p {
+          font-size: 1.4rem;
+          line-height: 1.75;
+        }
+      }
+      .awaiting {
+        color: $base-red-1;
+        margin-bottom: 3px;
+      }
+    }
+    .children {
+      font-size: 1.5rem;
+      margin: 20px 0 0 30px;
+      @include media-type(lg) {
+        margin: 20px 0 0 15px;
+        overflow: visible;
+      }
+    }
+  }
+  #respond {
+    position: relative;
+    width: 500px;
+    @include media-type(lg) {
+      width: auto;
+    }
+    p {
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+    .not-publish {
+      line-height: 1.3;
+    }
+    .logged-in-as {
+      font-size: 1.4rem;
+    }
+    label {
+      display: inline-block;
+      font-size: 1.4rem;
+      line-height: 1.3;
+      margin-bottom: 3px;
+    }
+    input[type='text'] {
+      font-size: 1.5rem;
+      line-height: 1.5;
+      width: 100%;
+      padding: 5px;
+      border: 1px solid $base-gray-5;
+      border-radius: 2px;
+      box-sizing: border-box;
+      @include media-type(lg) {
+        font-size: 1.7rem;
+        padding: 8px;
+      }
+    }
+    input[type='submit'] {
+      color: $base-white;
+      font-size: 1.5rem;
+      line-height: 1.5;
+      height: 40px;
+      width: 160px;
+      background-color: $link-color;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      @include media-type(lg) {
+        font-size: 1.7rem;
+      }
+      &:hover {
+        background-color: $btn-color-hover;
+      }
+    }
+    textarea {
+      font-size: 1.5rem;
+      vertical-align: top;
+      width: 100%;
+      height: 150px;
+      padding: 5px;
+      border: 1px solid $base-gray-5;
+      border-radius: 2px;
+      box-sizing: border-box;
+      @include media-type(lg) {
+        font-size: 1.7rem;
+        height: 200px;
+        padding: 8px;
+      }
+    }
+    .inputtext {
+      @include media-type(lg) {
+        width: auto;
+      }
+    }
+    .required {
+      color: $base-red-1;
+      font-size: 1.2rem;
+    }
+    .form-submit {
+      clear: both;
+      margin-bottom: 0;
+      padding-top: 5px;
+      @include media-type(lg) {
+        text-align: center;
+        margin-top: 20px;
+      }
+    }
+    .not-publish {
+      display: inline-block;
+      font-size: 1.2rem;
+      @include media-type(lg) {
+        display: block;
+        margin-bottom: 5px;
+      }
+    }
+  }
+  .comment-notes {
+    position: absolute;
+    top: 32px;
+    right: 0;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    width: 235px;
+    padding: 0 15px;
+    background-color: $base-gray-7;
+    box-sizing: border-box;
+    @include media-type(lg) {
+      display: none;
+    }
+    li {
+      margin: 20px 0;
+    }
+  }
+}
