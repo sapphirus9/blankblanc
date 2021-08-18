@@ -174,4 +174,4 @@ if (!function_exists('customize_tiny_mce')) {
   }
 }
 add_filter('tiny_mce_before_init', 'customize_tiny_mce', 1000);
-add_editor_style('admin/editor-style.css');
+add_editor_style('admin/css/editor-style.css');

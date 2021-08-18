@@ -43,7 +43,7 @@ class bbMainvisualPostMeta
   // 追加ボックス
   public function mainvisual_post_meta() {
     global $post;
-    wp_enqueue_script('bb-theme-admin-js', get_template_directory_uri() . '/admin/bb-theme-admin.js');
+    wp_enqueue_script('bb-theme-admin-js', get_template_directory_uri() . '/admin/js/bb-theme-admin.js');
     wp_enqueue_media();
     $bb_mv_id = get_post_meta($post->ID, 'bb_mainvisual', true);
     ?>
@@ -114,7 +114,7 @@ class bbMainvisualTermMeta
 
   // 新規
   public function mainvisual_add_form_fields($taxonomy) {
-    wp_enqueue_script('bb-theme-admin-js', get_template_directory_uri() . '/admin/bb-theme-admin.js');
+    wp_enqueue_script('bb-theme-admin-js', get_template_directory_uri() . '/admin/js/bb-theme-admin.js');
     wp_enqueue_media();
     $bb_mv_id  = '';
     $bb_mv_img = '';
@@ -136,7 +136,7 @@ class bbMainvisualTermMeta
 
   // 編集
   public function mainvisual_edit_form_fields($tag, $taxonomy = null) {
-    wp_enqueue_script('bb-theme-admin-js', get_template_directory_uri() . '/admin/bb-theme-admin.js');
+    wp_enqueue_script('bb-theme-admin-js', get_template_directory_uri() . '/admin/js/bb-theme-admin.js');
     wp_enqueue_media();
     $bb_mv_id = get_term_meta($tag->term_id, 'bb_mainvisual', true);
     ?>

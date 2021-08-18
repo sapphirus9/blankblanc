@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+/**
+ * Theme Name: BlankBlanc
+ * Author: Naoki Yamamoto
+ * Description: 管理画面（編集）用スタイルシートです。
+ */
+
+@import '../../../src/scss/modules/config';
+
+.mce-content-body {
+  font-family: 'Helvetica Neue', 'Segoe UI', '游ゴシック', YuGothic, 'Hiragino Kaku Gothic ProN', Meiryo, 'メイリオ', sans-serif;
+  line-height: 1.7;
+  @media all and (-ms-high-contrast: none) { // ie11
+    font-family: 'Helvetica Neue', 'Segoe UI', Meiryo, 'メイリオ', sans-serif;
+  }
+  hr {
+    height: 0;
+    margin: 25px 0;
+    border: none;
+    border-bottom: 1px solid $base-gray-6;
+  }
+}
+
+@import '../../../src/scss/modules/content-tinymce';
