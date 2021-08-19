@@ -4,19 +4,15 @@
 ウェブサイト+ブログを構築するためのベース用テーマとして、オリジナルのデザインやレイアウトを組み込みやすさを主眼に置いた、飾りを抑えたシンプルな2カラムタイプの HTML5 テーマです。
 
 カテゴリーやページ毎に設定した slug 名と同じスタイルシートをテーマ内に用意することで、各々スタイルの調整を行うことができます。<br>
-基本 CSS ではレスポンシブデザインとして、767px でスマートフォン向けのレイアウト切り替えを設けています。
+基本 CSS ではレスポンシブデザインとして、767px でスマートフォン向けのレイアウト切り替えを設けています。<br>
 
+<a href="https://user-images.githubusercontent.com/7519663/88454183-aff33280-cea8-11ea-8c75-87935530a8e2.jpg" target="_blank"><img src="https://user-images.githubusercontent.com/7519663/88454183-aff33280-cea8-11ea-8c75-87935530a8e2.jpg" title="フロントページ (front page)" width="30%"></a>&emsp;
+<a href="https://user-images.githubusercontent.com/7519663/88457674-4e8c8d00-cec3-11ea-9026-f96248d70ea7.jpg" target="_blank"><img src="https://user-images.githubusercontent.com/7519663/88457674-4e8c8d00-cec3-11ea-9026-f96248d70ea7.jpg" title="一覧ページ (archive)" width="30%"></a>&emsp;
+<a href="https://user-images.githubusercontent.com/7519663/88457677-51877d80-cec3-11ea-84dc-ddfa5ccfae1e.jpg" target="_blank"><img src="https://user-images.githubusercontent.com/7519663/88457677-51877d80-cec3-11ea-84dc-ddfa5ccfae1e.jpg" title="投稿ページ (single)" width="30%"></a>&emsp;
 <br>
-
-<a href="https://user-images.githubusercontent.com/7519663/88454183-aff33280-cea8-11ea-8c75-87935530a8e2.jpg" target="_blank"><img src="https://user-images.githubusercontent.com/7519663/88454183-aff33280-cea8-11ea-8c75-87935530a8e2.jpg" title="フロントページ (front page)" width="30%"></a>
-&emsp;<a href="https://user-images.githubusercontent.com/7519663/88457674-4e8c8d00-cec3-11ea-9026-f96248d70ea7.jpg" target="_blank"><img src="https://user-images.githubusercontent.com/7519663/88457674-4e8c8d00-cec3-11ea-9026-f96248d70ea7.jpg" title="一覧ページ (archive)" width="30%"></a>
-&emsp;<a href="https://user-images.githubusercontent.com/7519663/88457677-51877d80-cec3-11ea-84dc-ddfa5ccfae1e.jpg" target="_blank"><img src="https://user-images.githubusercontent.com/7519663/88457677-51877d80-cec3-11ea-84dc-ddfa5ccfae1e.jpg" title="投稿ページ (single)" width="30%"></a>
-
-&emsp;<a href="https://user-images.githubusercontent.com/7519663/88469932-90541c80-cf31-11ea-8bb6-711ba5ba2dca.jpg" target="_blank"><img src="https://user-images.githubusercontent.com/7519663/88469932-90541c80-cf31-11ea-8bb6-711ba5ba2dca.jpg" title="タイル状の一覧ページ［htmlクラス指定］ (archive)" width="30%"></a>
-&emsp;<a href="https://user-images.githubusercontent.com/7519663/88457680-53e9d780-cec3-11ea-8e3f-3af63617e890.jpg" target="_blank"><img src="https://user-images.githubusercontent.com/7519663/88457680-53e9d780-cec3-11ea-8e3f-3af63617e890.jpg" title="テーマオプション" width="30%"></a>
-&emsp;<a href="https://user-images.githubusercontent.com/7519663/88469918-6c90d680-cf31-11ea-85ea-4f81ac7f8795.jpg" target="_blank"><img src="https://user-images.githubusercontent.com/7519663/88469918-6c90d680-cf31-11ea-85ea-4f81ac7f8795.jpg" title="テーマオプション" width="30%"></a>
-
-<br>
+<a href="https://user-images.githubusercontent.com/7519663/88469932-90541c80-cf31-11ea-8bb6-711ba5ba2dca.jpg" target="_blank"><img src="https://user-images.githubusercontent.com/7519663/88469932-90541c80-cf31-11ea-8bb6-711ba5ba2dca.jpg" title="タイル状の一覧ページ［htmlクラス指定］ (archive)" width="30%"></a>&emsp;
+<a href="https://user-images.githubusercontent.com/7519663/88457680-53e9d780-cec3-11ea-8e3f-3af63617e890.jpg" target="_blank"><img src="https://user-images.githubusercontent.com/7519663/88457680-53e9d780-cec3-11ea-8e3f-3af63617e890.jpg" title="テーマオプション" width="30%"></a>&emsp;
+<a href="https://user-images.githubusercontent.com/7519663/88469918-6c90d680-cf31-11ea-85ea-4f81ac7f8795.jpg" target="_blank"><img src="https://user-images.githubusercontent.com/7519663/88469918-6c90d680-cf31-11ea-85ea-4f81ac7f8795.jpg" title="テーマオプション" width="30%"></a>&emsp;
 
 #### ～ ご利用の前に ～
 - サイトに合わせて CSS 等でデザイン加工やレイアウトを行って利用されることを前提としていますので、完成されたデザインテーマを望まれる方の用途には向いておりません。
@@ -25,14 +21,9 @@
 - メインビジュアル機能は限定（試用的な期間）公開とさせてただいております。
 - BlankBlanc は日本語向けテーマです。(Language: Japanese)
 
-
-<br>
-
 ## 動作要件
 * WordPress 4.7 以降
 * PHP 5.6.20 以降
-
-<br>
 
 ## 基本設定
 ### 初期値
@@ -77,7 +68,7 @@
 |body に body_class を追加|add_body_class|bool|false|
 |トップページ用メインビジュアル|mv_home_image|url|get_template_directory_uri() . '/img/img-hero.jpg'|
 |トップページ用メインビジュアル内コンテンツ|mv_home_content|html|空|
-<br>
+|テーマ用CSS/JSのバージョンパラメータを別で指定（デフォルトは false）※ブラウザキャッシュ対策用|version_param|false<br>またはバージョン番号等|false|<br>
 
 ## ライセンス
 BlankBlanc のテーマに含まれるオリジナルについては、すべて **GPLv2 ライセンス**です。
@@ -88,7 +79,6 @@ BlankBlanc のテーマに含まれるオリジナルについては、すべて
 * [jQuery](https://jquery.com/) - [MIT License](https://jquery.org/license/)
 * [Material Design Icons](https://materialdesignicons.com/) - [SIL Open Font License 1.1](http://scripts.sil.org/cms/scripts/page.php?item_id=OFL_web)
 
-<br>
 
 ## 付記
 動作の不具合などが見つかるかもしれません。予めご了承ください。<br>
