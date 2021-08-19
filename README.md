@@ -4,19 +4,12 @@
 ウェブサイト+ブログを構築するためのベース用テーマとして、オリジナルのデザインやレイアウトを組み込みやすさを主眼に置いた、飾りを抑えたシンプルな2カラムタイプの HTML5 テーマです。
 
 カテゴリーやページ毎に設定した slug 名と同じスタイルシートをテーマ内に用意することで、各々スタイルの調整を行うことができます。<br>
-<<<<<<< HEAD
 基本 CSS ではレスポンシブデザインとして、767px でスマートフォン向けのレイアウト切り替えを設けています。<br>
-=======
-基本 CSS ではレスポンシブデザインとして、767px でスマートフォン向けのレイアウト切り替えを設けています。
->>>>>>> 2cf2ec2972b841a3f1536e6263c3902f93e84dcc
 
 <a href="https://user-images.githubusercontent.com/7519663/88454183-aff33280-cea8-11ea-8c75-87935530a8e2.jpg" target="_blank"><img src="https://user-images.githubusercontent.com/7519663/88454183-aff33280-cea8-11ea-8c75-87935530a8e2.jpg" title="フロントページ (front page)" width="30%"></a>&emsp;
 <a href="https://user-images.githubusercontent.com/7519663/88457674-4e8c8d00-cec3-11ea-9026-f96248d70ea7.jpg" target="_blank"><img src="https://user-images.githubusercontent.com/7519663/88457674-4e8c8d00-cec3-11ea-9026-f96248d70ea7.jpg" title="一覧ページ (archive)" width="30%"></a>&emsp;
 <a href="https://user-images.githubusercontent.com/7519663/88457677-51877d80-cec3-11ea-84dc-ddfa5ccfae1e.jpg" target="_blank"><img src="https://user-images.githubusercontent.com/7519663/88457677-51877d80-cec3-11ea-84dc-ddfa5ccfae1e.jpg" title="投稿ページ (single)" width="30%"></a>&emsp;
-<<<<<<< HEAD
 <br>
-=======
->>>>>>> 2cf2ec2972b841a3f1536e6263c3902f93e84dcc
 <a href="https://user-images.githubusercontent.com/7519663/88469932-90541c80-cf31-11ea-8bb6-711ba5ba2dca.jpg" target="_blank"><img src="https://user-images.githubusercontent.com/7519663/88469932-90541c80-cf31-11ea-8bb6-711ba5ba2dca.jpg" title="タイル状の一覧ページ［htmlクラス指定］ (archive)" width="30%"></a>&emsp;
 <a href="https://user-images.githubusercontent.com/7519663/88457680-53e9d780-cec3-11ea-8e3f-3af63617e890.jpg" target="_blank"><img src="https://user-images.githubusercontent.com/7519663/88457680-53e9d780-cec3-11ea-8e3f-3af63617e890.jpg" title="テーマオプション" width="30%"></a>&emsp;
 <a href="https://user-images.githubusercontent.com/7519663/88469918-6c90d680-cf31-11ea-85ea-4f81ac7f8795.jpg" target="_blank"><img src="https://user-images.githubusercontent.com/7519663/88469918-6c90d680-cf31-11ea-85ea-4f81ac7f8795.jpg" title="テーマオプション" width="30%"></a>&emsp;
