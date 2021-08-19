@@ -29,9 +29,8 @@ const _src = {
 const _dist = {
   css: path.resolve(_root.dist, cfg.cssDist),
 }
-const mapDir = path.resolve(_root.dist, cfg.mapDist)
 const _map = {
-  scss: path.relative(path.resolve(_root.dist, cfg.cssDist), path.resolve(_root.src, cfg.scssDir)),
+  scss: './' + path.relative(path.resolve(_root.dist, cfg.cssDist), path.resolve(_root.src, cfg.scssDir)),
 }
 
 /**
