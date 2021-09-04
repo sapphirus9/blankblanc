@@ -8,7 +8,7 @@
  *--------------------------------------------------------------------
  */
 
-@import 'modules/config';
+@use 'modules/config';
 @import 'modules/initialize';
 @import 'modules/base';
 @import 'modules/header';
@@ -28,6 +28,7 @@
 @import 'modules/content-comment';
 @import 'modules/content-gallery';
 @import 'modules/content-tinymce';
+@import 'modules/bb-form-style';
 
 @import 'modules/media-large';
 @import 'modules/media-medium';
