@@ -46,12 +46,6 @@
       var pos = !offset ? 0 : offset.top - offt;
       $('html,body').stop().animate({ scrollTop: pos }, 'normal', 'easing');
     };
-    // easing
-    $.extend($.easing, {
-      easing: function (x) {
-        return 1 - Math.pow(1 - x, 5);
-      }
-    });
     var _show = function (e) {
       var scrT = $(document).scrollTop();
       var btmT = $(document).height() - document.documentElement.clientHeight;
@@ -208,5 +202,52 @@
       $(this).html(a);
       $('a', this).wrapInner('<span class="entry-title"></span>').append('<span class="comment-user">（' + txt + '）</span>');
     });
+  });
+
+  /**
+   * フォーム（bb-form-style）
+   */
+  $(window).on('load', function () {
+    var $formBlock = '.bb-form-style'
+    var $formTop = '.bb-form-style-top'
+    var offset = 100
+    var move = function (pos) {
+      $('html,body').animate({ scrollTop: pos }, 'fast', 'easing')
+    }
+
+    // input: error
+    // ---------------------------------
+    $('.error', $formBlock).each(function (i) {
+      var f = $(this)
+      f.parents('.group').addClass('group-error')
+      if (i === 0) {
+        move(f.offset().top - offset)
+      }
+      f.parent().on('focus click', 'input, select, textarea, .error', function () {
+        if ($(this).hasClass('error')) {
+          f.parent().find('input, select, textarea').trigger('focus')
+        }
+        f.parents('.group').removeClass('group-error')
+        f.addClass('error-hidden')
+      })
+    })
+
+    // MW WP Formプラグイン向け
+    // ---------------------------------
+    $('[name="submitBack"]', $formBlock).on('click', function () {
+      localStorage.setItem('submitBack', 1)
+    })
+    if (localStorage.getItem('submitBack') == 1) {
+      $($formBlock).before('<div class="bb-form-style-top"></div>')
+      move($($formTop).offset().top - offset)
+    }
+    localStorage.setItem('submitBack', null)
+  })
+
+  // easing
+  $.extend($.easing, {
+    easing: function (x) {
+      return 1 - Math.pow(1 - x, 5);
+    }
   });
 })(jQuery);

@@ -2,6 +2,7 @@
 // config
 //--------------------------------------------------------------------
 @use 'sass:math';
+@use 'sass:map';
 
 // width
 //--------------------------------------------------------------------
@@ -26,10 +27,19 @@ $base-gray-7: #f5f5f5;
 $base-red-1: #df0002;
 
 $link-color: #3b99d8;
-$link-hover-color: #e84824;
+$link-color-hover: #e84824;
 $btn-color-hover: #248ac6;
 $reset-color: #d5d5d5;
-$reset-hover-color: #c7c7c7;
+$reset-color-hover: #c7c7c7;
+
+$input-border: #ddd;
+$input-border-focus: #6ac;
+$input-border-shadow: #6af;
+
+$nav-gray-1: #a0a0a0;
+
+$form-red-1: #c00000;
+
 
 // font
 //--------------------------------------------------------------------
@@ -91,7 +101,68 @@ $breakpoints: (
   min: 360px
 );
 @mixin media-type($type: lg) {
-  @media (max-width: map-get($breakpoints, $type) - 1) {
+  @media (max-width: map.get($breakpoints, $type) - 1) {
     @content;
+  }
+}
+
+// form
+@mixin bb-input-decoration() {
+  transition: all .2s;
+  box-shadow: none;
+  &:focus {
+    border-color: $input-border-focus;
+    box-shadow: 0 0 8px -2px $input-border-shadow;
+  }
+}
+@mixin bb-button-decoration($type: '') {
+  @if $type == 'reset' {
+    background-color: $reset-color;
+  } @else {
+    background-color: $link-color;
+  }
+  border: 0;
+  border-radius: 4px;
+  transition: all .2s;
+  box-shadow: none;
+  cursor: pointer;
+  &:hover {
+    @if $type == 'reset' {
+      background-color: $reset-color-hover;
+    } @else {
+      background-color: $btn-color-hover;
+    }
+  }
+  &:active {
+    @if $type == 'reset' {
+      background-color: $reset-color-hover;
+      box-shadow: 0 0 8px -2px $reset-color-hover;
+    } @else {
+      background-color: $btn-color-hover;
+      box-shadow: 0 0 8px -2px $input-border-shadow;
+    }
+  }
+}
+
+@mixin bb-input-placeholder() {
+  &::-webkit-input-placeholder {
+    color: $input-border;
+  }
+  &::-moz-placeholder {
+    color: $input-border;
+  }
+  &:-ms-input-placeholder {
+    color: $input-border;
+  }
+  &:focus {
+    &::-webkit-input-placeholder {
+      color: transparent;
+    }
+    &::-moz-placeholder {
+      color: transparent;
+    }
+    &:-ms-input-placeholder {
+      color: transparent;
+    }
   }
 }

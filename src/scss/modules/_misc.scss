@@ -1,3 +1,4 @@
+@use 'config' as cfg;
 //--------------------------------------------------------------------
 // misc
 //--------------------------------------------------------------------
@@ -9,8 +10,8 @@
 }
 .search-form {
   position: relative;
-  @include media-type(xl) {
-    margin: 0 $base-side-space-mobile;
+  @include cfg.media-type(xl) {
+    margin: 0 cfg.$base-side-space-mobile;
   }
   .screen-reader-text {
     display: none;
@@ -22,8 +23,8 @@
       position: absolute;
       top: 50%;
       right: 6px;
-      color: $base-gray-4;
-      @include icon-font('f0349');
+      color: cfg.$base-gray-4;
+      @include cfg.icon-font('f0349');
       font-size: 24px;
       line-height: 1;
       margin-top: -.46em;
@@ -32,21 +33,26 @@
     }
     &.hover {
       &::after {
-        color: $base-gray-3;
+        color: cfg.$base-gray-3;
       }
     }
+  }
+  input {
+    @include cfg.bb-input-decoration();
+    @include cfg.bb-input-placeholder();
   }
   .search-field {
     font-size: 14px;
     vertical-align: middle;
     width: 100%;
+    height: 40px;
     padding: 8px 35px 8px 8px;
-    background-color: $base-white;
-    border: 1px solid $base-gray-5;
+    background-color: cfg.$base-white;
+    border: 1px solid cfg.$base-gray-5;
     border-radius: 2px;
     box-sizing: border-box;
-    @include media-type(xl) {
-      border-color: $base-gray-4;
+    @include cfg.media-type(xl) {
+      border-color: cfg.$base-gray-4;
     }
   }
   .search-submit {
@@ -63,37 +69,6 @@
     &:focus {
       border-width: 0 !important;
       box-shadow: none;
-    }
-  }
-}
-
-// error404
-//--------------------------------------------------------------------
-#contents.error404 {
-  > .wrap {
-    padding: 140px 0 140px;
-    @include media-type(xl) {
-      padding: 100px 0 50px;
-    }
-  }
-  .title {
-    color: $base-gray-5;
-    font-size: 4rem;
-    font-family: Arial, Helvetica, sans-serif;
-    @include font-weight(normal);
-    line-height: 1;
-    text-align: center;
-    @include media-type(xl) {
-      font-size: 3.8rem;
-    }
-  }
-  p {
-    font-size: 1.4rem;
-    line-height: 1;
-    text-align: center;
-    margin-top: 10px;
-    @include media-type(xl) {
-      font-size: 1.3rem;
     }
   }
 }

@@ -1,3 +1,4 @@
+@use 'config' as cfg;
 //--------------------------------------------------------------------
 // TinyMCE style
 //--------------------------------------------------------------------
@@ -42,13 +43,13 @@
       }
       &-lv2 {
         margin-top: 35px;
-        @include media-type(lg) {
+        @include cfg.media-type(lg) {
           margin-bottom: 30px;
         }
       }
       &-lv3 {
         margin-top: 50px;
-        @include media-type(lg) {
+        @include cfg.media-type(lg) {
           margin-bottom: 40px;
         }
       }
@@ -66,13 +67,13 @@
     }
     &-left {
       margin-left: 30px;
-      @include media-type(lg) {
+      @include cfg.media-type(lg) {
         margin-left: 20px;
       }
     }
     &-right {
       margin-right: 30px;
-      @include media-type(lg) {
+      @include cfg.media-type(lg) {
         margin-right: 20px;
       }
     }
@@ -110,7 +111,7 @@
   .section-block {
     display: flow-root;
     margin-bottom: 50px;
-    @include media-type(lg) {
+    @include cfg.media-type(lg) {
       margin-bottom: 40px;
     }
     &::after {

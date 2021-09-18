@@ -1,3 +1,4 @@
+@use 'config' as cfg;
 //--------------------------------------------------------------------
 // header
 //--------------------------------------------------------------------
@@ -5,27 +6,27 @@
 // global header
 //--------------------------------------------------------------------
 #global-header {
-  background-color: $base-white;
-  @include media-type(xl) {
+  background-color: cfg.$base-white;
+  @include cfg.media-type(xl) {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba($base-white, .8);
-    border-bottom: 1px solid $base-gray-5;
+    background-color: rgba(cfg.$base-white, .8);
+    border-bottom: 1px solid cfg.$base-gray-5;
     z-index: 1000;
   }
   .wrap {
     height: 100px;
-    @include media-type(xl) {
+    @include cfg.media-type(xl) {
       height: 54px;
     }
   }
   .logo {
     position: absolute;
     top: 18px;
-    left: $base-side-space-full;
-    @include media-type(xl) {
+    left: cfg.$base-side-space-full;
+    @include cfg.media-type(xl) {
       top: 9px;
       left: 0;
       right: 0;
@@ -34,14 +35,14 @@
     a {
       display: block;
       text-decoration: none;
-      @include media-type(xl) {
+      @include cfg.media-type(xl) {
         display: inline-block;
       }
     }
     img {
       width: auto;
       height: 40px;
-      @include media-type(xl) {
+      @include cfg.media-type(xl) {
         height: 22px;
       }
     }
@@ -49,18 +50,18 @@
   .site-title {
     display: block;
     font-size: 4rem;
-    @include media-type(xl) {
+    @include cfg.media-type(xl) {
       font-size: 2rem;
     }
   }
   .copy {
     position: absolute;
     top: 68px;
-    left: $base-side-space-full;
-    color: $base-gray-3;
+    left: cfg.$base-side-space-full;
+    color: cfg.$base-gray-3;
     font-size: 1.3rem;
-    @include font-weight(normal);
-    @include media-type(xl) {
+    @include cfg.font-weight(normal);
+    @include cfg.media-type(xl) {
       top: auto;
       left: 0;
       right: 0;
@@ -74,8 +75,8 @@
 #header-nav {
   position: absolute;
   top: 15px;
-  right: $base-side-space-full;
-  @include media-type(xl) {
+  right: cfg.$base-side-space-full;
+  @include cfg.media-type(xl) {
     display: none;
   }
   .menu {
@@ -95,8 +96,8 @@
 // global nav
 //--------------------------------------------------------------------
 #global-nav {
-  background-color: $base-gray-7;
-  @include media-type(xl) {
+  background-color: cfg.$base-gray-7;
+  @include cfg.media-type(xl) {
     display: none;
   }
   ul {
@@ -107,7 +108,7 @@
     > li {
       position: relative;
       float: left;
-      border-right: 1px solid $base-gray-7;
+      border-right: 1px solid cfg.$base-gray-7;
       box-sizing: border-box;
       > a {
         display: block;
@@ -116,21 +117,21 @@
         line-height: 40px;
         height: 40px;
         padding: 0 20px;
-        background-color: $base-gray-6;
+        background-color: cfg.$base-gray-6;
         box-sizing: border-box;
       }
       a {
-        color: $base-gray-3;
+        color: cfg.$base-gray-3;
         transition: all .2s;
         &:hover {
-          color: $base-gray-2;
+          color: cfg.$base-gray-2;
           text-decoration: none;
-          background-color: $base-gray-5;
+          background-color: cfg.$base-gray-5;
         }
       }
       &.current-menu-parent > a,
       &.current-menu-item > a {
-        background-color: $base-gray-5;
+        background-color: cfg.$base-gray-5;
       }
       // pull-down menu
       > .sub-menu {
@@ -139,13 +140,13 @@
         left: 0;
         min-width: 160px;
         padding: 0;
-        background-color: $base-white;
-        border: 1px solid $base-gray-5;
+        background-color: cfg.$base-white;
+        border: 1px solid cfg.$base-gray-5;
         z-index: 99;
         box-sizing: border-box;
         visibility: hidden;
         li {
-          border-top: 1px solid $base-gray-6;
+          border-top: 1px solid cfg.$base-gray-6;
           a {
             display: block;
             text-align: left;
@@ -157,7 +158,7 @@
             padding: 10px 15px;
             &:hover {
               text-decoration: none;
-              background-color: $base-gray-7;
+              background-color: cfg.$base-gray-7;
             }
           }
           > .sub-menu > li {
@@ -167,15 +168,15 @@
               line-height: 1.4;
               padding-left: 12px;
               &::before {
-                @include icon-font('f0142');
-                color: $base-gray-4;
+                @include cfg.icon-font('f0142');
+                color: cfg.$base-gray-4;
                 vertical-align: -1px;
                 margin-right: 3px;
               }
             }
           }
           &.current-menu-item > a {
-            background-color: $base-gray-7;
+            background-color: cfg.$base-gray-7;
           }
         }
         > li:first-child {

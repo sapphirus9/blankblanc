@@ -1,18 +1,19 @@
+@use 'config' as cfg;
 //--------------------------------------------------------------------
 // main
 //--------------------------------------------------------------------
 #contents {
   display: block;
   padding-bottom: 80px;
-  background-color: $base-white;
-  @include media-type(xl) {
+  background-color: cfg.$base-white;
+  @include cfg.media-type(xl) {
     padding: 55px 0 60px;
     overflow-x: hidden;
     -webkit-tap-highlight-color: rgba(0, 0, 0, .06);
   }
   > .wrap {
     padding-top: 40px;
-    @include media-type(xl) {
+    @include cfg.media-type(xl) {
       padding-top: 30px;
     }
   }
@@ -21,7 +22,7 @@
 #contents-container {
   display: flex;
   justify-content: space-between;
-  @include media-type(xl) {
+  @include cfg.media-type(xl) {
     flex-direction: column;
   }
   .second-column-right & {
@@ -31,24 +32,24 @@
 
 #first-column {
   width: 720px;
-  @include media-type(xl) {
+  @include cfg.media-type(xl) {
     width: 100%;
-    max-width: $base-max-width-mobile;
+    max-width: cfg.$base-max-width-mobile;
     margin: 0 auto;
   }
 }
 
 #second-column {
   width: 280px;
-  @include media-type(xl) {
+  @include cfg.media-type(xl) {
     display: none;
   }
 }
 
 #one-column {
   width: 100%;
-  @include media-type(xl) {
-    max-width: $base-max-width-mobile;
+  @include cfg.media-type(xl) {
+    max-width: cfg.$base-max-width-mobile;
     margin: 0 auto;
   }
   & + #second-column {

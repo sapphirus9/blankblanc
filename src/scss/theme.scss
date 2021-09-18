@@ -1,36 +1,35 @@
 @charset 'UTF-8';
-
 /*
  *--------------------------------------------------------------------
  * Theme Name: BlankBlanc
  * Author: Naoki Yamamoto
  * Description: テーマ用スタイルシート
+ * Compiler: Dart Sass
  *--------------------------------------------------------------------
  */
+@use 'modules/initialize';
+@use 'modules/base';
+@use 'modules/header';
+@use 'modules/mobile-nav';
+@use 'modules/breadcrumb';
+@use 'modules/main';
+@use 'modules/gotop';
+@use 'modules/widget';
+@use 'modules/footer';
+@use 'modules/misc';
+@use 'modules/error404';
+@use 'modules/bb-form-style';
+@use 'modules/content-common';
+@use 'modules/archive-common';
+@use 'modules/archive-tiles';
+@use 'modules/archive-pagination';
+@use 'modules/content-article';
+@use 'modules/content-attachment';
+@use 'modules/content-comment';
+@use 'modules/content-gallery';
+@use 'modules/content-tinymce';
 
-@use 'modules/config';
-@import 'modules/initialize';
-@import 'modules/base';
-@import 'modules/header';
-@import 'modules/mobile-nav';
-@import 'modules/breadcrumb';
-@import 'modules/main';
-@import 'modules/gotop';
-@import 'modules/widget';
-@import 'modules/footer';
-@import 'modules/misc';
-@import 'modules/content-common';
-@import 'modules/archive-common';
-@import 'modules/archive-tiles';
-@import 'modules/archive-pagination';
-@import 'modules/content-article';
-@import 'modules/content-attachment';
-@import 'modules/content-comment';
-@import 'modules/content-gallery';
-@import 'modules/content-tinymce';
-@import 'modules/bb-form-style';
-
-@import 'modules/media-large';
-@import 'modules/media-medium';
-@import 'modules/media-small';
-@import 'modules/media-xsmall';
+@use 'modules/media-large';
+@use 'modules/media-medium';
+@use 'modules/media-small';
+@use 'modules/media-xsmall';

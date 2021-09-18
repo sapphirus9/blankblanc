@@ -1,3 +1,4 @@
+@use 'config' as cfg;
 //--------------------------------------------------------------------
 // initialize
 //--------------------------------------------------------------------
@@ -16,14 +17,14 @@ html {
 
 body {
   position: relative;
-  @include font-weight(normal);
+  @include cfg.font-weight(normal);
   line-height: 1;
   line-break: strict;
   height: 100%;
   margin: 0;
   padding: 0;
   text-size-adjust: 100%;
-  @include media-type(xl) {
+  @include cfg.media-type(xl) {
     position: static;
     top: 0;
     left: 0;
@@ -52,7 +53,7 @@ ul, ol {
 img {
   vertical-align: top;
   border: none;
-  @include media-type(xl) {
+  @include cfg.media-type(xl) {
     max-width: 100%;
   }
 }
@@ -63,7 +64,7 @@ a {
   }
   &:hover, &:active {
     text-decoration: underline;
-    @include media-type(xl) {
+    @include cfg.media-type(xl) {
       text-decoration: none;
     }
   }
@@ -74,7 +75,7 @@ em {
 }
 
 h1, h2, h3, h4, h5, h6, th, strong {
-  @include font-weight(bold);
+  @include cfg.font-weight(bold);
 }
 
 form {
@@ -83,23 +84,13 @@ form {
 }
 
 input, textarea, select, button {
-  @include font-weight(normal);
-  margin: 0;
-  transition: all .2s;
+  @include cfg.font-weight(normal);
   outline: none;
-  &:focus {
-    border: 1px solid #6ac !important;
-    box-shadow: 0 0 8px -2px #6af;
-  }
-}
-
-button {
-  vertical-align: top;
   appearance: none;
 }
 
-input {
-  &[type='submit'], &[type='button'], &[type='reset'], &[type='search'] {
-    appearance: none;
+select {
+  &::-ms-expand {
+    display: none;
   }
 }

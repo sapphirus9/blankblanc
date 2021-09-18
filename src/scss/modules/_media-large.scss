@@ -1,18 +1,19 @@
+@use 'config' as cfg;
 //--------------------------------------------------------------------
 // large
 //--------------------------------------------------------------------
 
-@include media-type(lg) {
+@include cfg.media-type(lg) {
   // global footer
   //--------------------------------------------------------------------
   #global-footer .copyright {
-    padding-left: $base-side-space-mobile;
-    padding-right: $base-side-space-mobile;
+    padding-left: cfg.$base-side-space-mobile;
+    padding-right: cfg.$base-side-space-mobile;
   }
 
   // footer widgets
   //--------------------------------------------------------------------
   .footer-widgets > ul {
-    padding: 0 $base-side-space-mobile;
+    padding: 0 cfg.$base-side-space-mobile;
   }
 }

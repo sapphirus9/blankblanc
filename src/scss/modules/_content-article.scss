@@ -1,10 +1,11 @@
+@use 'config' as cfg;
 //--------------------------------------------------------------------
 // article
 //--------------------------------------------------------------------
 .main-article {
   font-size: 1.6rem;
-  @include media-type(lg) {
-    margin: 0 $base-side-space-mobile;
+  @include cfg.media-type(lg) {
+    margin: 0 cfg.$base-side-space-mobile;
   }
 }
 
@@ -12,33 +13,33 @@
 //--------------------------------------------------------------------
 .main-article .entry-header {
   margin-bottom: 30px;
-  @include media-type(lg) {
+  @include cfg.media-type(lg) {
     margin-bottom: 20px;
   }
   .page-title {
     font-size: 2.8rem;
     line-height: 1.3;
-    @include font-weight(normal);
+    @include cfg.font-weight(normal);
     margin-bottom: 10px;
-    @include media-type(lg) {
+    @include cfg.media-type(lg) {
       font-size: 2rem;
       line-height: 1.25;
     }
     a {
-      color: $base-gray-1;
+      color: cfg.$base-gray-1;
     }
   }
   .meta {
     line-height: 0;
     > li {
       display: inline-block;
-      color: $base-gray-2;
+      color: cfg.$base-gray-2;
       font-size: 1.3rem;
       line-height: 1.4;
       white-space: nowrap;
       vertical-align: top;
       margin: 0 20px 2px 0;
-      @include media-type(lg) {
+      @include cfg.media-type(lg) {
         font-size: 1.2rem;
         white-space: normal;
         margin: 0 10px 3px 0;
@@ -52,7 +53,7 @@
   .month,
   .day {
     margin-right: 3px;
-    @include media-type(lg) {
+    @include cfg.media-type(lg) {
       margin-right: 0;
     }
   }
@@ -62,22 +63,22 @@
 //--------------------------------------------------------------------
 .main-article .post-thumbnail {
   margin-bottom: 30px;
-  @include media-type(lg) {
+  @include cfg.media-type(lg) {
     margin-bottom: 25px;
   }
   .entry-content {
-    @include media-type(lg) {
-      margin: 0 $base-side-space-mobile;
+    @include cfg.media-type(lg) {
+      margin: 0 cfg.$base-side-space-mobile;
     }
   }
   .image {
     margin: 0;
-    background-color: #fff;
+    background-color: cfg.$base-white;
     a {
       display: block;
-      @include opacity-transition;
+      @include cfg.opacity-transition;
       &:hover {
-        @include opacity-hover;
+        @include cfg.opacity-hover;
       }
     }
     img {
@@ -94,9 +95,9 @@
     min-width: 100%;
     margin: 0;
     padding: 7px;
-    background-color: $base-gray-7;
+    background-color: cfg.$base-gray-7;
     box-sizing: border-box;
-    @include media-type(lg) {
+    @include cfg.media-type(lg) {
       font-size: 1.2rem;
       line-height: 1.4;
     }
@@ -110,19 +111,19 @@
   text-justify: inter-ideograph;
   text-align: justify;
   margin-bottom: 50px;
-  @include media-type(lg) {
+  @include cfg.media-type(lg) {
     font-size: 1em;
     margin-bottom: 40px;
   }
   abbr,
   acronym {
     text-decoration: none;
-    border-bottom: 1px dotted $base-gray-3;
+    border-bottom: 1px dotted cfg.$base-gray-3;
     cursor: help;
   }
   ins {
     text-decoration: none;
-    border-bottom: 1px dotted $base-gray-3;
+    border-bottom: 1px dotted cfg.$base-gray-3;
   }
   small {
     font-size: .8em;
@@ -131,33 +132,33 @@
     height: auto;
     max-width: 100%;
     max-height: 100%;
-    @include media-type(lg) {
+    @include cfg.media-type(lg) {
       max-height: 500px;
     }
     &.alignnone {
       display: block;
       margin: 30px 0;
-      @include media-type(lg) {
+      @include cfg.media-type(lg) {
         margin: 15px auto;
       }
     }
     &.aligncenter {
       display: block;
       margin: 30px auto;
-      @include media-type(lg) {
+      @include cfg.media-type(lg) {
         margin: 15px auto;
       }
     }
     &.alignleft {
       margin: 5px 30px 25px 0;
-      @include media-type(lg) {
+      @include cfg.media-type(lg) {
         display: block;
         margin: 15px auto;
       }
     }
     &.alignright {
       margin: 5px 0 25px 30px;
-      @include media-type(lg) {
+      @include cfg.media-type(lg) {
         display: block;
         margin: 15px auto;
       }
@@ -175,14 +176,14 @@
       width: 240px;
       padding: 10px;
       margin: 20px auto 10px;
-      background-color: $base-white;
-      border: 1px solid $base-gray-5;
+      background-color: cfg.$base-white;
+      border: 1px solid cfg.$base-gray-5;
       border-radius: 20px;
       box-sizing: border-box;
       clear: both;
       overflow: hidden;
       transition: all .2s;
-      @include media-type(lg) {
+      @include cfg.media-type(lg) {
         padding: 12px;
         margin-top: 10px;
         width: 70vw;
@@ -192,11 +193,11 @@
         font-size: 1.7rem;
         line-height: 0.5;
         vertical-align: -.1rem;
-        @include icon-font('0020', 'f0140');
+        @include cfg.icon-font('0020', 'f0140');
         margin: -.2rem 0 0 .2rem;
       }
       &:hover {
-        background-color: $base-gray-7;
+        background-color: cfg.$base-gray-7;
       }
       &.active {
         display: none;
@@ -204,9 +205,9 @@
     }
     img {
       display: inline-block;
-      @include opacity-transition;
+      @include cfg.opacity-transition;
       &:hover {
-        @include opacity-hover;
+        @include cfg.opacity-hover;
       }
     }
   }
@@ -225,13 +226,13 @@
   }
   .alignleft {
     float: left;
-    @include media-type(lg) {
+    @include cfg.media-type(lg) {
       float: none;
     }
   }
   .alignright {
     float: right;
-    @include media-type(lg) {
+    @include cfg.media-type(lg) {
       float: none;
     }
   }
@@ -275,7 +276,7 @@
     font-size: 1.8em;
     line-height: 1.3;
     margin: 50px 0 20px;
-    @include media-type(lg) {
+    @include cfg.media-type(lg) {
       font-size: 1.6em;
       line-height: 1.25;
     }
@@ -284,7 +285,7 @@
     font-size: 1.6em;
     line-height: 1.35;
     margin: 50px 0 20px;
-    @include media-type(lg) {
+    @include cfg.media-type(lg) {
       font-size: 1.4em;
       line-height: 1.3;
     }
@@ -293,7 +294,7 @@
     font-size: 1.4em;
     line-height: 1.4;
     margin: 50px 0 20px;
-    @include media-type(lg) {
+    @include cfg.media-type(lg) {
       font-size: 1.25em;
       line-height: 1.35;
     }
@@ -302,7 +303,7 @@
     font-size: 1.2em;
     line-height: 1.4;
     margin: 25px 0 15px;
-    @include media-type(lg) {
+    @include cfg.media-type(lg) {
       font-size: 1.15em;
     }
   }
@@ -323,7 +324,7 @@
     height: 0;
     margin: 25px 0;
     border: none;
-    border-bottom: 1px solid $base-gray-6;
+    border-bottom: 1px solid cfg.$base-gray-6;
   }
   pre {
     position: relative;
@@ -331,7 +332,7 @@
     line-height: 1.75;
     margin: 25px 0;
     padding: 30px;
-    background-color: $base-gray-7;
+    background-color: cfg.$base-gray-7;
   }
   blockquote {
     position: relative;
@@ -339,8 +340,8 @@
     line-height: 1.75;
     margin: 25px 0;
     padding: 30px;
-    background-color: $base-gray-7;
-    @include media-type(lg) {
+    background-color: cfg.$base-gray-7;
+    @include cfg.media-type(lg) {
       padding: 25px 15px;
     }
     p {
@@ -351,11 +352,11 @@
       position: absolute;
       top: 3px;
       left: 5px;
-      @include icon-font('f0757');
+      @include cfg.icon-font('f0757');
       font-size: 3.2rem;
       line-height: 1;
-      color: $base-gray-4;
-      @include media-type(lg) {
+      color: cfg.$base-gray-4;
+      @include cfg.media-type(lg) {
         font-size: 1.8rem;
       }
     }
@@ -364,11 +365,11 @@
       position: absolute;
       bottom: 3px;
       right: 5px;
-      @include icon-font('f027e');
+      @include cfg.icon-font('f027e');
       font-size: 3.2rem;
       line-height: 1;
-      color: $base-gray-4;
-      @include media-type(lg) {
+      color: cfg.$base-gray-4;
+      @include cfg.media-type(lg) {
         font-size: 1.8rem;
       }
     }
@@ -379,7 +380,7 @@
     line-height: 1.75;
     margin: 20px 0;
     padding-left: 2em;
-    @include media-type(lg) {
+    @include cfg.media-type(lg) {
       margin-left: 0;
     }
     > li {
@@ -407,7 +408,7 @@
     line-height: 1.75;
     margin-bottom: 20px;
     > dt {
-      @include font-weight(bold);
+      @include cfg.font-weight(bold);
       margin-top: 15px;
       &:first-child {
         margin-top: 0;
@@ -435,9 +436,9 @@
       th {
         font-size: 1em;
         padding: 7px;
-        background-color: $base-gray-5;
-        border: 1px solid $base-gray-4;
-        @include media-type(lg) {
+        background-color: cfg.$base-gray-5;
+        border: 1px solid cfg.$base-gray-4;
+        @include cfg.media-type(lg) {
           font-size: .933333em;
           padding: 5px;
         }
@@ -445,9 +446,9 @@
       td {
         font-size: 1em;
         padding: 7px;
-        background-color: $base-gray-7;
-        border: 1px solid $base-gray-4;
-        @include media-type(lg) {
+        background-color: cfg.$base-gray-7;
+        border: 1px solid cfg.$base-gray-4;
+        @include cfg.media-type(lg) {
           font-size: .933333em;
           padding: 5px;
         }
@@ -457,9 +458,9 @@
       th {
         font-size: 1em;
         padding: 7px;
-        background-color: $base-gray-7;
-        border: 1px solid $base-gray-4;
-        @include media-type(lg) {
+        background-color: cfg.$base-gray-7;
+        border: 1px solid cfg.$base-gray-4;
+        @include cfg.media-type(lg) {
           font-size: .933333em;
           padding: 5px;
         }
@@ -467,9 +468,9 @@
       td {
         font-size: 1em;
         padding: 7px;
-        background-color: $base-white;
-        border: 1px solid $base-gray-4;
-        @include media-type(lg) {
+        background-color: cfg.$base-white;
+        border: 1px solid cfg.$base-gray-4;
+        @include cfg.media-type(lg) {
           font-size: .933333em;
           padding: 5px;
         }
@@ -477,322 +478,13 @@
     }
   }
   fieldset {
-    border: 1px solid $base-gray-5;
+    border: 1px solid cfg.$base-gray-5;
     padding: 16px;
     margin: 0;
     box-sizing: border-box;
     legend {
       font-size: 1em;
       padding: 0 5px;
-    }
-  }
-}
-
-// form
-//--------------------------------------------------------------------
-.main-article .entry-body {
-  label {
-    display: inline-block;
-    line-height: 1.3;
-    margin-bottom: 3px;
-  }
-  input {
-    line-height: 1.5;
-    &[type='text'] {
-      font-size: 1.6rem;
-      width: 100%;
-      padding: 6px;
-      border: 1px solid $base-gray-4;
-      border-radius: 2px;
-      box-sizing: border-box;
-      @include media-type(lg) {
-        font-size: 1.7rem;
-        max-width: 350px;
-      }
-    }
-    &[type='password'] {
-      font-size: 1.6rem;
-      width: 100%;
-      padding: 6px;
-      border: 1px solid $base-gray-4;
-      border-radius: 2px;
-      box-sizing: border-box;
-      @include media-type(lg) {
-        font-size: 1.7rem;
-        max-width: 350px;
-      }
-    }
-    &[type='email'] {
-      font-size: 1.6rem;
-      width: 100%;
-      padding: 6px;
-      border: 1px solid $base-gray-4;
-      border-radius: 2px;
-      box-sizing: border-box;
-      @include media-type(lg) {
-        font-size: 1.7rem;
-        max-width: 350px;
-      }
-    }
-    &[type='url'] {
-      font-size: 1.6rem;
-      width: 100%;
-      padding: 6px;
-      border: 1px solid $base-gray-4;
-      border-radius: 2px;
-      box-sizing: border-box;
-      @include media-type(lg) {
-        font-size: 1.7rem;
-        max-width: 350px;
-      }
-    }
-    &[type='number'] {
-      font-size: 1.6rem;
-      width: 100%;
-      padding: 6px;
-      border: 1px solid $base-gray-4;
-      border-radius: 2px;
-      box-sizing: border-box;
-      @include media-type(lg) {
-        font-size: 1.7rem;
-        max-width: 350px;
-      }
-    }
-    &[type='checkbox'] {
-      display: inline;
-      position: absolute;
-      margin: 9px 0 0 9px;
-      opacity: 0;
-      @include media-type(lg) {
-        margin: 15px 0 0 15px;
-      }
-      & + label,
-      & + span {
-        display: inline-flex;
-        align-items: center;
-        font-size: 1.6rem;
-        line-height: 1.3;
-        padding: 5px;
-        margin: 0 5px 5px 0;
-        border-radius: 2px;
-        cursor: default;
-        transition: all .2s;
-        @include media-type(lg) {
-          font-size: 1.7rem;
-          padding: 7px;
-        }
-        &::before {
-          display: block;
-          flex: none;
-          color: transparent;
-          font-size: 20px;
-          text-align: center;
-          @include icon-font('f012c');
-          line-height: 1;
-          width: 20px;
-          height: 20px;
-          margin-right: 6px;
-          background-color: $base-gray-6;
-          border-radius: 2px;
-          box-sizing: border-box;
-          transition: all .2s;
-          @include media-type(lg) {
-            font-size: 26px;
-            width: 26px;
-            height: 26px;
-          }
-        }
-      }
-      &:checked {
-        & + label,
-        & + span {
-          background-color: $base-gray-7;
-          &::before {
-            color: $base-gray-1;
-            background-color: $base-gray-4;
-          }
-        }
-      }
-    }
-    &[type='radio'] {
-      display: inline;
-      position: absolute;
-      margin: 9px 0 0 9px;
-      opacity: 0;
-      @include media-type(lg) {
-        margin: 15px 0 0 15px;
-      }
-      & + label,
-      & + span {
-        display: inline-flex;
-        align-items: center;
-        font-size: 1.6rem;
-        line-height: 1.3;
-        padding: 5px;
-        margin: 0 5px 5px 0;
-        border-radius: 2px;
-        cursor: default;
-        transition: all .2s;
-        @include media-type(lg) {
-          font-size: 1.7rem;
-          padding: 7px;
-        }
-        &::before {
-          display: block;
-          flex: none;
-          content: '';
-          width: 20px;
-          height: 20px;
-          margin-right: 6px;
-          background-color: $base-gray-4;
-          border: 4px solid $base-gray-6;
-          border-radius: 50%;
-          box-sizing: border-box;
-          transition: all .2s;
-          @include media-type(lg) {
-            width: 26px;
-            height: 26px;
-            border-width: 6px;
-          }
-        }
-      }
-      &:checked {
-        & + label,
-        & + span {
-          background-color: $base-gray-7;
-          &::before {
-            background-color: $base-gray-1;
-            border: 4px solid $base-gray-4;
-            @include media-type(lg) {
-              border-width: 6px;
-            }
-          }
-        }
-      }
-    }
-    &[type='range'] {
-      width: 100%;
-      @include media-type(lg) {
-        max-width: 350px;
-      }
-      &:focus {
-        border-width: 0 !important;
-        box-shadow: none;
-      }
-    }
-    &[type='submit'] {
-      color: $base-white;
-      font-size: 1.6rem;
-      line-height: 1;
-      vertical-align: top;
-      height: 40px;
-      min-width: 160px;
-      background-color: $link-color;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: all .2s;
-      @include media-type(lg) {
-        font-size: 1.7rem;
-        height: 50px;
-      }
-      &:hover {
-        background-color: $btn-color-hover;
-      }
-    }
-    &[type='reset'] {
-      color: $base-white;
-      font-size: 1.6rem;
-      line-height: 1;
-      vertical-align: top;
-      height: 40px;
-      min-width: 80px;
-      background-color: $reset-color;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: all .2s;
-      @include media-type(lg) {
-        font-size: 1.7rem;
-        height: 50px;
-      }
-      &:hover {
-        background-color: $reset-hover-color;
-      }
-    }
-  }
-  input[type='button'],
-  button {
-    color: $base-white;
-    font-size: 1.6rem;
-    line-height: 1;
-    vertical-align: top;
-    height: 40px;
-    min-width: 160px;
-    background-color: $link-color;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all .2s;
-    @include media-type(lg) {
-      font-size: 1.7rem;
-      height: 50px;
-    }
-    &:hover {
-      background-color: $btn-color-hover;
-    }
-  }
-  .select-area {
-    display: inline-block;
-    position: relative;
-    background-color: #fff;
-    border-radius: 2px;
-    &::before {
-      position: absolute;
-      top: 50%;
-      right: 3px;
-      font-size: 2.2rem;
-      line-height: 1;
-      @include icon-font('f0140');
-      margin-top: -10px;
-      z-index: 1;
-    }
-  }
-  select {
-    position: relative;
-    font-size: 1.6rem;
-    line-height: 1.56;
-    max-width: 100%;
-    padding: 5px 25px 5px 5px;
-    margin: 0;
-    background-color: transparent;
-    border: 1px solid $base-gray-4;
-    border-radius: 2px;
-    box-sizing: border-box;
-    z-index: 2;
-    appearance: none;
-    @include media-type(lg) {
-      font-size: 1.7rem;
-      max-width: none;
-      width: 100%;
-    }
-    &::-ms-expand {
-      display: none;
-    }
-  }
-  textarea {
-    font-size: 1.6rem;
-    line-height: 1.5;
-    vertical-align: top;
-    width: 100%;
-    min-height: 200px;
-    padding: 5px;
-    border: 1px solid $base-gray-4;
-    border-radius: 2px;
-    box-sizing: border-box;
-    @include media-type(lg) {
-      font-size: 1.7rem;
-      min-height: 250px;
     }
   }
 }
@@ -817,7 +509,7 @@
       width: 36px;
       cursor: pointer;
       z-index: 9;
-      @include media-type(lg) {
+      @include cfg.media-type(lg) {
         width: 30px;
         cursor: default;
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -826,12 +518,12 @@
         display: block;
         position: absolute;
         top: calc(50% - 18px);
-        color: rgba($base-black, .25);
+        color: rgba(cfg.$base-black, .25);
         font-size: 30px;
         line-height: 36px;
         text-align: center;
         width: 100%;
-        @include media-type(lg) {
+        @include cfg.media-type(lg) {
           top: calc(50% - 12px);
           font-size: 24px;
           line-height: 24px;
@@ -840,16 +532,16 @@
     }
     .table-left-arrow {
       left: 0;
-      background: linear-gradient(-90deg, rgba(#fff, 0) 0%, rgba(#fff, 1) 100%);
+      background: linear-gradient(-90deg, rgba(cfg.$base-white, 0) 0%, rgba(cfg.$base-white, 1) 100%);
       &::after {
-        @include icon-font('f004d');
+        @include cfg.icon-font('f004d');
       }
     }
     .table-right-arrow {
       right: 0;
-      background: linear-gradient(90deg, rgba(#fff, 0) 0%, rgba(#fff, 1) 100%);
+      background: linear-gradient(90deg, rgba(cfg.$base-white, 0) 0%, rgba(cfg.$base-white, 1) 100%);
       &::after {
-        @include icon-font('f0054');
+        @include cfg.icon-font('f0054');
       }
     }
   }
@@ -860,7 +552,7 @@
 .main-article .entry-body {
   .wp-caption {
     margin: 0;
-    @include media-type(lg) {
+    @include cfg.media-type(lg) {
       text-align: inherit;
       max-width: 100%;
       margin: 0 auto;
@@ -868,7 +560,7 @@
     img {
       display: inline-block;
       margin: 0;
-      @include media-type(lg) {
+      @include cfg.media-type(lg) {
         width: 100%;
         max-width: 500px;
         height: auto;
@@ -877,25 +569,25 @@
     }
     &.alignnone {
       margin: 30px 0;
-      @include media-type(lg) {
+      @include cfg.media-type(lg) {
         margin: 20px 0;
       }
     }
     &.aligncenter {
       margin: 30px auto;
-      @include media-type(lg) {
+      @include cfg.media-type(lg) {
         margin: 20px auto;
       }
     }
     &.alignleft {
       margin: 5px 30px 25px 0;
-      @include media-type(lg) {
+      @include cfg.media-type(lg) {
         margin: 20px auto;
       }
     }
     &.alignright {
       margin: 5px 0 25px 30px;
-      @include media-type(lg) {
+      @include cfg.media-type(lg) {
         margin: 20px auto;
       }
     }
@@ -906,10 +598,10 @@
     text-align: left;
     margin: 0;
     padding: 7px;
-    background-color: $base-gray-7;
+    background-color: cfg.$base-gray-7;
     min-width: 100%;
     box-sizing: border-box;
-    @include media-type(lg) {
+    @include cfg.media-type(lg) {
       line-height: 1.3;
     }
   }
@@ -921,9 +613,9 @@
   .post-password-form {
     margin-top: 30px;
     padding: 25px 50px;
-    background-color: $base-gray-7;
+    background-color: cfg.$base-gray-7;
     text-align: center;
-    @include media-type(lg) {
+    @include cfg.media-type(lg) {
       padding: 25px 20px;
     }
     p {
@@ -937,50 +629,58 @@
       &:last-of-type {
         text-align: center;
         margin: 15px 0 5px;
-        @include media-type(lg) {
+        @include cfg.media-type(lg) {
           text-align: left;
         }
       }
+    }
+  }
+  .post-password-required {
+    @include cfg.media-type(lg) {
+      padding: 20px 0;
     }
     label {
       font-size: 1em;
       line-height: 1.5;
       display: inline-block;
-    }
-    input[type='password'] {
-      width: 210px;
-      height: 30px;
-      margin: 0 3px;
-    }
-    input[type='submit'] {
-      min-width: 80px;
-      height: 30px;
-    }
-  }
-  .post-password-required {
-    @include media-type(lg) {
-      padding: 20px 0;
-    }
-    label {
-      @include media-type(lg) {
+      @include cfg.media-type(lg) {
         display: inline-block;
         max-width: 300px;
       }
     }
-    input[type='password'] {
-      @include media-type(lg) {
-        font-size: 1.7rem;
-        height: auto;
-        width: 100%;
-        margin: 5px 0 0;
-      }
-    }
-    input[type='submit'] {
-      @include media-type(lg) {
-        display: block;
-        min-width: 100px;
+    input {
+      &[type='password'] {
+        font-size: 1.6rem;
+        width: 250px;
         height: 40px;
-        margin: 10px auto 0;
+        margin: 0 3px;
+        padding: 6px;
+        border: 1px solid cfg.$base-gray-4;
+        border-radius: 2px;
+        box-sizing: border-box;
+        @include cfg.media-type(lg) {
+          font-size: 1.7rem;
+          width: 100%;
+          margin: 5px 0 0;
+        }
+      }
+      @include cfg.bb-input-decoration();
+      @include cfg.bb-input-placeholder();
+      &[type='submit'] {
+        color: cfg.$base-white;
+        font-size: 1.6rem;
+        line-height: 1;
+        vertical-align: top;
+        height: 40px;
+        min-width: 80px;
+        border: none;
+        border-radius: 4px;
+        @include cfg.bb-button-decoration();
+        @include cfg.media-type(lg) {
+          display: block;
+          min-width: 100px;
+          margin: 10px auto 0;
+        }
       }
     }
   }
@@ -993,7 +693,7 @@
   text-align: center;
   padding: 0;
   margin-bottom: 30px;
-  @include media-type(lg) {
+  @include cfg.media-type(lg) {
     margin: 0 -5px;
   }
   .heading {
@@ -1008,10 +708,10 @@
     width: 36px;
     height: 36px;
     margin: 0 2px;
-    background-color: $base-gray-6;
-    border: 1px solid $base-gray-5;
+    background-color: cfg.$base-gray-6;
+    border: 1px solid cfg.$base-gray-5;
     box-sizing: border-box;
-    @include media-type(lg) {
+    @include cfg.media-type(lg) {
       text-align: center;
       line-height: 44px;
       width: 44px;
@@ -1020,23 +720,23 @@
     }
   }
   > .page {
-    color: $base-gray-2;
+    color: cfg.$base-gray-2;
   }
   > a {
     display: inline-block;
     margin: 0 2px;
-    @include media-type(lg) {
+    @include cfg.media-type(lg) {
       margin: 5px;
     }
     > span.page {
       margin: 0;
-      border: 1px solid $base-gray-6;
-      background-color: $base-white;
+      border: 1px solid cfg.$base-gray-6;
+      background-color: cfg.$base-white;
       box-sizing: border-box;
       transition: all .2s;
     }
     &:hover .page {
-      background-color: $base-gray-7;
+      background-color: cfg.$base-gray-7;
       text-decoration: underline;
     }
   }
@@ -1046,7 +746,7 @@
 //--------------------------------------------------------------------
 .main-article .page-navigation {
   margin-top: 40px;
-  border-top: 1px solid $base-gray-5;
+  border-top: 1px solid cfg.$base-gray-5;
   padding-top: 15px;
   ul {
     display: flex;
@@ -1061,20 +761,20 @@
     width: 100%;
     height: 100%;
     padding: 10px;
-    border: 1px solid $base-gray-6;
+    border: 1px solid cfg.$base-gray-6;
     box-sizing: border-box;
     transition: all .2s;
-    @include media-type(lg) {
+    @include cfg.media-type(lg) {
       padding: 2.8vw;
     }
     &:hover {
-      background-color: $base-gray-7;
+      background-color: cfg.$base-gray-7;
     }
   }
   .dir {
     position: relative;
     display: block;
-    color: $base-gray-3;
+    color: cfg.$base-gray-3;
     font-size: 1.2rem;
     margin-bottom: 4px;
   }
@@ -1083,7 +783,7 @@
     font-size: 1.5rem;
     line-height: 1.3;
     text-align: left;
-    @include media-type(lg) {
+    @include cfg.media-type(lg) {
       font-size: 1.4rem;
     }
   }
@@ -1094,7 +794,7 @@
       left: -4px;
       &::before {
         font-size: 1.7rem;
-        @include icon-font('f0141');
+        @include cfg.icon-font('f0141');
         vertical-align: -2px;
       }
     }
@@ -1105,7 +805,7 @@
       right: -4px;
       &::after {
         font-size: 1.7rem;
-        @include icon-font('f0142');
+        @include cfg.icon-font('f0142');
         vertical-align: -2px;
       }
     }
