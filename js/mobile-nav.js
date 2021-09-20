@@ -43,6 +43,24 @@
         $('#nav-window-scroll ul').removeAttr('id');
       }
     });
+    // サブメニューの表示切り替え
+    var items = [
+      '.widget_categories > ul > .cat-item',
+      '.menu > .menu-item'
+    ]
+    $(items.join(','), '#nav-window-area').each(function () {
+      var $item = $(this)
+      if ($('> .children, > .sub-menu', $item).length) {
+        $('> a', $item).append('<span class="icon-toggle"></span>')
+        $item.addClass('acoordion-menu')
+      }
+      $('.icon-toggle', $item).on('click', function (e) {
+        $item.toggleClass('active')
+        e.stopPropagation()
+        e.preventDefault()
+      })
+    })
+
     // CLOSEボタン
     $('#nav-window-area').prepend('<div id="nav-window-close-btn"><span class="btn-symbol">');
     // ヘッダーにOPENボタン
