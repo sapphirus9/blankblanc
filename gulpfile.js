@@ -8,10 +8,13 @@ const cfg = {
   srcDir   : 'src', // ソースファイルのディレクトリ
   scssDir  : 'scss', // 対象の scss ディレクトリ
   scssFiles: '**/*.scss', // 対象の scss ファイル
+  jsDir    : 'js', // 対象の js ディレクトリ
+  jsFiles  : '**/*.js', // 対象の js ファイル
 
   distDir  : '', // 出力対象のディレクトリ
   cssDist  : 'css', // css の出力先ディレクトリ
-  mapDist  : '', // map の出力先ディレクトリ（css 内）
+  cssMap   : '', // map の出力先ディレクトリ（css 内）
+  jsDist   : 'js', // js の出力先ディレクトリ
 }
 
 const path = require('path')
@@ -25,9 +28,11 @@ const _root = {
 }
 const _src = {
   scss: path.resolve(_root.src, cfg.scssDir, cfg.scssFiles),
+  js  : path.resolve(_root.src, cfg.jsDir, cfg.jsFiles),
 }
 const _dist = {
   css: path.resolve(_root.dist, cfg.cssDist),
+  js : path.resolve(_root.dist, cfg.jsDist),
 }
 const _map = {
   scss: './' + path.relative(path.resolve(_root.dist, cfg.cssDist), path.resolve(_root.src, cfg.scssDir)),
@@ -37,13 +42,13 @@ const _map = {
  * モジュール
  */
 const { src, dest, parallel } = require('gulp')
-const cache        = require('gulp-cached')
+const sass         = require('gulp-dart-sass')
 const notify       = require('gulp-notify')
 const plumber      = require('gulp-plumber')
 const postcss      = require('gulp-postcss')
 const progeny      = require('gulp-progeny')
-const sass         = require('gulp-sass')(require('sass'))
 const sourcemaps   = require('gulp-sourcemaps')
+const terser       = require('gulp-terser')
 const autoprefixer = require('autoprefixer')
 const mergerules   = require('postcss-merge-rules')
 const normcharset  = require('postcss-normalize-charset')
@@ -56,7 +61,6 @@ const smqueries    = require('postcss-sort-media-queries')
 const ScssDev = () =>
   src(_src.scss)
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
-    .pipe(cache('scss'))
     .pipe(progeny())
     .pipe(sourcemaps.init())
     .pipe(sass.sync({
@@ -69,7 +73,7 @@ const ScssDev = () =>
       mergerules(),
       smqueries()
     ]))
-    .pipe(sourcemaps.write(cfg.mapDist, {
+    .pipe(sourcemaps.write(cfg.cssMap, {
       includeContent: false,
       sourceRoot: _map.scss,
     }))
@@ -79,7 +83,6 @@ const ScssDev = () =>
 const ScssProd = () =>
   src(_src.scss)
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
-    .pipe(cache('scss'))
     .pipe(progeny())
     .pipe(sass.sync({
       outputStyle: 'compressed',
@@ -92,4 +95,13 @@ const ScssProd = () =>
     ]))
     .pipe(dest(_dist.css))
 
-exports.build = parallel(cfg.mode == 'production' ? ScssProd : ScssDev)
+/**
+ * JS
+ */
+const JsProd = () =>
+  src(_src.js)
+    .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
+    .pipe(terser())
+    .pipe(dest(_dist.js))
+
+exports.build = parallel(cfg.mode == 'production' ? [ScssProd, JsProd] : [ScssDev, JsProd])
