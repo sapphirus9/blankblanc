@@ -3,8 +3,8 @@
  * Author: Naoki Yamamoto
  * Description: モバイルビューの時に使用するJavaScriptです (Require: jQuery)
  */
-
 (function ($) {
+  'use strict';
   $(function () {
     /**
      * ナビウィンドウを開閉

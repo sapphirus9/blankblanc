@@ -3,8 +3,8 @@
  * Author: Naoki Yamamoto
  * Description: 共通で使用するJavaScriptです (Require: jQuery)
  */
-
 (function ($) {
+  'use strict';
   var breakpoint = 767 // 画面幅(px)によるPC／モバイル表示切替
   /**
    * ブラウザー確認
