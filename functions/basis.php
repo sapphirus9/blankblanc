@@ -210,7 +210,6 @@ if (!function_exists('add_styles_scripts')) {
   function add_styles_scripts() {
     global $bb_theme_config;
     wp_enqueue_script('vendors-jquery', get_template_directory_uri() . '/vendors/jquery/jquery-3.6.0.min.js', array(), null, false);
-    wp_enqueue_style('materialdesign-webfont', get_template_directory_uri() . '/vendors/materialdesign-webfont/css/materialdesignicons.min.css');
     if ($bb_theme_config['with_parent_css'] === true) {
       wp_enqueue_style('style', get_template_directory_uri() . '/css/theme.css', array(), VERSION_PARAM);
     }

@@ -69,11 +69,11 @@
   .font-icon::before {
     color: cfg.$base-gray-4;
     font-size: 1.5rem;
-    vertical-align: -1px;
+    vertical-align: -.1em;
     margin-right: 4px;
   }
   .date::before {
-    @include cfg.icon-font('f00ed');
+    @include cfg.icon-font('f00ee');
   }
   .categories::before {
     @include cfg.icon-font('f0770');
@@ -82,7 +82,7 @@
     @include cfg.icon-font('f04fd');
   }
   .author::before {
-    @include cfg.icon-font('f03ea');
+    @include cfg.icon-font('f0d13');
   }
 }
 

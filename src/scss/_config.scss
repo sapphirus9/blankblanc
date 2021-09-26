@@ -3,6 +3,7 @@
 //--------------------------------------------------------------------
 @use 'sass:math';
 @use 'sass:map';
+@use 'sass:string';
 
 // width
 //--------------------------------------------------------------------
@@ -61,12 +62,12 @@ $base-font-bold: 600;
 
 // icon
 //--------------------------------------------------------------------
-@mixin icon-font($content1: '', $content2: '') {
-  font-family: "Material Design Icons";
+@mixin icon-font($content1: '', $content2: '', $rotate: '') {
+  font-family: "BlankBlanc-Icons";
   @if $content2 == '' {
-    content: unquote('\'\\') + $content1 + unquote('\'');
+    content: string.unquote('\'\\') + $content1 + string.unquote('\'');
   } @else {
-    content: unquote('\'\\') + $content1 + unquote('\\') + $content2 + unquote('\'');
+    content: string.unquote('\'\\') + $content1 + string.unquote('\\') + $content2 + string.unquote('\'');
   }
 }
 
