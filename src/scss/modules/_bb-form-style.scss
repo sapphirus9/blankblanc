@@ -244,7 +244,7 @@ $className : '.bb-form-style';
           opacity: 0;
           transition: all .2s;
           @include cfg.media-type(lg) {
-            left: 13px;
+            left: 14px;
           }
         }
       }
@@ -313,17 +313,17 @@ $className : '.bb-form-style';
         &::after {
           display: block;
           position: absolute;
-          top: calc(50% - 7px);
-          left: 9px;
+          top: calc(50% - 6px);
+          left: 10px;
           content: '';
-          width: 14px;
-          height: 14px;
+          width: 12px;
+          height: 12px;
           background-color: cfg.$base-gray-2;
           border-radius: 50%;
           opacity: 0;
           transition: all .2s;
           @include cfg.media-type(lg) {
-            left: 11px;
+            left: 12px;
           }
         }
       }
