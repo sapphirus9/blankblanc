@@ -8,9 +8,9 @@
 /**
  * WordPress のバージョンを確認
  */
-if (version_compare($GLOBALS['wp_version'], '4.7', '<')) {
+if (version_compare($GLOBALS['wp_version'], '5.7', '<')) {
   function bb_wp_version_notice() {
-    printf('<div class="error"><p>BlankBlanc は WordPress 4.7 未満の動作を保証しておりません。<br>現在ご利用中のバージョンは <strong>%s</strong> です。WordPress のアップグレードをご検討ください。</p></div>', $GLOBALS['wp_version']);
+    printf('<div class="error"><p>BlankBlanc は WordPress 5.7 未満の動作を保証しておりません。<br>現在ご利用中のバージョンは <strong>%s</strong> です。WordPress のアップグレードをご検討ください。</p></div>', $GLOBALS['wp_version']);
   }
   add_action('admin_notices', 'bb_wp_version_notice');
 }
