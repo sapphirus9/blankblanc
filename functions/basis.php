@@ -211,7 +211,7 @@ if (!function_exists('add_styles_scripts')) {
     global $bb_theme_config;
     wp_enqueue_script('vendors-jquery', get_template_directory_uri() . '/vendors/jquery/jquery-3.6.0.min.js', array(), null, false);
     if ($bb_theme_config['with_parent_css'] === true) {
-      wp_enqueue_style('style', get_template_directory_uri() . '/css/theme.css', array(), VERSION_PARAM);
+      wp_enqueue_style('style', get_template_directory_uri() . '/assets/css/theme.css', array(), VERSION_PARAM);
     }
     // comments
     if (is_singular() && comments_open() && get_option('thread_comments')) {
@@ -226,7 +226,7 @@ if (!function_exists('add_mobile_styles_scripts')) {
   function add_mobile_styles_scripts() {
     global $bb_theme_config;
     if ($bb_theme_config['with_parent_script'] === true) {
-      wp_enqueue_script('mobile-nav', get_template_directory_uri() . '/js/mobile-nav.js', array(), VERSION_PARAM, true);
+      wp_enqueue_script('mobile-nav', get_template_directory_uri() . '/assets/js/mobile-nav.js', array(), VERSION_PARAM, true);
     }
     // スライドメニューの登録
     $_js = array();
@@ -247,7 +247,7 @@ if (!function_exists('add_common_scripts')) {
   function add_common_scripts() {
     global $bb_theme_config;
     if ($bb_theme_config['with_parent_script'] === true) {
-      wp_enqueue_script('functions', get_template_directory_uri() . '/js/functions.js', array(), VERSION_PARAM, true);
+      wp_enqueue_script('functions', get_template_directory_uri() . '/assets/js/functions.js', array(), VERSION_PARAM, true);
     }
   }
 }
@@ -258,18 +258,22 @@ function add_cfg_styles_scripts() {
   global $bb_theme_id_class;
   // css
   if (!empty($bb_theme_id_class->css)) {
-    if (is_file(get_stylesheet_directory() . '/' . $bb_theme_id_class->css)) {
-      wp_enqueue_style('current', get_stylesheet_directory_uri() . '/' . $bb_theme_id_class->css, array(), VERSION_PARAM);
+    if (is_file(get_stylesheet_directory() . '/assets/css/' . $bb_theme_id_class->css)) {
+      wp_enqueue_style('current', get_stylesheet_directory_uri() . '/assets/css/' . $bb_theme_id_class->css, array(), VERSION_PARAM);
     } elseif (is_file(get_stylesheet_directory() . '/css/' . $bb_theme_id_class->css)) {
       wp_enqueue_style('current', get_stylesheet_directory_uri() . '/css/' . $bb_theme_id_class->css, array(), VERSION_PARAM);
+    } elseif (is_file(get_stylesheet_directory() . '/' . $bb_theme_id_class->css)) {
+      wp_enqueue_style('current', get_stylesheet_directory_uri() . '/' . $bb_theme_id_class->css, array(), VERSION_PARAM);
     }
   }
   // js
   if (!empty($bb_theme_id_class->js)) {
-    if (is_file(get_stylesheet_directory() . '/' . $bb_theme_id_class->js)) {
-      wp_enqueue_script('current', get_stylesheet_directory_uri() . '/' . $bb_theme_id_class->js, array(), VERSION_PARAM);
+    if (is_file(get_stylesheet_directory() . '/assets/js/' . $bb_theme_id_class->js)) {
+      wp_enqueue_script('current', get_stylesheet_directory_uri() . '/assets/js/' . $bb_theme_id_class->js, array(), VERSION_PARAM);
     } elseif (is_file(get_stylesheet_directory() . '/js/' . $bb_theme_id_class->js)) {
       wp_enqueue_script('current', get_stylesheet_directory_uri() . '/js/' . $bb_theme_id_class->js, array(), VERSION_PARAM);
+    } elseif (is_file(get_stylesheet_directory() . '/' . $bb_theme_id_class->js)) {
+      wp_enqueue_script('current', get_stylesheet_directory_uri() . '/' . $bb_theme_id_class->js, array(), VERSION_PARAM);
     }
   }
 }
@@ -326,11 +330,11 @@ if (is_child_theme()) {
   // scripts
   if (!function_exists('theme_scripts')) {
     function theme_scripts() {
-      $filename = '/js/mobile-nav.js';
+      $filename = '/assets/js/mobile-nav.js';
       if (is_file(get_stylesheet_directory() . $filename)) {
         wp_enqueue_script('child-mobile-nav', get_stylesheet_directory_uri() . $filename, array(), VERSION_PARAM, true);
       }
-      $filename = '/js/functions.js';
+      $filename = '/assets/js/functions.js';
       if (is_file(get_stylesheet_directory() . $filename)) {
         wp_enqueue_script('child-functions', get_stylesheet_directory_uri() . $filename, array(), VERSION_PARAM, true);
       }

@@ -36,7 +36,7 @@ function bb_config_default() {
     // 自動設定するスラッグの接頭辞（無指定は post_type）
     'auto_post_slug'      => '',
     // ロゴイメージ画像（デフォルトは {theme_name}/img/logo.png）
-    'logo_image'          => get_template_directory_uri() . '/img/logo.png',
+    'logo_image'          => get_template_directory_uri() . '/assets/img/logo.png',
     // ロゴのサイズ（幅[数値], 高さ[数値]）
     'logo_size'           => array(),
     // ロゴの alt 出力（デフォルトはブログ名）
@@ -74,7 +74,7 @@ function bb_config_default() {
     // タクソノミー（カテゴリー・タグ等）のレイアウトタイプ（list/tiles）
     'taxonomy_layout'     => 'list',
     // トップページメインビジュアル（Home または Front Page が対象）
-    'mv_home_image'       => get_template_directory_uri() . '/img/img-hero.jpg',
+    'mv_home_image'       => get_template_directory_uri() . '/assets/img/img-hero.jpg',
     // トップページメインビジュアル内コンテンツ（Home または Front Page が対象）
     'mv_home_content'     => '',
     // テーマ用CSS/JSのバージョンパラメータを別で指定（デフォルトは false）※ブラウザキャッシュ対策用

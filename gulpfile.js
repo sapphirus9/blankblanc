@@ -11,7 +11,7 @@ const cfg = {
   jsDir    : 'js', // 対象の js ディレクトリ
   jsFiles  : '**/*.js', // 対象の js ファイル
 
-  distDir  : '', // 出力対象のディレクトリ
+  distDir  : 'assets', // 出力対象のディレクトリ
   cssDist  : 'css', // css の出力先ディレクトリ
   cssMap   : '', // map の出力先ディレクトリ（css 内）
   jsDist   : 'js', // js の出力先ディレクトリ

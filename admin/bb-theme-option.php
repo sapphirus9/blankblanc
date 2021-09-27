@@ -52,7 +52,7 @@ function blankblanc_config_edit() {
       $config_values = $bb_theme_default;
     }
   }
-  wp_enqueue_script('bb-theme-admin-js', get_template_directory_uri() . '/admin/js/bb-theme-admin.js', array('jquery-ui-sortable', 'jquery-touch-punch', 'jquery-ui-tabs'));
+  wp_enqueue_script('bb-theme-admin-js', get_template_directory_uri() . '/admin/assets/js/bb-theme-admin.js', array('jquery-ui-sortable', 'jquery-touch-punch', 'jquery-ui-tabs'));
   wp_enqueue_media();
 
   // echo
@@ -164,7 +164,7 @@ function blankblanc_config_edit() {
 
 // 管理画面に css を追加
 function admin_extend_css_init() {
-  $css = get_template_directory_uri() . '/admin/css/bb-theme-admin.css';
+  $css = get_template_directory_uri() . '/admin/assets/css/bb-theme-admin.css';
   echo "<link rel='stylesheet' href='{$css}' type='text/css' media='all'>\n";
 }
 
