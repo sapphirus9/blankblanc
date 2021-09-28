@@ -86,17 +86,6 @@ function bb_config_default() {
 /**
  * ファンクション追加・変更等は子テーマまたはこの下に記述してください
  */
-// カスタム投稿タイプにリビジョン追加
-function add_posttype_revisions() {
-  add_post_type_support('mw-wp-form', 'revisions');
-}
-add_action('init', 'add_posttype_revisions');
-
-// MW WP Formのcss読み込みを解除
-function remove_plugin_css() {
-  wp_deregister_style('mw-wp-form');
-}
-add_action('wp_enqueue_scripts', 'remove_plugin_css');
 
 
 /**
