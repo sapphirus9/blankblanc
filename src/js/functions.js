@@ -5,7 +5,7 @@
  */
 (function ($) {
   'use strict';
-  var breakpoint = 767 // 画面幅(px)によるPC／モバイル表示切替
+  var breakpoint = 768 // 画面幅(px)によるモバイル<PC表示切替
   /**
    * ブラウザー確認
    */
@@ -24,6 +24,11 @@
     if (/Mac OS X(?!.*Chrome)(?=.*Safari)/.test(ua)) browser = 'safari'
     else if (/Trident\/7\.0/.test(ua)) browser = 'ie11'
     if (browser) $('html').addClass('browser-' + browser)
+    // Device
+    var device = ''
+    if (/iPhone.*?Mac OS X/.test(ua)) device = 'mobile'
+    else if (/Android.*?Mobile/.test(ua)) device = 'mobile'
+    if (device) $('html').addClass('device-' + device)
   })
 
   /**
@@ -43,7 +48,7 @@
     }
     var _move = function (anchor) {
       var offset = $(anchor).offset()
-      var offt = document.documentElement.clientWidth <= mbWin['bp'] ? mbWin['off'] : 0
+      var offt = document.documentElement.clientWidth < mbWin['bp'] ? mbWin['off'] : 0
       var pos = !offset ? 0 : offset.top - offt
       $('html,body').stop().animate({ scrollTop: pos }, 'normal', 'easing')
     }
@@ -216,7 +221,7 @@
       mb: 65
     }
     var move = function (pos) {
-      pos = pos - (document.documentElement.clientWidth <= breakpoint ? offset.mb : offset.pc)
+      pos = pos - (document.documentElement.clientWidth < breakpoint ? offset.mb : offset.pc)
       $('html,body').animate({ scrollTop: pos }, 200, 'easing')
     }
 
