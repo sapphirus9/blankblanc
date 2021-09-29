@@ -38,7 +38,7 @@ function bb_config_default() {
     // ロゴイメージ画像（デフォルトは {theme_name}/img/logo.png）
     'logo_image'          => get_template_directory_uri() . '/assets/img/logo.png',
     // ロゴのサイズ（幅[数値], 高さ[数値]）
-    'logo_size'           => array(),
+    'logo_size'           => array(230, 40),
     // ロゴの alt 出力（デフォルトはブログ名）
     'logo_alt'            => get_bloginfo('name'),
     // メインビジュアル画像
