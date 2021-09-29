@@ -9,11 +9,11 @@
   margin-top: 40px;
   padding-top: 40px;
   border-top: 1px solid cfg.$base-gray-5;
-  @include cfg.media-type(lg) {
+  @include cfg.media-max(lg) {
     font-size: 1.4rem;
     margin-top: 40px;
     padding-top: 20px;
-    @include cfg.media-type(lg) {
+    @include cfg.media-max(lg) {
       font-size: 1.8rem;
     }
   }
@@ -26,7 +26,7 @@
     font-size: 2rem;
     @include cfg.font-weight(normal);
     margin-bottom: 10px;
-    @include cfg.media-type(lg) {
+    @include cfg.media-max(lg) {
       font-size: 1.7rem;
     }
     small {
@@ -34,7 +34,7 @@
       font-size: 1.4rem;
       vertical-align: middle;
       margin: -2px 0 0 8px;
-      @include cfg.media-type(lg) {
+      @include cfg.media-max(lg) {
         font-size: 1.2rem;
       }
     }
@@ -45,7 +45,7 @@
       padding: 3px 9px 3px 6px;
       background-color: cfg.$base-gray-4;
       border-radius: 50px;
-      @include cfg.media-type(lg) {
+      @include cfg.media-max(lg) {
         padding: 2px 8px;
       }
       &::before {
@@ -61,7 +61,7 @@
     font-size: 1.5rem;
     margin-bottom: 10px;
     list-style: none;
-    @include cfg.media-type(lg) {
+    @include cfg.media-max(lg) {
       overflow: visible;
     }
     #respond {
@@ -70,7 +70,7 @@
       border-top: 1px dotted cfg.$base-gray-6;
       #reply-title {
         font-size: 2rem;
-        @include cfg.media-type(lg) {
+        @include cfg.media-max(lg) {
           font-size: 1.7rem;
         }
       }
@@ -81,7 +81,7 @@
       border-bottom: 1px dashed cfg.$base-gray-5;
     }
     .comment {
-      @include cfg.media-type(lg) {
+      @include cfg.media-max(lg) {
         overflow: visible;
       }
       > div {
@@ -91,7 +91,7 @@
     }
     div.avatar {
       margin-right: 20px;
-      @include cfg.media-type(lg) {
+      @include cfg.media-max(lg) {
         margin-right: 10px;
       }
       .thumb {
@@ -108,7 +108,7 @@
         font-size: 1.2rem;
         line-height: 1.5;
         margin-bottom: 5px;
-        @include cfg.media-type(lg) {
+        @include cfg.media-max(lg) {
           font-size: 1.2rem;
         }
       }
@@ -116,7 +116,7 @@
         display: inline-block;
         font-size: 1.3rem;
         margin-right: 15px;
-        @include cfg.media-type(lg) {
+        @include cfg.media-max(lg) {
           margin-right: 10px;
         }
       }
@@ -124,14 +124,14 @@
         display: inline-block;
         font-size: 1.3rem;
         margin-right: 15px;
-        @include cfg.media-type(lg) {
+        @include cfg.media-max(lg) {
           margin-right: 10px;
         }
         .year,
         .month,
         .day {
           margin-right: 3px;
-          @include cfg.media-type(lg) {
+          @include cfg.media-max(lg) {
             margin-right: 0;
           }
         }
@@ -152,7 +152,7 @@
     .children {
       font-size: 1.5rem;
       margin: 20px 0 0 30px;
-      @include cfg.media-type(lg) {
+      @include cfg.media-max(lg) {
         margin: 20px 0 0 15px;
         overflow: visible;
       }
@@ -161,7 +161,7 @@
   #respond {
     position: relative;
     width: 500px;
-    @include cfg.media-type(lg) {
+    @include cfg.media-max(lg) {
       width: auto;
     }
     p {
@@ -187,7 +187,7 @@
         line-height: 1.5;
         width: 100%;
         box-sizing: border-box;
-        @include cfg.media-type(lg) {
+        @include cfg.media-max(lg) {
           font-size: 1.7rem;
         }
       }
@@ -198,7 +198,7 @@
         height: 40px;
         width: 160px;
         @include cfg.bb-button-decoration();
-        @include cfg.media-type(lg) {
+        @include cfg.media-max(lg) {
           font-size: 1.7rem;
         }
       }
@@ -210,14 +210,14 @@
       height: 150px;
       box-sizing: border-box;
       @include cfg.bb-input-decoration();
-      @include cfg.media-type(lg) {
+      @include cfg.media-max(lg) {
         font-size: 1.7rem;
         height: 200px;
         padding: 8px;
       }
     }
     .inputtext {
-      @include cfg.media-type(lg) {
+      @include cfg.media-max(lg) {
         width: auto;
       }
     }
@@ -229,7 +229,7 @@
       clear: both;
       margin-bottom: 0;
       padding-top: 5px;
-      @include cfg.media-type(lg) {
+      @include cfg.media-max(lg) {
         text-align: center;
         margin-top: 20px;
       }
@@ -237,7 +237,7 @@
     .not-publish {
       display: inline-block;
       font-size: 1.2rem;
-      @include cfg.media-type(lg) {
+      @include cfg.media-max(lg) {
         display: block;
         margin-bottom: 5px;
       }
@@ -253,7 +253,7 @@
     padding: 0 15px;
     background-color: cfg.$base-gray-7;
     box-sizing: border-box;
-    @include cfg.media-type(lg) {
+    @include cfg.media-max(lg) {
       display: none;
     }
     li {

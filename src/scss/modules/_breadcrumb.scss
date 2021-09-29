@@ -5,7 +5,7 @@
 #bread-crumb {
   padding-top: 7px;
   background-color: cfg.$base-white;
-  @include cfg.media-type(xl) {
+  @include cfg.media-max(xl) {
     display: none;
   }
   .bread-crumb-list {

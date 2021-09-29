@@ -10,8 +10,8 @@
 }
 .search-form {
   position: relative;
-  @include cfg.media-type(xl) {
-    margin: 0 cfg.$base-side-space-mobile;
+  @include cfg.media-max(xl) {
+    margin: 0 cfg.$gap-mobile;
   }
   .screen-reader-text {
     display: none;
@@ -51,7 +51,7 @@
     border: 1px solid cfg.$base-gray-5;
     border-radius: 2px;
     box-sizing: border-box;
-    @include cfg.media-type(xl) {
+    @include cfg.media-max(xl) {
       border-color: cfg.$base-gray-4;
     }
   }

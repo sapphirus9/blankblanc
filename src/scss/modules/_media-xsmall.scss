@@ -3,15 +3,15 @@
 // extra small
 //--------------------------------------------------------------------
 
-@include cfg.media-type(xs) {
+@include cfg.media-max(xs) {
   // nav window
   //--------------------------------------------------------------------
   #nav-window-area {
-    left: -85vw;
+    left: -85.01vw;
     width: 85vw;
     .nav-window-right & {
       left: auto;
-      right: -85vw;
+      right: -85.01vw;
     }
   }
 }

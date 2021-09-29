@@ -109,13 +109,13 @@
     .month-list {
       margin-top: 4px;
       overflow: hidden;
-      @include cfg.media-type(xl) {
+      @include cfg.media-max(xl) {
         margin: 4px 2.5% 0;
       }
       > li {
         float: left;
         margin: 0 15px 5px 0;
-        @include cfg.media-type(xl) {
+        @include cfg.media-max(xl) {
           width: 22%;
           margin: 0 1.5%;
           text-align: center;
@@ -125,12 +125,12 @@
           margin-right: 0;
         }
         .month {
-          @include cfg.media-type(xl) {
+          @include cfg.media-max(xl) {
             display: block;
           }
         }
         .count {
-          @include cfg.media-type(xl) {
+          @include cfg.media-max(xl) {
             font-size: 1rem;
             margin: 3px 0 0 0;
           }

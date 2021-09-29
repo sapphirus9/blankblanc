@@ -7,7 +7,7 @@
 //--------------------------------------------------------------------
 #global-header {
   background-color: cfg.$base-white;
-  @include cfg.media-type(xl) {
+  @include cfg.media-max(xl) {
     position: fixed;
     top: 0;
     left: 0;
@@ -18,15 +18,15 @@
   }
   .wrap {
     height: 100px;
-    @include cfg.media-type(xl) {
+    @include cfg.media-max(xl) {
       height: 54px;
     }
   }
   .logo {
     position: absolute;
     top: 18px;
-    left: cfg.$base-side-space-full;
-    @include cfg.media-type(xl) {
+    left: cfg.$gap-desktop;
+    @include cfg.media-max(xl) {
       top: 9px;
       left: 0;
       right: 0;
@@ -35,14 +35,14 @@
     a {
       display: block;
       text-decoration: none;
-      @include cfg.media-type(xl) {
+      @include cfg.media-max(xl) {
         display: inline-block;
       }
     }
     img {
       width: auto;
       height: 40px;
-      @include cfg.media-type(xl) {
+      @include cfg.media-max(xl) {
         height: 22px;
       }
     }
@@ -50,18 +50,18 @@
   .site-title {
     display: block;
     font-size: 4rem;
-    @include cfg.media-type(xl) {
+    @include cfg.media-max(xl) {
       font-size: 2rem;
     }
   }
   .copy {
     position: absolute;
     top: 68px;
-    left: cfg.$base-side-space-full;
+    left: cfg.$gap-desktop;
     color: cfg.$base-gray-3;
     font-size: 1.3rem;
     @include cfg.font-weight(normal);
-    @include cfg.media-type(xl) {
+    @include cfg.media-max(xl) {
       top: auto;
       left: 0;
       right: 0;
@@ -75,8 +75,8 @@
 #header-nav {
   position: absolute;
   top: 15px;
-  right: cfg.$base-side-space-full;
-  @include cfg.media-type(xl) {
+  right: cfg.$gap-desktop;
+  @include cfg.media-max(xl) {
     display: none;
   }
   .menu {
@@ -97,7 +97,7 @@
 //--------------------------------------------------------------------
 #global-nav {
   background-color: cfg.$base-gray-7;
-  @include cfg.media-type(xl) {
+  @include cfg.media-max(xl) {
     display: none;
   }
   ul {

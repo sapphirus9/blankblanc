@@ -3,17 +3,17 @@
 // large
 //--------------------------------------------------------------------
 
-@include cfg.media-type(lg) {
+@include cfg.media-max(lg) {
   // global footer
   //--------------------------------------------------------------------
   #global-footer .copyright {
-    padding-left: cfg.$base-side-space-mobile;
-    padding-right: cfg.$base-side-space-mobile;
+    padding-left: cfg.$gap-mobile;
+    padding-right: cfg.$gap-mobile;
   }
 
   // footer widgets
   //--------------------------------------------------------------------
   .footer-widgets > ul {
-    padding: 0 cfg.$base-side-space-mobile;
+    padding: 0 cfg.$gap-mobile;
   }
 }

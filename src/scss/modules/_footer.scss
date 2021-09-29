@@ -6,13 +6,13 @@
 // global footer
 //--------------------------------------------------------------------
 #global-footer {
-  @include cfg.media-type(xl) {
-    max-width: cfg.$base-max-width-mobile;
+  @include cfg.media-max(xl) {
+    max-width: cfg.$max-width-mobile;
     margin: 0 auto;
   }
   .wrap {
     min-height: 100px;
-    @include cfg.media-type(xl) {
+    @include cfg.media-max(xl) {
       min-height: 0;
     }
   }
@@ -23,7 +23,7 @@
     text-align: center;
     letter-spacing: .02em;
     padding: 20px 0 30px;
-    @include cfg.media-type(xl) {
+    @include cfg.media-max(xl) {
       padding: 20px 0;
     }
     * {
@@ -62,22 +62,22 @@
   flex-wrap: wrap;
   padding-top: 30px;
   margin: 0 -15px;
-  @include cfg.media-type(xl) {
+  @include cfg.media-max(xl) {
     margin: 0;
   }
   .widget {
-    @include cfg.media-type(xl) {
+    @include cfg.media-max(xl) {
       margin-bottom: 40px;
     }
     ul {
       font-size: 1.5rem;
       li {
-        @include cfg.media-type(xl) {
+        @include cfg.media-max(xl) {
           margin-top: 0;
           border-top: 1px solid cfg.$base-gray-6;
         }
         a {
-          @include cfg.media-type(xl) {
+          @include cfg.media-max(xl) {
             position: relative;
             display: block;
             font-size: 1.5rem;
@@ -90,25 +90,25 @@
         }
       }
       > li {
-        @include cfg.media-type(xl) {
+        @include cfg.media-max(xl) {
           border-top: 1px solid cfg.$base-gray-5;
         }
         &:first-of-type {
-          @include cfg.media-type(xl) {
+          @include cfg.media-max(xl) {
             border-top: none;
           }
         }
         .sub-menu, .children {
-          @include cfg.media-type(xl) {
+          @include cfg.media-max(xl) {
             margin-bottom: 0;
           }
           > li {
-            @include cfg.media-type(xl) {
+            @include cfg.media-max(xl) {
               padding-left: 0;
               border-top: 1px dotted cfg.$base-gray-5;
             }
             a {
-              @include cfg.media-type(xl) {
+              @include cfg.media-max(xl) {
                 font-size: 1.4rem;
                 padding-left: 6%;
               }
@@ -117,7 +117,7 @@
             .sub-menu, .children {
               > li {
                 a {
-                  @include cfg.media-type(xl) {
+                  @include cfg.media-max(xl) {
                     padding-left: 12%;
                   }
                 }
@@ -136,7 +136,7 @@
     margin-bottom: 10px;
     padding-bottom: 10px;
     border-bottom: 1px solid cfg.$base-gray-4;
-    @include cfg.media-type(xl) {
+    @include cfg.media-max(xl) {
       color: cfg.$base-gray-3;
       padding: 8px 2.4%;
       margin-bottom: 12px;
@@ -148,14 +148,14 @@
     width: 25%;
     padding: 0 15px;
     box-sizing: border-box;
-    @include cfg.media-type(xl) {
+    @include cfg.media-max(xl) {
       float: none;
       width: 100%;
       padding: 0;
     }
   }
   .tagcloud {
-    @include cfg.media-type(xl) {
+    @include cfg.media-max(xl) {
       margin: -5px;
     }
     a {
@@ -166,12 +166,12 @@
     }
     .wp-tag-cloud {
       > li {
-        @include cfg.media-type(xl) {
+        @include cfg.media-max(xl) {
           font-size: 1.4rem;
           border: none;
         }
         a {
-          @include cfg.media-type(xl) {
+          @include cfg.media-max(xl) {
             display: inline-block;
             line-height: 1;
             padding: 9px;
@@ -188,28 +188,28 @@
   }
   .widget_archive {
     .month-list {
-      @include cfg.media-type(xl) {
+      @include cfg.media-max(xl) {
         margin: 4px -1.5% 0;
       }
       > li {
-        @include cfg.media-type(xl) {
+        @include cfg.media-max(xl) {
           width: 22%;
           margin: 0 1.5% !important;
           text-align: center;
           border-top: 1px solid cfg.$base-gray-6 !important;
         }
         a {
-          @include cfg.media-type(xl) {
+          @include cfg.media-max(xl) {
             padding: 10px 0 !important;
           }
         }
         .month {
-          @include cfg.media-type(xl) {
+          @include cfg.media-max(xl) {
             display: block;
           }
         }
         .count {
-          @include cfg.media-type(xl) {
+          @include cfg.media-max(xl) {
             font-size: 1.2rem;
             margin: 3px 0 0 0 !important;
           }
@@ -219,14 +219,14 @@
   }
   .widget_categories {
     > ul {
-      @include cfg.media-type(xl) {
+      @include cfg.media-max(xl) {
         margin-top: -12px;
       }
     }
   }
   .widget_nav_menu {
     .menu {
-      @include cfg.media-type(xl) {
+      @include cfg.media-max(xl) {
         margin-top: -12px;
       }
     }

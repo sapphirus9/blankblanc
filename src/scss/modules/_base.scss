@@ -18,25 +18,31 @@ a {
 // fixed content width
 #main-screen {
   position: relative;
-  min-width: cfg.$base-min-width-full;
-  @include cfg.media-type(xl) {
+  min-width: cfg.$width-desktop + cfg.$gap-desktop * 2;
+  @include cfg.media-max(xl) {
     top: 0;
     left: 0;
     z-index: 2;
     width: 100%;
     min-height: 100%;
-    min-width: cfg.$base-min-width-mobile;
+    min-width: cfg.$min-width-mobile;
     background-color: cfg.$base-gray-7;
+  }
+  @include cfg.media-min(lg) { // iPhone notch measures
+    .os-ios.device-mobile & {
+      min-width: cfg.$width-desktop + cfg.$gap-desktop * 4;
+    }
   }
 }
 
 .wrap {
   position: relative;
-  width: cfg.$base-width-full;
-  padding: 0 cfg.$base-side-space-full;
+  width:  cfg.$width-desktop + cfg.$gap-desktop * 2;
+  padding: 0 cfg.$gap-desktop;
   margin-left: auto;
   margin-right: auto;
-  @include cfg.media-type(xl) {
+  box-sizing: border-box;
+  @include cfg.media-max(xl) {
     width: 100%;
     padding: 0;
   }
@@ -44,13 +50,13 @@ a {
 
 .is-mobile {
   display: none;
-  @include cfg.media-type(xl) {
+  @include cfg.media-max(xl) {
     display: inherit;
   }
 }
 
 .is-pc {
-  @include cfg.media-type(xl) {
+  @include cfg.media-max(xl) {
     display: none;
   }
 }

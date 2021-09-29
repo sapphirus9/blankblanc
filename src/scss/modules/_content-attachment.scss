@@ -47,7 +47,7 @@
       box-sizing: border-box;
       cursor: pointer;
       transition: all .2s;
-      @include cfg.media-type(lg) {
+      @include cfg.media-max(lg) {
         font-size: 1.7rem;
         line-height: 50px;
         height: 50px;

@@ -7,7 +7,7 @@
   text-align: center;
   padding: 0;
   margin: 30px 0;
-  @include cfg.media-type(lg) {
+  @include cfg.media-max(lg) {
     margin: 15px 0;
   }
   .page-numbers {
@@ -21,7 +21,7 @@
     border: 1px solid cfg.$base-gray-6;
     background-color: cfg.$base-white;
     box-sizing: border-box;
-    @include cfg.media-type(lg) {
+    @include cfg.media-max(lg) {
       line-height: 44px;
       width: 44px;
       height: 44px;
@@ -31,7 +31,7 @@
   a {
     text-decoration: none;
     transition: all .2s;
-    @include cfg.media-type(lg) {
+    @include cfg.media-max(lg) {
       -webkit-tap-highlight-color: rgba(0, 0, 0, .06);
       background-color: transparent;
     }
@@ -43,7 +43,7 @@
     color: cfg.$base-gray-2;
     background-color: cfg.$base-gray-6;
     border: 1px solid cfg.$base-gray-5;
-    @include cfg.media-type(lg) {
+    @include cfg.media-max(lg) {
       margin: 0 4%;
     }
   }
@@ -72,13 +72,13 @@
     @include cfg.icon-font('0020', 'f0142');
   }
   .prev {
-    @include cfg.media-type(lg) {
+    @include cfg.media-max(lg) {
       width: auto;
       padding: 0 3% 0 2%;
     }
   }
   .next {
-    @include cfg.media-type(lg) {
+    @include cfg.media-max(lg) {
       width: auto;
       padding: 0 2% 0 3%;
     }
@@ -86,14 +86,14 @@
   .inactive,
   .first,
   .last {
-    @include cfg.media-type(lg) {
+    @include cfg.media-max(lg) {
       display: none;
     }
   }
   .dots {
     color: cfg.$base-gray-3;
     border: none;
-    @include cfg.media-type(lg) {
+    @include cfg.media-max(lg) {
       display: none;
     }
   }
@@ -104,38 +104,38 @@
   .nav-links {
     .page-numbers {
       &:not(.current) {
-        @include cfg.media-type(lg) {
+        @include cfg.media-max(lg) {
           display: none;
         }
       }
       &.next {
-        @include cfg.media-type(lg) {
+        @include cfg.media-max(lg) {
           display: inline-block;
         }
       }
       &.prev {
-        @include cfg.media-type(lg) {
+        @include cfg.media-max(lg) {
           display: inline-block;
         }
         & ~ .page-numbers:nth-child(2) {
-          @include cfg.media-type(lg) {
+          @include cfg.media-max(lg) {
             display: inline-block;
           }
         }
         & ~ .page-numbers:nth-last-child(2) {
-          @include cfg.media-type(lg) {
+          @include cfg.media-max(lg) {
             display: inline-block;
           }
         }
         & ~ .page-numbers.dots:nth-last-child(3) + .page-numbers:nth-last-child(2) {
-          @include cfg.media-type(lg) {
+          @include cfg.media-max(lg) {
             display: none;
           }
         }
       }
       &.current {
         & ~ .page-numbers.dots:nth-last-child(3) + .page-numbers:nth-last-child(2) {
-          @include cfg.media-type(lg) {
+          @include cfg.media-max(lg) {
             display: inline-block;
           }
         }

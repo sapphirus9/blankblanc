@@ -7,7 +7,7 @@
     display: flex;
     flex-wrap: wrap;
     margin: -8px;
-    @include cfg.media-type(lg) {
+    @include cfg.media-max(lg) {
       margin: -6px;
     }
   }
@@ -16,7 +16,7 @@
     background-color: cfg.$base-white;
     border: 1px solid cfg.$base-gray-6;
     box-sizing: border-box;
-    @include cfg.media-type(lg) {
+    @include cfg.media-max(lg) {
       margin: 6px;
       width: calc(33.33% - 12px) !important;
     }

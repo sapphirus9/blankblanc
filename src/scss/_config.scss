@@ -7,12 +7,11 @@
 
 // width
 //--------------------------------------------------------------------
-$base-width-full: 1050px;
-$base-min-width-full: 1100px;
-$base-max-width-mobile: 700px;
-$base-min-width-mobile: 360px;
-$base-side-space-full: math.div($base-min-width-full - $base-width-full, 2);
-$base-side-space-mobile: 4.2vw;
+$width-desktop: 1050px;
+$max-width-mobile: 700px;
+$min-width-mobile: 360px;
+$gap-desktop: 25px;
+$gap-mobile: 4.2vw;
 
 // color
 //--------------------------------------------------------------------
@@ -62,7 +61,7 @@ $base-font-bold: 600;
 
 // icon
 //--------------------------------------------------------------------
-@mixin icon-font($content1: '', $content2: '', $rotate: '') {
+@mixin icon-font($content1: '', $content2: '') {
   font-family: "BlankBlanc-Icons";
   @if $content2 == '' {
     content: string.unquote('\'\\') + $content1 + string.unquote('\'');
@@ -101,13 +100,19 @@ $breakpoints: (
   xs: 450px,
   min: 360px
 );
-@mixin media-type($type: lg) {
+@mixin media-max($type: lg) {
   @media (max-width: map.get($breakpoints, $type) - 1) {
+    @content;
+  }
+}
+@mixin media-min($type: lg) {
+  @media (min-width: map.get($breakpoints, $type)) {
     @content;
   }
 }
 
 // form
+//--------------------------------------------------------------------
 @mixin bb-input-decoration() {
   transition: all .2s;
   box-shadow: none;

@@ -5,7 +5,7 @@
 #contents.error404 {
   > .wrap {
     padding: 140px 0 140px;
-    @include cfg.media-type(xl) {
+    @include cfg.media-max(xl) {
       padding: 100px 0 50px;
     }
   }
@@ -16,7 +16,7 @@
     @include cfg.font-weight(normal);
     line-height: 1;
     text-align: center;
-    @include cfg.media-type(xl) {
+    @include cfg.media-max(xl) {
       font-size: 3.8rem;
     }
   }
@@ -25,7 +25,7 @@
     line-height: 1;
     text-align: center;
     margin-top: 10px;
-    @include cfg.media-type(xl) {
+    @include cfg.media-max(xl) {
       font-size: 1.3rem;
     }
   }
