@@ -10,7 +10,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, viewport-fit=cover">
 <?php wp_head(); ?>
 </head>
 
