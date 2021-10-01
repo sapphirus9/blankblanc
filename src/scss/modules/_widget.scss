@@ -93,6 +93,12 @@
   .comment-user {
     color: cfg.$base-gray-3;
     font-size: 1.2rem;
+    &::before {
+      content: '（';
+    }
+    &::after {
+      content: '）';
+    }
   }
 }
 
