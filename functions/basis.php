@@ -759,22 +759,35 @@ if (!function_exists('bb_copyright')) {
 /**
  * the_content の出力時、more 以降を div で囲む
  * @param string  $more_text  more の テキスト（デフォルトは bb_config_default で指定）
- * @return output  <div class="more-content close"> で以降を囲んで出力
+ * @return output  <div class="more-content"> で以降を囲んで出力
  */
+if (!function_exists('bb_more_content')) {
+  function bb_more_content($content) {
+    if (is_singular() && strpos($content, 'id="more-')) {
+      $content = preg_replace('!<p.+?id="more\-.+?\/p>\n?!s', '', $content);
+      $pid = get_the_ID();
+      $content = "<div class=\"more-content\" id=\"more-{$pid}\">\n{$content}</div>\n";
+    }
+    return $content;
+  }
+}
+add_filter('the_content', 'bb_more_content');
+
 if (!function_exists('bb_the_content')) {
   function bb_the_content($more_text = '') {
     if (is_singular()) {
-      global $more, $bb_theme_config;
       if (strpos(get_the_content(), 'id="more-')) {
+        global $more, $bb_theme_config;
+        $more_text = !$more_text ? $bb_theme_config['more_text'] : $more_text;
         $more = 0;
-        $more_text ? the_content($more_text) : the_content($bb_theme_config['more_text']);
+        the_content($more_text);
         $more = 1;
-        echo "<div class=\"more-content\">\n";
         the_content('', true);
-        echo "</div>\n";
       } else {
         the_content();
       }
+    } else {
+      the_content();
     }
     return;
   }
