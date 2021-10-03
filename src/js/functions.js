@@ -3,33 +3,123 @@
  * Author: Naoki Yamamoto
  * Description: 共通で使用するJavaScriptです (Require: jQuery)
  */
-(function ($) {
+(() => {
   'use strict';
-  var breakpoint = 768 // 画面幅(px)によるモバイル<PC表示切替
   /**
    * ブラウザー確認
    */
-  $(function () {
-    var ua = navigator.userAgent
-    // OS
-    var os = ''
-    if (/Windows/.test(ua)) os = 'windows'
-    else if (/Macintosh/.test(ua)) os = 'macosx'
-    else if (/Android/.test(ua)) os = 'android'
-    else if (/iP.*?Mac OS X/.test(ua)) os = 'ios'
-    else if (/Linux/.test(ua)) os = 'linux'
-    if (os) $('html').addClass('os-' + os)
-    // Browser
-    var browser = ''
-    if (/Mac OS X(?!.*Chrome)(?=.*Safari)/.test(ua)) browser = 'safari'
-    else if (/Trident\/7\.0/.test(ua)) browser = 'ie11'
-    if (browser) $('html').addClass('browser-' + browser)
-    // Device
-    var device = ''
-    if (/iPhone.*?Mac OS X/.test(ua)) device = 'mobile'
-    else if (/Android.*?Mobile/.test(ua)) device = 'mobile'
-    if (device) $('html').addClass('device-' + device)
+  document.addEventListener('DOMContentLoaded', () => {
+    let ua = ''
+    let os = ''
+    let browser = ''
+    let device = ''
+    if (window.navigator.userAgentData) {
+      ua = navigator.userAgentData
+      os = ua.platform
+      if (ua.brands.length) browser = ua.brands[0].brand
+      if (ua.mobile) device = 'mobile'
+    }
+    if (!os || !browser) {
+      ua = navigator.userAgent
+      // OS
+      if (/Windows/.test(ua)) os = 'windows'
+      else if (/Macintosh/.test(ua)) os = 'macosx'
+      else if (/Android/.test(ua)) os = 'android'
+      else if (/iP.*?Mac OS X/.test(ua)) os = 'ios'
+      else if (/Linux/.test(ua)) os = 'linux'
+      // Browser
+      if (/Mac OS X(?!.*Chrome)(?=.*Safari)/.test(ua)) browser = 'safari'
+      else if (/Trident\/7\.0/.test(ua)) browser = 'ie11'
+      // Device
+      if (/iPhone.*?Mac OS X/.test(ua)) device = 'mobile'
+      else if (/Android.*?Mobile/.test(ua)) device = 'mobile'
+    }
+    if (os) document.documentElement.classList.add('os-' + os.toLowerCase())
+    if (browser) document.documentElement.classList.add('browser-' + browser.toLowerCase())
+    if (device) document.documentElement.classList.add('device-' + device.toLowerCase())
   })
+
+  /**
+   * 画像をバックグラウンドイメージに配置
+   */
+  window.addEventListener('load', () => {
+    const imgs = document.querySelectorAll('.background-image-src')
+    Array.prototype.forEach.call(imgs, (img) => {
+      img.style.display = 'none'
+      img.parentNode.style.backgroundImage = 'url(' + img.getAttribute('src') + ')'
+      img.parentNode.classList.add('set-background-image')
+    })
+  })
+
+  /**
+   * 続きを読む
+   */
+  document.addEventListener('DOMContentLoaded', () => {
+    const moreLink = document.querySelector('.more-link')
+    moreLink && moreLink.addEventListener('click', (e) => {
+      moreLink.classList.add('active')
+      const moreContent = document.querySelector('.more-content')
+      moreContent.classList.add('active')
+      e.preventDefault()
+    })
+  })
+
+  /**
+   * フォーム
+   */
+  document.addEventListener('DOMContentLoaded', () => {
+    const selects = document.querySelectorAll('select')
+    Array.prototype.forEach.call(selects, (select) => {
+      select.outerHTML = '<div class="select-area">' + select.outerHTML + '</div>'
+    })
+    const searchForm = document.querySelectorAll('.search-form')
+    Array.prototype.forEach.call(searchForm, (sform) => {
+      const submit = sform.querySelector('.search-submit')
+      const events = ['mouseenter', 'mouseleave']
+      Array.prototype.forEach.call(events, (event) => {
+        submit.addEventListener(event, (e) => {
+          sform.querySelector('label').classList.toggle('hover')
+        })
+      })
+    })
+  })
+
+  /**
+   * 月間アーカイブの階層化
+   */
+  document.addEventListener('DOMContentLoaded', () => {
+    const widgetArchive = document.querySelectorAll('.widget_archive > ul')
+    Array.prototype.forEach.call(widgetArchive, (archive) => {
+      const monthList = document.createElement('ul')
+      monthList.classList.add('month-list')
+      let months = archive.querySelectorAll('li:not(.year-title)')
+      // months = [...months].reverse()
+      Array.prototype.forEach.call(months, (month) => {
+        monthList.appendChild(month)
+      })
+      archive.querySelector('.year-title').appendChild(monthList)
+    })
+  })
+
+  /**
+   * 最近のコメント
+   */
+  document.addEventListener('DOMContentLoaded', () => {
+    const widgetComments = document.querySelectorAll('.widget_recent_comments .recentcomments')
+    Array.prototype.forEach.call(widgetComments, (comments) => {
+      const author = comments.querySelector('.comment-author-link')
+      const html = comments.querySelector('a')
+      html.innerHTML = '<span class="entry-title">' + html.innerHTML + '</span>' + '<span class="comment-user">' + author.innerHTML + '</span>'
+      comments.innerHTML = ''
+      comments.appendChild(html)
+    })
+  })
+})();
+
+
+(function ($) {
+  'use strict';
+  var breakpoint = 768 // 画面幅(px)によるモバイル<PC表示切替
 
   /**
    * ページ内スクロール＆ページのトップへ
@@ -91,52 +181,6 @@
   })
 
   /**
-   * 画像をバックグラウンドイメージに配置
-   */
-  $(window).on('load', function () {
-    $('.background-image-src').each(function () {
-      var img = $('<a>').attr('href', $(this).attr('src')).get(0).href
-      $(this).hide().parent().css('background-image', 'url(' + img + ')').addClass('set-background-image')
-    })
-  })
-
-  /**
-   * フォーム
-   */
-  $(function () {
-    $('select').each(function () {
-      $(this).wrap('<div class="select-area"></div>')
-    })
-    $('.search-form').each(function () {
-      var obj = this
-      $('input[type="submit"]', obj).on('mouseenter mouseleave', function () {
-        $('label', obj).toggleClass('hover')
-      })
-    })
-  })
-
-  /**
-   * 続きを読む
-   */
-  $(function () {
-    $('.more-link').on('click', function (e) {
-      $(this).addClass('active')
-      $(this).parent().next().addClass('active').children('p:first').remove()
-      e.preventDefault()
-    })
-  })
-
-  /**
-   * 月間アーカイブの階層化
-   */
-  $(function () {
-    $('.widget_archive > ul').each(function () {
-      $('li:nth-child(n+2)', this).wrapAll('<ul class="month-list">')
-      $('.month-list', this).appendTo($('.year-title', this))
-    })
-  })
-
-  /**
   * テーブルスクロール
   */
   $(function () {
@@ -194,19 +238,6 @@
       })
     $(window).on('load resize', function () {
       ex($('.table-area'))
-    })
-  })
-
-  /**
-   * 最近のコメント
-   */
-  $(function () {
-    $('.widget_recent_comments .recentcomments').each(function () {
-      var a = $('a:first', this).prop('outerHTML')
-      $(this).find('a:first').remove()
-      var txt = $('.comment-author-link', this).text()
-      $(this).html(a)
-      $('a', this).wrapInner('<span class="entry-title"></span>').append('<span class="comment-user">（' + txt + '）</span>')
     })
   })
 
