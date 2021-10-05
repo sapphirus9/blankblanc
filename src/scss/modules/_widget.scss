@@ -113,13 +113,15 @@
       margin-left: 0;
     }
     .month-list {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: flex-end;
       margin-top: 4px;
       overflow: hidden;
       @include cfg.media-max(xl) {
         margin: 4px 2.5% 0;
       }
       > li {
-        float: left;
         margin: 0 15px 5px 0;
         @include cfg.media-max(xl) {
           width: 22%;
@@ -127,7 +129,7 @@
           text-align: center;
           border-top: 1px solid cfg.$base-gray-7;
         }
-        &:last-of-type {
+        &:first-of-type {
           margin-right: 0;
         }
         .month {
@@ -157,19 +159,20 @@
     margin: -3px;
   }
   .wp-tag-cloud {
-    font-size: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
     > li {
-      display: inline-block;
       font-size: 1.5rem;
       margin: 0;
     }
   }
   a {
-    display: inline-block;
+    display: block;
     font-size: 1em;
     line-height: 1;
+    text-align: center;
     text-decoration: none;
-    vertical-align: -50%;
     margin: 3px;
     padding: 6px 9px;
     background-color: cfg.$base-gray-7;
