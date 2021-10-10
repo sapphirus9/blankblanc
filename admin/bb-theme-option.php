@@ -43,6 +43,15 @@ function blankblanc_config_edit() {
         }
       } else {
         $config_values = array_merge($bb_theme_default, $config_post);
+        // 設定が空の場合の処理
+        $check_empty_config = array(
+          'mobile_nav'
+        );
+        foreach ($check_empty_config as $value) {
+          if (empty($config_post[$value])) {
+            $config_values['mobile_nav'] = null;
+          }
+        }
         $config_values['exclude_cat_id'] = str_replace(' ', '', $config_values['exclude_cat_id']);
         update_option('blankblanc_config_values', wp_unslash($config_values));
       }
