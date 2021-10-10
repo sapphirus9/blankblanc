@@ -12,6 +12,9 @@
   height: 100%;
   overflow: hidden;
   pointer-events: none;
+  @include cfg.media-max(xl) {
+    width: 90px;
+  }
   .gotop {
     &-cfg {
       display: none;

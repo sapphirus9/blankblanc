@@ -11,7 +11,7 @@
 .search-form {
   position: relative;
   @include cfg.media-max(xl) {
-    margin: 0 cfg.$gap-mobile;
+    margin: 5px 0;
   }
   .screen-reader-text {
     display: none;

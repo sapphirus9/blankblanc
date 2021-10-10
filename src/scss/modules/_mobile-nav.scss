@@ -172,9 +172,10 @@ body.nav-window-show {
   -webkit-overflow-scrolling: touch;
   .widget,
   .menu {
-    margin: 12px cfg.$gap-mobile;
+    margin: 0;
+    padding: 15px cfg.$gap-mobile;
     .menu {
-      margin: 0;
+      padding: 0;
     }
   }
   .widgettitle {
@@ -182,7 +183,7 @@ body.nav-window-show {
     font-size: 1.3rem;
     @include cfg.font-weight(bold);
     padding: 8px 12px;
-    margin: 12px 0 8px;
+    margin: 4px 0 8px;
     background-color: cfg.$base-gray-7;
     border-radius: 50px;
   }
@@ -205,7 +206,7 @@ body.nav-window-show {
       &.year-title {
         > span {
           display: block;
-          color: cfg.$base-gray-3;
+          color: cfg.$base-gray-4;
           font-size: 1.3rem;
           margin: 5px 0 0 1.5%;
         }
@@ -247,6 +248,7 @@ body.nav-window-show {
     }
   }
   .menu,
+  .widget_pages,
   .widget_categories,
   .widget_meta {
     a {
@@ -300,6 +302,7 @@ body.nav-window-show {
       z-index: 2;
     }
   }
+  .widget_pages > ul > .page_item,
   .widget_categories > ul > .cat-item {
     position: relative;
     > .children {
@@ -369,7 +372,7 @@ body.nav-window-show {
     }
   }
   .tagcloud {
-    margin: 0 3.4% 10px;
+    margin: 0 5px 10px;
     .wp-tag-cloud {
       margin: -5px;
       > li {
@@ -387,6 +390,6 @@ body.nav-window-show {
     }
   }
   .calendar_wrap {
-    margin: 5px cfg.$gap-mobile 10px;
+    margin: 5px 0 10px;
   }
 }

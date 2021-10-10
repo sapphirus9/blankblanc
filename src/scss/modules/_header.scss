@@ -58,7 +58,7 @@
     position: absolute;
     top: 68px;
     left: cfg.$gap-desktop;
-    color: cfg.$base-gray-3;
+    color: cfg.$base-gray-1;
     font-size: 1.3rem;
     @include cfg.font-weight(normal);
     @include cfg.media-max(xl) {
@@ -88,6 +88,12 @@
       margin-right: 30px;
       &:last-of-type {
         margin-right: 0;
+      }
+    }
+    a {
+      color: cfg.$base-gray-3;
+      &:hover, &:active {
+        color: cfg.$link-color-hover;
       }
     }
   }
@@ -121,10 +127,10 @@
         box-sizing: border-box;
       }
       a {
-        color: cfg.$base-gray-3;
+        color: cfg.$base-gray-2;
         transition: all .2s;
         &:hover {
-          color: cfg.$base-gray-2;
+          color: cfg.$base-gray-1;
           text-decoration: none;
           background-color: cfg.$base-gray-5;
         }
