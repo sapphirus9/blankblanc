@@ -230,13 +230,15 @@ if (!function_exists('add_mobile_styles_scripts')) {
     // スライドメニューの登録
     $_js = array();
     if (!empty($bb_theme_config['mobile_nav'])) {
-      $_js[] = "\ts_nav : ['" . implode("', '", $bb_theme_config['mobile_nav']) . "']";
+      $_js[] = "\tslideNav : ['" . implode("', '", $bb_theme_config['mobile_nav']) . "']";
     }
     if (!empty($bb_theme_config['mobile_nav_footer'])) {
-      $_js[] = "\tf_nav : ['" . implode("', '", $bb_theme_config['mobile_nav_footer']) . "']";
+      $_js[] = "\tfooterNav : ['" . implode("', '", $bb_theme_config['mobile_nav_footer']) . "']";
     }
-    $js = "var bb_mobile_cfg_nav = {\n" . implode(",\n", $_js) . "\n};";
-    wp_add_inline_script('mobile-nav', $js, 'before');
+    if (!empty($_js)) {
+      $js = "var bbCfgMobileNav = {\n" . implode(",\n", $_js) . "\n};";
+      wp_add_inline_script('mobile-nav', $js, 'before');
+    }
   }
 }
 add_action('wp_enqueue_scripts', 'add_mobile_styles_scripts', 40);

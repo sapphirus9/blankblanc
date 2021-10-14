@@ -3,124 +3,362 @@
  * Author: Naoki Yamamoto
  * Description: 共通で使用するJavaScriptです (Require: jQuery)
  */
+
+/**
+ * ブラウザー確認
+ */
+class BbSetUserAgent
+{
+  constructor() {
+    let ua = '';
+    const config = {
+      os: 'other',
+      device: 'desktop',
+      browser: 'other'
+    };
+    if (window.navigator.userAgentData) {
+      ua = navigator.userAgentData;
+      config.os = ua.platform.toLowerCase();
+      if (ua.mobile) config.device = 'mobile';
+      if (ua.brands.length) config.browser = ua.brands[0].brand.toLowerCase();
+    }
+    if (config.os == 'other' || config.browser == 'other') {
+      ua = navigator.userAgent;
+      // OS
+      if (/Windows/.test(ua)) config.os = 'windows';
+      else if (/Macintosh/.test(ua)) config.os = 'macosx';
+      else if (/Android/.test(ua)) config.os = 'android';
+      else if (/iP.*?Mac OS X/.test(ua)) config.os = 'ios';
+      else if (/Linux/.test(ua)) config.os = 'linux';
+      // Device
+      if (/iPhone.*?Mac OS X/.test(ua)) config.device = 'mobile';
+      else if (/Android.*?Mobile/.test(ua)) config.device = 'mobile';
+      // Browser
+      if (/Mac OS X(?!.*Chrome)(?=.*Safari)/.test(ua)) config.browser = 'safari';
+      else if (/Trident\/7\.0/.test(ua)) config.browser = 'ie11';
+      else if (/Firefox/.test(ua)) config.browser = 'firefox';
+      else if (/Chrome/.test(ua)) config.browser = 'chromium';
+    }
+    this.config = config;
+  };
+  addClass() {
+    document.documentElement.classList.add('os-' + this.config.os);
+    document.documentElement.classList.add('device-' + this.config.device);
+    document.documentElement.classList.add('browser-' + this.config.browser);
+  };
+};
+
+/**
+ * ウィンドウスクロール
+ */
+class BbSmoothScroll {
+  constructor(position, option = {}) {
+    const init = {
+      loaded: false,
+      offset: false,
+      speed: 100,
+      desktop: 0,
+      mobile: 0,
+      breakpoint: _BbBreakPoint
+    };
+    /**
+     * loaded: ページの表示完了後に実行（ページ遷移時など）
+     * offcet: 以下の設定を有効化
+     * desktop: Desktop表示時の上部マージン
+     * mobile: Mobile表示時の上部マージン
+     * breakpoint: 画面幅によるモバイル/PC表示切替
+     */
+    Object.keys(init).forEach((key) => {
+      if (option[key]) init[key] = option[key];
+    });
+    if (!position) position = 0;
+    if (init.offset) {
+      position = position - (document.documentElement.clientWidth < init.breakpoint ? init.mobile : init.desktop);
+      if (position < 0) position = 0;
+    }
+    const currentPos = window.pageYOffset;
+    let timer = null;
+    let cancel = false;
+    let direction = 'neutral'
+    if (currentPos > position) direction = 'up';
+    else if (currentPos < position) direction = 'down';
+    // scroll
+    function scrolling(setPos) {
+      if (!setPos) setPos = currentPos;
+      const distance = Math.abs(position - setPos);
+      setPos = parseInt(distance - distance * init.speed / 1000);
+      if (direction == 'down') {
+        setPos = position - setPos;
+        if (position <= setPos) cancel = true;
+      } else if (direction == 'up') {
+        setPos = position + setPos;
+        if (position >= setPos) cancel = true;
+      }
+      window.scroll(0, setPos);
+      if (cancel) {
+        cancelAnimationFrame(timer);
+        return;
+      }
+      timer = requestAnimationFrame(() => scrolling(setPos));
+    };
+    if (direction != 'neutral') {
+      if (init.loaded) window.addEventListener('load', () => scrolling());
+      else scrolling();
+    }
+  }
+}
+
+const _BbBreakPoint = 768;
 (() => {
   'use strict';
-  /**
-   * ブラウザー確認
-   */
+  // forEach (ie11 measures)
+  if (window.NodeList && !NodeList.prototype.forEach) {
+    NodeList.prototype.forEach = Array.prototype.forEach;
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
-    let ua = ''
-    let os = ''
-    let browser = ''
-    let device = ''
-    if (window.navigator.userAgentData) {
-      ua = navigator.userAgentData
-      os = ua.platform
-      if (ua.brands.length) browser = ua.brands[0].brand
-      if (ua.mobile) device = 'mobile'
-    }
-    if (!os || !browser) {
-      ua = navigator.userAgent
-      // OS
-      if (/Windows/.test(ua)) os = 'windows'
-      else if (/Macintosh/.test(ua)) os = 'macosx'
-      else if (/Android/.test(ua)) os = 'android'
-      else if (/iP.*?Mac OS X/.test(ua)) os = 'ios'
-      else if (/Linux/.test(ua)) os = 'linux'
-      // Browser
-      if (/Mac OS X(?!.*Chrome)(?=.*Safari)/.test(ua)) browser = 'safari'
-      else if (/Trident\/7\.0/.test(ua)) browser = 'ie11'
-      // Device
-      if (/iPhone.*?Mac OS X/.test(ua)) device = 'mobile'
-      else if (/Android.*?Mobile/.test(ua)) device = 'mobile'
-    }
-    if (os) document.documentElement.classList.add('os-' + os.toLowerCase())
-    if (browser) document.documentElement.classList.add('browser-' + browser.toLowerCase())
-    if (device) document.documentElement.classList.add('device-' + device.toLowerCase())
-  })
+    new BbSetUserAgent().addClass();
+    _MoreContent();
+    _WidgetArchive();
+    _WidgetComments();
+    _ModifySelect();
+    _ModifySearchForm();
+    _BbFormStyle();
+    _goPageTop();
+  });
+
+  window.addEventListener('load', () => {
+    _setBackgroundImage();
+    _TableContents();
+  });
 
   /**
    * 画像をバックグラウンドイメージに配置
    */
-  window.addEventListener('load', () => {
-    const imgs = document.querySelectorAll('.background-image-src')
-    Array.prototype.forEach.call(imgs, (img) => {
-      img.style.display = 'none'
-      img.parentNode.style.backgroundImage = 'url(' + img.getAttribute('src') + ')'
-      img.parentNode.classList.add('set-background-image')
-    })
-  })
+  const _setBackgroundImage = () => {
+    const $imgAll = document.querySelectorAll('.background-image-src');
+    $imgAll.forEach(($img) => {
+      $img.style.display = 'none';
+      $img.parentNode.style.backgroundImage = 'url(' + $img.getAttribute('src') + ')';
+      $img.parentNode.classList.add('set-background-image');
+    });
+  };
 
   /**
    * 続きを読む
    */
-  document.addEventListener('DOMContentLoaded', () => {
-    const moreLink = document.querySelector('.more-link')
-    moreLink && moreLink.addEventListener('click', (e) => {
-      moreLink.classList.add('active')
-      const moreContent = document.querySelector('.more-content')
-      moreContent.classList.add('active')
-      e.preventDefault()
-    })
-  })
-
-  /**
-   * フォーム
-   */
-  document.addEventListener('DOMContentLoaded', () => {
-    const selects = document.querySelectorAll('select')
-    Array.prototype.forEach.call(selects, (select) => {
-      select.outerHTML = '<div class="select-area">' + select.outerHTML + '</div>'
-    })
-    const searchForm = document.querySelectorAll('.search-form')
-    Array.prototype.forEach.call(searchForm, (sform) => {
-      const submit = sform.querySelector('.search-submit')
-      const events = ['mouseenter', 'mouseleave']
-      Array.prototype.forEach.call(events, (event) => {
-        submit.addEventListener(event, (e) => {
-          sform.querySelector('label').classList.toggle('hover')
-        })
-      })
-    })
-  })
+  const _MoreContent = () => {
+    const $moreLink = document.querySelector('.more-link');
+    $moreLink && $moreLink.addEventListener('click', (e) => {
+      $moreLink.classList.add('active');
+      document.querySelector('.more-content').classList.add('active');
+      e.preventDefault();
+    });
+  };
 
   /**
    * 月間アーカイブの階層化
    */
-  document.addEventListener('DOMContentLoaded', () => {
-    const widgetArchive = document.querySelectorAll('.widget_archive > ul')
-    Array.prototype.forEach.call(widgetArchive, (archive) => {
-      const monthList = document.createElement('ul')
-      monthList.classList.add('month-list')
-      let months = archive.querySelectorAll('li:not(.year-title)')
-      // months = [...months].reverse()
-      Array.prototype.forEach.call(months, (month) => {
-        monthList.appendChild(month)
-      })
-      archive.querySelector('.year-title').appendChild(monthList)
-    })
-  })
+  const _WidgetArchive = () => {
+    const $archiveAll = document.querySelectorAll('.widget_archive > ul');
+    $archiveAll.forEach(($archive) => {
+      const $monthList = document.createElement('ul');
+      $monthList.classList.add('month-list');
+      const $monthAll = $archive.querySelectorAll('li:not(.year-title)');
+      $monthAll.forEach(($month) => {
+        $monthList.appendChild($month);
+      });
+      $archive.querySelector('.year-title').appendChild($monthList);
+    });
+  };
 
   /**
    * 最近のコメント
    */
-  document.addEventListener('DOMContentLoaded', () => {
-    const widgetComments = document.querySelectorAll('.widget_recent_comments .recentcomments')
-    Array.prototype.forEach.call(widgetComments, (comments) => {
-      const author = comments.querySelector('.comment-author-link')
-      const html = comments.querySelector('a')
-      html.innerHTML = '<span class="entry-title">' + html.innerHTML + '</span>' + '<span class="comment-user">' + author.innerHTML + '</span>'
-      comments.innerHTML = ''
-      comments.appendChild(html)
+  const _WidgetComments = () => {
+    const $commentsAll = document.querySelectorAll('.widget_recent_comments .recentcomments');
+    $commentsAll.forEach(($comments) => {
+      const $author = $comments.querySelector('.comment-author-link');
+      const $html = $comments.querySelector('a');
+      $html.innerHTML = '<span class="entry-title">' + $html.innerHTML + '</span>' + '<span class="comment-user">' + $author.innerHTML + '</span>';
+      $comments.innerHTML = '';
+      $comments.appendChild($html);
+    });
+  };
+
+  /**
+   * selectタグの修飾
+   */
+  const _ModifySelect = () => {
+    const $selectAll = document.querySelectorAll('select');
+    $selectAll.forEach(($select) => {
+      $select.outerHTML = '<div class="select-area">' + $select.outerHTML + '</div>';
     })
-  })
+  };
+
+  /**
+   * 検索フォームの修飾
+   */
+  const _ModifySearchForm = () => {
+    const $searchFormAll = document.querySelectorAll('.search-form');
+    $searchFormAll.forEach(($sform) => {
+      const events = ['mouseenter', 'mouseleave'];
+      events.forEach((event) => {
+        $sform.querySelector('.search-submit').addEventListener(event, () => {
+          $sform.querySelector('label').classList.toggle('hover');
+        });
+      });
+    });
+  };
+
+  /**
+   * フォームの修飾（bb-form-style）
+   */
+  const _BbFormStyle = () => {
+    const formBlock = '.bb-form-style';
+    const formTop = '.bb-form-style-top';
+    const $formBlockAll = document.querySelectorAll(formBlock);
+    const scrollCfg = { offset: true, loaded: true, desktop: 80, mobile: 65 };
+    $formBlockAll.forEach(($formBlock) => {
+      // input: error
+      if (!$formBlock) return;
+      const $groupAll = $formBlock.querySelectorAll('.group');
+      let firstError = true;
+      $groupAll.forEach(($group) => {
+        const $error = $group.querySelector('.error');
+        if ($error) {
+          if (firstError) {
+            const rect = $group.getBoundingClientRect();
+            new BbSmoothScroll(rect.top, scrollCfg);
+            firstError = false;
+          }
+          $group.classList.add('group-error');
+          const objectAll = [
+            'input',
+            'select',
+            'textarea',
+            '.error'
+          ];
+          const eventAll = [
+            'click',
+            'focus'
+          ];
+          objectAll.forEach((object) => {
+            eventAll.forEach((event) => {
+              const $objects = $group.querySelectorAll(object);
+              $objects.forEach(($object) => {
+                $object && $object.addEventListener(event, () => {
+                  $group.classList.remove('group-error');
+                  $error.classList.add('error-hidden');
+                });
+              });
+            });
+          });
+        }
+      });
+
+      // MW WP Formプラグイン向け
+      const $submitBack = $formBlock.querySelector('[name="submitBack"]');
+      $submitBack && $submitBack.addEventListener('click', () => {
+        localStorage.setItem('submitBack', 1);
+      });
+      if (localStorage.getItem('submitBack') == 1) {
+        const $formBlockTop = document.createElement('div')
+        $formBlockTop.classList.add(formTop.substring(1));
+        $formBlock.parentNode.insertBefore($formBlockTop, $formBlock);
+        const rect = $formBlockTop.getBoundingClientRect();
+        new BbSmoothScroll(rect.top, scrollCfg);
+      }
+      localStorage.setItem('submitBack', null);
+    });
+  };
+
+  /**
+   * テーブルを修飾
+   */
+  const _TableContents = () => {
+    const $tables = document.querySelectorAll('.entry-body table');
+    $tables.forEach(($table) => {
+      const $tableContent = document.createElement('div');
+      $tableContent.classList.add('table-content');
+      const $tableArea = document.createElement('div');
+      $tableArea.classList.add('table-area');
+      const $arrowLeft = document.createElement('div');
+      $arrowLeft.classList.add('table-arrow');
+      $arrowLeft.classList.add('table-arrow-left');
+      const $arrowRight = document.createElement('div');
+      $arrowRight.classList.add('table-arrow');
+      $arrowRight.classList.add('table-arrow-right');
+      $tableArea.innerHTML = $table.outerHTML;
+      $table.innerHTML = '';
+      $tableContent.appendChild($tableArea);
+      $tableArea.appendChild($arrowLeft);
+      $tableArea.appendChild($arrowRight);
+      $table.parentNode.insertBefore($tableContent, $table);
+      const indicate = () => {
+        const distance = $table.offsetWidth - $tableArea.offsetWidth;
+        const position = $tableArea.scrollLeft;
+        const margin = 3;
+        // left
+        if (margin <= position) $arrowLeft.classList.add('active');
+        else $arrowLeft.classList.remove('active');
+        // right
+        if (distance - margin >= position) $arrowRight.classList.add('active');
+        else $arrowRight.classList.remove('active');
+      }
+      indicate();
+      $tableArea.addEventListener('scroll', indicate);
+    });
+  };
+
+  /**
+   * ページ内スクロール＆ページのトップへ
+   */
+  const _goPageTop = (() => {
+    const $gotopBtn = document.querySelector('#gotop-button');
+    const $div = document.createElement('div');
+    // ['gotop-cfg', 'gotop-start', 'gotop-offset'].forEach((cls) => {
+    ['gotop-cfg', 'gotop-start', 'gotop-end'].forEach((cls) => {
+      $div.classList.add(cls);
+    });
+    $gotopBtn.parentNode.insertBefore($div, $gotopBtn);
+    const style = window.getComputedStyle($div);
+    const start = parseInt(style.getPropertyValue('top')) || 0;
+    const bottom = parseInt(style.getPropertyValue('bottom')) || 0;
+    const eventAll = [
+      'load',
+      'scroll',
+      'resize'
+    ];
+    eventAll.forEach((event) => {
+      const indicate = () => {
+        const currentPos = window.pageYOffset;
+        const pageBottomTop = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        if (start < currentPos) {
+          $gotopBtn.classList.add('gotop-show');
+        } else {
+          $gotopBtn.classList.remove('gotop-show');
+        }
+        if (pageBottomTop - bottom < currentPos) {
+          $gotopBtn.classList.add('gotop-bottom');
+          $gotopBtn.classList.add('gotop-end');
+        } else {
+          $gotopBtn.classList.remove('gotop-bottom');
+          $gotopBtn.classList.remove('gotop-end');
+        }
+      };
+      window.addEventListener(event, indicate);
+    });
+    $gotopBtn && $gotopBtn.addEventListener('click', () => {
+      new BbSmoothScroll();
+    });
+  });
 })();
 
 
 (function ($) {
+  return;
   'use strict';
-  var breakpoint = 768 // 画面幅(px)によるモバイル<PC表示切替
-
   /**
    * ページ内スクロール＆ページのトップへ
    */
@@ -128,7 +366,7 @@
     var gotop = $('#gotop')
     var gotopBtn = $('#gotop-button')
     var mbWin
-    gotop.prepend('<div class="gotop-cfg gotop-start gotop-end gotop-offset">')
+    // gotop.prepend('<div class="gotop-cfg gotop-start gotop-end gotop-offset">')
     var cfg = $('.gotop-cfg', gotop)
     var start = parseInt(cfg.css('top')) || 0
     var bottom = parseInt(cfg.css('bottom')) || 0
@@ -142,14 +380,14 @@
       var pos = !offset ? 0 : offset.top - offt
       $('html,body').stop().animate({ scrollTop: pos }, 'normal', 'easing')
     }
-    var _show = function (e) {
-      var scrT = $(document).scrollTop()
-      var btmT = $(document).height() - document.documentElement.clientHeight
-      if (btmT > start) {
-        gotopBtn.toggleClass('gotop-show', start <= scrT ? true : false)
-        gotopBtn.toggleClass('gotop-bottom gotop-end', btmT - bottom <= scrT ? true : false)
-      }
-    }
+    // var _show = function (e) {
+    //   var scrT = $(document).scrollTop()
+    //   var btmT = $(document).height() - document.documentElement.clientHeight
+    //   if (btmT > start) {
+    //     gotopBtn.toggleClass('gotop-show', start <= scrT ? true : false)
+    //     gotopBtn.toggleClass('gotop-bottom gotop-end', btmT - bottom <= scrT ? true : false)
+    //   }
+    // }
     // 状態
     _show()
     $(window).on('scroll resize', _show)
@@ -173,116 +411,11 @@
       _move(anchor)
     })
     // トップへ
-    gotop.on('click', '.gotop-symbol', function (e) {
-      $(this).trigger('blur')
-      e.preventDefault()
-      _move(null)
-    })
-  })
-
-  /**
-  * テーブルスクロール
-  */
-  $(function () {
-    var spd = 5 // スクロールステップ(px)
-    var ex = function (obj) {
-      var ofx = Math.floor($('table', obj).outerWidth() - $(obj).outerWidth())
-      var psx = $(obj).scrollLeft()
-      if (psx <= 3) {
-        $('.table-left-arrow', obj).fadeOut(200)
-      } else {
-        $('.table-left-arrow', obj).fadeIn(200)
-      }
-      if (psx >= ofx - 3) {
-        $('.table-right-arrow', obj).fadeOut(200)
-      } else {
-        $('.table-right-arrow', obj).fadeIn(200)
-      }
-    }
-    $('.entry-body table').wrap('<div class="table-content"><div class="table-area"></div></div>')
-    $('.table-area')
-      .prepend('<div class="table-arrow table-left-arrow"></div><div class="table-arrow table-right-arrow"></div>')
-      .each(function () {
-        var mvx, timer
-        var obj = this
-        $('.table-left-arrow, .table-right-arrow', this).on({
-          mousedown: function () {
-            var dir = $(this).hasClass('table-right-arrow')
-            mvx = $(obj).scrollLeft()
-            timer = setInterval(function () {
-              var ofx = Math.ceil($('table', obj).outerWidth() - $(obj).outerWidth())
-              if (mvx >= 0 && mvx <= ofx) {
-                mvx = dir ? mvx + spd : mvx - spd
-                if (mvx < 0) {
-                  mvx = 0
-                }
-                $(obj).scrollLeft(mvx)
-              } else {
-                $(obj).scrollLeft()
-                clearInterval(timer)
-              }
-            }, 5)
-          },
-          mouseup: function () {
-            mvx = $(obj).scrollLeft()
-            clearInterval(timer)
-          },
-          mouseout: function () {
-            mvx = $(obj).scrollLeft()
-            clearInterval(timer)
-          }
-        })
-      })
-      .on('scroll', function () {
-        ex(this)
-      })
-    $(window).on('load resize', function () {
-      ex($('.table-area'))
-    })
-  })
-
-  /**
-   * フォーム（bb-form-style）
-   */
-  $(window).on('load', function () {
-    var $formBlock = '.bb-form-style'
-    var $formTop = '.bb-form-style-top'
-    var offset = {
-      pc: 80,
-      mb: 65
-    }
-    var move = function (pos) {
-      pos = pos - (document.documentElement.clientWidth < breakpoint ? offset.mb : offset.pc)
-      $('html,body').animate({ scrollTop: pos }, 200, 'easing')
-    }
-
-    // input: error
-    // ---------------------------------
-    $('.error', $formBlock).each(function (i) {
-      var f = $(this)
-      f.parents('.group').addClass('group-error')
-      if (i === 0) {
-        move(f.parents('.group').offset().top)
-      }
-      f.parent().on('focus click', 'input, select, textarea, .error', function () {
-        if ($(this).hasClass('error')) {
-          f.parent().find('input, select, textarea').trigger('focus')
-        }
-        f.parents('.group').removeClass('group-error')
-        f.addClass('error-hidden')
-      })
-    })
-
-    // MW WP Formプラグイン向け
-    // ---------------------------------
-    $('[name="submitBack"]', $formBlock).on('click', function () {
-      localStorage.setItem('submitBack', 1)
-    })
-    if (localStorage.getItem('submitBack') == 1) {
-      $($formBlock).before('<div class="bb-form-style-top"></div>')
-      move($($formTop).offset().top)
-    }
-    localStorage.setItem('submitBack', null)
+    // gotop.on('click', '.gotop-symbol', function (e) {
+    //   $(this).trigger('blur')
+    //   e.preventDefault()
+    //   _move(null)
+    // })
   })
 
   // easing
