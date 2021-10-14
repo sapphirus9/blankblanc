@@ -28,10 +28,6 @@
     &-bottom {
       position: absolute;
     }
-    &-offset {
-      width: map.get(cfg.$breakpoints, 'lg') - 1; // mobile width breakpoint (px)
-      margin-top: 55px; // mobile view offset top (px)
-    }
     &-show {
       margin-bottom: 0;
       visibility: visible;
