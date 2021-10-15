@@ -1,1 +1,178 @@
-"use strict";!function(){var e={slideNav:["#search-2"],footerNav:[]};"bbCfgMobileNav"in window&&(Object.assign?e=Object.assign(e,bbCfgMobileNav):Object.keys(e).forEach((function(n){bbCfgMobileNav[n]&&(e[n]=bbCfgMobileNav[n].concat(e[n].filter((function(t){return-1===e[n].indexOf(t)}))))}))),document.addEventListener("DOMContentLoaded",(function(){e.slideNav.length>0&&a(),e.footerNav.length>0&&i()}));var n=".is-mobile",t="#global-nav",o="#header-nav",r=function(e,n,t){var o=document.createElement(e);return n&&(o.id=n.substring(1)),t&&o.classList.add(t.substring(1)),o},a=function(){var a="#main-screen",i="#main-screen-mask",l="#nav-window-area",c="#nav-window-scroll",d="#nav-window-open-btn",s="#nav-window-close-btn",u="nav-window-show",v=document.querySelector(a);v.parentNode.insertBefore(r("div",l,n),v.nextElementSibling),v.appendChild(r("div",i,n));var f=document.querySelector(l);f.appendChild(r("div",c)),Array.prototype.forEach.call(e.slideNav,(function(e){var n=r("ol",e+"-slidenav");if(e==t||e==o){var a=document.querySelector(e+" .menu");n.innerHTML="<li>"+a.outerHTML.replace(/ id=["|'].*?["|']/g,"")+"</li>",n.classList.add("menu")}else{var i=document.querySelector(e);n.innerHTML=i.outerHTML.replace(/ id=["|'].*?["|']/g,"")}document.querySelector(c).appendChild(n)}));var p=["#nav-window-scroll .menu > .menu-item > .sub-menu","#nav-window-scroll .widget_pages > ul > .page_item > .children","#nav-window-scroll .widget_categories > ul > .cat-item > .children"];Array.prototype.forEach.call(p,(function(e){var n=document.querySelectorAll(e);Array.prototype.forEach.call(n,(function(e){e.previousElementSibling.appendChild(r("span",null,".icon-toggle"));var n=e.parentNode;n.classList.add("acoordion-menu"),n.querySelector(".icon-toggle").addEventListener("click",(function(e){n.classList.toggle("active"),e.stopPropagation(),e.preventDefault()}))}))}));var m=r("div",s);m.appendChild(r("span",null,".btn-symbol")),f.insertBefore(m,f.firstElementChild);var b=r("div",d,n);b.appendChild(r("span",null,".btn-symbol")),document.querySelector("#global-header").appendChild(b);var g=[a,i,l,s],y=window.scrollY,w=document.querySelector(d);w&&w.addEventListener("click",(function(e){y=window.scrollY,document.body.classList.add(u),Array.prototype.forEach.call(g,(function(e){document.querySelector(e).classList.add(u)})),e.preventDefault()}));var h=[s,i];Array.prototype.forEach.call(h,(function(e){var n=document.querySelector(e);n&&n.addEventListener("click",(function(e){Array.prototype.forEach.call(g,(function(e){window.scroll(0,y),document.body.classList.remove(u),document.querySelector(e).classList.remove(u)})),e.preventDefault()}))})),window.addEventListener("pageshow",(function(e){document.body.classList.remove(u),e.preventDefault()}))},i=function(){var a=r("ul",null,n),i=e.footerNav;Array.prototype.forEach.call(i,(function(e){if(e==t||e==o){var n=document.querySelector(e+" .menu"),i=r("li",e+"-footernav",".widget");i.innerHTML=n.outerHTML.replace(/ id=["|'].*?["|']/g,""),a.appendChild(i)}else{var l=document.querySelector(e),c=document.createElement("div");c.innerHTML=l.outerHTML.replace(/ id=["|'].*?["|']/g,""),c.firstElementChild.setAttribute("id",e.substring(1)+"-footernav"),a.appendChild(c.firstChild)}var d=document.querySelector("#global-footer .footer-widgets");d.insertBefore(a,d.firstElementChild)}))}}();
+"use strict";
+
+/**
+ * Theme Name: BlankBlanc
+ * Author: Naoki Yamamoto
+ * Description: モバイルビューの時に使用するJavaScriptです
+ */
+(function () {
+  'use strict';
+  /**
+   * スライドナビの設定
+   */
+
+  var nav = {
+    slideNav: ["#search-2"],
+    // スライドナビ ウイジェットの li が対象
+    footerNav: [] // フッターナビ用 ウイジェットの li が対象
+
+  };
+
+  if ('bbCfgMobileNav' in window) {
+    if (Object.assign) {
+      nav = Object.assign(nav, bbCfgMobileNav);
+    } else {
+      // (ie11 measures)
+      Object.keys(nav).forEach(function (key) {
+        if (bbCfgMobileNav[key]) nav[key] = bbCfgMobileNav[key].concat(nav[key].filter(function (e) {
+          return nav[key].indexOf(e) === -1;
+        }));
+      });
+    }
+  } // 生成
+
+
+  document.addEventListener('DOMContentLoaded', function () {
+    if (nav.slideNav.length > 0) slideNav();
+    if (nav.footerNav.length > 0) footerNav();
+  });
+  /**
+   * id, class定数
+   */
+
+  var isMobile = '.is-mobile';
+  var globalNav = '#global-nav';
+  var headerNav = '#header-nav';
+  var globalFooter = '#global-footer';
+  /**
+   * id, class付きタグ要素を生成
+   */
+
+  var createHtml = function createHtml(tag, id, cls) {
+    var element = document.createElement(tag);
+    if (id) element.id = id.substring(1);
+    if (cls) element.classList.add(cls.substring(1));
+    return element;
+  };
+  /**
+   * スライドナビを構成
+   */
+
+
+  var slideNav = function slideNav() {
+    var nameMainScreen = '#main-screen';
+    var nameMainScreenMask = '#main-screen-mask';
+    var nameNavWindowArea = '#nav-window-area';
+    var nameNavWindowScroll = '#nav-window-scroll';
+    var nameOpenBtn = '#nav-window-open-btn';
+    var nameCloseBtn = '#nav-window-close-btn';
+    var nameShowBtn = 'nav-window-show';
+    var $mainScreen = document.querySelector(nameMainScreen);
+    $mainScreen.parentNode.insertBefore(createHtml('div', nameNavWindowArea, isMobile), $mainScreen.nextElementSibling);
+    $mainScreen.appendChild(createHtml('div', nameMainScreenMask, isMobile));
+    var $navWindowArea = document.querySelector(nameNavWindowArea);
+    $navWindowArea.appendChild(createHtml('div', nameNavWindowScroll)); // メニュー／ウィジェットの追加
+
+    Array.prototype.forEach.call(nav.slideNav, function (slide) {
+      var list = createHtml('ol', slide + '-slidenav');
+
+      if (slide == globalNav || slide == headerNav) {
+        var $nav = document.querySelector(slide + ' .menu');
+        list.innerHTML = '<li>' + $nav.outerHTML.replace(/ id=["|'].*?["|']/g, '') + '</li>';
+        list.classList.add('menu');
+      } else {
+        var _$nav = document.querySelector(slide);
+
+        list.innerHTML = _$nav.outerHTML.replace(/ id=["|'].*?["|']/g, '');
+      }
+
+      document.querySelector(nameNavWindowScroll).appendChild(list);
+    }); // 動作：サブメニュー表示の切り替え
+
+    var subMenuItems = [nameNavWindowScroll + ' .menu > .menu-item > .sub-menu', nameNavWindowScroll + ' .widget_pages > ul > .page_item > .children', nameNavWindowScroll + ' .widget_categories > ul > .cat-item > .children'];
+    Array.prototype.forEach.call(subMenuItems, function (items) {
+      var $itemAll = document.querySelectorAll(items);
+      Array.prototype.forEach.call($itemAll, function ($item) {
+        $item.previousElementSibling.appendChild(createHtml('span', null, '.icon-toggle'));
+        var $itemParent = $item.parentNode;
+        $itemParent.classList.add('acoordion-menu');
+        $itemParent.querySelector('.icon-toggle').addEventListener('click', function (e) {
+          $itemParent.classList.toggle('active');
+          e.stopPropagation();
+          e.preventDefault();
+        });
+      });
+    }); // CLOSEボタンを追加
+
+    var closeBtn = createHtml('div', nameCloseBtn);
+    closeBtn.appendChild(createHtml('span', null, '.btn-symbol'));
+    $navWindowArea.insertBefore(closeBtn, $navWindowArea.firstElementChild); // ヘッダーにOPENボタンを追加
+
+    var openBtn = createHtml('div', nameOpenBtn, isMobile);
+    openBtn.appendChild(createHtml('span', null, '.btn-symbol'));
+    document.querySelector('#global-header').appendChild(openBtn);
+    var toggleElement = [nameMainScreen, nameMainScreenMask, nameNavWindowArea, nameCloseBtn];
+    var posY = window.scrollY; // 動作：ナビウインドウを開く
+
+    var $navWindowOpenBtn = document.querySelector(nameOpenBtn);
+    $navWindowOpenBtn && $navWindowOpenBtn.addEventListener('click', function (e) {
+      posY = window.scrollY;
+      document.body.classList.add(nameShowBtn);
+      Array.prototype.forEach.call(toggleElement, function (toggle) {
+        document.querySelector(toggle).classList.add(nameShowBtn);
+      });
+      e.preventDefault();
+    }); // 動作：ナビウインドウを閉じる
+
+    var closeToggle = [nameCloseBtn, nameMainScreenMask];
+    Array.prototype.forEach.call(closeToggle, function (close) {
+      var $navWindowCloseBtn = document.querySelector(close);
+      $navWindowCloseBtn && $navWindowCloseBtn.addEventListener('click', function (e) {
+        Array.prototype.forEach.call(toggleElement, function (toggle) {
+          window.scroll(0, posY);
+          document.body.classList.remove(nameShowBtn);
+          document.querySelector(toggle).classList.remove(nameShowBtn);
+        });
+        e.preventDefault();
+      });
+    }); // ブラウザバック(ios)
+
+    window.addEventListener('pageshow', function (e) {
+      document.body.classList.remove(nameShowBtn);
+      e.preventDefault();
+    });
+  };
+  /**
+   * フッターナビを構成
+   */
+
+
+  var footerNav = function footerNav() {
+    var list = createHtml('ul', null, isMobile);
+    var _nav = nav.footerNav;
+    Array.prototype.forEach.call(_nav, function (footer) {
+      if (footer == globalNav || footer == headerNav) {
+        var $nav = document.querySelector(footer + ' .menu');
+
+        var _list = createHtml('li', footer + '-footernav', '.widget');
+
+        _list.innerHTML = $nav.outerHTML.replace(/ id=["|'].*?["|']/g, '');
+        list.appendChild(_list);
+      } else {
+        var _$nav2 = document.querySelector(footer);
+
+        var _list2 = document.createElement('div');
+
+        _list2.innerHTML = _$nav2.outerHTML.replace(/ id=["|'].*?["|']/g, '');
+
+        _list2.firstElementChild.setAttribute('id', footer.substring(1) + '-footernav');
+
+        list.appendChild(_list2.firstChild);
+      }
+
+      var $globalFooter = document.querySelector(globalFooter + ' .footer-widgets');
+      $globalFooter.insertBefore(list, $globalFooter.firstElementChild);
+    });
+  };
+})();
+//# sourceMappingURL=mobile-nav.js.map

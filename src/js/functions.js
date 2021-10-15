@@ -52,7 +52,7 @@ class BbSetUserAgent
  * ウィンドウスクロール
  */
 class BbSmoothScroll {
-  constructor(position, option = {}) {
+  constructor(position = 0, option = {}) {
     const init = {
       loaded: false,
       offset: false,
@@ -71,7 +71,7 @@ class BbSmoothScroll {
     Object.keys(init).forEach((key) => {
       if (option[key]) init[key] = option[key];
     });
-    if (!position) position = 0;
+    // if (!position) position = 0;
     if (init.offset) {
       position = position - (document.documentElement.clientWidth < init.breakpoint ? init.mobile : init.desktop);
       if (position < 0) position = 0;
@@ -312,7 +312,7 @@ const _BbBreakPoint = 768;
   };
 
   /**
-   * ページ内スクロール＆ページのトップへ
+   * ページトップへスクロール
    */
   const _goPageTop = (() => {
     const $gotopBtn = document.querySelector('#gotop-button');
@@ -353,75 +353,26 @@ const _BbBreakPoint = 768;
       new BbSmoothScroll();
     });
   });
-})();
 
-
-(function ($) {
-  return;
-  'use strict';
   /**
-   * ページ内スクロール＆ページのトップへ
+   * ページ内スクロール
    */
-  $(function () {
-    var gotop = $('#gotop')
-    var gotopBtn = $('#gotop-button')
-    var mbWin
-    // gotop.prepend('<div class="gotop-cfg gotop-start gotop-end gotop-offset">')
-    var cfg = $('.gotop-cfg', gotop)
-    var start = parseInt(cfg.css('top')) || 0
-    var bottom = parseInt(cfg.css('bottom')) || 0
-    mbWin = {
-      'bp': parseInt(cfg.css('width')) || breakpoint,
-      'off': parseInt(cfg.css('margin-top')) || 0
-    }
-    var _move = function (anchor) {
-      var offset = $(anchor).offset()
-      var offt = document.documentElement.clientWidth < mbWin['bp'] ? mbWin['off'] : 0
-      var pos = !offset ? 0 : offset.top - offt
-      $('html,body').stop().animate({ scrollTop: pos }, 'normal', 'easing')
-    }
-    // var _show = function (e) {
-    //   var scrT = $(document).scrollTop()
-    //   var btmT = $(document).height() - document.documentElement.clientHeight
-    //   if (btmT > start) {
-    //     gotopBtn.toggleClass('gotop-show', start <= scrT ? true : false)
-    //     gotopBtn.toggleClass('gotop-bottom gotop-end', btmT - bottom <= scrT ? true : false)
-    //   }
-    // }
-    // 状態
-    _show()
-    $(window).on('scroll resize', _show)
-    // リンク
-    $('a[href*="#"]').on('click', function (e) {
-      $(this).trigger('blur')
-      var _anchor = $(this).attr('href').split('#')
-      var anchor = '#PageTop'
-      if (_anchor[1]) {
-        anchor = '#' + _anchor[1]
-      }
+  const $anchorAll = document.querySelectorAll('.main-article a[href*="#"]')
+  $anchorAll && $anchorAll.forEach(($anchor) => {
+    $anchor.addEventListener('click', (e) => {
+      const anchor = $anchor.getAttribute('href').split('#');
       if (
-        anchor.match(/#(comment\-.*)?$/) ||
-        anchor.match(/#respond/) ||
-        anchor.match(/#(more\-.*)?$/) ||
-        !$(anchor)[0]
-      ) {
-        return
+        !anchor[1] ||
+        anchor[1].match(/comment\-.*?$/) ||
+        anchor[1].match(/respond/) ||
+        anchor[1].match(/more\-.*?$/)
+      ) return;
+      const $_anchor = document.querySelector('#' + anchor[1]);
+      if ($_anchor) {
+        e.preventDefault();
+        const rect = $_anchor.getBoundingClientRect();
+        new BbSmoothScroll(rect.top + window.pageYOffset);
       }
-      e.preventDefault()
-      _move(anchor)
-    })
-    // トップへ
-    // gotop.on('click', '.gotop-symbol', function (e) {
-    //   $(this).trigger('blur')
-    //   e.preventDefault()
-    //   _move(null)
-    // })
-  })
-
-  // easing
-  $.extend($.easing, {
-    easing: function (x) {
-      return 1 - Math.pow(1 - x, 5)
-    }
-  })
-})(jQuery);
+    });
+  });
+})();
