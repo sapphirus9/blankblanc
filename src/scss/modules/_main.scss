@@ -6,9 +6,9 @@
   display: block;
   padding-bottom: 80px;
   background-color: cfg.$base-white;
-  overflow-x: hidden;
   @include cfg.media-max(xl) {
     padding: 55px 0 60px;
+    overflow-x: hidden;
     -webkit-tap-highlight-color: rgba(0, 0, 0, .06);
   }
   > .wrap {
