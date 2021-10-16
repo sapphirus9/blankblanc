@@ -1,7 +1,7 @@
 /**
  * Theme Name: BlankBlanc
  * Author: Naoki Yamamoto
- * Description: 共通で使用するJavaScriptです (Require: jQuery)
+ * Description: 共通で使用するJavaScriptです
  */
 
 /**
@@ -56,7 +56,7 @@ class BbSmoothScroll {
     const init = {
       loaded: false,
       offset: false,
-      speed: 100,
+      speed: 150,
       desktop: 0,
       mobile: 0,
       breakpoint: _BbBreakPoint
@@ -71,7 +71,13 @@ class BbSmoothScroll {
     Object.keys(init).forEach((key) => {
       if (option[key]) init[key] = option[key];
     });
-    // if (!position) position = 0;
+    if ('number' != typeof (position)) {
+      const $targetElem = 'string' == typeof (position) ? document.querySelector(position) : position;
+      if ($targetElem) {
+        const rect = $targetElem.getBoundingClientRect();
+        position = rect.top + window.pageYOffset;
+      }
+    }
     if (init.offset) {
       position = position - (document.documentElement.clientWidth < init.breakpoint ? init.mobile : init.desktop);
       if (position < 0) position = 0;
@@ -212,68 +218,6 @@ const _BbBreakPoint = 768;
   };
 
   /**
-   * フォームの修飾（bb-form-style）
-   */
-  const _BbFormStyle = () => {
-    const formBlock = '.bb-form-style';
-    const formTop = '.bb-form-style-top';
-    const $formBlockAll = document.querySelectorAll(formBlock);
-    const scrollCfg = { offset: true, loaded: true, desktop: 80, mobile: 65 };
-    $formBlockAll.forEach(($formBlock) => {
-      // input: error
-      if (!$formBlock) return;
-      const $groupAll = $formBlock.querySelectorAll('.group');
-      let firstError = true;
-      $groupAll.forEach(($group) => {
-        const $error = $group.querySelector('.error');
-        if ($error) {
-          if (firstError) {
-            const rect = $group.getBoundingClientRect();
-            new BbSmoothScroll(rect.top, scrollCfg);
-            firstError = false;
-          }
-          $group.classList.add('group-error');
-          const objectAll = [
-            'input',
-            'select',
-            'textarea',
-            '.error'
-          ];
-          const eventAll = [
-            'click',
-            'focus'
-          ];
-          objectAll.forEach((object) => {
-            eventAll.forEach((event) => {
-              const $objects = $group.querySelectorAll(object);
-              $objects.forEach(($object) => {
-                $object && $object.addEventListener(event, () => {
-                  $group.classList.remove('group-error');
-                  $error.classList.add('error-hidden');
-                });
-              });
-            });
-          });
-        }
-      });
-
-      // MW WP Formプラグイン向け
-      const $submitBack = $formBlock.querySelector('[name="submitBack"]');
-      $submitBack && $submitBack.addEventListener('click', () => {
-        localStorage.setItem('submitBack', 1);
-      });
-      if (localStorage.getItem('submitBack') == 1) {
-        const $formBlockTop = document.createElement('div')
-        $formBlockTop.classList.add(formTop.substring(1));
-        $formBlock.parentNode.insertBefore($formBlockTop, $formBlock);
-        const rect = $formBlockTop.getBoundingClientRect();
-        new BbSmoothScroll(rect.top, scrollCfg);
-      }
-      localStorage.setItem('submitBack', null);
-    });
-  };
-
-  /**
    * テーブルを修飾
    */
   const _TableContents = () => {
@@ -290,13 +234,14 @@ const _BbBreakPoint = 768;
       $arrowRight.classList.add('table-arrow');
       $arrowRight.classList.add('table-arrow-right');
       $tableArea.innerHTML = $table.outerHTML;
-      $table.innerHTML = '';
       $tableContent.appendChild($tableArea);
       $tableArea.appendChild($arrowLeft);
       $tableArea.appendChild($arrowRight);
+      const tableWidth = $table.offsetWidth;
       $table.parentNode.insertBefore($tableContent, $table);
+      $table.parentNode.removeChild($table);
       const indicate = () => {
-        const distance = $table.offsetWidth - $tableArea.offsetWidth;
+        const distance = tableWidth - $tableArea.offsetWidth;
         const position = $tableArea.scrollLeft;
         const margin = 3;
         // left
@@ -370,9 +315,69 @@ const _BbBreakPoint = 768;
       const $_anchor = document.querySelector('#' + anchor[1]);
       if ($_anchor) {
         e.preventDefault();
-        const rect = $_anchor.getBoundingClientRect();
-        new BbSmoothScroll(rect.top + window.pageYOffset);
+        new BbSmoothScroll($_anchor);
       }
     });
   });
+
+  /**
+   * フォームの修飾（bb-form-style）
+   */
+  const _BbFormStyle = () => {
+    const formBlock = '.bb-form-style';
+    const formTop = '.bb-form-style-top';
+    const $formBlockAll = document.querySelectorAll(formBlock);
+    const scrollCfg = { offset: true, loaded: true, desktop: 80, mobile: 65 };
+    $formBlockAll.forEach(($formBlock) => {
+      // input: error
+      if (!$formBlock) return;
+      const $groupAll = $formBlock.querySelectorAll('.group');
+      let firstError = true;
+      $groupAll.forEach(($group) => {
+        const $error = $group.querySelector('.error');
+        if ($error) {
+          if (firstError) {
+            new BbSmoothScroll($group, scrollCfg);
+            firstError = false;
+          }
+          $group.classList.add('group-error');
+          const objectAll = [
+            'input',
+            'select',
+            'textarea',
+            '.error'
+          ];
+          const eventAll = [
+            'click',
+            'focus'
+          ];
+          objectAll.forEach((object) => {
+            eventAll.forEach((event) => {
+              const $objects = $group.querySelectorAll(object);
+              $objects.forEach(($object) => {
+                $object && $object.addEventListener(event, () => {
+                  $group.classList.remove('group-error');
+                  $error.classList.add('error-hidden');
+                });
+              });
+            });
+          });
+        }
+      });
+
+      // MW WP Formプラグイン向け
+      const $submitBack = $formBlock.querySelector('[name="submitBack"]');
+      $submitBack && $submitBack.addEventListener('click', () => {
+        localStorage.setItem('submitBack', 1);
+      });
+      if (localStorage.getItem('submitBack') == 1) {
+        const $formBlockTop = document.createElement('div')
+        $formBlockTop.classList.add(formTop.substring(1));
+        $formBlock.parentNode.insertBefore($formBlockTop, $formBlock);
+        const rect = $formBlockTop.getBoundingClientRect();
+        new BbSmoothScroll($formBlockTop, scrollCfg);
+      }
+      localStorage.setItem('submitBack', null);
+    });
+  };
 })();
