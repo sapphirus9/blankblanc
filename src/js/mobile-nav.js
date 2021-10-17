@@ -9,7 +9,7 @@
    * スライドナビの設定
    */
   let nav = {
-    slideNav: ["#search-2"], // スライドナビ ウイジェットの li が対象
+    slideNav: [], // スライドナビ ウイジェットの li が対象
     footerNav: [] // フッターナビ用 ウイジェットの li が対象
   };
   if ('bbCfgMobileNav' in window) {

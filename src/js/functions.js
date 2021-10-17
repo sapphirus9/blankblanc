@@ -55,7 +55,7 @@ class BbSmoothScroll {
   constructor(position = 0, option = {}) {
     const init = {
       loaded: false,
-      offset: false,
+      offset: true,
       speed: 150,
       desktop: 0,
       mobile: 0,
@@ -63,19 +63,34 @@ class BbSmoothScroll {
     };
     /**
      * loaded: ページの表示完了後に実行（ページ遷移時など）
-     * offcet: 以下の設定を有効化
+     * speed: スクロール速度（~1000:と大きいほど速い）
+     * offset: falseで以下の設定を無効化
      * desktop: Desktop表示時の上部マージン
      * mobile: Mobile表示時の上部マージン
-     * breakpoint: 画面幅によるモバイル/PC表示切替
+     * breakpoint: 画面幅でモバイル/PCのoffsetを切替
      */
     Object.keys(init).forEach((key) => {
-      if (option[key]) init[key] = option[key];
+      if (option[key] || option[key] === false) init[key] = option[key];
     });
     if ('number' != typeof (position)) {
       const $targetElem = 'string' == typeof (position) ? document.querySelector(position) : position;
       if ($targetElem) {
         const rect = $targetElem.getBoundingClientRect();
         position = rect.top + window.pageYOffset;
+        const dataOptions = $targetElem.dataset.option;
+        if (dataOptions) {
+          const _dataOptions = dataOptions.split(',');
+          _dataOptions.forEach((_dataOption) => {
+            const data = _dataOption.split(':');
+            let data1 = data[1].trim();
+            switch (data1) {
+              case 'true': data1 = true; break;
+              case 'false': data1 = false; break;
+              default: data1 = Number(data1); break;
+            }
+            init[data[0].trim()] = data1;
+          });
+        }
       }
     }
     if (init.offset) {
@@ -114,6 +129,9 @@ class BbSmoothScroll {
   }
 }
 
+/**
+ * main
+ */
 const _BbBreakPoint = 768;
 (() => {
   'use strict';
@@ -127,21 +145,22 @@ const _BbBreakPoint = 768;
     _MoreContent();
     _WidgetArchive();
     _WidgetComments();
-    _ModifySelect();
-    _ModifySearchForm();
+    _SelectTags();
+    _GoPageTop();
+    _InPageLinks();
+    _SearchForm();
     _BbFormStyle();
-    _goPageTop();
   });
 
   window.addEventListener('load', () => {
-    _setBackgroundImage();
+    _BackgroundImage();
     _TableContents();
   });
 
   /**
    * 画像をバックグラウンドイメージに配置
    */
-  const _setBackgroundImage = () => {
+  const _BackgroundImage = () => {
     const $imgAll = document.querySelectorAll('.background-image-src');
     $imgAll.forEach(($img) => {
       $img.style.display = 'none';
@@ -195,7 +214,7 @@ const _BbBreakPoint = 768;
   /**
    * selectタグの修飾
    */
-  const _ModifySelect = () => {
+  const _SelectTags = () => {
     const $selectAll = document.querySelectorAll('select');
     $selectAll.forEach(($select) => {
       $select.outerHTML = '<div class="select-area">' + $select.outerHTML + '</div>';
@@ -205,7 +224,7 @@ const _BbBreakPoint = 768;
   /**
    * 検索フォームの修飾
    */
-  const _ModifySearchForm = () => {
+  const _SearchForm = () => {
     const $searchFormAll = document.querySelectorAll('.search-form');
     $searchFormAll.forEach(($sform) => {
       const events = ['mouseenter', 'mouseleave'];
@@ -257,9 +276,9 @@ const _BbBreakPoint = 768;
   };
 
   /**
-   * ページトップへスクロール
+   * ページトップへ
    */
-  const _goPageTop = (() => {
+  const _GoPageTop = (() => {
     const $gotopBtn = document.querySelector('#gotop-button');
     const $div = document.createElement('div');
     // ['gotop-cfg', 'gotop-start', 'gotop-offset'].forEach((cls) => {
@@ -295,28 +314,31 @@ const _BbBreakPoint = 768;
       window.addEventListener(event, indicate);
     });
     $gotopBtn && $gotopBtn.addEventListener('click', () => {
-      new BbSmoothScroll();
+      new BbSmoothScroll(0, { offset: false });
     });
   });
 
   /**
-   * ページ内スクロール
+   * ページ内リンク
    */
-  const $anchorAll = document.querySelectorAll('.main-article a[href*="#"]')
-  $anchorAll && $anchorAll.forEach(($anchor) => {
-    $anchor.addEventListener('click', (e) => {
-      const anchor = $anchor.getAttribute('href').split('#');
-      if (
-        !anchor[1] ||
-        anchor[1].match(/comment\-.*?$/) ||
-        anchor[1].match(/respond/) ||
-        anchor[1].match(/more\-.*?$/)
-      ) return;
-      const $_anchor = document.querySelector('#' + anchor[1]);
-      if ($_anchor) {
-        e.preventDefault();
-        new BbSmoothScroll($_anchor);
-      }
+  const _InPageLinks = (() => {
+    const $anchorAll = document.querySelectorAll('.main-article a[href*="#"]')
+    const scrollOptions = { desktop: 30, mobile: 60 };
+    $anchorAll && $anchorAll.forEach(($anchor) => {
+      $anchor.addEventListener('click', (e) => {
+        const anchor = $anchor.getAttribute('href').split('#');
+        if (
+          !anchor[1] ||
+          anchor[1].match(/comment\-.*?$/) ||
+          anchor[1].match(/respond/) ||
+          anchor[1].match(/more\-.*?$/)
+        ) return;
+        const $_anchor = document.querySelector('#' + anchor[1]);
+        if ($_anchor) {
+          e.preventDefault();
+          new BbSmoothScroll($_anchor, scrollOptions);
+        }
+      });
     });
   });
 
@@ -327,7 +349,7 @@ const _BbBreakPoint = 768;
     const formBlock = '.bb-form-style';
     const formTop = '.bb-form-style-top';
     const $formBlockAll = document.querySelectorAll(formBlock);
-    const scrollCfg = { offset: true, loaded: true, desktop: 80, mobile: 65 };
+    const scrollOptions = { loaded: true, desktop: 50, mobile: 65 };
     $formBlockAll.forEach(($formBlock) => {
       // input: error
       if (!$formBlock) return;
@@ -337,7 +359,7 @@ const _BbBreakPoint = 768;
         const $error = $group.querySelector('.error');
         if ($error) {
           if (firstError) {
-            new BbSmoothScroll($group, scrollCfg);
+            new BbSmoothScroll($group, scrollOptions);
             firstError = false;
           }
           $group.classList.add('group-error');
@@ -375,7 +397,7 @@ const _BbBreakPoint = 768;
         $formBlockTop.classList.add(formTop.substring(1));
         $formBlock.parentNode.insertBefore($formBlockTop, $formBlock);
         const rect = $formBlockTop.getBoundingClientRect();
-        new BbSmoothScroll($formBlockTop, scrollCfg);
+        new BbSmoothScroll($formBlockTop, scrollOptions);
       }
       localStorage.setItem('submitBack', null);
     });
