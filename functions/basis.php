@@ -225,7 +225,7 @@ if (!function_exists('add_mobile_styles_scripts')) {
   function add_mobile_styles_scripts() {
     global $bb_theme_config;
     if ($bb_theme_config['with_parent_script'] === true) {
-      wp_enqueue_script('mobile-nav', get_template_directory_uri() . '/assets/js/mobile-nav.js', array('jquery-core'), VERSION_PARAM, true);
+      wp_enqueue_script('mobile-nav', get_template_directory_uri() . '/assets/js/mobile-nav.js', array(), VERSION_PARAM, true);
     }
     // スライドメニューの登録
     $_js = array();
@@ -248,7 +248,7 @@ if (!function_exists('add_common_scripts')) {
   function add_common_scripts() {
     global $bb_theme_config;
     if ($bb_theme_config['with_parent_script'] === true) {
-      wp_enqueue_script('functions', get_template_directory_uri() . '/assets/js/functions.js', array('jquery-core'), VERSION_PARAM, true);
+      wp_enqueue_script('functions', get_template_directory_uri() . '/assets/js/functions.js', array(), VERSION_PARAM, true);
     }
   }
 }
@@ -335,13 +335,13 @@ if (is_child_theme()) {
       if (is_file(get_stylesheet_directory() . '/assets' . $filename)) {
         wp_enqueue_script('child-mobile-nav', get_stylesheet_directory_uri() . '/assets' . $filename, array(), VERSION_PARAM, true);
       } elseif (is_file(get_stylesheet_directory() . $filename)) {
-        wp_enqueue_script('child-mobile-nav', get_stylesheet_directory_uri() . $filename, array('jquery-core'), VERSION_PARAM, true);
+        wp_enqueue_script('child-mobile-nav', get_stylesheet_directory_uri() . $filename, array(), VERSION_PARAM, true);
       }
       $filename = '/js/functions.js';
       if (is_file(get_stylesheet_directory() . '/assets' . $filename)) {
-        wp_enqueue_script('child-functions', get_stylesheet_directory_uri() . '/assets' . $filename, array('jquery-core'), VERSION_PARAM, true);
+        wp_enqueue_script('child-functions', get_stylesheet_directory_uri() . '/assets' . $filename, array(), VERSION_PARAM, true);
       } elseif (is_file(get_stylesheet_directory() . $filename)) {
-        wp_enqueue_script('child-functions', get_stylesheet_directory_uri() . $filename, array('jquery-core'), VERSION_PARAM, true);
+        wp_enqueue_script('child-functions', get_stylesheet_directory_uri() . $filename, array(), VERSION_PARAM, true);
       }
     }
   }
