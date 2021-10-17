@@ -2,8 +2,6 @@
  * 設定
  */
 const cfg = {
-  mode     : 'production', // development または production
-
   rootDir  : '', // 対象のトップディレクトリ
   srcDir   : 'src', // ソースファイルのディレクトリ
   scssDir  : 'scss', // 対象の scss ディレクトリ
@@ -13,7 +11,6 @@ const cfg = {
 
   distDir  : 'assets', // 出力対象のディレクトリ
   cssDist  : 'css', // css の出力先ディレクトリ
-  cssMap   : '', // map の出力先ディレクトリ（css 内）
   jsDist   : 'js', // js の出力先ディレクトリ
 }
 
@@ -34,20 +31,17 @@ const _dist = {
   css: path.resolve(_root.dist, cfg.cssDist),
   js : path.resolve(_root.dist, cfg.jsDist),
 }
-const _map = {
-  scss: './' + path.relative(path.resolve(_root.dist, cfg.cssDist), path.resolve(_root.src, cfg.scssDir)),
-}
 
 /**
  * モジュール
  */
 const { src, dest, parallel } = require('gulp')
+const babel        = require('gulp-babel')
 const sass         = require('gulp-dart-sass')
 const notify       = require('gulp-notify')
 const plumber      = require('gulp-plumber')
 const postcss      = require('gulp-postcss')
 const progeny      = require('gulp-progeny')
-const sourcemaps   = require('gulp-sourcemaps')
 const terser       = require('gulp-terser')
 const autoprefixer = require('autoprefixer')
 const mergerules   = require('postcss-merge-rules')
@@ -57,29 +51,6 @@ const smqueries    = require('postcss-sort-media-queries')
 /**
  * SCSS
  */
-// mode: development
-const ScssDev = () =>
-  src(_src.scss)
-    .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
-    .pipe(progeny())
-    .pipe(sourcemaps.init())
-    .pipe(sass.sync({
-      outputStyle: 'expanded',
-      indentType: 'space',
-      indentWidth: 2,
-    }))
-    .pipe(postcss([
-      autoprefixer({ cascade: false }),
-      mergerules(),
-      smqueries()
-    ]))
-    .pipe(sourcemaps.write(cfg.cssMap, {
-      includeContent: false,
-      sourceRoot: _map.scss,
-    }))
-    .pipe(dest(_dist.css))
-
-// mode: production
 const ScssProd = () =>
   src(_src.scss)
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
@@ -88,12 +59,13 @@ const ScssProd = () =>
       outputStyle: 'compressed',
     }))
     .pipe(postcss([
-      autoprefixer({ cascade: false }),
+      autoprefixer(),
       normcharset(),
       mergerules(),
       smqueries()
     ]))
     .pipe(dest(_dist.css))
+ScssProd.displayName = 'Build SCSS';
 
 /**
  * JS
@@ -101,7 +73,11 @@ const ScssProd = () =>
 const JsProd = () =>
   src(_src.js)
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
+    .pipe(babel({ "presets": ["@babel/preset-env"] }))
     .pipe(terser())
     .pipe(dest(_dist.js))
+JsProd.displayName = 'Build JS'
 
-exports.build = parallel(cfg.mode == 'production' ? [ScssProd, JsProd] : [ScssDev, JsProd])
+exports.build = parallel([ScssProd, JsProd])
+exports.build_scss = ScssProd
+exports.build_js = JsProd
