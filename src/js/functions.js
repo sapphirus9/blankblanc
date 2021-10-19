@@ -56,18 +56,20 @@ class BbSmoothScroll {
     const init = {
       loaded: false,
       offset: true,
-      speed: 150,
+      speed: 40,
       desktop: 0,
       mobile: 0,
       breakpoint: _BbBreakPoint
     };
     /**
      * loaded: ページの表示完了後に実行（ページ遷移時など）
-     * speed: スクロール速度（~1000:と大きいほど速い）
+     * speed: スクロール速度（~100:と大きいほど速い）
      * offset: falseで以下の設定を無効化
      * desktop: Desktop表示時の上部マージン
      * mobile: Mobile表示時の上部マージン
      * breakpoint: 画面幅でモバイル/PCのoffsetを切替
+     * アンカーリンク先にタグにdata-optionで個別指定
+     * e.g.) data-option="speed:25,desktop:80,mobile:60"
      */
     Object.keys(init).forEach((key) => {
       if (option[key] || option[key] === false) init[key] = option[key];
@@ -107,7 +109,7 @@ class BbSmoothScroll {
     function scrolling(setPos) {
       if (!setPos) setPos = currentPos;
       const distance = Math.abs(position - setPos);
-      setPos = parseInt(distance - distance * init.speed / 1000);
+      setPos = parseInt(distance - distance * init.speed * init.speed / 10000);
       if (direction == 'down') {
         setPos = position - setPos;
         if (position <= setPos) cancel = true;
