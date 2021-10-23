@@ -64,7 +64,7 @@
     $navWindowArea.appendChild(createHtml('div', nameNavWindowScroll));
 
     // メニュー／ウィジェットの追加
-    Array.prototype.forEach.call(nav.slideNav, (slide) => {
+    nav.slideNav.forEach((slide) => {
       const list = createHtml('ol', slide + '-slidenav');
       if (slide == globalNav || slide == headerNav) {
         const $nav = document.querySelector(slide + ' .menu');
@@ -83,9 +83,9 @@
       nameNavWindowScroll + ' .widget_pages > ul > .page_item > .children',
       nameNavWindowScroll + ' .widget_categories > ul > .cat-item > .children'
     ];
-    Array.prototype.forEach.call(subMenuItems, (items) => {
+    subMenuItems.forEach((items) => {
       const $itemAll = document.querySelectorAll(items);
-      Array.prototype.forEach.call($itemAll, ($item) => {
+      $itemAll.forEach(($item) => {
         $item.previousElementSibling.appendChild(createHtml('span', null, '.icon-toggle'));
         const $itemParent = $item.parentNode;
         $itemParent.classList.add('acoordion-menu');
@@ -117,7 +117,7 @@
     $navWindowOpenBtn && $navWindowOpenBtn.addEventListener('click', (e) => {
       posY = window.scrollY;
       document.body.classList.add(nameShowBtn);
-      Array.prototype.forEach.call(toggleElement, (toggle) => {
+      toggleElement.forEach((toggle) => {
         document.querySelector(toggle).classList.add(nameShowBtn);
       });
       e.preventDefault();
@@ -127,10 +127,10 @@
       nameCloseBtn,
       nameMainScreenMask
     ];
-    Array.prototype.forEach.call(closeToggle, (close) => {
+    closeToggle.forEach((close) => {
       const $navWindowCloseBtn = document.querySelector(close);
       $navWindowCloseBtn && $navWindowCloseBtn.addEventListener('click', (e) => {
-        Array.prototype.forEach.call(toggleElement, (toggle) => {
+        toggleElement.forEach((toggle) => {
           window.scroll(0, posY);
           document.body.classList.remove(nameShowBtn);
           document.querySelector(toggle).classList.remove(nameShowBtn);
@@ -140,7 +140,11 @@
     });
     // ブラウザバック(ios)
     window.addEventListener('pageshow', (e) => {
-      document.body.classList.remove(nameShowBtn);
+      toggleElement.forEach((toggle) => {
+        window.scroll(0, posY);
+        document.body.classList.remove(nameShowBtn);
+        document.querySelector(toggle).classList.remove(nameShowBtn);
+      });
       e.preventDefault();
     });
   };
@@ -151,7 +155,7 @@
   const footerNav = () => {
     const list = createHtml('ul', null, isMobile);
     const _nav = nav.footerNav;
-    Array.prototype.forEach.call(_nav, (footer) => {
+    _nav.forEach((footer) => {
       if (footer == globalNav || footer == headerNav) {
         const $nav = document.querySelector(footer + ' .menu');
         const _list = createHtml('li', footer + '-footernav', '.widget');
