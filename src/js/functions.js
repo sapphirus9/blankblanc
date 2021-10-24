@@ -20,20 +20,24 @@ class BbSetUserAgent
       ua = navigator.userAgentData;
       config.os = ua.platform.toLowerCase();
       if (ua.mobile) config.device = 'mobile';
-      if (ua.brands.length) config.browser = ua.brands[0].brand.toLowerCase();
+      if (ua.brands.length) {
+        ua.brands.forEach((b) => {
+          if (/Chromium/.test(b.brand)) config.browser = 'chromium';
+        });
+      }
     }
     if (config.os == 'other' || config.browser == 'other') {
       ua = navigator.userAgent;
-      // OS
+      /* OS */
       if (/Windows/.test(ua)) config.os = 'windows';
       else if (/Macintosh/.test(ua)) config.os = 'macosx';
       else if (/Android/.test(ua)) config.os = 'android';
       else if (/iP.*?Mac OS X/.test(ua)) config.os = 'ios';
       else if (/Linux/.test(ua)) config.os = 'linux';
-      // Device
+      /* Device */
       if (/iPhone.*?Mac OS X/.test(ua)) config.device = 'mobile';
       else if (/Android.*?Mobile/.test(ua)) config.device = 'mobile';
-      // Browser
+      /* Browser */
       if (/Mac OS X(?!.*Chrome)(?=.*Safari)/.test(ua)) config.browser = 'safari';
       else if (/Trident\/7\.0/.test(ua)) config.browser = 'ie11';
       else if (/Firefox/.test(ua)) config.browser = 'firefox';
@@ -53,13 +57,13 @@ class BbSetUserAgent
  */
 class BbSmoothScroll {
   constructor(position = 0, option = {}) {
-    const init = {
+    let init = {
       loaded: false,
       offset: true,
-      speed: 40,
+      speed: 50,
       desktop: 0,
       mobile: 0,
-      breakpoint: _BbBreakPoint
+      breakPoint: _BbBreakPoint
     };
     /**
      * loaded: ページの表示完了後に実行（ページ遷移時など）
@@ -67,9 +71,9 @@ class BbSmoothScroll {
      * offset: falseで以下の設定を無効化
      * desktop: Desktop表示時の上部マージン
      * mobile: Mobile表示時の上部マージン
-     * breakpoint: 画面幅でモバイル/PCのoffsetを切替
+     * breakPoint: 画面幅でモバイル/PCのoffsetを切替
      * アンカーリンク先にタグにdata-optionで個別指定
-     * e.g.) data-option="speed:25,desktop:80,mobile:60"
+     * e.g.) data-option="speed:25,desktop:30,mobile:60"
      */
     Object.keys(init).forEach((key) => {
       if (option[key] || option[key] === false) init[key] = option[key];
@@ -96,7 +100,7 @@ class BbSmoothScroll {
       }
     }
     if (init.offset) {
-      position = position - (document.documentElement.clientWidth < init.breakpoint ? init.mobile : init.desktop);
+      position = position - (document.documentElement.clientWidth < init.breakPoint ? init.mobile : init.desktop);
       if (position < 0) position = 0;
     }
     const currentPos = window.pageYOffset;
@@ -105,7 +109,7 @@ class BbSmoothScroll {
     let direction = 'neutral'
     if (currentPos > position) direction = 'up';
     else if (currentPos < position) direction = 'down';
-    // scroll
+    /* scroll */
     function scrolling(setPos) {
       if (!setPos) setPos = currentPos;
       const distance = Math.abs(position - setPos);
@@ -132,16 +136,42 @@ class BbSmoothScroll {
 }
 
 /**
+ * -------------------------
  * main
+ * -------------------------
  */
-const _BbBreakPoint = 768;
+let _BbBreakPoint = 768;
 (() => {
   'use strict';
-  // forEach (ie11 measures)
+  /* forEach (ie11 measures) */
   if (window.NodeList && !NodeList.prototype.forEach) {
     NodeList.prototype.forEach = Array.prototype.forEach;
   }
 
+  const _options = 'bbOptions' in window ? bbOptions : {
+    scrollCommon: {
+      loaded: false,
+      offset: true,
+      speed: 40,
+      desktop: 40,
+      mobile: 65,
+      breakPoint: _BbBreakPoint
+    },
+    scrollPageTop: {
+      loaded: false,
+      offset: false,
+      speed: 40,
+      desktop: 0,
+      mobile: 0,
+      breakPoint: _BbBreakPoint
+    },
+    breakPoint: _BbBreakPoint
+  };
+  if (_options.breakPoint) _BbBreakPoint = _options.breakPoint;
+
+  /**
+   * DOM読み込み後に実行
+   */
   document.addEventListener('DOMContentLoaded', () => {
     new BbSetUserAgent().addClass();
     _MoreContent();
@@ -149,14 +179,18 @@ const _BbBreakPoint = 768;
     _WidgetComments();
     _SelectTags();
     _GoPageTop();
-    _InPageLinks();
+    _GoAnchorLink();
     _SearchForm();
     _BbFormStyle();
   });
 
+  /**
+   * ページ構成完了時に実行
+   */
   window.addEventListener('load', () => {
     _BackgroundImage();
     _TableContents();
+    _ToAnchorLink();
   });
 
   /**
@@ -265,10 +299,10 @@ const _BbBreakPoint = 768;
         const distance = tableWidth - $tableArea.offsetWidth;
         const position = $tableArea.scrollLeft;
         const margin = 3;
-        // left
+        /* left */
         if (margin <= position) $arrowLeft.classList.add('active');
         else $arrowLeft.classList.remove('active');
-        // right
+        /* right */
         if (distance - margin >= position) $arrowRight.classList.add('active');
         else $arrowRight.classList.remove('active');
       }
@@ -283,7 +317,6 @@ const _BbBreakPoint = 768;
   const _GoPageTop = (() => {
     const $gotopBtn = document.querySelector('#gotop-button');
     const $div = document.createElement('div');
-    // ['gotop-cfg', 'gotop-start', 'gotop-offset'].forEach((cls) => {
     ['gotop-cfg', 'gotop-start', 'gotop-end'].forEach((cls) => {
       $div.classList.add(cls);
     });
@@ -316,32 +349,59 @@ const _BbBreakPoint = 768;
       window.addEventListener(event, indicate);
     });
     $gotopBtn && $gotopBtn.addEventListener('click', () => {
-      new BbSmoothScroll(0, { offset: false });
+      new BbSmoothScroll(0, Object.create(_options.scrollPageTop));
     });
   });
 
   /**
-   * ページ内リンク
+   * ページ内アンカーリンク
    */
-  const _InPageLinks = (() => {
-    const $anchorAll = document.querySelectorAll('.main-article a[href*="#"]')
-    const scrollOptions = { desktop: 30, mobile: 60 };
+  const _GoAnchorLink = (() => {
+    const $anchorAll = document.querySelectorAll('a[href*="#"]');
+    const url = location.href.split('#');
     $anchorAll && $anchorAll.forEach(($anchor) => {
       $anchor.addEventListener('click', (e) => {
         const anchor = $anchor.getAttribute('href').split('#');
+        const _anchor = document.createElement('a');
+        _anchor.href = anchor[0];
         if (
-          !anchor[1] ||
-          anchor[1].match(/comment\-.*?$/) ||
-          anchor[1].match(/respond/) ||
-          anchor[1].match(/more\-.*?$/)
+          (anchor[0] && url[0].replace(/(https?:)?\/\/(.*?)\/?$/, '$2') != _anchor.href.replace(/(https?:)?\/\/(.*?)\/?$/, '$2'))
+          || !anchor[1]
+          || anchor[1].match(/respond/)
+          || anchor[1].match(/more\-.*?$/)
         ) return;
         const $_anchor = document.querySelector('#' + anchor[1]);
         if ($_anchor) {
           e.preventDefault();
-          new BbSmoothScroll($_anchor, scrollOptions);
+          new BbSmoothScroll($_anchor, Object.create(_options.scrollCommon));
+          /* mobile-nav対応 --- */
+          const toggleElement = [
+            '#main-screen',
+            '#main-screen-mask',
+            '#nav-window-area',
+            '#nav-window-close-btn'
+          ];
+          toggleElement.forEach((toggle) => {
+            document.body.classList.remove('nav-window-show');
+            document.querySelector(toggle).classList.remove('nav-window-show');
+          });
+          /* --- mobile-nav対応 */
         }
+        e.preventDefault();
+        return false;
       });
     });
+  });
+
+  /**
+   * 遷移後にアンカーリンクへ
+   */
+  const _ToAnchorLink = (() => {
+    const anchor = location.hash;
+    if (anchor) {
+      const $anchor = document.querySelector(anchor);
+      new BbSmoothScroll($anchor, Object.create(_options.scrollCommon));
+    }
   });
 
   /**
@@ -351,9 +411,10 @@ const _BbBreakPoint = 768;
     const formBlock = '.bb-form-style';
     const formTop = '.bb-form-style-top';
     const $formBlockAll = document.querySelectorAll(formBlock);
-    const scrollOptions = { loaded: true, desktop: 50, mobile: 65 };
+    const scrollOptions = _options.scrollForm ? Object.create(_options.scrollForm) : Object.create(_options.scrollCommon);
+    scrollOptions.loaded = true;
     $formBlockAll.forEach(($formBlock) => {
-      // input: error
+      /* input: error */
       if (!$formBlock) return;
       const $groupAll = $formBlock.querySelectorAll('.group');
       let firstError = true;
@@ -389,7 +450,9 @@ const _BbBreakPoint = 768;
         }
       });
 
-      // MW WP Formプラグイン向け
+      /**
+       * MW WP Formプラグイン向け
+       */
       const $submitBack = $formBlock.querySelector('[name="submitBack"]');
       $submitBack && $submitBack.addEventListener('click', () => {
         localStorage.setItem('submitBack', 1);

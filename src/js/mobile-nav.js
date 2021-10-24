@@ -9,20 +9,22 @@
    * スライドナビの設定
    */
   let nav = {
-    slideNav: [], // スライドナビ ウイジェットの li が対象
-    footerNav: [] // フッターナビ用 ウイジェットの li が対象
+    slideNav: [], /* スライドナビ ウイジェットの li が対象 */
+    footerNav: [] /* フッターナビ用 ウイジェットの li が対象 */
   };
   if ('bbCfgMobileNav' in window) {
     if (Object.assign) {
       nav = Object.assign(nav, bbCfgMobileNav);
-    } else { // (ie11 measures)
+    } else { /* (ie11 measures) */
       Object.keys(nav).forEach((key) => {
         if (bbCfgMobileNav[key]) nav[key] = bbCfgMobileNav[key].concat(nav[key].filter((e) => nav[key].indexOf(e) === -1));
       });
     }
   }
 
-  // 生成
+  /**
+   * DOM読み込み後に実行
+   */
   document.addEventListener('DOMContentLoaded', () => {
     if (nav.slideNav.length > 0) slideNav();
     if (nav.footerNav.length > 0) footerNav();
@@ -63,7 +65,9 @@
     const $navWindowArea = document.querySelector(nameNavWindowArea);
     $navWindowArea.appendChild(createHtml('div', nameNavWindowScroll));
 
-    // メニュー／ウィジェットの追加
+    /**
+     * メニュー／ウィジェットの追加
+     */
     nav.slideNav.forEach((slide) => {
       const list = createHtml('ol', slide + '-slidenav');
       if (slide == globalNav || slide == headerNav) {
@@ -77,7 +81,9 @@
       document.querySelector(nameNavWindowScroll).appendChild(list);
     });
 
-    // 動作：サブメニュー表示の切り替え
+    /**
+     * 動作：サブメニュー表示の切り替え
+     */
     const subMenuItems = [
       nameNavWindowScroll + ' .menu > .menu-item > .sub-menu',
       nameNavWindowScroll + ' .widget_pages > ul > .page_item > .children',
@@ -97,11 +103,16 @@
       });
     });
 
-    // CLOSEボタンを追加
+    /**
+     * CLOSEボタンを追加
+     */
     const closeBtn = createHtml('div', nameCloseBtn);
     closeBtn.appendChild(createHtml('span', null, '.btn-symbol'));
     $navWindowArea.insertBefore(closeBtn, $navWindowArea.firstElementChild);
-    // ヘッダーにOPENボタンを追加
+
+    /**
+     * ヘッダーにOPENボタンを追加
+     */
     const openBtn = createHtml('div', nameOpenBtn, isMobile);
     openBtn.appendChild(createHtml('span', null, '.btn-symbol'));
     document.querySelector('#global-header').appendChild(openBtn);
@@ -112,7 +123,7 @@
       nameCloseBtn
     ];
     let posY = window.scrollY;
-    // 動作：ナビウインドウを開く
+    /* 動作：ナビウインドウを開く */
     const $navWindowOpenBtn = document.querySelector(nameOpenBtn);
     $navWindowOpenBtn && $navWindowOpenBtn.addEventListener('click', (e) => {
       posY = window.scrollY;
@@ -122,7 +133,7 @@
       });
       e.preventDefault();
     });
-    // 動作：ナビウインドウを閉じる
+    /* 動作：ナビウインドウを閉じる */
     const closeToggle = [
       nameCloseBtn,
       nameMainScreenMask
@@ -138,7 +149,10 @@
         e.preventDefault();
       });
     });
-    // ブラウザバック(ios)
+
+    /**
+     * ブラウザバック(ios)
+     */
     window.addEventListener('pageshow', (e) => {
       toggleElement.forEach((toggle) => {
         window.scroll(0, posY);
