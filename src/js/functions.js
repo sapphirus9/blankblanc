@@ -148,7 +148,10 @@ let _BbBreakPoint = 768;
     NodeList.prototype.forEach = Array.prototype.forEach;
   }
 
-  const _options = 'bbOptions' in window ? bbOptions : {
+  /**
+   * DOM読み込み後に実行
+   */
+  let _options = {
     scrollCommon: {
       loaded: false,
       offset: true,
@@ -167,12 +170,17 @@ let _BbBreakPoint = 768;
     },
     breakPoint: _BbBreakPoint
   };
-  if (_options.breakPoint) _BbBreakPoint = _options.breakPoint;
-
-  /**
-   * DOM読み込み後に実行
-   */
   document.addEventListener('DOMContentLoaded', () => {
+    if ('bbOptions' in window) {
+      Object.keys(bbOptions).forEach((key) => {
+        const bbOption = bbOptions[key];
+        Object.keys(bbOption).forEach((_key) => {
+          if (bbOption[_key] || bbOption[_key] === false) _options[key][_key] = bbOption[_key];
+        });
+      });
+    }
+    if (_options.breakPoint) _BbBreakPoint = _options.breakPoint;
+
     new BbSetUserAgent().addClass();
     _MoreContent();
     _WidgetArchive();

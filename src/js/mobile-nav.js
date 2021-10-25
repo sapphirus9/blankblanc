@@ -12,20 +12,20 @@
     slideNav: [], /* スライドナビ ウイジェットの li が対象 */
     footerNav: [] /* フッターナビ用 ウイジェットの li が対象 */
   };
-  if ('bbCfgMobileNav' in window) {
-    if (Object.assign) {
-      nav = Object.assign(nav, bbCfgMobileNav);
-    } else { /* (ie11 measures) */
-      Object.keys(nav).forEach((key) => {
-        if (bbCfgMobileNav[key]) nav[key] = bbCfgMobileNav[key].concat(nav[key].filter((e) => nav[key].indexOf(e) === -1));
-      });
-    }
-  }
 
   /**
    * DOM読み込み後に実行
    */
   document.addEventListener('DOMContentLoaded', () => {
+    if ('bbCfgMobileNav' in window) {
+      if (Object.assign) {
+        nav = Object.assign(nav, bbCfgMobileNav);
+      } else { /* (ie11 measures) */
+        Object.keys(nav).forEach((key) => {
+          if (bbCfgMobileNav[key]) nav[key] = bbCfgMobileNav[key].concat(nav[key].filter((e) => nav[key].indexOf(e) === -1));
+        });
+      }
+    }
     if (nav.slideNav.length > 0) slideNav();
     if (nav.footerNav.length > 0) footerNav();
   });
