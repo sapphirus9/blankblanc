@@ -250,8 +250,7 @@ let _BbBreakPoint = 768;
       const $author = $comments.querySelector('.comment-author-link');
       const $html = $comments.querySelector('a');
       $html.innerHTML = '<span class="entry-title">' + $html.innerHTML + '</span>' + '<span class="comment-user">' + $author.innerHTML + '</span>';
-      $comments.innerHTML = '';
-      $comments.appendChild($html);
+      $comments.innerHTML = $html.outerHTML;
     });
   };
 
