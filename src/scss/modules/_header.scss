@@ -3,6 +3,24 @@
 // header
 //--------------------------------------------------------------------
 
+#header-part {
+  position: relative;
+  & &-inner {
+    @include cfg.media-min(xl) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+    }
+    &.fixed {
+      @include cfg.media-min(xl) {
+        position: fixed;
+      }
+    }
+  }
+}
+
 // global header
 //--------------------------------------------------------------------
 #global-header {

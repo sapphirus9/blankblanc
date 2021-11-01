@@ -156,7 +156,7 @@ let _BbBreakPoint = 768;
       loaded: false,
       offset: true,
       speed: 40,
-      desktop: 40,
+      desktop: 65,
       mobile: 65,
       breakPoint: _BbBreakPoint
     },
@@ -188,6 +188,7 @@ let _BbBreakPoint = 768;
     _SelectTags();
     _GoPageTop();
     _GoAnchorLink();
+    _FixedGlobalNav();
     _SearchForm();
     _BbFormStyle();
   });
@@ -409,6 +410,28 @@ let _BbBreakPoint = 768;
       const $anchor = document.querySelector(anchor);
       new BbSmoothScroll($anchor, Object.create(_options.scrollCommon));
     }
+  });
+
+  /**
+   * ヘッダーを固定
+   */
+  const _FixedGlobalNav = (() => {
+    const eventAll = [
+      'load',
+      'scroll',
+      'resize'
+    ];
+    eventAll.forEach((event) => {
+      window.addEventListener(event, () => {
+        const $headerPart = document.querySelector('#header-part');
+        if ($headerPart) {
+          const rect = $headerPart.getBoundingClientRect();
+          const $inner = document.querySelector('#header-part-inner');
+          if (window.scrollY >= window.scrollY + rect.top) $inner.classList.add('fixed');
+          else $inner.classList.remove('fixed');
+        }
+      });
+    });
   });
 
   /**

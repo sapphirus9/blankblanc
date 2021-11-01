@@ -36,12 +36,16 @@
 </header>
 
 <?php if (has_nav_menu('global_nav')) : ?>
-  <nav id="global-nav">
-    <div class="wrap">
-      <?php wp_nav_menu(array(
-        'theme_location' => 'global_nav',
-        'container' => false,
-      )); ?>
+  <div id="header-part">
+    <div id="header-part-inner">
+      <nav id="global-nav">
+        <div class="wrap">
+          <?php wp_nav_menu(array(
+            'theme_location' => 'global_nav',
+            'container' => false,
+          )); ?>
+        </div>
+      </nav>
     </div>
-  </nav>
+  </div>
 <?php endif;
