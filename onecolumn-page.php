@@ -3,8 +3,9 @@
  * Theme Name: BlankBlanc
  * Author: Naoki Yamamoto
  * Template: onecolumn-page
- * Description: 1カラムレイアウト固定ページ
- * Template Name: 1カラムレイアウト
+ * Template Post Type: page
+ * Description: 1カラム幅固定レイアウト固定ページ
+ * Template Name: 1カラム幅固定レイアウト
  */
 get_header(); ?>
 

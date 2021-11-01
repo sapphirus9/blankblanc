@@ -27,5 +27,4 @@
   </section>
 
   <?php comments_template('', true); ?>
-
 <?php endwhile;

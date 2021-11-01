@@ -31,7 +31,7 @@
 }
 
 #first-column {
-  width: 720px;
+  width: cfg.$first-column;
   @include cfg.media-max(xl) {
     width: 100%;
     max-width: cfg.$max-width-mobile;
@@ -40,17 +40,20 @@
 }
 
 #second-column {
-  width: 280px;
+  width: cfg.$second-column;
   @include cfg.media-max(xl) {
     display: none;
   }
 }
 
 #one-column {
-  width: 100%;
+  width: cfg.$one-column;
+  margin: 0 auto;
+  &.full-width {
+    width: 100%;
+  }
   @include cfg.media-max(xl) {
     max-width: cfg.$max-width-mobile;
-    margin: 0 auto;
   }
   & + #second-column {
     display: none;

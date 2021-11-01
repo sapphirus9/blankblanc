@@ -2,8 +2,10 @@
 /**
  * Theme Name: BlankBlanc
  * Author: Naoki Yamamoto
- * Template: single
- * Description: 投稿ページ
+ * Template: fullwidth-single
+ * Template Post Type: post
+ * Description: 1カラム全幅レイアウト投稿ページ
+ * Template Name: 1カラム全幅レイアウト
  */
 get_header(); ?>
 
@@ -12,7 +14,7 @@ get_header(); ?>
   <?php get_template_part('includes/inc', 'breadcrumb'); ?>
 
   <div id="contents-container" class="wrap">
-    <div id="first-column">
+    <div id="one-column" class="full-width">
       <article class="main-article">
         <?php if (have_posts()) : ?>
           <?php get_template_part('includes/inc', 'single'); ?>
