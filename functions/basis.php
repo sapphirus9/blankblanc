@@ -223,6 +223,7 @@ add_action('wp_enqueue_scripts', 'add_styles_scripts');
 // モバイル用
 if (!function_exists('add_mobile_styles_scripts')) {
   function add_mobile_styles_scripts() {
+    if (is_admin()) return;
     global $bb_theme_config;
     if ($bb_theme_config['with_parent_script'] === true) {
       wp_enqueue_script('mobile-nav', get_template_directory_uri() . '/assets/js/mobile-nav.js', array(), VERSION_PARAM, true);
@@ -246,6 +247,7 @@ add_action('wp_enqueue_scripts', 'add_mobile_styles_scripts', 40);
 // ユーザー定義関数
 if (!function_exists('add_common_scripts')) {
   function add_common_scripts() {
+    if (is_admin()) return;
     global $bb_theme_config;
     if ($bb_theme_config['with_parent_script'] === true) {
       wp_enqueue_script('functions', get_template_directory_uri() . '/assets/js/functions.js', array(), VERSION_PARAM, true);
