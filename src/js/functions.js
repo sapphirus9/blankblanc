@@ -6,6 +6,7 @@
 
 /**
  * ブラウザー確認
+ * element: html
  */
 class BbSetUserAgent
 {
@@ -168,6 +169,14 @@ let _BbBreakPoint = 768;
       mobile: 0,
       breakPoint: _BbBreakPoint
     },
+    scrollForm: {
+      loaded: true,
+      offset: true,
+      speed: 40,
+      desktop: 80,
+      mobile: 65,
+      breakPoint: _BbBreakPoint
+    },
     breakPoint: _BbBreakPoint
   };
   document.addEventListener('DOMContentLoaded', () => {
@@ -188,7 +197,7 @@ let _BbBreakPoint = 768;
     _SelectTags();
     _GoPageTop();
     _GoAnchorLink();
-    _FixedGlobalNav();
+    _FixedHeaderPart();
     _SearchForm();
     _BbFormStyle();
   });
@@ -204,6 +213,7 @@ let _BbBreakPoint = 768;
 
   /**
    * 画像をバックグラウンドイメージに配置
+   * attr: .background-image-src
    */
   const _BackgroundImage = () => {
     const $imgAll = document.querySelectorAll('.background-image-src');
@@ -216,6 +226,7 @@ let _BbBreakPoint = 768;
 
   /**
    * 続きを読む
+   * attr: .more-link
    */
   const _MoreContent = () => {
     const $moreLink = document.querySelector('.more-link');
@@ -228,6 +239,7 @@ let _BbBreakPoint = 768;
 
   /**
    * 月間アーカイブの階層化
+   * attr: .widget_archive
    */
   const _WidgetArchive = () => {
     const $archiveAll = document.querySelectorAll('.widget_archive > ul');
@@ -244,6 +256,7 @@ let _BbBreakPoint = 768;
 
   /**
    * 最近のコメント
+   * attr: .widget_recent_comments
    */
   const _WidgetComments = () => {
     const $commentsAll = document.querySelectorAll('.widget_recent_comments .recentcomments');
@@ -257,6 +270,7 @@ let _BbBreakPoint = 768;
 
   /**
    * selectタグの修飾
+   * element: select
    */
   const _SelectTags = () => {
     const $selectAll = document.querySelectorAll('select');
@@ -267,6 +281,7 @@ let _BbBreakPoint = 768;
 
   /**
    * 検索フォームの修飾
+   * attr: .search-form
    */
   const _SearchForm = () => {
     const $searchFormAll = document.querySelectorAll('.search-form');
@@ -282,6 +297,7 @@ let _BbBreakPoint = 768;
 
   /**
    * テーブルを修飾
+   * element: .entry-body table
    */
   const _TableContents = () => {
     const $tables = document.querySelectorAll('.entry-body table');
@@ -321,6 +337,7 @@ let _BbBreakPoint = 768;
 
   /**
    * ページトップへ
+   * attr: #gotop-button
    */
   const _GoPageTop = (() => {
     const $gotopBtn = document.querySelector('#gotop-button');
@@ -363,6 +380,7 @@ let _BbBreakPoint = 768;
 
   /**
    * ページ内アンカーリンク
+   * element: a
    */
   const _GoAnchorLink = (() => {
     const $anchorAll = document.querySelectorAll('a[href*="#"]');
@@ -414,8 +432,9 @@ let _BbBreakPoint = 768;
 
   /**
    * ヘッダーを固定
+   * tag: #header-part > #header-part-inner
    */
-  const _FixedGlobalNav = (() => {
+  const _FixedHeaderPart = (() => {
     const eventAll = [
       'load',
       'scroll',
@@ -435,7 +454,8 @@ let _BbBreakPoint = 768;
   });
 
   /**
-   * フォームの修飾（bb-form-style）
+   * フォームの修飾
+   * attr: .bb-form-style
    */
   const _BbFormStyle = () => {
     const formBlock = '.bb-form-style';
