@@ -12,7 +12,7 @@ get_header(); ?>
 
   <div id="contents-container" class="wrap">
     <div id="one-column">
-      <article>
+      <article class="main-article">
         <section>
           <h1 class="title">404 Not Found</h1>
           <p>お探しのページは見つかりませんでした</p>

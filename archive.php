@@ -23,8 +23,10 @@ get_header(); ?>
         <?php if (have_posts()) : ?>
           <?php get_template_part('includes/inc', 'archive'); ?>
         <?php else : ?>
-          <div id="no-result">
-            <p>該当する記事は見つかりませんでした</p>
+          <div class="entry-articles">
+            <div id="no-result">
+              <p>該当する記事は見つかりませんでした</p>
+            </div>
           </div>
         <?php endif; ?>
       </div>

@@ -53,6 +53,7 @@
     width: 100%;
   }
   @include cfg.media-max(xl) {
+    width: 100%;
     max-width: cfg.$max-width-mobile;
   }
   & + #second-column {

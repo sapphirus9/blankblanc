@@ -178,6 +178,13 @@
     p {
       color: cfg.$base-gray-3;
       font-size: 1.6rem;
+      line-height: 1.5;
+      br {
+        display: none;
+        @include cfg.media-max(lg) {
+          display: inherit;
+        }
+      }
     }
   }
 }

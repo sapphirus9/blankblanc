@@ -5,6 +5,10 @@
 
 #header-part {
   position: relative;
+  height: 40px;
+  @include cfg.media-max(xl) {
+    height: 0;
+  }
   & &-inner {
     @include cfg.media-min(xl) {
       position: absolute;
