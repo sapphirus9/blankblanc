@@ -13,6 +13,7 @@ function bb_add_extensions() {
     locate_template('extensions/ex-tinymce.php', true);
     locate_template('extensions/ex-mainvisual.php', true);
     locate_template('extensions/ex-inline-css-js.php', true);
+    locate_template('extensions/ex-page-layout.php', true);
   }
   locate_template('extensions/ex-exclude-categories.php', true);
   locate_template('extensions/ex-breadcrumb.php', true);

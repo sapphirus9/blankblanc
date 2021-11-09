@@ -23,6 +23,13 @@ function bb_body_id_class($classes = array()) {
   if ($bb_theme_config['add_body_class']) {
     $classes = get_body_class($classes);
   }
+  if (is_page() || is_single()) {
+    $layout = get_post_meta(get_the_ID(), 'bb_page_layout_select', true);
+    if (is_attachment()) {
+      $layout = 'onecolumn';
+    }
+    array_push($classes, (empty($layout) ? 'defualt' :  $layout) . '-layout');
+  }
   $class = '';
   if (!empty($classes)) {
     $class = ' class="' . join(' ', array_unique($classes)) . '"';
@@ -193,20 +200,37 @@ add_action('wp', 'bb_setup_theme_id_class');
 
 
 /**
- * カテゴリーのスラッグ名のある投稿用テンプレートが存在する場合テンプレートを差し替え
- * @template ex.)single-catslug.php
+ * テンプレートの差し替え
+ * 1.ページレイアウト指定時のテンプレート（ex-page-lauout.php）
+ * @template e.g. onecolumn-single.php, fullwidth-page.php
+ * 2.カテゴリーのスラッグ名のある投稿用テンプレートが存在する場合
+ * @template e.g. single-catslug.php
  */
 function custom_template_include($template) {
-  if (is_single() && !is_attachment()) {
-    if ($current_cat = get_the_category()) {
-      if ($current_cat[0]->parent === 0) {
-        $suffix = $current_cat[0]->slug;
-      } else {
-        $parent_cat = get_category($current_cat[0]->parent);
-        $suffix = $parent_cat->slug;
+  if (!is_attachment()) {
+    global $post;
+    if (is_single()) {
+      if ($template_name = get_post_meta($post->ID, 'bb_page_layout_select', true)) {
+        if ($new_template = locate_template($template_name . '-single.php', false, true)) {
+          return $new_template;
+        }
       }
-      if ($new_template = locate_template(array('single-' . $suffix . '.php'), false, true)) {
-        return $new_template;
+      if ($current_cat = get_the_category()) {
+        if ($current_cat[0]->parent === 0) {
+          $suffix = $current_cat[0]->slug;
+        } else {
+          $parent_cat = get_category($current_cat[0]->parent);
+          $suffix = $parent_cat->slug;
+        }
+        if ($new_template = locate_template(array('single-' . $suffix . '.php'), false, true)) {
+          return $new_template;
+        }
+      }
+    } else if (is_page()) {
+      if ($template_name = get_post_meta($post->ID, 'bb_page_layout_select', true)) {
+        if ($new_template = locate_template($template_name . '-page.php', false, true)) {
+          return $new_template;
+        }
       }
     }
   }

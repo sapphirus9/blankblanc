@@ -9,7 +9,7 @@ get_header(); ?>
 
 <main role="main" id="contents" class="article attachment">
   <div id="contents-container" class="wrap">
-    <div id="one-column">
+    <div id="first-column">
       <article class="main-article">
         <?php if (have_posts()) :
           while (have_posts()) :

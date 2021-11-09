@@ -37,15 +37,31 @@
     max-width: cfg.$max-width-mobile;
     margin: 0 auto;
   }
+  .onecolumn-layout & {
+    width: cfg.$one-column;
+    margin: 0 auto;
+    @include cfg.media-max(xl) {
+      width: 100%;
+    }
+  }
+  .fullwidth-layout & {
+    width: 100%;
+    margin: 0 auto;
+  }
 }
 
 #second-column {
   width: cfg.$second-column;
+  .onecolumn-layout &,
+  .fullwidth-layout & {
+    display: none;
+  }
   @include cfg.media-max(xl) {
     display: none;
   }
 }
 
+// [deprecated]
 #one-column {
   width: cfg.$one-column;
   margin: 0 auto;
