@@ -48,7 +48,7 @@ class bbMainvisualPostMeta
     $bb_mv_id = get_post_meta($post->ID, 'bb_mainvisual', true);
     ?>
 <div id="bb-config-edit" class="bb-config-edit-box">
-  <fieldset id="bb-mainvisual" class="bb-media-upload">
+  <fieldset id="bb-mainvisual" class="bb-media-upload bb-confirm-changes">
     <div class="media-title">メインビジュアル画像</div>
     <div class="input-group">
       <?php

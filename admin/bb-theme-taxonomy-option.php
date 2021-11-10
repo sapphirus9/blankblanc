@@ -80,7 +80,7 @@ class bbTaxonomyLayoutOptions
   // HTMLブロック
   private function taxonomy_layout_html($meta_data) {
     ?>
-<ul id="bb-taxonomy-layout">
+<ul id="bb-taxonomy-layout" class="bb-confirm-changes">
   <li>
     <input type="radio" name="<?php echo $this->meta_key; ?>[layout][value]" value="list" id="bb-taxonomy-layout-1"<?php echo $meta_data['layout']['value'] == 'list' ? ' checked' : ''; ?>>
     <label for="bb-taxonomy-layout-1" class="box"><span class="dashicons dashicons-list-view"></span><span class="title">リスト表示</span></label>

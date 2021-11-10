@@ -97,7 +97,8 @@
           var images = upload.state().get('selection');
           images.each(function (file) {
             img.id.val(file.id);
-            img.view.html('<img src="' + file.attributes.sizes.large.url + '" alt="">');
+            var imageUrl = file.attributes.sizes.large !== undefined ? file.attributes.sizes.large.url : file.attributes.sizes.full.url;
+            img.view.html('<img src="' + imageUrl + '" alt="">');
             btn.reset.show();
           });
         });
@@ -190,36 +191,37 @@
 
   // 項目の変更有無を確認
   var change_value = false;
-  $('#bb-config-edit form').on('change', function () {
-    change_value = true;
-  });
-  $('#bb-taxonomy-layout').on('change', function () {
-    change_value = true;
-  });
-  var change_value_tinymce = function () {
-    setTimeout(function () {
-      if (typeof tinymce != 'function') return;
+  $(window).on('load', function () {
+    if (typeof tinymce == 'object') {
       tinymce.editors.forEach(function (ed) {
         ed.on('keyup', function () {
           change_value = true;
         });
-      }, 1000);
+      });
+    }
+    var _change = [
+      '.bb-confirm-changes',
+      '#bb-config-edit form'
+    ];
+    $(_change).each(function () {
+      $(this).on('change', function () {
+        change_value = true;
+      });
+    })
+    var _click = [
+      '#editor .editor-post-publish-button',
+      '#bb-config-edit [type="submit"]',
+      '#addtag [type="submit"]',
+      '#edittag [type="submit"]',
+      '#submitdiv [type="submit"]'
+    ];
+    $(_click).each(function () {
+      $(this).on('click', function () {
+        change_value = false;
+      });
     });
-  };
-  $(window).on('load', change_value_tinymce);
-  $('.wp-switch-editor').on('click', change_value_tinymce);
-  $('#bb-config-edit [type="submit"]').on('click', function () {
-    change_value = false;
-  });
-  $('#addtag [type="submit"], #edittag [type="submit"]').on('click', function () {
-    change_value = false;
-  });
-  $('#submitdiv [type="submit"]').on('click', function () {
-    change_value = false;
   });
   $(window).on('beforeunload', function () {
-    if (change_value) {
-      return '';
-    }
+    if (change_value) return '';
   });
 })(jQuery);
