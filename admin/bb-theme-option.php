@@ -24,8 +24,8 @@ function blankblanc_config_edit() {
     }, $_POST['blankblanc_config_values']);
     check_admin_referer('blankblanc_config_nonce');
     if (isset($config_post['reset_config'])) { // 初期状態に戻す
-      delete_option('blankblanc_config_values');
       $config_values = $bb_theme_default;
+      update_option('blankblanc_config_values', wp_unslash($config_values));
     } else { //postデータをセット
       unset($config_post['reset_config']);
       if (!$config_post['archive_thumbnail'][0]) {
@@ -59,6 +59,7 @@ function blankblanc_config_edit() {
   } else { // 初期値値をセット
     if (!$config_values = get_option('blankblanc_config_values')) {
       $config_values = $bb_theme_default;
+      update_option('blankblanc_config_values', wp_unslash($config_values));
     }
   }
   wp_enqueue_script('bb-theme-admin-js', get_template_directory_uri() . '/admin/assets/js/bb-theme-admin.js', array('jquery-ui-sortable', 'jquery-touch-punch', 'jquery-ui-tabs'));
@@ -96,7 +97,7 @@ function blankblanc_config_edit() {
       <fieldset class="submit-btn submit-btn-top">
         <?php wp_nonce_field('blankblanc_config_nonce'); ?>
         <?php submit_button('設定を保存', 'primary', 'blankblanc-config-save', false); ?>
-        <?php submit_button('初期状態に戻す', 'button-reset', 'blankblanc_config_values[reset_config]', false, array('id' => 'reset-config')); ?>
+        <?php submit_button('初期設定値に戻す', 'button-reset', 'blankblanc_config_values[reset_config]', false, array('id' => 'reset-config')); ?>
       </fieldset>
 
       <div id="nav-tabs">
@@ -163,7 +164,7 @@ function blankblanc_config_edit() {
       <hr>
       <fieldset class="submit-btn submit-btn-bottom">
         <?php submit_button('設定を保存', 'primary', 'blankblanc-config-save-2', false); ?>
-        <?php submit_button('初期状態に戻す', 'button-reset', 'blankblanc_config_values[reset_config]', false, array('id' => 'reset-config-2')); ?>
+        <?php submit_button('初期設定値に戻す', 'button-reset', 'blankblanc_config_values[reset_config]', false, array('id' => 'reset-config-2')); ?>
       </fieldset>
     </form>
   </div>

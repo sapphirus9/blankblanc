@@ -38,6 +38,9 @@ function bb_setup_theme_config() {
   }
   if ($load_config = get_option('blankblanc_config_values')) {
     $bb_theme_config = $load_config + $bb_theme_default;
+  } else {
+    // DBにテーマオプションがない場合は登録
+    update_option('blankblanc_config_values', wp_unslash($bb_theme_config));
   }
   if (is_admin()) {
     require_once dirname(__DIR__) . '/admin/bb-theme-option.php';
