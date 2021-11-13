@@ -30,6 +30,9 @@ if (version_compare(phpversion(), '5.6.20', '<')) {
 /**
  * テーマオプションを設定
  */
+define('BB_THEME_DIR', __DIR__);
+define('BB_ADMIN_DIR', dirname(__DIR__));
+
 function bb_setup_theme_config() {
   global $bb_theme_config, $bb_theme_default;
   $bb_theme_config = $bb_theme_default = bb_config_default();
@@ -43,8 +46,8 @@ function bb_setup_theme_config() {
     update_option('blankblanc_config_values', wp_unslash($bb_theme_config));
   }
   if (is_admin()) {
-    require_once dirname(__DIR__) . '/admin/bb-theme-option.php';
-    require_once dirname(__DIR__) . '/admin/bb-theme-taxonomy-option.php';
+    require_once BB_ADMIN_DIR . '/admin/bb-theme-option.php';
+    require_once BB_ADMIN_DIR . '/admin/bb-theme-taxonomy-option.php';
   }
   define('VERSION_PARAM', $bb_theme_config['version_param']);
 }
@@ -54,10 +57,10 @@ add_action('after_setup_theme', 'bb_setup_theme_config');
 /**
  * ファンクションの読み込み
  */
-require_once __DIR__ . '/core.php';
-require_once __DIR__ . '/basis.php';
-require_once __DIR__ . '/extensions.php';
-
+require_once BB_THEME_DIR . '/core.php';
+require_once BB_THEME_DIR . '/basis.php';
+require_once BB_THEME_DIR . '/extensions.php';
+require_once BB_ADMIN_DIR . '/admin/bb-theme-customizer.php';
 
 /**
  * ウィジェットのブロックエディターを停止
