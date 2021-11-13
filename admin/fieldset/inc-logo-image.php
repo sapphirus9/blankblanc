@@ -7,11 +7,10 @@
     <div class="input-group">
       <?php
       $nouse = (empty($config_values['logo_image']) || $config_values['logo_image'] == -1) ? true : false;
-      if ($logo_image = wp_get_attachment_image_src($config_values['logo_image'], 300)) {
+      if ($logo_image = wp_get_attachment_image_src($config_values['logo_image'], 200)) {
         $img = $logo_image[0];
       } else {
-        $img = $bb_theme_default['logo_image'];
-        $config_values['logo_image'] = $bb_theme_default['logo_image'];
+        $img = $config_values['logo_image'];
       }
       ?>
       <div class="image-view">

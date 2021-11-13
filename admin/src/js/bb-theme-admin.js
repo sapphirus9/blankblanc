@@ -2,7 +2,7 @@
   // 設定の初期化
   $(function () {
     $('.button-reset').on('click', function (e) {
-      if (!confirm('現在の設定を初期化してよろしいですか？')) {
+      if (!confirm('現在の設定はすべてテーマの初期設定値に変更されます')) {
         e.preventDefault();
       }
     });

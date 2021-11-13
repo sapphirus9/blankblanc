@@ -426,6 +426,16 @@
   }
 }
 
+// logo
+#bb-logo-image {
+  .image-view {
+    max-width: 360px;
+    img {
+      max-height: 360px;
+    }
+  }
+}
+
 // copyright
 #bb-config-edit {
   .copyright-text {
