@@ -14,10 +14,11 @@ function bb_customize_logo($wp_customize) {
   $wp_customize->add_setting(
     "{$config_values}[logo_image]",
     array(
-      'default'    => $bb_theme_config['logo_image'],
-      'transport'  => 'postMessage',
-      'type'       => 'option',
-      'capability' => 'edit_theme_options',
+      'default'           => $bb_theme_config['logo_image'],
+      'transport'         => 'postMessage',
+      'type'              => 'option',
+      'capability'        => 'manage_options',
+      'sanitize_callback' => 'esc_url_raw',
     )
   );
 
@@ -30,11 +31,11 @@ function bb_customize_logo($wp_customize) {
         'section'     => 'title_tagline',
         'settings'    => "{$config_values}[logo_image]",
         'priority'    => 60,
+        'type'        => 'image',
         'description' => <<< EOD
     <p>ロゴ画像を変更することができます。<br>
     その他の設定は<a href="./themes.php?page=blankblanc_config_edit">テーマオプション</a>で変更してください。</p>
 EOD,
-        'type'        => 'image',
       )
     )
   );
@@ -42,16 +43,14 @@ EOD,
   $wp_customize->selective_refresh->add_partial(
     "{$config_values}[logo_image]",
     array(
-      'selector' => '#global-header .logo a',
+      'selector'            => '#global-header .logo a',
       'container_inclusive' => false,
-      'render_callback' => '_render',
+      'render_callback'     => '_render',
     )
   );
   function _render($partial = null) {
     global $bb_theme_config;
-    $src = '';
     if ($partial) {
-      $src = get_theme_mod($partial->id);
       preg_match('!^(.*?)\[(.*?)\]$!', $partial->id, $keys);
       $bb_option = get_option($keys[1]);
       $src = $bb_option[$keys[2]];
