@@ -22,6 +22,13 @@ function bb_customize_logo($wp_customize) {
     )
   );
 
+  function _description() {
+    $theme_option = get_admin_url() . 'themes.php?&amp;page=blankblanc_config_edit#tab-3';
+    return <<< EOD
+    <p>ロゴ画像を変更することができます。<br>
+    その他の設定は<a href="{$theme_option}">テーマオプション</a>で変更してください。</p>
+EOD;
+  }
   $wp_customize->add_control(
     new WP_Customize_Media_Control(
       $wp_customize,
@@ -32,10 +39,8 @@ function bb_customize_logo($wp_customize) {
         'settings'    => "{$config_values}[logo_image]",
         'priority'    => 60,
         'type'        => 'image',
-        'description' => <<< EOD
-    <p>ロゴ画像を変更することができます。<br>
-    その他の設定は<a href="./themes.php?page=blankblanc_config_edit">テーマオプション</a>で変更してください。</p>
-EOD,
+        'mime_type'   => 'image',
+        'description' => _description(),
       )
     )
   );
