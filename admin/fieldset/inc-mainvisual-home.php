@@ -3,7 +3,7 @@
   <fieldset id="bb-mainvisual-home" class="bb-media-upload">
     <div class="col-left">
       <div class="label-title">トップページ用メインビジュアル</div>
-      <div class="note">Home または Front Page が対象です。</div>
+      <div class="note">HomeまたはFront Pageが対象です。</div>
     </div>
     <div class="col-right">
       <div class="input-group">
@@ -40,8 +40,8 @@
   <fieldset class="bb-mainvisual-home-content">
     <div class="col-left">
       <div class="label-title">トップページ用<br>メインビジュアル内コンテンツ</div>
-      <div class="note">Home または Front Page が対象です。<br>
-      class="mv-title-content" 以下での css 追加を前提としています。</div>
+      <div class="note">HomeまたはFront Pageが対象です。<br>
+      class="mv-title-content" 以下でのCSS利用を前提としています。</div>
     </div>
     <div class="col-right">
       <?php wp_editor(

@@ -1,7 +1,7 @@
 <fieldset class="use-auto-slug">
   <div class="col-left">
     <div class="label-title">日本語タイトル時のスラッグ設定</div>
-    <div class="note">投稿時に自動で設定される日本語スラッグを「接頭辞-ポスト ID（Ex. post-99）」に置き換えます。</div>
+    <div class="note">投稿時に自動で設定される日本語スラッグを「接頭辞-ポストID（Ex. post-99）」に置き換えます。</div>
   </div>
   <div class="col-right">
     <div class="group">

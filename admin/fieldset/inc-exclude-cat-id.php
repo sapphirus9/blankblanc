@@ -2,7 +2,7 @@
   if (class_exists('bbExcludeCategories')) : ?>
   <fieldset class="exclude-cat-id">
     <div class="col-left">
-      <div class="label-title">除外対象のカテゴリー ID</div>
+      <div class="label-title">除外対象のカテゴリーID</div>
       <div class="note">特定のカテゴリーをカテゴリーウィジェットやフィード等の対象から除外します。（カンマ区切り）</div>
     </div>
     <div class="col-right">

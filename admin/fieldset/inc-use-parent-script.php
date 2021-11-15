@@ -1,9 +1,9 @@
 <?php if (is_child_theme()) : ?>
   <fieldset class="use-parent-script">
     <div class="col-left">
-      <div class="label-title">親テーマのスクリプト（js）を利用</div>
-      <div class="note">子テーマを利用時に親テーマの js/functions.js, js/mobile-nav.js ファイルの読み込みます。<br>
-      指定しない場合は、親テーマの 各スクリプトファイルを子テーマの js ディレクトリーにコピーして利用してください。</div>
+      <div class="label-title">親テーマのJavaScriptを利用</div>
+      <div class="note">子テーマを利用時に親テーマの {theme}/assets/js/functions.js, {theme}/assets/js/mobile-nav.js ファイルの読み込みます。<br>
+      指定しない場合は、親テーマの 各スクリプトファイルを子テーマの {child-theme}/assets/js ディレクトリーにコピーして利用してください。</div>
     </div>
     <div class="col-right">
       <div class="group">

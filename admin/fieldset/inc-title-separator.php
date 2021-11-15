@@ -1,6 +1,6 @@
 <fieldset class="title-separator">
   <div class="col-left">
-    <div class="label-title">title タグのセパレーター</div>
+    <div class="label-title">titleタグのセパレーター</div>
   </div>
   <div class="col-right">
     <div class="group">

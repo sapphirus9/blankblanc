@@ -1,9 +1,9 @@
 <?php if (is_child_theme()) : ?>
   <fieldset class="use-parent-css">
     <div class="col-left">
-      <div class="label-title">親テーマの CSS を利用</div>
-      <div class="note">子テーマを利用時に親テーマの CSS ファイル（theme.css）を読み込みます。<br>
-      ※指定しない場合は、親テーマの CSS を子テーマにコピー（style.css）して利用してください。</div>
+      <div class="label-title">親テーマのCSSを利用</div>
+      <div class="note">子テーマを利用時に親テーマのCSSファイル（{theme}/assets/css/theme.css）を読み込みます。<br>
+      ※指定しない場合は、親テーマのCSSを子テーマにコピー（{child-theme}/assets/css/theme.css）して利用してください。</div>
     </div>
     <div class="col-right">
       <div class="group">

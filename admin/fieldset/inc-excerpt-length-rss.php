@@ -1,6 +1,6 @@
 <fieldset class="excerpt-length-rss">
   <div class="col-left">
-    <div class="label-title">RSS の記事出力文字数</div>
+    <div class="label-title">RSSの記事出力文字数</div>
     <div class="note">無指定の場合、記事抜粋の文字数が適用されます。</div>
   </div>
   <div class="col-right">

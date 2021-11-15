@@ -1,6 +1,6 @@
 <fieldset class="output-canonical">
   <div class="col-left">
-    <div class="label-title">rel=canonical／prev／next 出力</div>
+    <div class="label-title">rel=canonical／prev／next出力</div>
     <div class="note">プラグイン等を利用して設定を行う場合はチェックを外します。</div>
   </div>
   <div class="col-right">

@@ -1,6 +1,6 @@
 <fieldset class="title-catchphrase">
   <div class="col-left">
-    <div class="label-title">title に併記するキャッチフレーズ</div>
+    <div class="label-title">titleに併記するキャッチフレーズ</div>
     <div class="note">無指定の場合、一般設定のキャッチフレーズが適用されます。</div>
   </div>
   <div class="col-right">
