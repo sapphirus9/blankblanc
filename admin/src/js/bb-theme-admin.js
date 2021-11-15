@@ -98,9 +98,8 @@
           var images = upload.state().get('selection');
           images.each(function (file) {
             img.id.val(file.id);
-            img.url.val(file.attributes.sizes.full.url);
-            var imageUrl = file.attributes.sizes.large !== undefined ? file.attributes.sizes.large.url : file.attributes.sizes.full.url;
-            img.view.html('<img src="' + imageUrl + '" alt="">');
+            img.url.val(file.attributes.url);
+            img.view.html('<img src="' + file.attributes.url + '" alt="">');
             btn.reset.show();
           });
         });
@@ -122,6 +121,7 @@
         change_value = true;
         e.preventDefault();
         var di = $(s + 'input:hidden[name="default-image"]').val();
+        btn.reset.show();
         if (di) {
           img.id.val(di);
           img.view.html('<img src="' + di + '" alt="">');
