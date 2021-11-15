@@ -161,7 +161,12 @@
   // タブ
   if ($.ui && $.ui.tabs) {
     $(function () {
-      $('#nav-tabs').tabs({
+      var tabs = $('#nav-tabs');
+      if (location.hash.substring(0, 4) == '#tab') {
+        $('a', tabs).removeClass('nav-tab-active');
+        $('a[href=' + location.hash + ']', tabs).addClass('nav-tab-active');
+      }
+      tabs.tabs({
         activate: function (event, ui) {
           $('a', this).removeClass('nav-tab-active');
           $('a', ui.newTab).addClass('nav-tab-active');
