@@ -290,6 +290,16 @@ add_filter('excerpt_mblength', 'customize_excerpt_length');
 
 
 /**
+ * アップロードできるファイルタイプを追加
+ */
+function customize_mime_types($mimes) {
+  $mimes['svg'] = 'image/svg+xml';
+  return $mimes;
+}
+add_filter('upload_mimes', 'customize_mime_types');
+
+
+/**
  * RSS フィードの文字数
  */
 function customize_feeds_excerpt($content) {
