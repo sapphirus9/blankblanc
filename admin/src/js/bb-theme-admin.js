@@ -66,6 +66,7 @@
       };
       var img = {
         id: $(s + '.image-id'),
+        url: $(s + '.image-url'),
         view: $(s + '.image-view')
       };
       var v = img.id.val();
@@ -97,6 +98,7 @@
           var images = upload.state().get('selection');
           images.each(function (file) {
             img.id.val(file.id);
+            img.url.val(file.attributes.sizes.full.url);
             var imageUrl = file.attributes.sizes.large !== undefined ? file.attributes.sizes.large.url : file.attributes.sizes.full.url;
             img.view.html('<img src="' + imageUrl + '" alt="">');
             btn.reset.show();
