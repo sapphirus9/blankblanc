@@ -15,6 +15,7 @@
 </head>
 
 <body <?php bb_body_id_class(); ?>>
+<?php wp_body_open(); ?>
 <div id="main-screen">
 <header id="global-header">
   <div class="wrap">
