@@ -14,47 +14,40 @@ const cfg = {
   jsDist   : 'js', // js の出力先ディレクトリ
 }
 
-const path = require('path')
-
-/**
- * ディレクトリ形成
- */
-const _root = {
-  src : path.join(__dirname, cfg.rootDir, cfg.srcDir),
-  dist: path.join(__dirname, cfg.rootDir, cfg.distDir),
-}
-const _src = {
-  scss: path.resolve(_root.src, cfg.scssDir, cfg.scssFiles),
-  js  : path.resolve(_root.src, cfg.jsDir, cfg.jsFiles),
-}
-const _dist = {
-  css: path.resolve(_root.dist, cfg.cssDist),
-  js : path.resolve(_root.dist, cfg.jsDist),
-}
-
 /**
  * モジュール
  */
-const { src, dest, parallel } = require('gulp')
+const { src, dest, watch, parallel } = require('gulp')
 const babel        = require('gulp-babel')
 const sass         = require('gulp-dart-sass')
 const notify       = require('gulp-notify')
 const plumber      = require('gulp-plumber')
 const postcss      = require('gulp-postcss')
-const progeny      = require('gulp-progeny')
 const terser       = require('gulp-terser')
 const autoprefixer = require('autoprefixer')
+const path         = require('path')
 const mergerules   = require('postcss-merge-rules')
 const normcharset  = require('postcss-normalize-charset')
 const smqueries    = require('postcss-sort-media-queries')
 
 /**
+ * パス
+ */
+const _files = {
+  scss: path.join(__dirname, cfg.rootDir, cfg.srcDir, cfg.scssDir, cfg.scssFiles),
+  js : path.join(__dirname, cfg.rootDir, cfg.srcDir, cfg.jsDir, cfg.jsFiles),
+}
+const _dist = {
+  css: path.join(__dirname, cfg.rootDir, cfg.distDir, cfg.cssDist),
+  js : path.join(__dirname, cfg.rootDir, cfg.distDir, cfg.jsDist),
+}
+
+/**
  * SCSS
  */
 const ScssProd = () =>
-  src(_src.scss)
+  src(_files.scss)
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
-    .pipe(progeny())
     .pipe(sass.sync({
       outputStyle: 'compressed',
     }))
@@ -71,13 +64,24 @@ ScssProd.displayName = 'Build SCSS';
  * JS
  */
 const JsProd = () =>
-  src(_src.js)
+  src(_files.js)
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
     .pipe(babel({ "presets": ["@babel/preset-env"] }))
     .pipe(terser())
     .pipe(dest(_dist.js))
 JsProd.displayName = 'Build JS'
 
-exports.build = parallel([ScssProd, JsProd])
+/**
+ * ウォッチ
+ */
+const WatchBuild = done => {
+  watch(_files.scss, ScssProd)
+  watch(_files.js, JsProd)
+  done()
+}
+WatchBuild.displayName = 'Watch Build'
+
+exports.Build = parallel([ScssProd, JsProd])
+exports.watch_build = WatchBuild
 exports.build_scss = ScssProd
 exports.build_js = JsProd
