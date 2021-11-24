@@ -18,13 +18,13 @@ const cfg = {
  * モジュール
  */
 const { src, dest, watch, parallel } = require('gulp')
+const autoprefixer = require('autoprefixer')
 const babel        = require('gulp-babel')
 const sass         = require('gulp-dart-sass')
 const notify       = require('gulp-notify')
 const plumber      = require('gulp-plumber')
 const postcss      = require('gulp-postcss')
 const terser       = require('gulp-terser')
-const autoprefixer = require('autoprefixer')
 const path         = require('path')
 const mergerules   = require('postcss-merge-rules')
 const normcharset  = require('postcss-normalize-charset')
