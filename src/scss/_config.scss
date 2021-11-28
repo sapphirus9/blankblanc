@@ -104,7 +104,7 @@ $breakpoints: (
   min: 360px
 );
 @mixin media-max($type: lg) {
-  @media (max-width: map.get($breakpoints, $type) - 1) {
+  @media (max-width: (map.get($breakpoints, $type) - 1)) {
     @content;
   }
 }

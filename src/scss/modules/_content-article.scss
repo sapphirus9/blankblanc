@@ -90,7 +90,7 @@
   }
   .caption {
     display: inline-block;
-    font-size: 1.1rem;
+    font-size: .8em;
     line-height: 1.5;
     min-width: 100%;
     margin: 0;
@@ -326,26 +326,27 @@
     border: none;
     border-bottom: 1px solid cfg.$base-gray-6;
   }
-  pre {
-    position: relative;
-    font-size: .933333em;
-    line-height: 1.75;
-    margin: 25px 0;
-    padding: 30px;
-    background-color: cfg.$base-gray-7;
-  }
+  pre,
   blockquote {
     position: relative;
     font-size: .933333em;
     line-height: 1.75;
     margin: 25px 0;
-    padding: 30px;
     background-color: cfg.$base-gray-7;
-    @include cfg.media-max(lg) {
-      padding: 25px 15px;
-    }
     p {
       margin: 0;
+    }
+  }
+  pre {
+    padding: 25px 30px;
+    @include cfg.media-max(md) {
+      padding: 20px cfg.$gap-mobile;
+    }
+  }
+  blockquote {
+    padding: 30px;
+    @include cfg.media-max(md) {
+      padding: 25px cfg.$gap-mobile;
     }
     &::before {
       display: inline-block;
@@ -353,11 +354,11 @@
       top: 3px;
       left: 5px;
       @include cfg.icon-font('f0757');
-      font-size: 3.2rem;
+      font-size: 3rem;
       line-height: 1;
       color: cfg.$base-gray-4;
-      @include cfg.media-max(lg) {
-        font-size: 1.8rem;
+      @include cfg.media-max(md) {
+        font-size: 2.2rem;
       }
     }
     &::after {
@@ -366,11 +367,11 @@
       bottom: 3px;
       right: 5px;
       @include cfg.icon-font('f027e');
-      font-size: 3.2rem;
+      font-size: 3rem;
       line-height: 1;
       color: cfg.$base-gray-4;
-      @include cfg.media-max(lg) {
-        font-size: 1.8rem;
+      @include cfg.media-max(md) {
+        font-size: 2.2rem;
       }
     }
   }

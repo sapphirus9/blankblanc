@@ -1,0 +1,55 @@
+@use 'config' as cfg;
+//--------------------------------------------------------------------
+// wp-block: basic
+//--------------------------------------------------------------------
+.entry-body .wp-block {
+  &-table {
+    margin: 25px 0;
+    .table-content {
+      margin: 0;
+    }
+    figcaption {
+      font-size: .8em;
+      line-height: 1.5;
+      padding: 7px;
+      background-color: cfg.$base-gray-7;
+      box-sizing: border-box;
+    }
+  }
+  &-image {
+    figcaption {
+      font-size: .8em;
+      line-height: 1.5;
+      padding: 7px;
+      margin: 0;
+      background-color: cfg.$base-gray-7;
+      box-sizing: border-box;
+    }
+  }
+  &-gallery {
+    margin: 25px 0;
+    .blocks-gallery {
+      &-grid {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      &-item {
+        &:first-of-type {
+          margin-top: 8px;
+        }
+        &:last-of-type {
+          margin-bottom: 8px;
+        }
+      }
+      &-caption {
+        font-size: .8em;
+        line-height: 1.5;
+        padding: 7px;
+        margin: calc(1em - 8px) 0 0;
+        background-color: cfg.$base-gray-7;
+        box-sizing: border-box;
+      }
+    }
+  }
+}

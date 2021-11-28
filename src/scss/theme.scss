@@ -30,6 +30,8 @@
 @use 'modules/content-gallery';
 @use 'modules/content-tinymce';
 
+@use 'wp-block/basic';
+
 @use 'modules/media-large';
 @use 'modules/media-medium';
 @use 'modules/media-small';
