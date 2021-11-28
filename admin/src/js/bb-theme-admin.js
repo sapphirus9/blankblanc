@@ -163,6 +163,7 @@
     $(function () {
       var tabs = $('#nav-tabs');
       if (location.hash.substring(0, 4) == '#tab') {
+        $(window).scrollTop(0);
         $('a', tabs).removeClass('nav-tab-active');
         $('a[href=' + location.hash + ']', tabs).addClass('nav-tab-active');
       }
@@ -170,6 +171,7 @@
         activate: function (event, ui) {
           $('a', this).removeClass('nav-tab-active');
           $('a', ui.newTab).addClass('nav-tab-active');
+          $('#bb-config-edit > form').attr('action', $('a', ui.newTab).attr('href'));
         }
       });
     });
@@ -230,5 +232,10 @@
   });
   $(window).on('beforeunload', function () {
     if (change_value) return '';
+  });
+
+  // テーマオプションを表示
+  $(window).on('load', function () {
+    $('#bb-config-edit').addClass('loaded');
   });
 })(jQuery);

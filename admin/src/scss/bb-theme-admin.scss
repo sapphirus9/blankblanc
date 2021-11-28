@@ -9,6 +9,11 @@
 #bb-config-edit {
   min-width: 800px;
   margin-top: 10px;
+  opacity: 0;
+  transition: all .1s;
+  &.loaded {
+    opacity: 1;
+  }
   &.bb-config-edit-box {
     min-width: initial;
   }
