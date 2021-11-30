@@ -35,18 +35,20 @@
         list-style: none;
       }
       &-item {
+        margin-top: 0;
+        margin-bottom: 1em;
         &:first-of-type {
-          margin-top: 8px;
+          margin-top: 0;
         }
         &:last-of-type {
-          margin-bottom: 8px;
+          margin-bottom: 1em;
         }
       }
       &-caption {
         font-size: .8em;
         line-height: 1.5;
         padding: 7px;
-        margin: calc(1em - 8px) 0 0;
+        margin: 0;
         background-color: cfg.$base-gray-7;
         box-sizing: border-box;
       }
