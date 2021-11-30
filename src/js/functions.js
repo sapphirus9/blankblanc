@@ -150,68 +150,6 @@ let _BbBreakPoint = 768;
   }
 
   /**
-   * DOM読み込み後に実行
-   */
-  let _options = {
-    scrollCommon: {
-      loaded: false,
-      offset: true,
-      speed: 40,
-      desktop: 65,
-      mobile: 65,
-      breakPoint: _BbBreakPoint
-    },
-    scrollPageTop: {
-      loaded: false,
-      offset: false,
-      speed: 40,
-      desktop: 0,
-      mobile: 0,
-      breakPoint: _BbBreakPoint
-    },
-    scrollForm: {
-      loaded: true,
-      offset: true,
-      speed: 40,
-      desktop: 80,
-      mobile: 65,
-      breakPoint: _BbBreakPoint
-    },
-    breakPoint: _BbBreakPoint
-  };
-  document.addEventListener('DOMContentLoaded', () => {
-    if ('bbOptions' in window) {
-      Object.keys(bbOptions).forEach((key) => {
-        const bbOption = bbOptions[key];
-        Object.keys(bbOption).forEach((_key) => {
-          if (bbOption[_key] || bbOption[_key] === false) _options[key][_key] = bbOption[_key];
-        });
-      });
-    }
-    if (_options.breakPoint) _BbBreakPoint = _options.breakPoint;
-
-    new BbSetUserAgent().addClass();
-    _MoreContent();
-    _WidgetArchive();
-    _WidgetComments();
-    _SelectTags();
-    _GoPageTop();
-    _GoAnchorLink();
-    _FixedHeaderPart();
-    _SearchForm();
-    _BbFormStyle();
-  });
-
-  /**
-   * ページ構成完了時に実行
-   */
-  window.addEventListener('load', () => {
-    _BackgroundImage();
-    _TableContents();
-    _ToAnchorLink();
-  });
-
-  /**
    * 画像をバックグラウンドイメージに配置
    * attr: .background-image-src
    */
@@ -219,8 +157,15 @@ let _BbBreakPoint = 768;
     const $imgAll = document.querySelectorAll('.background-image-src');
     $imgAll.forEach(($img) => {
       $img.style.display = 'none';
-      $img.parentNode.style.backgroundImage = 'url(' + $img.getAttribute('src') + ')';
-      $img.parentNode.classList.add('set-background-image');
+      $img.parentNode.classList.add('background-image-block');
+      const imgDiv = document.createElement('div');
+      $img.parentNode.insertBefore(imgDiv, $img);
+      imgDiv.classList.add('background-image-body');
+      imgDiv.appendChild($img);
+      imgDiv.style.backgroundImage = 'url(' + $img.getAttribute('src') + ')';
+      $img.addEventListener('load', () => {
+        imgDiv.parentNode.classList.add('show');
+      });
     });
   };
 
@@ -432,24 +377,29 @@ let _BbBreakPoint = 768;
 
   /**
    * ヘッダーを固定
-   * tag: #header-part > #header-part-inner
+   * attr: #header-part > #header-part-inner
    */
   const _FixedHeaderPart = (() => {
-    const eventAll = [
-      'load',
-      'scroll',
-      'resize'
-    ];
-    eventAll.forEach((event) => {
-      window.addEventListener(event, () => {
-        const $headerPart = document.querySelector('#header-part');
-        if ($headerPart) {
-          const rect = $headerPart.getBoundingClientRect();
-          const $inner = document.querySelector('#header-part-inner');
-          if (window.scrollY >= window.scrollY + rect.top) $inner.classList.add('fixed');
-          else $inner.classList.remove('fixed');
-        }
-      });
+    const $headerPart = document.querySelector('#header-part');
+    if ($headerPart) {
+      const rect = $headerPart.getBoundingClientRect();
+      const $inner = document.querySelector('#header-part-inner');
+      if (window.scrollY >= window.scrollY + rect.top) $inner.classList.add('fixed');
+      else $inner.classList.remove('fixed');
+    }
+  });
+
+  /**
+   * 遅延読み込み画像の表示
+   * attr: loading="lazy"
+   */
+  const _ImgLazyLoad = (() => {
+    const showPos = document.documentElement.clientHeight * 0.94;
+    const $imgAll = document.querySelectorAll('[loading="lazy"]');
+    $imgAll.forEach(($img) => {
+      const rect = $img.getBoundingClientRect();
+      const position = parseInt(rect.top - showPos);
+      if (position < 0) $img.classList.add('show');
     });
   });
 
@@ -511,10 +461,88 @@ let _BbBreakPoint = 768;
         const $formBlockTop = document.createElement('div')
         $formBlockTop.classList.add(formTop.substring(1));
         $formBlock.parentNode.insertBefore($formBlockTop, $formBlock);
-        const rect = $formBlockTop.getBoundingClientRect();
         new BbSmoothScroll($formBlockTop, scrollOptions);
       }
       localStorage.setItem('submitBack', null);
     });
   };
+
+  /**
+   * DOM読み込み後に実行
+   */
+  let _options = {
+    scrollCommon: {
+      loaded: false,
+      offset: true,
+      speed: 40,
+      desktop: 65,
+      mobile: 65,
+      breakPoint: _BbBreakPoint
+    },
+    scrollPageTop: {
+      loaded: false,
+      offset: false,
+      speed: 40,
+      desktop: 0,
+      mobile: 0,
+      breakPoint: _BbBreakPoint
+    },
+    scrollForm: {
+      loaded: true,
+      offset: true,
+      speed: 40,
+      desktop: 80,
+      mobile: 65,
+      breakPoint: _BbBreakPoint
+    },
+    breakPoint: _BbBreakPoint
+  };
+  document.addEventListener('DOMContentLoaded', () => {
+    if ('bbOptions' in window) {
+      Object.keys(bbOptions).forEach((key) => {
+        const bbOption = bbOptions[key];
+        Object.keys(bbOption).forEach((_key) => {
+          if (bbOption[_key] || bbOption[_key] === false) _options[key][_key] = bbOption[_key];
+        });
+      });
+    }
+    if (_options.breakPoint) _BbBreakPoint = _options.breakPoint;
+
+    new BbSetUserAgent().addClass();
+    _BackgroundImage();
+    _MoreContent();
+    _WidgetArchive();
+    _WidgetComments();
+    _SelectTags();
+    _GoPageTop();
+    _GoAnchorLink();
+    _SearchForm();
+    _BbFormStyle();
+  });
+
+  /**
+   * ページ構成完了時に実行
+   */
+  window.addEventListener('load', () => {
+    _TableContents();
+    _ToAnchorLink();
+    _FixedHeaderPart();
+    _ImgLazyLoad();
+  });
+
+  /**
+   * ページスクロール時に実行
+   */
+  window.addEventListener('scroll', () => {
+    _FixedHeaderPart();
+    _ImgLazyLoad();
+  });
+
+  /**
+   * ページリサイズ時に実行
+   */
+  window.addEventListener('resize', () => {
+    _FixedHeaderPart();
+    _ImgLazyLoad();
+  });
 })();

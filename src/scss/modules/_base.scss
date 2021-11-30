@@ -61,6 +61,26 @@ a {
   }
 }
 
-.background-image-src {
-  display: none !important;
+.background-image {
+  &-block {
+    position: relative;
+    opacity: 0;
+    transition: opacity .2s;
+    &.show {
+      opacity: 1;
+    }
+  }
+  &-src {
+    display: none !important;
+  }
+  &-body {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+  }
 }
