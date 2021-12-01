@@ -154,17 +154,19 @@ let _BbBreakPoint = 768;
    * attr: .background-image-src
    */
   const _BackgroundImage = () => {
-    const $imgAll = document.querySelectorAll('.background-image-src');
+    const $imgAll = document.querySelectorAll('img.background-image-src');
     $imgAll.forEach(($img) => {
+      const _img = document.createElement('img');
+      _img.src = $img.src;
       $img.style.display = 'none';
       $img.parentNode.classList.add('background-image-block');
-      const imgDiv = document.createElement('div');
-      $img.parentNode.insertBefore(imgDiv, $img);
-      imgDiv.classList.add('background-image-body');
-      imgDiv.appendChild($img);
-      imgDiv.style.backgroundImage = 'url(' + $img.getAttribute('src') + ')';
-      $img.addEventListener('load', () => {
-        imgDiv.parentNode.classList.add('show');
+      const $body = document.createElement('div');
+      $body.classList.add('background-image-body');
+      $body.style.backgroundImage = 'url(' + _img.src + ')';
+      $img.parentNode.insertBefore($body, $img);
+      $body.appendChild($img);
+      _img.addEventListener('load', () => {
+        $body.parentNode.classList.add('show');
       });
     });
   };
