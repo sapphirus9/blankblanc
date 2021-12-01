@@ -36,7 +36,7 @@
 
 <fieldset class="logo-alt">
   <div class="col-left">
-    <div class="label-title">ロゴ画像のalt</div>
+    <div class="label-title">ロゴ画像のalt（またはテキスト）</div>
     <div class="note">画像を設定していない場合、ロゴの代わりにこのテキストが適用されます。</div>
   </div>
   <div class="col-right">
@@ -50,8 +50,8 @@
 <fieldset class="logo-size">
   <div class="col-left">
     <div class="label-title">ロゴ画像サイズ</div>
-    <div class="note">ロゴ画像のサイズ指定を追加できます。<br>
-    ※テーマではCSSのサイズ指定が優先されます。</div>
+    <div class="note">ロゴ画像のサイズ（width/height）を追加できます。<br>
+    ※テーマではCSSの指定（.logo img）が優先されます。</div>
   </div>
   <div class="col-right">
     <?php
