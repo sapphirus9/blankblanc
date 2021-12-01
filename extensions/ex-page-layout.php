@@ -57,6 +57,11 @@ class bbPageLayoutSelectMeta
         'value' => 'fullwidth',
         'label'  => '1カラム全幅',
       ),
+      array(
+        'id'     => 'nowrapwidth',
+        'value' => 'nowrapwidth',
+        'label'  => '画面全幅',
+      ),
     );
     ?>
 <fieldset class="bb-confirm-changes">

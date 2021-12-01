@@ -16,6 +16,11 @@
     @include cfg.media-max(xl) {
       padding-top: 30px;
     }
+    .nowrapwidth-layout & {
+      width: auto;
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
 }
 
@@ -48,12 +53,17 @@
     width: 100%;
     margin: 0 auto;
   }
+  .nowrapwidth-layout & {
+    width: 100%;
+    margin: 0 auto;
+  }
 }
 
 #second-column {
   width: cfg.$second-column;
   .onecolumn-layout &,
-  .fullwidth-layout & {
+  .fullwidth-layout &,
+  .nowrapwidth-layout & {
     display: none;
   }
   @include cfg.media-max(xl) {
