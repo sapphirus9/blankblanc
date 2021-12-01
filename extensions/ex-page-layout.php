@@ -76,6 +76,7 @@ class bbPageLayoutSelectMeta
     </div>
   <?php endforeach; ?>
 </fieldset>
+<p style="margin-top: 5px;">画面全幅ではコンテンツカラムのwidthはauto、左右のpaddingは0になります。</p>
     <?php
   }
 
