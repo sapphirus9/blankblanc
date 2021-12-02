@@ -51,7 +51,9 @@
   <div class="col-left">
     <div class="label-title">ロゴ画像サイズ</div>
     <div class="note">ロゴ画像のサイズ（width/height）を追加できます。<br>
-    ※テーマではCSSの指定（.logo img）が優先されます。</div>
+    ※テーマではCSSの指定が優先されます。<br>
+    デフォルトCSS（#global-header .logo img）<br>
+    width: auto | height: 40px (desktop), 22px (mobile)</div>
   </div>
   <div class="col-right">
     <?php
