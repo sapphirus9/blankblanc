@@ -3,6 +3,17 @@
 // wp-block: basic
 //--------------------------------------------------------------------
 .entry-body .wp-block {
+  &-group {
+    &__inner-container {
+      width:  cfg.$width-desktop;
+      margin: 0 auto;
+      box-sizing: border-box;
+      @include cfg.media-max(xl) {
+        width: calc(100% - #{cfg.$gap-mobile * 2});
+        max-width: calc(#{cfg.$max-width-mobile} - #{cfg.$gap-mobile * 2});
+      }
+    }
+  }
   &-table {
     margin: 25px 0;
     .table-content {

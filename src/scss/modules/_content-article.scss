@@ -6,6 +6,9 @@
   font-size: 1.6rem;
   @include cfg.media-max(lg) {
     margin: 0 cfg.$gap-mobile;
+    .nowrapwidth-layout & {
+      margin: 0;
+    }
   }
 }
 
@@ -15,6 +18,16 @@
   margin-bottom: 30px;
   @include cfg.media-max(lg) {
     margin-bottom: 20px;
+  }
+  .nowrapwidth-layout & {
+    width: cfg.$width-desktop;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    @include cfg.media-max(xl) {
+      width: calc(100% - #{cfg.$gap-mobile * 2});
+      max-width: calc(#{cfg.$max-width-mobile} - #{cfg.$gap-mobile * 2});
+    }
   }
   .page-title {
     font-size: 2.8rem;
@@ -206,9 +219,9 @@
     img {
       display: inline-block;
       @include cfg.opacity-transition;
-      &:hover {
-        @include cfg.opacity-hover;
-      }
+    }
+    &:hover img {
+      @include cfg.opacity-hover;
     }
   }
   .more-content {
@@ -753,6 +766,16 @@
   margin-top: 40px;
   border-top: 1px solid cfg.$base-gray-5;
   padding-top: 15px;
+  .nowrapwidth-layout & {
+    width:  cfg.$width-desktop;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    @include cfg.media-max(xl) {
+      width: calc(100% - #{cfg.$gap-mobile * 2});
+      max-width: calc(#{cfg.$max-width-mobile} - #{cfg.$gap-mobile * 2});
+    }
+  }
   ul {
     display: flex;
     justify-content: space-between;

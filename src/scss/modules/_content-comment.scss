@@ -10,11 +10,16 @@
   padding-top: 40px;
   border-top: 1px solid cfg.$base-gray-5;
   @include cfg.media-max(lg) {
-    font-size: 1.4rem;
+    font-size: 1.8rem;
     margin-top: 40px;
     padding-top: 20px;
-    @include cfg.media-max(lg) {
-      font-size: 1.8rem;
+  }
+  .nowrapwidth-layout & {
+    width:  cfg.$width-desktop;
+    box-sizing: border-box;
+    @include cfg.media-max(xl) {
+      width: calc(100% - #{cfg.$gap-mobile * 2});
+      max-width: calc(#{cfg.$max-width-mobile} - #{cfg.$gap-mobile * 2});
     }
   }
   #comments-title {

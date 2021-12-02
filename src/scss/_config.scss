@@ -80,7 +80,7 @@ $base-font-bold: 600;
   transition: all .2s;
 }
 @mixin opacity-hover($number: .8) {
-  opacity: $number;
+  opacity: $number !important;
 }
 
 // break point

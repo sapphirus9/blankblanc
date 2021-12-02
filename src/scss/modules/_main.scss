@@ -41,6 +41,9 @@
     width: 100%;
     max-width: cfg.$max-width-mobile;
     margin: 0 auto;
+    .nowrapwidth-layout & {
+      max-width: none;
+    }
   }
   .onecolumn-layout & {
     width: cfg.$one-column;
