@@ -24,7 +24,6 @@ if (!function_exists('bb_get_bread_crumb')) {
   }
 }
 
-
 class bbBreadCrumb
 {
   public $args;

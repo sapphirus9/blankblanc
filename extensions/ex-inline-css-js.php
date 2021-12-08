@@ -5,15 +5,13 @@
  * Description: 投稿ページにインライン JavaScript とスタイルシートを追加する
  */
 
+function call_bb_inline_css_js_post_meta() {
+  new bbInlineCssJsPostMeta();
+}
 if (is_admin() && current_user_can('edit_pages')) {
   add_action('load-post.php', 'call_bb_inline_css_js_post_meta');
   add_action('load-post-new.php', 'call_bb_inline_css_js_post_meta');
 }
-
-function call_bb_inline_css_js_post_meta() {
-  new bbInlineCssJsPostMeta();
-}
-
 
 class bbInlineCssJsPostMeta
 {

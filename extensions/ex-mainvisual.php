@@ -8,13 +8,12 @@
 /**
  * 投稿
  */
+function call_bb_mainvisual_post_meta() {
+  new bbMainvisualPostMeta();
+}
 if (is_admin() && current_user_can('edit_pages')) {
   add_action('load-post.php', 'call_bb_mainvisual_post_meta');
   add_action('load-post-new.php', 'call_bb_mainvisual_post_meta');
-}
-
-function call_bb_mainvisual_post_meta() {
-  new bbMainvisualPostMeta();
 }
 
 class bbMainvisualPostMeta
@@ -91,14 +90,13 @@ class bbMainvisualPostMeta
 /**
  * カテゴリー
  */
+function call_bb_mainvisual_term_meta() {
+  new bbMainvisualTermMeta();
+}
 if (is_admin() && current_user_can('edit_pages')) {
   add_action('load-edit-tags.php', 'call_bb_mainvisual_term_meta');
   // 新規カテゴリーを追加時の ajax 処理
   add_action('check_ajax_referer', 'call_bb_mainvisual_term_meta');
-}
-
-function call_bb_mainvisual_term_meta() {
-  new bbMainvisualTermMeta();
 }
 
 class bbMainvisualTermMeta

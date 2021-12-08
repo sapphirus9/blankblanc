@@ -5,8 +5,10 @@
  * Description: 特定のカテゴリーを除外する
  */
 
-new bbExcludeCategories();
-
+function bb_ex_exclude_categories() {
+  new bbExcludeCategories();
+}
+add_action('init', 'bb_ex_exclude_categories');
 
 class bbExcludeCategories
 {

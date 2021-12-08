@@ -55,17 +55,20 @@
 |ロゴイメージの alt|logo_alt|string|get_bloginfo('name')|
 |共通メインビジュアル画像|mv_image|url|空|
 |コピーライトの表記（接頭辞）|copyright_prefix|string|空|
+|コピーライトの表記（接尾時）|copyright_suffix|string|空|
 |コピーライトの表記（開始年）|start_year|string|date_i18n('Y')|
 |コピーライトの表記（テキスト）|copyright_text|string|get_bloginfo('name')|
 |rel=canonical／prev／next 出力|output_canonical|bool|true|
 |親テーマの CSS を利用|with_parent_css|bool|true|
 |親テーマのスクリプト（js）を利用|with_parent_script|bool|true|
 |モバイルメニュー|mobile_nav|array<br>ウィジェット id など|array('#global-nav', '#header-nav')|
+|モバイル時のスライドナビの方向|mobile_nav_position|string<br>空（左）/right（右）|空|
 |モバイル時フッターに追加するウィジェットの指定|mobile_nav_footer|array<br>ウィジェット id など|array()|
 |除外対象のカテゴリー ID|exclude_cat_id|string<br>カンマ区切りの ID 番号|空|
 |カテゴリー毎（複数）のパンくず表示|bread_crumb_multi|bool|false|
 |絵文字を無効化|disable_emoji|bool|true|
 |body に body_class を追加|add_body_class|bool|false|
+|タクソノミー（カテゴリー・タグ等）のレイアウトタイプ|taxonomy_layout|string<br>list（リスト）/tiles（タイル）|list|
 |トップページ用メインビジュアル|mv_home_image|url|get_template_directory_uri() . '/img/img-hero.jpg'|
 |トップページ用メインビジュアル内コンテンツ|mv_home_content|html|空|
 |テーマ用CSS/JSのバージョンパラメータを別で指定（デフォルトは false）※ブラウザキャッシュ対策用|version_param|false<br>またはバージョン番号等|false|<br>

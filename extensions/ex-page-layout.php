@@ -5,15 +5,13 @@
  * Description: 投稿ページ／固定ページのレイアウトを設定
  */
 
+function call_bb_page_layout_select() {
+  new bbPageLayoutSelectMeta();
+}
 if (is_admin() && current_user_can('edit_pages')) {
   add_action('load-post.php', 'call_bb_page_layout_select');
   add_action('load-post-new.php', 'call_bb_page_layout_select');
 }
-
-function call_bb_page_layout_select() {
-  new bbPageLayoutSelectMeta();
-}
-
 
 class bbPageLayoutSelectMeta
 {
