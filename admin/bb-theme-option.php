@@ -10,18 +10,16 @@
  */
 function blankblanc_config_edit() {
   global $bb_theme_default;
-  //postデータを取得 & bool変換
+  //postデータを取得 & numeric/bool変換
   $error = null;
   if (isset($_POST['blankblanc_config_values'])) {
-    $config_post = array_map(function($val) {
-      if ($val === 'true') {
-        return true;
-      } elseif ($val === 'false') {
-        return false;
-      } else {
+    $config_post = filter_var($_POST['blankblanc_config_values'], FILTER_CALLBACK, array(
+      'options' => function ($val) {
+        if (is_numeric($val)) return is_float($val) ? (float) $val : (int) $val;
+        if ($val === 'true') return true;
+        if ($val === 'false') return false;
         return $val;
-      }
-    }, $_POST['blankblanc_config_values']);
+    }));
     check_admin_referer('blankblanc_config_nonce');
     if (isset($config_post['reset_config'])) { // 初期状態に戻す
       $config_values = $bb_theme_default;
@@ -105,6 +103,9 @@ function blankblanc_config_edit() {
           <li><a href="#tab-1" class="nav-tab nav-tab-active">共通1</a></li>
           <li><a href="#tab-2" class="nav-tab">共通2</a></li>
           <li><a href="#tab-3" class="nav-tab">ロゴ</a></li>
+          <?php if (function_exists('call_bb_table_of_contents')) : ?>
+            <li><a href="#tab-6" class="nav-tab">目次</a></li>
+          <?php endif; ?>
           <?php if (function_exists('call_bb_mainvisual_term_meta')) : ?>
             <li><a href="#tab-5" class="nav-tab">メインビジュアル</a></li>
           <?php endif; ?>
@@ -159,6 +160,12 @@ function blankblanc_config_edit() {
           <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-mainvisual-home.php'; ?>
         </div>
         <!-- /tab-5 -->
+
+        <!-- tab-6 -->
+        <div id="tab-6">
+          <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-table-of-contents.php'; ?>
+        </div>
+        <!-- /tab-6 -->
       </div>
 
       <hr>

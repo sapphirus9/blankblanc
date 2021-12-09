@@ -79,6 +79,20 @@ function bb_config_default() {
     'mv_home_content'     => '',
     // テーマ用CSS/JSのバージョンパラメータを別で指定（デフォルトは false）※ブラウザキャッシュ対策用
     'version_param'       => false,
+    // 目次機能を有効化（true/false） [extension]
+    'use_toc'             => true,
+    // 目次挿入 bool [extension]
+    'toc_config'          => array(
+      'toc_active'   => true,
+      // 目次タイトル
+      'toc_title'    => 'Contents',
+      // 除外する見出し（h1~h6）
+      'toc_hidden'   => array(),
+      // アンカーIDに付加する文字列（Index-数字）
+      'toc_prefix'   => 'Index-',
+      // 目次の挿入場所（ボディ最上部:0 ボディ最下部:-1 x番目の見出し前:1~）
+      'toc_position' => 1,
+    ),
   );
 }
 
