@@ -337,3 +337,20 @@ function customize_widget_tag_cloud($args) {
   return $args;
 }
 add_filter('widget_tag_cloud_args', 'customize_widget_tag_cloud');
+
+
+/**
+ * inputなどstring型をフィルター処理
+ * numeric -> int or float
+ * true/false -> bool
+ */
+function bb_string_type_filter($values) {
+  $values = filter_var($values, FILTER_CALLBACK, array(
+    'options' => function ($val) {
+      if (is_numeric($val)) return is_float($val) ? (float) $val : (int) $val;
+      if ($val === 'true') return true;
+      if ($val === 'false') return false;
+      return $val;
+  }));
+  return $values;
+}

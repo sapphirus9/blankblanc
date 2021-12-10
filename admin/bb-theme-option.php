@@ -13,13 +13,7 @@ function blankblanc_config_edit() {
   //postデータを取得 & numeric/bool変換
   $error = null;
   if (isset($_POST['blankblanc_config_values'])) {
-    $config_post = filter_var($_POST['blankblanc_config_values'], FILTER_CALLBACK, array(
-      'options' => function ($val) {
-        if (is_numeric($val)) return is_float($val) ? (float) $val : (int) $val;
-        if ($val === 'true') return true;
-        if ($val === 'false') return false;
-        return $val;
-    }));
+    $config_post = bb_string_type_filter($_POST['blankblanc_config_values']);
     check_admin_referer('blankblanc_config_nonce');
     if (isset($config_post['reset_config'])) { // 初期状態に戻す
       $config_values = $bb_theme_default;
