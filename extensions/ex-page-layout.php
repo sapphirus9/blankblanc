@@ -41,24 +41,24 @@ class bbPageLayoutSelectMeta
     global $post;
     $layouts = array(
       array(
-        'id'     => 'twocolumn',
+        'id'    => 'twocolumn',
         'value' => 'default',
-        'label'  => '2カラム（デフォルト）',
+        'label' => '2カラム（デフォルト）',
       ),
       array(
-        'id'     => 'onecolumn',
+        'id'    => 'onecolumn',
         'value' => 'onecolumn',
-        'label'  => '1カラム幅固定',
+        'label' => '1カラム幅固定',
       ),
       array(
-        'id'     => 'fullwidth',
+        'id'    => 'fullwidth',
         'value' => 'fullwidth',
-        'label'  => '1カラム全幅',
+        'label' => '1カラム全幅',
       ),
       array(
-        'id'     => 'nowrapwidth',
+        'id'    => 'nowrapwidth',
         'value' => 'nowrapwidth',
-        'label'  => '画面全幅',
+        'label' => '画面全幅',
       ),
     );
     ?>
@@ -74,7 +74,7 @@ class bbPageLayoutSelectMeta
     </div>
   <?php endforeach; ?>
 </fieldset>
-<p style="margin-top: 5px;">画面全幅ではコンテンツカラムのwidthはauto、左右のpaddingは0になります。</p>
+<p style="margin-top: 5px;">画面全幅ではコンテンツカラムのwidthはauto、左右のpaddingは0になります</p>
     <?php
   }
 
