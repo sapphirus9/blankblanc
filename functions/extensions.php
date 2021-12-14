@@ -18,5 +18,6 @@ function bb_add_extensions() {
   locate_template('extensions/ex-exclude-categories.php', true);
   locate_template('extensions/ex-breadcrumb.php', true);
   locate_template('extensions/ex-table-of-contents.php', true);
+  locate_template('extensions/ex-table-of-contents-meta.php', true);
 }
 add_action('after_setup_theme', 'bb_add_extensions');

@@ -238,4 +238,14 @@
   $(window).on('load', function () {
     $('#bb-config-edit').addClass('loaded');
   });
+
+  // ウィジェット: 有効化
+  $(function () {
+    $('.activate-block-header').each(function () {
+      var $elem = $(this);
+      $('input[type="checkbox"]', this).on('click', function () {
+        $elem.next().toggleClass('active', $(this).prop('checked'));
+      });
+    });
+  });
 })(jQuery);

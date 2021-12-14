@@ -44,16 +44,16 @@
 |アイキャッチ画像|post_thumbnail|array<br>幅[数値], 高さ[数値], 切り出し[true/false]|array(1024, 768, true)|
 |一覧ページのサムネイル画像|archive_thumbnail|array<br>幅[数値], 高さ[数値], 切り出し[true/false]|array(300, 300, true)|
 |記事抜粋時の省略表記|excerpt_more|string| &#x22ef;|
-|記事抜粋の文字数|excerpt_length|numeric|110|
-|RSS の記事出力文字数|excerpt_length_rss|numeric|200|
+|記事抜粋の文字数|excerpt_length|int|110|
+|RSS の記事出力文字数|excerpt_length_rss|int|200|
 |年月日個別フォーマット|date_format|array<br>Y年, n月, j日|array('Y年', 'n月', 'j日')|
 |『続きを読む』の表記|more_text|string| &#x22ef; 続きを読む|
 |日本語タイトル時のスラッグ設定|use_auto_slug|bool|true|
 |設定するスラッグの接頭辞|auto_post_slug|string|空|
-|ロゴ画像の設定|logo_image|url|get_template_directory_uri() . '/img/logo.png'|
+|ロゴ画像の設定|logo_image|string (url)|get_template_directory_uri() . '/img/logo.png'|
 |ロゴイメージサイズ|logo_size|array<br>幅[数値], 高さ[数値]|array()|
 |ロゴイメージの alt|logo_alt|string|get_bloginfo('name')|
-|共通メインビジュアル画像|mv_image|url|空|
+|共通メインビジュアル画像|mv_image|string (url)|空|
 |コピーライトの表記（接頭辞）|copyright_prefix|string|空|
 |コピーライトの表記（接尾時）|copyright_suffix|string|空|
 |コピーライトの表記（開始年）|start_year|string|date_i18n('Y')|
@@ -69,9 +69,17 @@
 |絵文字を無効化|disable_emoji|bool|true|
 |body に body_class を追加|add_body_class|bool|false|
 |タクソノミー（カテゴリー・タグ等）のレイアウトタイプ|taxonomy_layout|string<br>list（リスト）/tiles（タイル）|list|
-|トップページ用メインビジュアル|mv_home_image|url|get_template_directory_uri() . '/img/img-hero.jpg'|
-|トップページ用メインビジュアル内コンテンツ|mv_home_content|html|空|
-|テーマ用CSS/JSのバージョンパラメータを別で指定（デフォルトは false）※ブラウザキャッシュ対策用|version_param|false<br>またはバージョン番号等|false|<br>
+|トップページ用メインビジュアル|mv_home_image|string (url)|get_template_directory_uri() . '/img/img-hero.jpg'|
+|トップページ用メインビジュアル内コンテンツ|mv_home_content|string (html)|空|
+|テーマ用CSS/JSのバージョンパラメータを別で指定（デフォルトは false）※ブラウザキャッシュ対策用|version_param|false<br>またはバージョン番号等|false|
+|目次機能を有効化|use_toc|bool|true|
+|目次設定|toc_config|array|※以下の配列用|
+|+ 目次を表示|toc_active|bool|true|
+|+ 目次を閉じた状態にする|toc_closed|bool|false|
+|+ 目次タイトル|toc_title|string|Contents|
+|+ 除外する見出し|toc_hidden|array<br>h1～h6|h1|
+|+ アンカーIDに付加する文字列|toc_prefix|string|Index-|
+|+ 目次の挿入場所|toc_position|int<br>ボディ最上部:0<br>ボディ最下部:-1<br>x番目の見出し前:1~|1|
 
 ## ライセンス
 BlankBlanc のテーマに含まれるオリジナルについては、すべて **GPLv2 ライセンス**です。
@@ -81,7 +89,6 @@ BlankBlanc のテーマに含まれるオリジナルについては、すべて
 以下のライブラリ等の使用に関しては、各々のライセンスに準じます。
 * [jQuery](https://jquery.com/) - [MIT License](https://jquery.org/license/)
 * [Material Design Icons](https://materialdesignicons.com/) - [SIL Open Font License 1.1](http://scripts.sil.org/cms/scripts/page.php?item_id=OFL_web)
-
 
 ## 付記
 動作の不具合などが見つかるかもしれません。予めご了承ください。<br>

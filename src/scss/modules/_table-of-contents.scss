@@ -1,0 +1,166 @@
+@use 'config' as cfg;
+//--------------------------------------------------------------------
+// table of contents
+//--------------------------------------------------------------------
+
+.main-article .entry-body .bb-toc {
+  &-block {
+    position: relative;
+    max-width: 600px;
+    min-height: 40px;
+    margin: 50px auto;
+    @include cfg.media-max(lg) {
+      margin: 40px auto;
+    }
+    &.changed .bb-toc {
+      &-body {
+        max-height: 0;
+        opacity: 0;
+      }
+      &-toggle {
+        .btn-symbol {
+          background-color: rgba(cfg.$base-gray-5, 1);
+          &::before {
+            top: -7px;
+            transform: rotate(0deg);
+          }
+          &::after {
+            top: 7px;
+            transform: rotate(0deg);
+          }
+        }
+      }
+    }
+  }
+  &-header {
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    right: 20px;
+    z-index: 2;
+    &-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 210px;
+      height: 40px;
+      margin: 0 auto;
+      padding: 0 10px 0 40px;
+      background-color: cfg.$base-gray-3;
+      border-radius: 50px;
+      box-sizing: border-box;
+    }
+  }
+  &-title {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    color: cfg.$base-gray-7;
+    font-size: 1.6rem;
+    line-height: 1;
+    text-align: center;
+    margin: 0 10px;
+  }
+  &-toggle {
+    display: block;
+    height: 24px;
+    width: 20px;
+    padding: 3px 5px;
+    cursor: pointer;
+    .btn-symbol {
+      display: block;
+      position: relative;
+      top: calc(50% - 1px);
+      width: 100%;
+      height: 2px;
+      background-color: rgba(cfg.$base-gray-5, 0);
+      transition: all .3s;
+      &::before {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        content: '';
+        height: 2px;
+        background-color: cfg.$base-gray-5;
+        transform: rotate(-135deg);
+        transition: all .2s;
+      }
+      &::after {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        content: '';
+        height: 2px;
+        background-color: cfg.$base-gray-5;
+        transform: rotate(135deg);
+        transition: all .2s;
+      }
+    }
+  }
+  &-body {
+    padding: 0;
+    margin: 20px 0 0;
+    max-height: 150vh;
+    opacity: 1;
+    overflow: hidden;
+    transition: all .3s;
+    @include cfg.media-max(lg) {
+      max-height: 65vh;
+      overflow: auto;
+    }
+    &-inner {
+      margin: 0;
+      padding: 30px 20px 20px;
+      background-color: cfg.$base-gray-7;
+      box-sizing: border-box;
+      @include cfg.media-max(lg) {
+        padding: 30px cfg.$gap-mobile 20px;
+      }
+    }
+    li {
+      line-height: 1.3;
+      list-style: none;
+      margin: 0;
+      padding: 8px .25em;
+      @include cfg.media-max(lg) {
+        font-size: .9375em;
+      }
+      &:not(:last-of-type) {
+        border-bottom: 1px solid cfg.$base-gray-6;
+      }
+      &.bb-toc-h3 {
+        margin-left: 1em;
+      }
+      &.bb-toc-h4 {
+        margin-left: 2em;
+      }
+      &.bb-toc-h5 {
+        margin-left: 3em;
+      }
+      &.bb-toc-h6 {
+        margin-left: 4em;
+      }
+      &.bb-toc-h1 ~ li {
+        &.bb-toc-h2 {
+          margin-left: 1em;
+        }
+        &.bb-toc-h3 {
+          margin-left: 2em;
+        }
+        &.bb-toc-h4 {
+          margin-left: 3em;
+        }
+        &.bb-toc-h5 {
+          margin-left: 4em;
+        }
+        &.bb-toc-h6 {
+          margin-left: 5em;
+        }
+      }
+    }
+  }
+}

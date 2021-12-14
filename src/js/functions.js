@@ -470,6 +470,20 @@ let _BbBreakPoint = 768;
   };
 
   /**
+   * 目次の開閉
+   */
+  const _BbToc = () => {
+    const tocBlock = '.bb-toc-block';
+    const $tocBlockAll = document.querySelectorAll(tocBlock);
+    $tocBlockAll.forEach(($tocBlock) => {
+      const $tocToggle = $tocBlock.querySelector('.bb-toc-toggle');
+      $tocToggle && $tocToggle.addEventListener('click', () => {
+        $tocBlock.classList.toggle('changed');
+      });
+    });
+  };
+
+  /**
    * DOM読み込み後に実行
    */
   let _options = {
@@ -520,6 +534,7 @@ let _BbBreakPoint = 768;
     _GoAnchorLink();
     _SearchForm();
     _BbFormStyle();
+    _BbToc();
   });
 
   /**

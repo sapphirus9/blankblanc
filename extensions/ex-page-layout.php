@@ -68,13 +68,13 @@ class bbPageLayoutSelectMeta
   foreach ($layouts as $select) :
   $checked = ((empty($_meta_key) && $select['value'] == 'default') || $_meta_key == $select['value']) ? 'checked' : '';
   ?>
-    <div class="group" style="margin: 5px 0;">
+    <div class="group">
       <input name="<?php echo $this->meta_key; ?>" type="radio" class="post-format" id="bb-page-layout-<?php echo $select['id']; ?>" value="<?php echo $select['value']; ?>" <?php echo $checked; ?>>
       <label for="bb-page-layout-<?php echo $select['id']; ?>" class="post-format-icon"><?php echo $select['label']; ?></label>
     </div>
   <?php endforeach; ?>
+  <p class="note">画面全幅ではコンテンツカラムのwidthはauto、左右のpaddingは0になります</p>
 </fieldset>
-<p style="margin-top: 5px;">画面全幅ではコンテンツカラムのwidthはauto、左右のpaddingは0になります</p>
     <?php
   }
 
