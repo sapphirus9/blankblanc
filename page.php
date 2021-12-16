@@ -7,7 +7,7 @@
  */
 get_header(); ?>
 
-<main role="main" id="contents" class="article static">
+<main role="main" id="contents" class="article fixed-page">
   <?php get_template_part('includes/inc', 'mainvisual'); ?>
   <?php get_template_part('includes/inc', 'breadcrumb'); ?>
 

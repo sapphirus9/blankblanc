@@ -7,7 +7,7 @@
  */
 get_header(); ?>
 
-<main role="main" id="contents" class="front-page archive">
+<main role="main" id="contents" class="front-page <?php echo is_page() ? 'fixed' : 'archive';?>-page">
   <?php get_template_part('includes/inc', 'mainvisual'); ?>
   <?php get_template_part('includes/inc', 'breadcrumb'); ?>
 
