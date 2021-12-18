@@ -385,9 +385,8 @@ let _BbBreakPoint = 768;
     const $headerPart = document.querySelector('#header-part');
     if ($headerPart) {
       const rect = $headerPart.getBoundingClientRect();
-      const $inner = document.querySelector('#header-part-inner');
-      if (window.scrollY >= window.scrollY + rect.top) $inner.classList.add('fixed');
-      else $inner.classList.remove('fixed');
+      if (window.pageYOffset  >= window.pageYOffset  + rect.top) $headerPart.classList.add('fixed');
+      else $headerPart.classList.remove('fixed');
     }
   });
 
@@ -404,6 +403,36 @@ let _BbBreakPoint = 768;
       if (position < 0) $img.classList.add('show');
     });
   });
+
+  /**
+   * 子メニューのあるグローバルナビ
+   */
+  const _GlobalNav = (() => {
+    const $gnav = document.querySelector('#global-nav');
+    const $navAll = $gnav.querySelectorAll('.menu-item-has-children');
+    $navAll.forEach(($nav) => {
+      $nav.addEventListener('mouseover', () => {
+        document.querySelector('#main-container').classList.add('gnav-active');
+      });
+      $nav.addEventListener('mouseout', () => {
+        document.querySelector('#main-container').classList.remove('gnav-active');
+      });
+    });
+  });
+
+  /**
+   * 目次の開閉
+   */
+  const _BbToc = () => {
+    const tocBlock = '.bb-toc-block';
+    const $tocBlockAll = document.querySelectorAll(tocBlock);
+    $tocBlockAll.forEach(($tocBlock) => {
+      const $tocToggle = $tocBlock.querySelector('.bb-toc-toggle');
+      $tocToggle && $tocToggle.addEventListener('click', () => {
+        $tocBlock.classList.toggle('changed');
+      });
+    });
+  };
 
   /**
    * フォームの修飾
@@ -470,20 +499,6 @@ let _BbBreakPoint = 768;
   };
 
   /**
-   * 目次の開閉
-   */
-  const _BbToc = () => {
-    const tocBlock = '.bb-toc-block';
-    const $tocBlockAll = document.querySelectorAll(tocBlock);
-    $tocBlockAll.forEach(($tocBlock) => {
-      const $tocToggle = $tocBlock.querySelector('.bb-toc-toggle');
-      $tocToggle && $tocToggle.addEventListener('click', () => {
-        $tocBlock.classList.toggle('changed');
-      });
-    });
-  };
-
-  /**
    * DOM読み込み後に実行
    */
   let _options = {
@@ -533,8 +548,9 @@ let _BbBreakPoint = 768;
     _GoPageTop();
     _GoAnchorLink();
     _SearchForm();
-    _BbFormStyle();
     _BbToc();
+    _GlobalNav();
+    _BbFormStyle();
   });
 
   /**

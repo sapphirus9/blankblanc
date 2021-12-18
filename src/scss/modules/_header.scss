@@ -1,24 +1,15 @@
 @use 'config' as cfg;
 //--------------------------------------------------------------------
-// header
+// fixed header
 //--------------------------------------------------------------------
-
-#header-part {
-  position: relative;
-  height: 40px;
-  @include cfg.media-max(xl) {
-    height: 0;
-  }
-  & &-inner {
-    @include cfg.media-min(xl) {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-    }
-    &.fixed {
-      @include cfg.media-min(xl) {
+#main-container {
+  #header-part {
+    position: sticky;
+    top: 0;
+    z-index: 501;
+    .browser-ie11 & { // ie11
+      position: relative;
+      &.fixed #header-part-inner {
         position: fixed;
       }
     }
@@ -116,113 +107,6 @@
       color: cfg.$base-gray-3;
       &:hover, &:active {
         color: cfg.$link-color-hover;
-      }
-    }
-  }
-}
-
-// global nav
-//--------------------------------------------------------------------
-#global-nav {
-  background-color: cfg.$base-gray-7;
-  @include cfg.media-max(xl) {
-    display: none;
-  }
-  ul {
-    font-size: 1.4rem;
-  }
-  .menu {
-    padding-bottom: 40px;
-    > li {
-      position: relative;
-      float: left;
-      border-right: 1px solid cfg.$base-gray-7;
-      box-sizing: border-box;
-      > a {
-        display: block;
-        font-size: 1.5rem;
-        text-align: center;
-        line-height: 40px;
-        height: 40px;
-        padding: 0 20px;
-        background-color: cfg.$base-gray-6;
-        box-sizing: border-box;
-      }
-      a {
-        color: cfg.$base-gray-2;
-        transition: all .2s;
-        &:hover {
-          color: cfg.$base-gray-1;
-          text-decoration: none;
-          background-color: cfg.$base-gray-5;
-        }
-      }
-      &.current-menu-parent > a,
-      &.current-menu-item > a {
-        background-color: cfg.$base-gray-5;
-      }
-      // pull-down menu
-      > .sub-menu {
-        position: absolute;
-        top: auto;
-        left: 0;
-        min-width: 160px;
-        padding: 0;
-        background-color: cfg.$base-white;
-        border: 1px solid cfg.$base-gray-5;
-        z-index: 99;
-        box-sizing: border-box;
-        visibility: hidden;
-        li {
-          border-top: 1px solid cfg.$base-gray-6;
-          a {
-            display: block;
-            text-align: left;
-            font-size: 1.4rem;
-            line-height: 1.3;
-            white-space: nowrap;
-            width: auto;
-            height: auto;
-            padding: 10px 15px;
-            &:hover {
-              text-decoration: none;
-              background-color: cfg.$base-gray-7;
-            }
-          }
-          > .sub-menu > li {
-            border-top-style: dashed;
-            > a {
-              font-size: .933333em;
-              line-height: 1.4;
-              padding-left: 12px;
-              &::before {
-                @include cfg.icon-font('f0142');
-                color: cfg.$base-gray-4;
-                vertical-align: -1px;
-                margin-right: 3px;
-              }
-            }
-          }
-          &.current-menu-item > a {
-            background-color: cfg.$base-gray-7;
-          }
-        }
-        > li:first-child {
-          border-top: none;
-        }
-      }
-      // submenu animation
-      .sub-menu {
-        max-height: 0; // accordion
-        // opacity: 0; // fade
-        transition: all 200ms ease-out;
-        overflow: hidden;
-      }
-      &:hover .sub-menu {
-        max-height: 40vh; // accordion
-        // opacity: 1; // fade
-        transition: all 400ms linear;
-        visibility: visible;
       }
     }
   }

@@ -17,36 +17,37 @@
 <body <?php bb_body_id_class(); ?>>
 <?php wp_body_open(); ?>
 <div id="main-screen">
-<header id="global-header">
-  <div class="wrap">
-    <div class="logo"><?php bb_logo_image(); ?></div>
-    <?php if (is_home() || is_front_page()) : ?>
-      <h1 class="copy"><?php echo get_bloginfo('description'); ?></h1>
-    <?php else : ?>
-      <p class="copy"><?php echo get_bloginfo('description'); ?></p>
-    <?php endif; ?>
-    <?php if (has_nav_menu('header_nav')) : ?>
-      <nav id="header-nav">
-        <?php wp_nav_menu(array(
-          'theme_location' => 'header_nav',
-          'container' => false,
-        )); ?>
-      </nav>
-    <?php endif; ?>
-  </div>
-</header>
-
-<?php if (has_nav_menu('global_nav')) : ?>
-  <div id="header-part">
-    <div id="header-part-inner">
-      <nav id="global-nav">
-        <div class="wrap">
+  <header id="global-header">
+    <div class="wrap">
+      <div class="logo"><?php bb_logo_image(); ?></div>
+      <?php if (is_home() || is_front_page()) : ?>
+        <h1 class="copy"><?php echo get_bloginfo('description'); ?></h1>
+      <?php else : ?>
+        <p class="copy"><?php echo get_bloginfo('description'); ?></p>
+      <?php endif; ?>
+      <?php if (has_nav_menu('header_nav')) : ?>
+        <nav id="header-nav">
           <?php wp_nav_menu(array(
-            'theme_location' => 'global_nav',
+            'theme_location' => 'header_nav',
             'container' => false,
           )); ?>
-        </div>
-      </nav>
+        </nav>
+      <?php endif; ?>
     </div>
-  </div>
-<?php endif;
+  </header>
+
+  <div id="main-container">
+    <?php if (has_nav_menu('global_nav')) : ?>
+      <div id="header-part">
+        <div id="header-part-inner">
+          <nav id="global-nav">
+            <div class="wrap">
+              <?php wp_nav_menu(array(
+                'theme_location' => 'global_nav',
+                'container' => false,
+              )); ?>
+            </div>
+          </nav>
+        </div>
+      </div>
+    <?php endif;

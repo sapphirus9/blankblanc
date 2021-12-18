@@ -35,6 +35,10 @@ a {
   }
 }
 
+#main-container {
+  position: relative;
+}
+
 .wrap {
   position: relative;
   width:  cfg.$width-desktop + cfg.$gap-desktop * 2;
