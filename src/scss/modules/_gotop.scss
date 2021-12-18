@@ -12,6 +12,7 @@
   height: 100%;
   overflow: hidden;
   pointer-events: none;
+  z-index: 499;
   @include cfg.media-max(xl) {
     width: 90px;
   }
@@ -44,7 +45,7 @@
     padding-bottom: cfg.$gap-desktop;
     visibility: hidden;
     opacity: 0;
-    z-index: 98;
+    z-index: 2;
     transition: visibility .5s, margin-bottom .5s, opacity .5s;
     pointer-events: auto;
     @include cfg.media-max(xl) {

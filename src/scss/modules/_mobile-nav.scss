@@ -36,7 +36,7 @@ body.nav-window-show {
   left: -401px;
   bottom: -100px;
   right: 0;
-  z-index: 999;
+  z-index: 2;
   width: 400px;
   background-color: cfg.$base-white;
   transition: left .3s;
@@ -62,7 +62,7 @@ body.nav-window-show {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 997;
+  z-index: 2;
   width: 54px;
   height:54px;
   cursor: pointer;
