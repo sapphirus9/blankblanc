@@ -19,7 +19,6 @@ if (is_admin() && current_user_can('edit_pages')) {
 class bbMainvisualPostMeta
 {
   public function __construct() {
-    add_action('admin_head', 'admin_extend_css_init');
     add_action('add_meta_boxes', array($this, 'add_meta_box'));
     add_action('save_post', array($this, 'save_mainvisual_post_meta'));
   }
@@ -103,7 +102,6 @@ class bbMainvisualTermMeta
 {
   public function __construct() {
     $taxonomy = get_current_screen()->taxonomy;
-    add_action('admin_head', 'admin_extend_css_init');
     add_action($taxonomy . '_add_form_fields', array($this, 'mainvisual_add_form_fields'));
     add_action($taxonomy . '_edit_form_fields', array($this, 'mainvisual_edit_form_fields'), 10, 2);
     add_action('create_term', array($this, 'save_mainvisual_term_meta'), 10, 3);

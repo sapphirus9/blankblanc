@@ -173,14 +173,7 @@ function blankblanc_config_edit() {
 <?php
 }
 
-// 管理画面に css を追加
-function admin_extend_css_init() {
-  $css = get_template_directory_uri() . '/admin/assets/css/bb-theme-admin.css';
-  echo "<link rel='stylesheet' href='{$css}' type='text/css' media='all'>\n";
-}
-
 function add_blankblanc_config_edit() {
   $page = add_theme_page('テーマオプション', 'テーマオプション', 'edit_themes', 'blankblanc_config_edit', 'blankblanc_config_edit');
-  add_action('admin_head-' . $page, 'admin_extend_css_init');
 }
 add_action('admin_menu', 'add_blankblanc_config_edit');

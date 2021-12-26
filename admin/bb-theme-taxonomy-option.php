@@ -20,7 +20,6 @@ class bbTaxonomyLayoutOptions
   protected $meta_key = 'bb_taxonomy_option';
   public function __construct() {
     $taxonomy = get_current_screen()->taxonomy;
-    add_action('admin_head', 'admin_extend_css_init');
     // taxonomy_layout
     add_action($taxonomy . '_add_form_fields', array($this, 'taxonomy_layout_add_form_fields'), 11);
     add_action($taxonomy . '_edit_form_fields', array($this, 'taxonomy_layout_edit_form_fields'), 11, 2);
