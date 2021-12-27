@@ -44,10 +44,14 @@
         margin: 0;
         padding: 0;
         list-style: none;
+        justify-content: space-between;
       }
       &-item {
         margin-top: 0;
         margin-bottom: 1em;
+        @include cfg.media-max(b-md) {
+          flex: 0 0 calc(50% - .5em);
+        }
         &:first-of-type {
           margin-top: 0;
         }

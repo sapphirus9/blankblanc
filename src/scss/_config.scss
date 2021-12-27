@@ -101,7 +101,8 @@ $breakpoints: (
   md: 640px,
   sm: 540px,
   xs: 450px,
-  min: 360px
+  min: 360px,
+  b-md: 600px
 );
 @mixin media-max($type: lg) {
   @media (max-width: (map.get($breakpoints, $type) - 1)) {
