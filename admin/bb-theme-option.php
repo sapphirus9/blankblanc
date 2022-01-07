@@ -132,6 +132,7 @@ function blankblanc_config_edit() {
           <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-use-parent-css.php'; ?>
           <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-use-parent-script.php'; ?>
           <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-disable-emoji.php'; ?>
+          <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-image-link-target.php'; ?>
         </div>
         <!-- /tab-2 -->
 

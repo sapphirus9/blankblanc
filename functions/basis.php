@@ -568,6 +568,21 @@ if (!function_exists('remove_hentry')) {
 add_filter('post_class', 'remove_hentry');
 
 
+/**
+ * 画像へのリンクはすべて別窓（_blank）として開く
+ */
+function bb_image_link_target($content) {
+  global $bb_theme_config;
+  if ($bb_theme_config['image_link_target'] === true) {
+    $ext = apply_filters('bb_image_link_target', 'je?pg|png|gif|svg|pdf');
+    $pat = sprintf('!<(a.+?href=".+?\.(%s)[^\s]*"?)>!i', $ext);
+    $rep = '<$1 target="_blank" rel="noopener"$3>';
+    $content = preg_replace($pat, $rep, $content);
+  }
+  return $content;
+}
+add_filter('the_content', 'bb_image_link_target', 99, 1);
+
 
 /**
  * カテゴリーウィジェットの title 属性を削除
