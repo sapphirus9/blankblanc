@@ -8,7 +8,7 @@
 function call_bb_table_of_contents() {
   global $bb_theme_config;
   if ($bb_theme_config['use_toc']) {
-    if (is_singular() && $bb_theme_config['toc_config']['toc_active'] !== false) {
+    if ($bb_theme_config['toc_config']['toc_active'] !== false) {
       new bbTableOfContents();
     }
   }
