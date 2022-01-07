@@ -69,6 +69,8 @@ function bb_config_default() {
     'bread_crumb_multi'   => false,
     // 絵文字を無効化 [bool]
     'disable_emoji'       => true,
+    // 画像へのリンクはすべて別窓（_blank）として開く [bool]
+    'image_link_target'   => false,
     // body に body_class を追加 [bool]
     'add_body_class'      => false,
     // タクソノミー（カテゴリー・タグ等）のレイアウトタイプ（list/tiles） [string]
@@ -86,7 +88,7 @@ function bb_config_default() {
       // 目次を表示 [bool]
       'toc_active'     => true,
       // 目次を閉じた状態にする [bool]
-      'toc_toc_closed' => false,
+      'toc_closed'     => false,
       // 目次タイトル [string]
       'toc_title'      => 'Contents',
       // 除外する見出し（h1~h6） [array]
