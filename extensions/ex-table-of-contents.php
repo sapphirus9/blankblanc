@@ -32,6 +32,9 @@ class bbTableOfContents
      *        toc_prefix アンカーIDに付加する文字列 string
      *        toc_position 挿入場所 int (ボディ最上部:0 ボディ最下部:-1 x番目の見出し前:1~)
      */
+    if (empty($post->ID)) {
+      return;
+    }
     if (!$meta_key = get_post_meta($post->ID, 'bb_table_of_contents', true)) {
       $meta_key = array();
     }
