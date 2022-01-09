@@ -72,11 +72,15 @@
       const list = createHtml('ol', slide + '-slidenav');
       if (slide == globalNav || slide == headerNav) {
         const $nav = document.querySelector(slide + ' .menu');
-        list.innerHTML = '<li>' + $nav.outerHTML.replace(/ id=["|'].*?["|']/g, '') + '</li>';
-        list.classList.add('menu');
+        if ($nav) {
+          list.innerHTML = '<li>' + $nav.outerHTML.replace(/ id=["|'].*?["|']/g, '') + '</li>';
+          list.classList.add('menu');
+        }
       } else {
         const $nav = document.querySelector(slide);
-        list.innerHTML = $nav.outerHTML.replace(/ id=["|'].*?["|']/g, '');
+        if ($nav) {
+          list.innerHTML = $nav.outerHTML.replace(/ id=["|'].*?["|']/g, '');
+        }
       }
       document.querySelector(nameNavWindowScroll).appendChild(list);
     });

@@ -409,6 +409,7 @@ let _BbBreakPoint = 768;
    */
   const _GlobalNav = (() => {
     const $gnav = document.querySelector('#global-nav');
+    if (!$gnav) return;
     const $navAll = $gnav.querySelectorAll('.menu-item-has-children');
     $navAll.forEach(($nav) => {
       $nav.addEventListener('mouseover', () => {
