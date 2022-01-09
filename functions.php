@@ -25,21 +25,21 @@ function bb_config_default() {
     'excerpt_more'        => ' &#x22ef;',
     // 記事抜粋の文字数 [int]
     'excerpt_length'      => 110,
-    // RSS の記事出力文字数 [int]
+    // RSSの記事出力文字数 [int]
     'excerpt_length_rss'  => 200,
     // 年月日個別フォーマット（年,月,日） [array]
     'date_format'         => array('Y年', 'n月', 'j日'),
-    // 投稿・固定ページの MORE テキスト表示 [string]
+    // 投稿・固定ページのMOREテキスト表示 [string]
     'more_text'           => ' &#x22ef; 続きを読む',
     // 日本語タイトル時のスラッグにIDを使って自動設定する [bool]
     'use_auto_slug'       => true,
-    // 自動設定するスラッグの接頭辞（無指定は post_type） [string]
+    // 自動設定するスラッグの接頭辞（無指定はpost_type） [string]
     'auto_post_slug'      => '',
-    // ロゴイメージ画像（デフォルトは {theme_name}/img/logo.png） [string(url)]
+    // ロゴイメージ画像（デフォルトは{theme_name}/img/logo.png） [string(url)]
     'logo_image'          => get_template_directory_uri() . '/assets/img/logo.png',
     // ロゴのサイズ（幅[数値], 高さ[数値]） [array]
     'logo_size'           => array(230, 40),
-    // ロゴの alt 出力（デフォルトはブログ名） [string]
+    // ロゴのalt出力（デフォルトはブログ名） [string]
     'logo_alt'            => get_bloginfo('name'),
     // メインビジュアル画像 [string(url)]
     'mv_image'            => '',
@@ -53,35 +53,35 @@ function bb_config_default() {
     'copyright_text'      => get_bloginfo('name') . '.',
     // カノニカル出力の有無 [bool]
     'output_canonical'    => true,
-    // 子テーマ利用時に親テーマの CSS ファイルを読み込む [bool]
+    // 子テーマ利用時に親テーマのCSSファイルを読み込む [bool]
     'with_parent_css'     => true,
-    // 子テーマ利用時に親テーマの functions.js ファイルを読み込む [bool]
+    // 子テーマ利用時に親テーマのfunctions.jsファイルを読み込む [bool]
     'with_parent_script'  => true,
-    // モバイル時に使用するウィジェットの指定（#global-nav はグローバルナビ） [array]
+    // モバイル時に使用するウィジェットの指定（#global-navはグローバルナビ） [array]
     'mobile_nav'          => array('#global-nav', '#header-nav'),
     // モバイル時のスライドナビの方向（左：無指定/右：right） [string]
     'mobile_nav_position' => '',
     // モバイル時フッターに追加するウィジェットの指定 [array]
     'mobile_nav_footer'   => array(),
-    // 除外対象のカテゴリ ID（カテゴリーウィジェット・フィード等） [string] *extension
+    // 除外対象のカテゴリID（カテゴリーウィジェット・フィード等） [string] *extension
     'exclude_cat_id'      => '',
-    // 投稿ページのカテゴリー毎のパンくず表示（true/false） [bool] *extension
+    // 投稿ページのカテゴリー毎のパンくず表示 [bool] *extension
     'bread_crumb_multi'   => false,
     // 絵文字を無効化 [bool]
     'disable_emoji'       => true,
     // 画像へのリンクはすべて別窓（_blank）として開く [bool]
     'image_link_target'   => false,
-    // body に body_class を追加 [bool]
+    // bodyにbody_classを追加 [bool]
     'add_body_class'      => false,
     // タクソノミー（カテゴリー・タグ等）のレイアウトタイプ（list/tiles） [string]
     'taxonomy_layout'     => 'list',
-    // トップページメインビジュアル（Home または Front Page が対象） [string(url)]
+    // トップページメインビジュアル（HomeまたはFront Pageが対象） [string(url)]
     'mv_home_image'       => get_template_directory_uri() . '/assets/img/img-hero.jpg',
-    // トップページメインビジュアル内コンテンツ（Home または Front Page が対象） [string]
+    // トップページメインビジュアル内コンテンツ（HomeまたはFront Pageが対象） [string]
     'mv_home_content'     => '',
-    // テーマ用CSS/JSのバージョンパラメータを別で指定（デフォルトは false）※ブラウザキャッシュ対策用 [bool/string]
+    // テーマ用CSS/JSのバージョンパラメータを別で指定（デフォルトはfalse）※ブラウザキャッシュ対策用 [bool/string]
     'version_param'       => false,
-    // 目次機能を有効化（true/false） [bool] *extension
+    // 目次機能を有効化 [bool] *extension
     'use_toc'             => true,
     // 目次設定 [array]
     'toc_config'          => array(
