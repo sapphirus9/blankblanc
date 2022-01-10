@@ -265,4 +265,30 @@
       margin: 20px 0;
     }
   }
+  &.bb-form-style {
+    #respond {
+      input {
+        &[type=checkbox] {
+          & + label {
+            padding-left: 2.5em;
+            margin: 0;
+            &::before {
+              position: absolute;
+              left: 6px;
+              top: calc(50% - 10px);
+            }
+            &::after {
+              left: 12px;
+              top: calc(50% - 9px);
+            }
+          }
+        }
+      }
+      p.comment-form-cookies-consent {
+        @include cfg.media-max(lg) {
+          margin-bottom: -8px;
+        }
+      }
+    }
+  }
 }
