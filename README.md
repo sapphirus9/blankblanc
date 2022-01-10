@@ -23,10 +23,10 @@
 - BlankBlancは日本語向けテーマです。(Language: Japanese)
 
 ## 動作要件
-* WordPress 4.7以降
-* PHP 5.6.20以降
+* WordPress 5.5以降
+* PHP 5.6.20以降（原則WordPress本体の動作条件に準ずる）
 * Chrome, Firefox, Edge, Safariは原則として最新バージョンの対応
-* IE 11は一部非対応
+* IE 11は一部非対応（おもにCSS）
 
 ## 基本設定
 ### 初期値

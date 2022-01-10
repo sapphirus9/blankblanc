@@ -8,9 +8,9 @@
 /**
  * WordPress のバージョンを確認
  */
-if (version_compare($GLOBALS['wp_version'], '5.7', '<')) {
+if (version_compare($GLOBALS['wp_version'], '5.5', '<')) {
   function bb_wp_version_notice() {
-    printf('<div class="error"><p>BlankBlanc は WordPress 5.7 未満の動作を保証しておりません。<br>現在ご利用中のバージョンは <strong>%s</strong> です。WordPress のアップグレードをご検討ください。</p></div>', $GLOBALS['wp_version']);
+    printf('<div class="error"><p>BlankBlancはWordPress 5.5未満の動作を保証しておりません。<br>現在ご利用中のバージョンは<strong>%s</strong>です。WordPressのアップグレードをご検討ください。</p></div>', $GLOBALS['wp_version']);
   }
   add_action('admin_notices', 'bb_wp_version_notice');
 }
@@ -21,7 +21,7 @@ if (version_compare($GLOBALS['wp_version'], '5.7', '<')) {
  */
 if (version_compare(phpversion(), '5.6.20', '<')) {
   function bb_php_version_notice() {
-    printf('<div class="error"><p>BlankBlanc は PHP 5.6.20 未満の動作を保証しておりません。<br>現在ご利用中のバージョンは <strong>%s</strong> です。PHP のアップグレードをご検討ください。</p></div>', phpversion());
+    printf('<div class="error"><p>BlankBlancはPHP 5.6.20未満の動作を保証しておりません。<br>現在ご利用中のバージョンは<strong>%s</strong>です。PHPのアップグレードをご検討ください。</p></div>', phpversion());
   }
   add_action('admin_notices', 'bb_php_version_notice');
 }
