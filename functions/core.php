@@ -46,13 +46,21 @@ function bb_body_id_class($classes = array()) {
  */
 function bb_get_custom_date($type = null) {
   global $bb_theme_config;
+  $separator = '';
+  if (!empty($bb_theme_config['date_format'][3])) {
+    $separator = '<span class="separator">' . $bb_theme_config['date_format'][3] . '</span>';
+  }
   if ($type == 'comment') {
     $src  = '<span class="year">' . get_comment_time($bb_theme_config['date_format'][0]) . '</span>';
+    $src .= $separator;
     $src .= '<span class="month">' . get_comment_time($bb_theme_config['date_format'][1]) . '</span>';
+    $src .= $separator;
     $src .= '<span class="day">' . get_comment_time($bb_theme_config['date_format'][2]) . '</span>';
   } else {
     $src  = '<span class="year">' . get_the_time($bb_theme_config['date_format'][0]) . '</span>';
+    $src .= $separator;
     $src .= '<span class="month">' . get_the_time($bb_theme_config['date_format'][1]) . '</span>';
+    $src .= $separator;
     $src .= '<span class="day">' . get_the_time($bb_theme_config['date_format'][2]) . '</span>';
   }
   $src = apply_filters('bb_get_custom_date', $src);

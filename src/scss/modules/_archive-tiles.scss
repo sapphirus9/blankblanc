@@ -142,8 +142,9 @@
       }
       .year,
       .month,
-      .day {
-        margin-right: 3px;
+      .day,
+      .separator {
+        margin-right: .15em;
         @include cfg.media-max(lg) {
           margin-right: 0;
         }

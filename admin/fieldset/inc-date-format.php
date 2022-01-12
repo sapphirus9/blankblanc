@@ -15,6 +15,10 @@
       <label for="bb-config-date-format-3" class="prefix">日表示</label>
       <input type="text" name="blankblanc_config_values[date_format][2]" id="bb-config-date-format-3" class="s-text" value="<?php echo esc_textarea($config_values['date_format'][2]); ?>">
     </div>
-    <div class="default">初期値: <?php _echo(implode('／', $bb_theme_default['date_format'])); ?></div>
+    <div class="group">
+      <label for="bb-config-date-format-4" class="prefix">セパレータ</label>
+      <input type="text" name="blankblanc_config_values[date_format][3]" id="bb-config-date-format-4" class="s-text" value="<?php echo esc_textarea($config_values['date_format'][3]); ?>">
+    </div>
+    <div class="default">初期値: 年表示 <?php _echo($bb_theme_default['date_format'][0]); ?> ／月表示 <?php _echo($bb_theme_default['date_format'][1]); ?> ／日表示 <?php _echo($bb_theme_default['date_format'][2]); ?> ／セパレータ <?php _echo($bb_theme_default['date_format'][3]); ?></div>
   </div>
 </fieldset>

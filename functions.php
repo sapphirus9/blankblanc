@@ -27,8 +27,8 @@ function bb_config_default() {
     'excerpt_length'      => 110,
     // RSSの記事出力文字数 [int]
     'excerpt_length_rss'  => 200,
-    // 年月日個別フォーマット（年,月,日） [array]
-    'date_format'         => array('Y年', 'n月', 'j日'),
+    // 年月日個別フォーマット（年,月,日,セパレータ） [array]
+    'date_format'         => array('Y年', 'n月', 'j日', ''),
     // 投稿・固定ページのMOREテキスト表示 [string]
     'more_text'           => ' &#x22ef; 続きを読む',
     // 日本語タイトル時のスラッグにIDを使って自動設定する [bool]
