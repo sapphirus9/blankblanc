@@ -43,7 +43,7 @@
 |---|---|---|---|
 |titleタグのセパレーター|title_separator|string|｜|
 |titleに併記するキャッチフレーズ|title_catchphrase|string|一般設定のキャッチフレーズ|
-|一覧ページのタイトル接尾辞|title_suffix|string|の一覧|
+|一覧ページのタイトル接尾辞|archive_title_suffix|string|の一覧|
 |アイキャッチ画像|post_thumbnail|array<br>幅[数値], 高さ[数値], 切り出し[true/false]|array(1024, 768, true)|
 |一覧ページのサムネイル画像|archive_thumbnail|array<br>幅[数値], 高さ[数値], 切り出し[true/false]|array(300, 300, true)|
 |記事抜粋時の省略表記|excerpt_more|string|&#x22ef;|

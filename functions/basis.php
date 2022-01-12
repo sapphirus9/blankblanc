@@ -167,7 +167,7 @@ if (!function_exists('bb_get_document_title')) {
   function bb_get_document_title($title) {
     global $post, $page, $paged, $bb_theme_config;
     $_title = get_bloginfo('name');
-    $suffix = $bb_theme_config['title_suffix'];
+    $suffix = $bb_theme_config['archive_title_suffix'];
     $sep = $bb_theme_config['title_separator'];
     $_paged = $paged >= 2 || $page >= 2 ? sprintf('（%sページ）', max($paged, $page)) : '';
     if (is_front_page() || is_home()) {
