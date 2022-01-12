@@ -356,7 +356,8 @@ let _BbBreakPoint = 768;
           ];
           toggleElement.forEach((toggle) => {
             document.body.classList.remove('nav-window-show');
-            document.querySelector(toggle).classList.remove('nav-window-show');
+            const elem = document.querySelector(toggle);
+            elem && elem.classList.remove('nav-window-show');
           });
           /* --- mobile-nav対応 */
         }
