@@ -49,7 +49,7 @@
 |記事抜粋時の省略表記|excerpt_more|string|&#x22ef;|
 |記事抜粋の文字数|excerpt_length|int|110|
 |RSSの記事出力文字数|excerpt_length_rss|int|200|
-|年月日個別フォーマット|date_format|array<br>Y年, n月, j日|array('Y年', 'n月', 'j日')|
+|年月日個別フォーマット|date_format|array<br>Y年, n月, j日, セパレータ|array('Y年', 'n月', 'j日', '')|
 |『続きを読む』の表記|more_text|string|&#x22ef; 続きを読む|
 |日本語タイトル時のスラッグ設定|use_auto_slug|bool|true|
 |設定するスラッグの接頭辞|auto_post_slug|string|空|
