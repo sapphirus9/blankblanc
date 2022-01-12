@@ -1,7 +1,7 @@
 # BlankBlanc
 > **Original WordPress Theme**
 
-ウェブサイト+ブログを構築するためのベース用テーマとして、オリジナルのデザインやレイアウトを組み込みやすさを主眼に置いた、飾りを抑えたシンプルな2カラムタイプのHTML5テーマです。
+ウェブサイト＋ブログを構築するためのベース用テーマとして、CSSによるデザインやレイアウトの組み込みやすさを主眼に置き、飾りなどを抑えたシンプルなレスポンシブデザイン対応のオリジナル無料テーマです。
 
 カテゴリーやページ毎に設定したslug名と同じスタイルシートをテーマ内に用意することで、各々スタイルの調整を行うことができます。<br>
 基本CSSではレスポンシブデザインとして、767pxでスマートフォン向けのレイアウト切り替えを設けています。<br>
@@ -14,13 +14,13 @@
 <a href="https://user-images.githubusercontent.com/7519663/88457680-53e9d780-cec3-11ea-8e3f-3af63617e890.jpg" target="_blank"><img src="https://user-images.githubusercontent.com/7519663/88457680-53e9d780-cec3-11ea-8e3f-3af63617e890.jpg" title="テーマオプション" width="30%"></a>&emsp;
 <a href="https://user-images.githubusercontent.com/7519663/88469918-6c90d680-cf31-11ea-85ea-4f81ac7f8795.jpg" target="_blank"><img src="https://user-images.githubusercontent.com/7519663/88469918-6c90d680-cf31-11ea-85ea-4f81ac7f8795.jpg" title="テーマオプション" width="30%"></a>&emsp;
 
-#### ～ ご利用の前に ～
+#### ～ ご利用にあたり ～
 - サイトに合わせてCSS等でデザイン加工やレイアウトを行って利用されることを前提としていますので、完成されたデザインテーマを望まれる方の用途には向いておりません。
 - また、SEOやAMPの対応、計測タグ、ソーシャル関連の設置などもプラグインでの利用を前提としています。<br>
 - BlankBlancを利用される際は親テーマのアップデートに対応できるよう、[子テーマ（BlankBlanc Child）](https://github.com/sapphirus9/blankblanc-child)を用いてカスタマイズすることをお勧めします。
 - ウィジェットはブロックエディターには未対応のため、従来のウィジェット設定を利用してください。（widgets-block-editorにて暫定的にサポートを停止）
-- メインビジュアル、目次機能機能は限定期間（試用的な）での公開とさせてただきます。
-- BlankBlancは日本語向けテーマです。(Language: Japanese)
+- メインビジュアル、目次機能は限定（試用的な）での公開とさせてただきます。
+- BlankBlancは日本語向けテーマです。(Japanese Only)
 
 ## 動作要件
 * WordPress 5.5以降
