@@ -5,12 +5,15 @@
 .entry-body .wp-block {
   &-group {
     &__inner-container {
-      width:  cfg.$width-desktop;
+      width: 100%;
+      max-width: cfg.$width-desktop;
       margin: 0 auto;
       box-sizing: border-box;
-      @include cfg.media-max(xl) {
-        width: calc(100% - #{cfg.$gap-mobile * 2});
-        max-width: calc(#{cfg.$max-width-mobile} - #{cfg.$gap-mobile * 2});
+      .nowrapwidth-layout & {
+        @include cfg.media-max(xl) {
+          width: calc(100% - #{cfg.$gap-mobile * 2});
+          max-width: calc(#{cfg.$max-width-mobile} - #{cfg.$gap-mobile * 2});
+        }
       }
     }
   }
