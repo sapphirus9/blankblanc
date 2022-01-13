@@ -94,7 +94,7 @@ class bbTableOfCOntentsMeta
     if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
       return $post_id;
     }
-    $meta_key = bb_string_type_filter($_POST[$this->meta_key]);
+    $meta_key = !empty($_POST[$this->meta_key]) ? bb_string_type_filter($_POST[$this->meta_key]) : null;
     if (empty($meta_key) || $meta_key['toc_individual'] == false) {
       delete_post_meta($post_id, $this->meta_key, '');
     } else {

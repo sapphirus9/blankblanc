@@ -65,16 +65,8 @@ class bbTableOfContents
           $id = $this->args['toc_prefix'] . $idx;
           $hsrc = "<{$matches[1]} id=\"{$id}\"{$matches[2]}>{$matches[3]}{$matches[4]}";
         }
-        $pat = array(
-          '/<a.*?>(.*?)<\/a>/',
-          '/<img.*?>/',
-        );
-        $rep = array(
-          '$1',
-          '',
-        );
-        $matches_3 = preg_replace($pat, $rep, $matches[3]);
-        $toc .= "\n    <li class=\"bb-toc-{$matches[1]}\"><a href=\"#{$id}\">{$matches_3}</a></li>";
+        $matches[3] = strip_tags($matches[3]);
+        $toc .= "\n    <li class=\"bb-toc-{$matches[1]}\"><a href=\"#{$id}\">{$matches[3]}</a></li>";
       } else {
         $cnt++;
         $hsrc = $matches[0];

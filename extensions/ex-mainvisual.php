@@ -101,7 +101,9 @@ if (is_admin() && current_user_can('edit_pages')) {
 class bbMainvisualTermMeta
 {
   public function __construct() {
-    $taxonomy = get_current_screen()->taxonomy;
+    global $current_screen;
+    if (empty($current_screen->taxonomy)) return;
+    $taxonomy = $current_screen->taxonomy;
     add_action($taxonomy . '_add_form_fields', array($this, 'mainvisual_add_form_fields'));
     add_action($taxonomy . '_edit_form_fields', array($this, 'mainvisual_edit_form_fields'), 10, 2);
     add_action('create_term', array($this, 'save_mainvisual_term_meta'), 10, 3);

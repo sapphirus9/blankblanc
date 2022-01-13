@@ -19,7 +19,9 @@ class bbTaxonomyLayoutOptions
 {
   protected $meta_key = 'bb_taxonomy_option';
   public function __construct() {
-    $taxonomy = get_current_screen()->taxonomy;
+    global $current_screen;
+    if (empty($current_screen->taxonomy)) return;
+    $taxonomy = $current_screen->taxonomy;
     // taxonomy_layout
     add_action($taxonomy . '_add_form_fields', array($this, 'taxonomy_layout_add_form_fields'), 11);
     add_action($taxonomy . '_edit_form_fields', array($this, 'taxonomy_layout_edit_form_fields'), 11, 2);
