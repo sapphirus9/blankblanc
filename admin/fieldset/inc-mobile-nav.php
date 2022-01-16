@@ -46,7 +46,7 @@
   ?>
   <div class="col-left">
     <div class="label-title">モバイルメニュー</div>
-    <div class="note">選択されたウィジェットはモバイル時のスライドメニューとして登録されます。<br>
+    <div class="note">選択されたウィジェットはモバイル時のスライドナビ内のメニューとして登録されます。<br>
     ドラッグ&amp;ドロップで表示順を並べ替えできます。</div>
   </div>
   <div class="col-right">

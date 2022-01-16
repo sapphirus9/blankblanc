@@ -64,7 +64,7 @@ class bbMainvisualPostMeta
       <input type="button" name="reset" value="キャンセル" class="button button-secondary">
       <input type="button" name="delete" value="削除" class="button-secondary">
     </div>
-    <p class="notes">ページタイトルの背景としてブロックの横幅に合わせて設定されますので、十分に幅のある画像を用意してください</p>
+    <p class="notes">ページタイトルの背景としてウィンドウの横幅に合わせて配置されますので、十分に幅のある画像を用意してください</p>
   </fieldset>
 </div>
     <?php

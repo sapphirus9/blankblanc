@@ -41,7 +41,7 @@
     <div class="col-left">
       <div class="label-title">トップページ用<br>メインビジュアル内コンテンツ</div>
       <div class="note">HomeまたはFront Pageが対象です。<br>
-      class="mv-title-content" 以下でのCSS利用を前提としています。</div>
+      #main-visual .mv-title-content内でのCSS利用を前提としています。</div>
     </div>
     <div class="col-right">
       <?php wp_editor(

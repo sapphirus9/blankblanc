@@ -5,7 +5,7 @@
       <div class="media-title">共通メインビジュアル画像</div>
       <div class="label-title">共通メインビジュアルの設定</div>
       <div class="note">メインビジュアルの指定が無いページで使用されます。<br>
-      未設定の場合、指定が無いページにメインビジュアルは表示されません。</div>
+      画像が未設定の場合、個別での指定の無いページではメインビジュアルを表示しません。</div>
     </div>
     <div class="col-right">
       <div class="input-group">
