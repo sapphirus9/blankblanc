@@ -47,18 +47,18 @@ class bbTableOfCOntentsMeta
 <fieldset class="bb-confirm-changes">
   <div class="bb-toc-block-header activate-block-header">
     <input type="hidden" name="<?php echo $this->meta_key; ?>[toc_individual]" value="false">
-    <input name="<?php echo $this->meta_key; ?>[toc_individual]" type="checkbox" class="post-format" id="bb-toc-activate" value="true"<?php if ($meta_key['toc_individual'] == 'true') echo ' checked'; ?>>
+    <input name="<?php echo $this->meta_key; ?>[toc_individual]" type="checkbox" class="post-format" id="bb-toc-activate" value="true"<?php if ($meta_key['toc_individual'] === true) echo ' checked'; ?>>
     <label for="bb-toc-activate">個別に目次を設定</label>
   </div>
-  <div class="bb-toc-block-body activate-block-body<?php if ($meta_key['toc_individual'] == 'true') echo ' active'; ?>">
+  <div class="bb-toc-block-body activate-block-body<?php if ($meta_key['toc_individual'] === true) echo ' active'; ?>">
     <div class="group">
       <input type="hidden" name="<?php echo $this->meta_key; ?>[toc_active]" value="false">
-      <input name="<?php echo $this->meta_key; ?>[toc_active]" type="checkbox" class="post-format" id="bb-toc-active" value="true"<?php if ($meta_key['toc_active'] == 'true') echo ' checked'; ?>>
+      <input name="<?php echo $this->meta_key; ?>[toc_active]" type="checkbox" class="post-format" id="bb-toc-active" value="true"<?php if ($meta_key['toc_active'] === true) echo ' checked'; ?>>
       <label for="bb-toc-active">目次を表示</label>
     </div>
     <div class="group">
       <input type="hidden" name="<?php echo $this->meta_key; ?>[toc_closed]" value="false">
-      <input name="<?php echo $this->meta_key; ?>[toc_closed]" type="checkbox" class="post-format" id="bb-toc-closed" value="true"<?php if ($meta_key['toc_closed'] == 'true') echo ' checked'; ?>>
+      <input name="<?php echo $this->meta_key; ?>[toc_closed]" type="checkbox" class="post-format" id="bb-toc-closed" value="true"<?php if ($meta_key['toc_closed'] === true) echo ' checked'; ?>>
       <label for="bb-toc-closed">目次を閉じた状態にする</label>
     </div>
     <div class="group">
@@ -95,7 +95,7 @@ class bbTableOfCOntentsMeta
       return $post_id;
     }
     $meta_key = !empty($_POST[$this->meta_key]) ? bb_string_type_filter($_POST[$this->meta_key]) : null;
-    if (empty($meta_key) || $meta_key['toc_individual'] == false) {
+    if (empty($meta_key) || $meta_key['toc_individual'] === false) {
       delete_post_meta($post_id, $this->meta_key, '');
     } else {
       update_post_meta($post_id, $this->meta_key, $meta_key);

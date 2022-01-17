@@ -15,7 +15,7 @@
 <fieldset class="auto-post-slug sub-field">
   <div class="col-left">
     <div class="label-title">設定するスラッグの接頭辞</div>
-    <div class="note">無指定の時は {post_type} が接頭辞として使用されます。</div>
+    <div class="note">無指定の時は {post_type} を接頭辞として使用します。</div>
   </div>
   <div class="col-right">
     <div class="group">

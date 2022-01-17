@@ -41,8 +41,6 @@ function bb_config_default() {
     'logo_size'            => array(230, 40),
     // ロゴのalt出力（デフォルトはブログ名） [string]
     'logo_alt'             => get_bloginfo('name'),
-    // メインビジュアル画像 [string(url)]
-    'mv_image'             => '',
     // コピーライトの接頭辞（デフォルトは無指定） [string]
     'copyright_prefix'     => '',
     // コピーライトの接尾時（デフォルトは無指定） [string]
@@ -75,6 +73,8 @@ function bb_config_default() {
     'add_body_class'       => false,
     // タクソノミー（カテゴリー・タグ等）のレイアウトタイプ（list/tiles） [string]
     'taxonomy_layout'      => 'list',
+    // メインビジュアル画像 [string(url)]
+    'mv_image'             => '',
     // トップページメインビジュアル（HomeまたはFront Pageが対象） [string(url)]
     'mv_home_image'        => get_template_directory_uri() . '/assets/img/img-hero.jpg',
     // トップページメインビジュアル内コンテンツ（HomeまたはFront Pageが対象） [string]

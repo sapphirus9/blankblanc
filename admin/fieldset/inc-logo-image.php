@@ -37,7 +37,7 @@
 <fieldset class="logo-alt">
   <div class="col-left">
     <div class="label-title">ロゴ画像のalt（またはテキスト）</div>
-    <div class="note">画像を設定していない場合、ロゴの代わりにこのテキストが適用されます。</div>
+    <div class="note">画像を設定していない場合、ロゴの代わりにこのテキストを適用します。</div>
   </div>
   <div class="col-right">
     <div class="group group-full">
@@ -51,7 +51,7 @@
   <div class="col-left">
     <div class="label-title">ロゴ画像サイズ</div>
     <div class="note">ロゴ画像のサイズ（width/height）を追加できます。<br>
-    ※テーマではCSSの指定が優先されます。<br>
+    ※テーマではCSSの指定を優先します。<br>
     デフォルトCSS（#global-header .logo img）<br>
     width: auto | height: 40px (desktop), 22px (mobile)</div>
   </div>
