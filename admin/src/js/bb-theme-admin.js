@@ -150,7 +150,7 @@
       }
       if ($.inArray('action=add-tag', queryStringArr) !== -1) {
         var xml = xhr.responseXML;
-        $response = $(xml).find('term_id').text();
+        var $response = $(xml).find('term_id').text();
         if (typeof img !== 'undefined' && $response != '') {
           img.view.html(no_img);
         }
