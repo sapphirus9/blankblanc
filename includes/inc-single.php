@@ -9,7 +9,7 @@
 <?php while (have_posts()) :
   the_post(); ?>
   <header class="entry-header">
-    <?php if (empty($bb_mainvisual_image)) : ?>
+    <?php if (empty($GLOBALS['bb_mainvisual_image'])) : ?>
       <h1 class="page-title"><?php echo esc_attr(get_the_title()); ?></h1>
     <?php endif; ?>
     <ul class="meta">
