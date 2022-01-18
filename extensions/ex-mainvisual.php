@@ -44,8 +44,14 @@ class bbMainvisualPostMeta
     wp_enqueue_script('bb-theme-admin-js', get_template_directory_uri() . '/admin/assets/js/bb-theme-admin.js');
     wp_enqueue_media();
     $bb_mv_id = get_post_meta($post->ID, 'bb_mainvisual', true);
+    $bb_mv_disable = get_post_meta($post->ID, 'bb_mainvisual_disable', true);
     ?>
 <div id="bb-config-edit" class="bb-config-edit-box">
+  <fieldset class="bb-confirm-changes">
+    <input type="hidden" name="bb_mainvisual_disable" value="">
+    <input name="bb_mainvisual_disable" type="checkbox" class="post-format" id="bb-mainvisual-disable" value="disabled"<?php if ($bb_mv_disable === 'disabled') echo ' checked'; ?>>
+    <label for="bb-mainvisual-disable">メインビジュアルを非表示</label>
+  </fieldset>
   <fieldset id="bb-mainvisual" class="bb-media-upload bb-confirm-changes">
     <div class="media-title">メインビジュアル画像</div>
     <div class="input-group">
@@ -73,6 +79,7 @@ class bbMainvisualPostMeta
   // 保存・削除
   public function save_mainvisual_post_meta($post_id) {
     $_name = 'bb_mainvisual';
+    $_disable = 'bb_mainvisual_disable';
     $new_img = isset($_POST[$_name]) ? $_POST[$_name] : null;
     $old_img = get_post_meta($post_id, $_name, true);
     if ($old_img !== $new_img) {
@@ -81,6 +88,11 @@ class bbMainvisualPostMeta
       } else {
         delete_post_meta($post_id, $_name, $old_img);
       }
+    }
+    if (empty($_POST[$_disable]) || $_POST[$_disable] !== 'disabled') {
+      delete_post_meta($post_id, $_disable, '');
+    } else {
+      update_post_meta($post_id, $_disable, $_POST[$_disable]);
     }
   }
 }
@@ -102,10 +114,11 @@ class bbMainvisualTermMeta
 {
   public function __construct() {
     global $current_screen;
-    if (empty($current_screen->taxonomy)) return;
-    $taxonomy = $current_screen->taxonomy;
-    add_action($taxonomy . '_add_form_fields', array($this, 'mainvisual_add_form_fields'));
-    add_action($taxonomy . '_edit_form_fields', array($this, 'mainvisual_edit_form_fields'), 10, 2);
+    if (!empty($current_screen->taxonomy)) {
+      $taxonomy = $current_screen->taxonomy;
+      add_action($taxonomy . '_add_form_fields', array($this, 'mainvisual_add_form_fields'));
+      add_action($taxonomy . '_edit_form_fields', array($this, 'mainvisual_edit_form_fields'), 10, 2);
+    }
     add_action('create_term', array($this, 'save_mainvisual_term_meta'), 10, 3);
     add_action('edit_term', array($this, 'save_mainvisual_term_meta'), 10, 3);
   }
@@ -120,6 +133,11 @@ class bbMainvisualTermMeta
 <div class="form-field mainvisual-term-wrap bb-config-edit-box" id="bb-config-edit-mv-term">
   <label>メインビジュアル画像</label>
   <div id="bb-mainvisual">
+    <div class="bb-mainvisual-disable-box">
+      <input type="hidden" name="bb_mainvisual_disable" value="">
+      <input name="bb_mainvisual_disable" type="checkbox" id="bb-mainvisual-disable" value="disabled">
+      <label for="bb-mainvisual-disable">メインビジュアルを非表示</label>
+    </div>
     <div id="bb-upload-image">
       <div class="image-view"><?php echo $bb_mv_img; ?></div>
       <input type="hidden" name="bb_mainvisual" class="image-id" id="tag-mainvisual" value="<?php echo $bb_mv_id; ?>">
@@ -137,6 +155,7 @@ class bbMainvisualTermMeta
     wp_enqueue_script('bb-theme-admin-js', get_template_directory_uri() . '/admin/assets/js/bb-theme-admin.js');
     wp_enqueue_media();
     $bb_mv_id = get_term_meta($tag->term_id, 'bb_mainvisual', true);
+    $bb_mv_disable = get_term_meta($tag->term_id, 'bb_mainvisual_disable', true);
     ?>
 <table class="form-table" id="bb-config-edit-mv-term">
 <tr class="form-field term-image-wrap bb-config-edit-box">
@@ -145,6 +164,11 @@ class bbMainvisualTermMeta
   </th>
   <td>
     <div id="bb-mainvisual">
+      <div class="bb-mainvisual-disable-box">
+        <input type="hidden" name="bb_mainvisual_disable" value="">
+        <input name="bb_mainvisual_disable" type="checkbox" id="bb-mainvisual-disable" value="disabled"<?php if ($bb_mv_disable === 'disabled') echo ' checked'; ?>>
+        <label for="bb-mainvisual-disable">メインビジュアルを非表示</label>
+      </div>
       <div id="bb-upload-image">
         <?php
         if (!empty($bb_mv_id)) {
@@ -156,7 +180,7 @@ class bbMainvisualTermMeta
         }
         ?>
         <div class="image-view"><?php echo $bb_mv_img; ?></div>
-        <input type="hidden" name="bb_mainvisual" class="image-id" id="tag-mailvisual" value="<?php echo $bb_mv_id; ?>">
+        <input type="hidden" name="bb_mainvisual" class="image-id" id="tag-mainvisual" value="<?php echo $bb_mv_id; ?>">
         <input type="button" name="select" value="画像を選択" class="button-secondary" id="select-image">
         <input type="button" name="delete" value="削除" class="button-secondary">
         <p class="description">ページタイトルの背景としてブロックの横幅に合わせて設定されますので、十分に幅のある画像を用意してください。</p>
@@ -171,6 +195,7 @@ class bbMainvisualTermMeta
   // 保存・削除
   public function save_mainvisual_term_meta($term_id, $tt_id, $taxonomy) {
     $_name = 'bb_mainvisual';
+    $_disable = 'bb_mainvisual_disable';
     $new_img = isset($_POST[$_name]) ? $_POST[$_name] : null;
     $old_img = get_term_meta($term_id, $_name, true);
     if ($old_img !== $new_img) {
@@ -183,6 +208,11 @@ class bbMainvisualTermMeta
       } else {
         delete_term_meta( $term_id, $_name, $old_img);
       }
+    }
+    if (empty($_POST[$_disable]) || $_POST[$_disable] !== 'disabled') {
+      delete_term_meta($term_id, $_disable, '');
+    } else {
+      update_term_meta($term_id, $_disable, $_POST[$_disable]);
     }
   }
 }

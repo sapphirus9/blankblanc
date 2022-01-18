@@ -8,14 +8,17 @@
 ?>
 <?php
 global $bb_theme_config, $bb_mainvisual_image;
+$bb_mainvisual_title = '';
 if (is_home() || is_front_page()) {
   $bb_mainvisual_page = 'mv-home';
-  // $bb_mainvisual_title = is_page() ? esc_attr(get_the_title()) : get_bloginfo('description');
-  // $bb_mainvisual_image = $bb_theme_config['mv_home_image'];
   if (is_page()) {
-    $bb_mainvisual_title = esc_attr(get_the_title());
-    if (!$bb_mainvisual_image = get_post_meta($post->ID, 'bb_mainvisual', true)) {
-      $bb_mainvisual_image = $bb_theme_config['mv_home_image'];
+    if (get_post_meta($post->ID, 'bb_mainvisual_disable', true) === 'disabled') {
+      $bb_mainvisual_image = null;
+    } else {
+      $bb_mainvisual_title = esc_attr(get_the_title());
+      if (!$bb_mainvisual_image = get_post_meta($post->ID, 'bb_mainvisual', true)) {
+        $bb_mainvisual_image = $bb_theme_config['mv_home_image'];
+      }
     }
   } else {
     $bb_mainvisual_title = get_bloginfo('description');
@@ -23,15 +26,23 @@ if (is_home() || is_front_page()) {
   }
 } elseif (is_singular() && have_posts()) {
   $bb_mainvisual_page = 'mv-singular';
-  $bb_mainvisual_title = esc_attr(get_the_title());
-  if (!$bb_mainvisual_image = get_post_meta($post->ID, 'bb_mainvisual', true)) {
-    $bb_mainvisual_image = $bb_theme_config['mv_image'];
+  if (get_post_meta($post->ID, 'bb_mainvisual_disable', true) === 'disabled') {
+    $bb_mainvisual_image = null;
+  } else {
+    $bb_mainvisual_title = esc_attr(get_the_title());
+    if (!$bb_mainvisual_image = get_post_meta($post->ID, 'bb_mainvisual', true)) {
+      $bb_mainvisual_image = $bb_theme_config['mv_image'];
+    }
   }
 } else {
   $bb_mainvisual_page = 'mv-archive';
-  $bb_mainvisual_title = get_the_archive_title();
-  if (!$bb_mainvisual_image = get_term_meta(get_queried_object_id(), 'bb_mainvisual', true)) {
-    $bb_mainvisual_image = $bb_theme_config['mv_image'];
+  if (get_term_meta(get_queried_object_id(), 'bb_mainvisual_disable', true) === 'disabled') {
+    $bb_mainvisual_image = null;
+  } else {
+    $bb_mainvisual_title = get_the_archive_title();
+    if (!$bb_mainvisual_image = get_term_meta(get_queried_object_id(), 'bb_mainvisual', true)) {
+      $bb_mainvisual_image = $bb_theme_config['mv_image'];
+    }
   }
 }
 if (is_numeric($bb_mainvisual_image)) {
