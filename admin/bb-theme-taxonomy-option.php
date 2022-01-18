@@ -20,11 +20,11 @@ class bbTaxonomyLayoutOptions
   protected $meta_key = 'bb_taxonomy_option';
   public function __construct() {
     global $current_screen;
-    if (empty($current_screen->taxonomy)) return;
-    $taxonomy = $current_screen->taxonomy;
-    // taxonomy_layout
-    add_action($taxonomy . '_add_form_fields', array($this, 'taxonomy_layout_add_form_fields'), 11);
-    add_action($taxonomy . '_edit_form_fields', array($this, 'taxonomy_layout_edit_form_fields'), 11, 2);
+    if (!empty($current_screen->taxonomy)) {
+      $taxonomy = $current_screen->taxonomy;
+      add_action($taxonomy . '_add_form_fields', array($this, 'taxonomy_layout_add_form_fields'), 11);
+      add_action($taxonomy . '_edit_form_fields', array($this, 'taxonomy_layout_edit_form_fields'), 11, 2);
+    }
     add_action('create_term', array($this, 'save_taxonomy_layout'), 10, 3);
     add_action('edit_term', array($this, 'save_taxonomy_layout'), 10, 3);
   }
