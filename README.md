@@ -53,9 +53,9 @@
 |『続きを読む』の表記|more_text|string|&#x22ef; 続きを読む|
 |日本語タイトル時のスラッグ設定|use_auto_slug|bool|true|
 |設定するスラッグの接頭辞|auto_post_slug|string|空|
-|ロゴ画像の設定|logo_image|string (url)|blankblanc/assets/img/logo.png|
-|ロゴイメージサイズ|logo_size|array<br>幅[数値], 高さ[数値]|array(230, 40)|
-|ロゴイメージのalt|logo_alt|string|ブログ名|
+|ロゴ画像|logo_image|string (url)|blankblanc/assets/img/logo.png|
+|ロゴ画像サイズ|logo_size|array<br>幅[数値], 高さ[数値]|array(230, 40)|
+|ロゴ画像のalt|logo_alt|string|ブログ名|
 |共通メインビジュアル画像|mv_image|string (url)|空|
 |コピーライトの表記（接頭辞）|copyright_prefix|string|空|
 |コピーライトの表記（接尾時）|copyright_suffix|string|空|
@@ -72,10 +72,12 @@
 |絵文字を無効化|disable_emoji|bool|true|
 |画像へのリンクはすべて別窓（_blank）として開く|image_link_target|bool|false|
 |bodyにbody_classを追加|add_body_class|bool|false|
-|タクソノミー（カテゴリー・タグ等）のレイアウトタイプ|taxonomy_layout|string<br>list（リスト）/tiles（タイル）|list|
+|共通の投稿一覧レイアウトタイプ|taxonomy_layout|string<br>list（リスト）/tiles（タイル）|list|
 |トップページ用メインビジュアル|mv_home_image|string (url)|blankblanc/img/img-hero.jpg|
 |トップページ用メインビジュアル内コンテンツ|mv_home_content|string (html)|空|
-|テーマ用CSS/JSのバージョンパラメータを別で指定（デフォルトはfalse）※ブラウザキャッシュ対策用|version_param|false<br>またはバージョン番号等|false|
+|トップページレイアウト|homepage_layout|array|※以下の配列用|
+|+ カラムレイアウト|column|string<br>default（2カラム）/onecolumn（1カラム幅固定）/fullwidth（1カラム全幅）/nowrapwidth（画面全幅）|default|
+|+ 投稿一覧レイアウトタイプ|articles|string<br>list（リスト）/tiles（タイル）|list|
 |目次機能を有効化|use_toc|bool|true|
 |目次設定|toc_config|array|※以下の配列用|
 |+ 目次を表示|toc_active|bool|true|
@@ -84,6 +86,7 @@
 |+ 除外する見出し|toc_hidden|array<br>h1～h6|array('h1')|
 |+ アンカーIDに付加する文字列|toc_prefix|string|Index-|
 |+ 目次の挿入場所|toc_position|int<br>ボディ最上部: 0<br>ボディ最下部: -1<br>x番目の見出し出現前: 1~|1|
+|テーマ用CSS/JSのバージョンパラメータを別で指定（デフォルトはfalse）※ブラウザキャッシュ対策用|version_param|false<br>またはバージョン番号等|false|
 
 ## ライセンス
 BlankBlancのテーマに含まれるオリジナルについては、すべて**GPLv2ライセンス**です。
