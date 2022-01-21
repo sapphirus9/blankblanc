@@ -7,6 +7,6 @@
     <div class="group">
       <input type="text" name="blankblanc_config_values[more_text]" id="bb-config-more-text" class="m-text" value="<?php echo esc_textarea($config_values['more_text']); ?>">
     </div>
-    <div class="default">初期値: <?php _echo(@$bb_theme_default['more_text']); ?></div>
+    <div class="default">初期値: <?php _echo($bb_theme_default['more_text']); ?></div>
   </div>
 </fieldset>

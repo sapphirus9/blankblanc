@@ -8,6 +8,6 @@
       <input type="hidden" name="blankblanc_config_values[image_link_target]" value="false">
       <input type="checkbox" name="blankblanc_config_values[image_link_target]" id="bb-config-image-link-target" value="true"<?php if ($config_values['image_link_target']) echo ' checked'; ?>>
     </div>
-    <div class="default">初期値: <?php _echo(@$bb_theme_default['image_link_target']); ?></div>
+    <div class="default">初期値: <?php _echo($bb_theme_default['image_link_target']); ?></div>
   </div>
 </fieldset>

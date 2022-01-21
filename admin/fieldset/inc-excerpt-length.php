@@ -6,6 +6,6 @@
     <div class="group">
       <input type="number" name="blankblanc_config_values[excerpt_length]" id="bb-config-excerpt-length" class="s-num" value="<?php echo esc_attr($config_values['excerpt_length']); ?>">
     </div>
-    <div class="default">初期値: <?php _echo(@$bb_theme_default['excerpt_length']); ?></div>
+    <div class="default">初期値: <?php _echo($bb_theme_default['excerpt_length']); ?></div>
   </div>
 </fieldset>

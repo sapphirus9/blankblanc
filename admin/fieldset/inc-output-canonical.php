@@ -8,6 +8,6 @@
       <input type="hidden" name="blankblanc_config_values[output_canonical]" value="false">
       <input type="checkbox" name="blankblanc_config_values[output_canonical]" id="bb-config-output-canonical" value="true"<?php if ($config_values['output_canonical']) echo ' checked'; ?>>
     </div>
-    <div class="default">初期値: <?php _echo(@$bb_theme_default['output_canonical']); ?></div>
+    <div class="default">初期値: <?php _echo($bb_theme_default['output_canonical']); ?></div>
   </div>
 </fieldset>

@@ -10,7 +10,7 @@
         <input type="hidden" name="blankblanc_config_values[with_parent_script]" value="false">
         <input type="checkbox" name="blankblanc_config_values[with_parent_script]" id="bb-config-use-parent-script" value="true"<?php if ($config_values['with_parent_script']) echo ' checked'; ?>>
       </div>
-      <div class="default">初期値: <?php _echo(@$bb_theme_default['with_parent_script']); ?></div>
+      <div class="default">初期値: <?php _echo($bb_theme_default['with_parent_script']); ?></div>
     </div>
   </fieldset>
 <?php endif;

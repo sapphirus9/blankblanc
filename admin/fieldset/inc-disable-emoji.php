@@ -8,6 +8,6 @@
       <input type="hidden" name="blankblanc_config_values[disable_emoji]" value="false">
       <input type="checkbox" name="blankblanc_config_values[disable_emoji]" id="bb-config-disable-emoji" value="true"<?php if ($config_values['disable_emoji']) echo ' checked'; ?>>
     </div>
-    <div class="default">初期値: <?php _echo(@$bb_theme_default['disable_emoji']); ?></div>
+    <div class="default">初期値: <?php _echo($bb_theme_default['disable_emoji']); ?></div>
   </div>
 </fieldset>

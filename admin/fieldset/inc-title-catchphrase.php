@@ -7,6 +7,6 @@
     <div class="group group-full">
       <input type="text" name="blankblanc_config_values[title_catchphrase]" id="bb-config-title-catchphrase" class="l-text" value="<?php echo esc_textarea($config_values['title_catchphrase']); ?>">
     </div>
-    <div class="default">初期値: <?php _echo(@$bb_theme_default['title_catchphrase']); ?></div>
+    <div class="default">初期値: <?php _echo($bb_theme_default['title_catchphrase']); ?></div>
   </div>
 </fieldset>

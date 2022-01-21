@@ -10,7 +10,7 @@
         <input type="hidden" name="blankblanc_config_values[bread_crumb_multi]" value="false">
         <input type="checkbox" name="blankblanc_config_values[bread_crumb_multi]" id="bb-config-bread-crumb-multi" value="true"<?php if ($config_values['bread_crumb_multi']) echo ' checked'; ?>>
       </div>
-      <div class="default">初期値: <?php _echo(@$bb_theme_default['bread_crumb_multi']); ?></div>
+      <div class="default">初期値: <?php _echo($bb_theme_default['bread_crumb_multi']); ?></div>
     </div>
   </fieldset>
 <?php endif; // --- [extention]

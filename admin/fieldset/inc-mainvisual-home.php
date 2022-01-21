@@ -2,7 +2,7 @@
   if (function_exists('call_bb_mainvisual_term_meta')) : ?>
   <fieldset id="bb-mainvisual-home" class="bb-media-upload">
     <div class="col-left">
-      <div class="label-title">トップページ用メインビジュアル</div>
+      <div class="label-title">メインビジュアル</div>
       <div class="note">HomeまたはFront Pageが対象です。</div>
     </div>
     <div class="col-right">
@@ -39,7 +39,7 @@
 
   <fieldset class="bb-mainvisual-home-content">
     <div class="col-left">
-      <div class="label-title">トップページ用<br>メインビジュアル内コンテンツ</div>
+      <div class="label-title">メインビジュアル内コンテンツ</div>
       <div class="note">HomeまたはFront Pageが対象です。<br>
       #main-visual .mv-title-content内でのCSS利用を前提としています。</div>
     </div>

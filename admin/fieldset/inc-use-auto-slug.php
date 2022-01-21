@@ -8,7 +8,7 @@
       <input type="hidden" name="blankblanc_config_values[use_auto_slug]" value="false">
       <input type="checkbox" name="blankblanc_config_values[use_auto_slug]" id="bb-config-use-auto-slug" value="true"<?php if ($config_values['use_auto_slug']) echo ' checked'; ?>>
     </div>
-    <div class="default">初期値: <?php _echo(@$bb_theme_default['use_auto_slug']); ?></div>
+    <div class="default">初期値: <?php _echo($bb_theme_default['use_auto_slug']); ?></div>
   </div>
 </fieldset>
 
@@ -21,6 +21,6 @@
     <div class="group">
       <input type="text" name="blankblanc_config_values[auto_post_slug]" id="bb-config-auto-post-slug" class="m-text" value="<?php echo esc_textarea($config_values['auto_post_slug']); ?>">
     </div>
-    <div class="default">初期値: <?php _echo(@$bb_theme_default['auto_post_slug']); ?></div>
+    <div class="default">初期値: <?php _echo($bb_theme_default['auto_post_slug']); ?></div>
   </div>
 </fieldset>

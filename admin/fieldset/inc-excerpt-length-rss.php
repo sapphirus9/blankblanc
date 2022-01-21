@@ -7,6 +7,6 @@
     <div class="group">
       <input type="number" name="blankblanc_config_values[excerpt_length_rss]" id="bb-config-excerpt-length-rss" class="s-num" value="<?php echo esc_attr($config_values['excerpt_length_rss']); ?>">
     </div>
-    <div class="default">初期値: <?php _echo(@$bb_theme_default['excerpt_length_rss']); ?></div>
+    <div class="default">初期値: <?php _echo($bb_theme_default['excerpt_length_rss']); ?></div>
   </div>
 </fieldset>

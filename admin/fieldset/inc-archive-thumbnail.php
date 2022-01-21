@@ -35,6 +35,6 @@
         <option value="right,bottom"<?php if ($select === 'right,bottom') echo ' selected'; ?>>右／下 (right,bottom)</option>
       </select>
     </div>
-    <div class="default">初期値: 幅 <?php _echo(@$bb_theme_default['archive_thumbnail'][0], '', 'px'); ?> ／高さ <?php _echo(@$bb_theme_default['archive_thumbnail'][1], '', 'px'); ?> ／画像切り出し <?php _echo(@$bb_theme_default['archive_thumbnail'][2]); ?></div>
+    <div class="default">初期値: 幅 <?php _echo($bb_theme_default['archive_thumbnail'][0], '', 'px'); ?> ／高さ <?php _echo($bb_theme_default['archive_thumbnail'][1], '', 'px'); ?> ／画像切り出し <?php _echo($bb_theme_default['archive_thumbnail'][2]); ?></div>
   </div>
 </fieldset>

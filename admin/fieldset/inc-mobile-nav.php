@@ -22,12 +22,10 @@
         $widget_name = 'ヘッダーナビゲーション';
         $sidebar_name = 'ヘッダー内';
       } else {
-        $sidebar_name = @$wp_registered_sidebars[$widget_group_id]['name'];
-        $reg_widget = @$wp_registered_widgets[$widget_id];
+        $sidebar_name = !empty($wp_registered_sidebars[$widget_group_id]['name']) ? $wp_registered_sidebars[$widget_group_id]['name'] : '';
+        $reg_widget = !empty($wp_registered_widgets[$widget_id]) ? $wp_registered_widgets[$widget_id] : '';
         $widget = get_option($reg_widget['classname']);
-        if (!$widget_name = esc_attr(@$widget[$reg_widget['params'][0]['number']]['title'])) {
-          $widget_name = esc_attr__($reg_widget['name']);
-        }
+        $widget_name = !empty($widget[$reg_widget['params'][0]['number']]['title']) ? esc_attr($widget[$reg_widget['params'][0]['number']]['title']) : esc_attr__($reg_widget['name']);
       }
       if ($sidebar_name && $widget_name) {
         if (isset($config_values['mobile_nav']) && in_array('#' . $widget_id, $config_values['mobile_nav'])) {

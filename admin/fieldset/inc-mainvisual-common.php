@@ -3,7 +3,7 @@
   <fieldset id="bb-mainvisual" class="bb-media-upload">
     <div class="col-left">
       <div class="media-title">共通メインビジュアル画像</div>
-      <div class="label-title">共通メインビジュアルの設定</div>
+      <div class="label-title">共通メインビジュアル</div>
       <div class="note">メインビジュアルの指定が無いページで使用されます。<br>
       画像が未設定の場合、個別での指定の無いページではメインビジュアルを表示しません。</div>
     </div>

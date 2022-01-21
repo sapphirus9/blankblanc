@@ -1,7 +1,7 @@
 <fieldset id="bb-logo-image" class="bb-media-upload">
   <div class="col-left">
     <div class="media-title">ロゴ画像</div>
-    <div class="label-title">ロゴ画像の設定</div>
+    <div class="label-title">ロゴ画像</div>
   </div>
   <div class="col-right">
     <div class="input-group">
@@ -42,7 +42,7 @@
   <div class="col-right">
     <div class="group group-full">
       <input type="text" name="blankblanc_config_values[logo_alt]" id="bb-config-logo-alt" class="l-text" value="<?php echo esc_textarea($config_values['logo_alt']); ?>">
-      <div class="default">初期値: <?php _echo(@$bb_theme_default['logo_alt']); ?></div>
+      <div class="default">初期値: <?php _echo($bb_theme_default['logo_alt']); ?></div>
     </div>
   </div>
 </fieldset>
@@ -71,6 +71,6 @@
       <input type="number" name="blankblanc_config_values[logo_size][1]" id="bb-config-logo-size-2" class="s-num" value="<?php echo $config_values['logo_size'][1]; ?>">
       <label for="bb-config-logo-size-2">px</label>
     </div>
-    <div class="default">初期値: 幅 <?php _echo(@$bb_theme_default['logo_size'][0], '', 'px'); ?> ／高さ <?php _echo(@$bb_theme_default['logo_size'][1], '', 'px'); ?></div>
+    <div class="default">初期値: 幅 <?php _echo($bb_theme_default['logo_size'][0], '', 'px'); ?> ／高さ <?php _echo($bb_theme_default['logo_size'][1], '', 'px'); ?></div>
   </div>
 </fieldset>
