@@ -2,7 +2,7 @@
 /**
  * Theme Name: BlankBlanc
  * Author: Naoki Yamamoto
- * Description: 管理画面：タクソノミー（カテゴリー・タグ等）に項目を追加
+ * Description: 管理画面：タクソノミー（カテゴリー・タグ等）にレイアウト選択を追加
  */
 
 if (is_admin() && current_user_can('edit_pages')) {
@@ -35,13 +35,13 @@ class bbTaxonomyLayoutOptions
   }
 
   /**
-   * レイアウトタイプ：フォーム
+   * 表示タイプ：フォーム
    */
   private function taxonomy_layout_meta() {
     global $bb_theme_config;
     return array(
       'layout' => array(
-        'label' => 'レイアウトタイプ',
+        'label' => '表示タイプ',
         'value' => $bb_theme_config['taxonomy_layout'],
       ),
     );
@@ -51,27 +51,31 @@ class bbTaxonomyLayoutOptions
   public function taxonomy_layout_add_form_fields($taxonomy) {
     $meta_data = $this->taxonomy_layout_meta();
     ?>
-<div class="form-field bb-config-edit-box" id="bb-config-edit">
+<div class="form-field bb-term-layout">
   <label><?php echo $meta_data['layout']['label']; ?></label>
-  <?php $this->taxonomy_layout_html($meta_data); ?>
+  <div class="bb-term-field-body">
+    <?php $this->taxonomy_layout_html($meta_data); ?>
+  </div>
 </div>
     <?php
   }
 
   // 編集
   public function taxonomy_layout_edit_form_fields($tag, $taxonomy = null) {
-      if (!$meta_data = get_term_meta($tag->term_id, $this->meta_key, true)) {
-        $meta_data = array();
-      }
-      $meta_data = array_merge($this->taxonomy_layout_meta(), $meta_data);
+    if (!$meta_data = get_term_meta($tag->term_id, $this->meta_key, true)) {
+      $meta_data = array();
+    }
+    $meta_data = array_merge($this->taxonomy_layout_meta(), $meta_data);
     ?>
-<table class="form-table" id="bb-config-edit">
-  <tr class="form-field bb-config-edit-box">
+<table class="form-table">
+  <tr class="form-field bb-term-layout">
     <th scope="row">
       <label><?php echo $meta_data['layout']['label']; ?></label>
     </th>
     <td>
-      <?php $this->taxonomy_layout_html($meta_data); ?>
+      <div class="bb-term-field-body">
+        <?php $this->taxonomy_layout_html($meta_data); ?>
+      </div>
     </td>
   </tr>
 </table>
@@ -81,14 +85,14 @@ class bbTaxonomyLayoutOptions
   // HTMLブロック
   private function taxonomy_layout_html($meta_data) {
     ?>
-<ul id="bb-taxonomy-layout" class="bb-confirm-changes">
+<ul class="bb-confirm-changes">
   <li>
-    <input type="radio" name="<?php echo $this->meta_key; ?>[layout][value]" value="list" id="bb-taxonomy-layout-1"<?php echo $meta_data['layout']['value'] == 'list' ? ' checked' : ''; ?>>
-    <label for="bb-taxonomy-layout-1" class="box"><span class="dashicons dashicons-list-view"></span><span class="title">リスト表示</span></label>
+    <input type="radio" name="<?php echo $this->meta_key; ?>[layout][value]" value="list" id="bb-term-layout-1"<?php echo $meta_data['layout']['value'] == 'list' ? ' checked' : ''; ?>>
+    <label for="bb-term-layout-1" class="box"><span class="dashicons dashicons-list-view"></span><span class="title">リスト表示</span></label>
   </li>
   <li>
-    <input type="radio" name="<?php echo $this->meta_key; ?>[layout][value]" value="tiles" id="bb-taxonomy-layout-2"<?php echo $meta_data['layout']['value'] == 'tiles' ? ' checked' : ''; ?>>
-    <label for="bb-taxonomy-layout-2" class="box"><span class="dashicons dashicons-grid-view"></span><span class="title">タイル表示</span></label>
+    <input type="radio" name="<?php echo $this->meta_key; ?>[layout][value]" value="tiles" id="bb-term-layout-2"<?php echo $meta_data['layout']['value'] == 'tiles' ? ' checked' : ''; ?>>
+    <label for="bb-term-layout-2" class="box"><span class="dashicons dashicons-grid-view"></span><span class="title">タイル表示</span></label>
   </li>
 </ul>
 <input type="hidden" name="<?php echo $this->meta_key; ?>[layout][label]" value="<?php echo $meta_data['layout']['label']; ?>">

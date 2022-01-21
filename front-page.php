@@ -20,7 +20,7 @@ get_header(); ?>
           <?php endif; ?>
         </article>
       <?php else : // 最新の投稿 ?>
-        <div class="archive-tiles">
+        <div class="archive-<?php echo bb_get_taxonomy_layout(); ?>">
           <?php if (have_posts()) : ?>
             <?php get_template_part('includes/inc', 'archive'); ?>
           <?php endif; ?>

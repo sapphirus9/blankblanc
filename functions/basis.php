@@ -844,6 +844,9 @@ if (!function_exists('bb_get_term_description')) {
 if (!function_exists('bb_get_taxonomy_layout')) {
   function bb_get_taxonomy_layout() {
     global $bb_theme_config;
+    if (is_home() || is_front_page()) {
+      return $bb_theme_config['homepage_layout']['articles'];
+    }
     if ($bb_taxonomy_layout = get_term_meta(get_queried_object_id(), 'bb_taxonomy_option', true)) {
       $bb_taxonomy_layout = $bb_taxonomy_layout['layout']['value'];
     } else {
