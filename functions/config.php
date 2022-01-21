@@ -35,15 +35,23 @@ define('BB_ADMIN_DIR', dirname(__DIR__) . '/admin');
 
 function bb_setup_theme_config() {
   global $bb_theme_config, $bb_theme_default;
-  $bb_theme_config = $bb_theme_default = bb_config_default();
+  $bb_theme_default = bb_config_default();
   if (function_exists('bb_config')) {
-    $bb_theme_config = $bb_theme_default = array_merge($bb_theme_default, bb_config());
+    // 子テーマの設定を登録
+    $bb_theme_default = array_merge($bb_theme_default, bb_config());
   }
   if ($load_config = get_option('blankblanc_config_values')) {
-    $bb_theme_config = $load_config + $bb_theme_default;
+    // アップデートチェック（バージョンが異なる場合はDBを更新）
+    if (!isset($load_config['theme_version']) || $load_config['theme_version'] != $bb_theme_default['theme_version']) {
+      $bb_theme_config = array_merge($bb_theme_default, $load_config);
+      update_option('blankblanc_config_values', wp_unslash($bb_theme_config));
+      return;
+    }
+    $bb_theme_config = $load_config;
   } else {
     // DBにテーマオプションがない場合は登録
-    update_option('blankblanc_config_values', wp_unslash($bb_theme_config));
+    $bb_theme_config = $bb_theme_default;
+    update_option('blankblanc_config_values', wp_unslash($bb_theme_default));
   }
   define('VERSION_PARAM', $bb_theme_config['version_param']);
 }
