@@ -46,7 +46,7 @@ class bbMainvisualPostMeta
     $bb_mv_id = get_post_meta($post->ID, 'bb_mainvisual', true);
     $bb_mv_disable = get_post_meta($post->ID, 'bb_mainvisual_disable', true);
     ?>
-<div id="bb-config-edit" class="bb-config-edit-box">
+<div class="bb-mainvisual-edit bb-mainvisual-edit-post">
   <fieldset class="bb-confirm-changes">
     <input type="hidden" name="bb_mainvisual_disable" value="">
     <input name="bb_mainvisual_disable" type="checkbox" class="post-format" id="bb-mainvisual-disable" value="disabled"<?php if ($bb_mv_disable === 'disabled') echo ' checked'; ?>>
@@ -70,7 +70,7 @@ class bbMainvisualPostMeta
       <input type="button" name="reset" value="キャンセル" class="button button-secondary">
       <input type="button" name="delete" value="削除" class="button-secondary">
     </div>
-    <p class="notes">ページタイトルの背景としてウィンドウの横幅に合わせて配置されますので、十分に幅のある画像を用意してください</p>
+    <p class="note">ページタイトルの背景としてウィンドウの横幅に合わせて配置されますので、十分に幅のある画像を用意してください</p>
   </fieldset>
 </div>
     <?php
@@ -116,8 +116,8 @@ class bbMainvisualTermMeta
     global $current_screen;
     if (!empty($current_screen->taxonomy)) {
       $taxonomy = $current_screen->taxonomy;
-      add_action($taxonomy . '_add_form_fields', array($this, 'mainvisual_add_form_fields'));
-      add_action($taxonomy . '_edit_form_fields', array($this, 'mainvisual_edit_form_fields'), 10, 2);
+      add_action($taxonomy . '_add_form_fields', array($this, 'mainvisual_add_form_fields'), 12);
+      add_action($taxonomy . '_edit_form_fields', array($this, 'mainvisual_edit_form_fields'), 12, 2);
     }
     add_action('create_term', array($this, 'save_mainvisual_term_meta'), 10, 3);
     add_action('edit_term', array($this, 'save_mainvisual_term_meta'), 10, 3);
@@ -130,9 +130,9 @@ class bbMainvisualTermMeta
     $bb_mv_id  = '';
     $bb_mv_img = '';
     ?>
-<div class="form-field mainvisual-term-wrap bb-config-edit-box" id="bb-config-edit-mv-term">
+<div class="bb-mainvisual-edit-term form-field mainvisual-term-wrap bb-term-field-add">
   <label>メインビジュアル画像</label>
-  <div id="bb-mainvisual">
+  <div id="bb-mainvisual" class="bb-term-field-body">
     <div class="bb-mainvisual-disable-box">
       <input type="hidden" name="bb_mainvisual_disable" value="">
       <input name="bb_mainvisual_disable" type="checkbox" id="bb-mainvisual-disable" value="disabled">
@@ -143,7 +143,7 @@ class bbMainvisualTermMeta
       <input type="hidden" name="bb_mainvisual" class="image-id" id="tag-mainvisual" value="<?php echo $bb_mv_id; ?>">
       <input type="button" name="select" value="画像を選択" class="button-secondary">
       <input type="button" name="delete" value="削除" class="button-secondary">
-      <p>ページタイトルの背景としてブロックの横幅に合わせて設定されますので、十分に幅のある画像を用意してください。</p>
+      <p class="note">ページタイトルの背景としてブロックの横幅に合わせて設定されますので、十分に幅のある画像を用意してください。</p>
     </div>
   </div>
 </div>
@@ -157,13 +157,13 @@ class bbMainvisualTermMeta
     $bb_mv_id = get_term_meta($tag->term_id, 'bb_mainvisual', true);
     $bb_mv_disable = get_term_meta($tag->term_id, 'bb_mainvisual_disable', true);
     ?>
-<table class="form-table" id="bb-config-edit-mv-term">
-<tr class="form-field term-image-wrap bb-config-edit-box">
+<table class="form-table">
+<tr class="bb-mainvisual-edit-term form-field term-image-wrap bb-term-field-edit">
   <th scope="row">
     <label for="select-image">メインビジュアル画像</label>
   </th>
   <td>
-    <div id="bb-mainvisual">
+    <div id="bb-mainvisual" class="bb-term-field-body">
       <div class="bb-mainvisual-disable-box">
         <input type="hidden" name="bb_mainvisual_disable" value="">
         <input name="bb_mainvisual_disable" type="checkbox" id="bb-mainvisual-disable" value="disabled"<?php if ($bb_mv_disable === 'disabled') echo ' checked'; ?>>
@@ -182,8 +182,9 @@ class bbMainvisualTermMeta
         <div class="image-view"><?php echo $bb_mv_img; ?></div>
         <input type="hidden" name="bb_mainvisual" class="image-id" id="tag-mainvisual" value="<?php echo $bb_mv_id; ?>">
         <input type="button" name="select" value="画像を選択" class="button-secondary" id="select-image">
+        <input type="button" name="reset" value="キャンセル" class="button button-secondary">
         <input type="button" name="delete" value="削除" class="button-secondary">
-        <p class="description">ページタイトルの背景としてブロックの横幅に合わせて設定されますので、十分に幅のある画像を用意してください。</p>
+        <p class="note">ページタイトルの背景としてブロックの横幅に合わせて設定されますので、十分に幅のある画像を用意してください。</p>
       </div>
     </div>
   </td>

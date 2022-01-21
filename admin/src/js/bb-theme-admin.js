@@ -231,12 +231,15 @@
     });
   });
   $(window).on('beforeunload', function () {
+    if ($('#addtag, #edittag').length) {
+      change_value = false;
+    }
     if (change_value) return '';
   });
 
   // テーマオプションを表示
   $(window).on('load', function () {
-    $('#bb-config-edit').addClass('loaded');
+    $('#bb-config-edit, .bb-mainvisual-edit').addClass('loaded');
   });
 
   // ウィジェット: 有効化
