@@ -71,7 +71,7 @@ function bb_config_default() {
     'image_link_target'    => false,
     // bodyにbody_classを追加 [bool]
     'add_body_class'       => false,
-    // タクソノミー（カテゴリー・タグ等）のレイアウトタイプ（list/tiles） [string]
+    // きょうつうの投稿一覧レイアウトタイプ（list/tiles） [string]
     'taxonomy_layout'      => 'list',
     // メインビジュアル画像 [string(url)]
     'mv_image'             => '',
@@ -79,8 +79,15 @@ function bb_config_default() {
     'mv_home_image'        => get_template_directory_uri() . '/assets/img/img-hero.jpg',
     // トップページメインビジュアル内コンテンツ（HomeまたはFront Pageが対象） [string]
     'mv_home_content'      => '',
-    // テーマ用CSS/JSのバージョンパラメータを別で指定（デフォルトはfalse）※ブラウザキャッシュ対策用 [bool/string]
+    // テーマ用CSS/JSのバージョンパラメータを別で指定 ※ブラウザキャッシュ対策用 [bool/string]
     'version_param'        => false,
+    // トップページレイアウト（HomeまたはFront Pageが対象） [array]
+    'homepage_layout'      => array(
+      // カラムレイアウト（default, onecolumn, fullwidth, nowrapwidth） [string]
+      'column'   => 'default',
+      // 投稿一覧レイアウト（list/tiles） [string]
+      'articles' => 'list',
+    ),
     // 目次機能を有効化 [bool] *extension
     'use_toc'              => true,
     // 目次設定 [array]
@@ -105,7 +112,15 @@ function bb_config_default() {
 /**
  * ファンクション追加・変更等は子テーマまたはこの下に記述してください
  */
-
+function modify_admin_bar($wp_admin_bar) {
+  $wp_admin_bar->add_node(array(
+    'id' => 'theme-option',
+    'title' => 'テーマオプション',
+    'parent' => 'themes',
+    'href' => get_admin_url() . 'themes.php?page=blankblanc_config_edit',
+  ));
+}
+add_action('admin_bar_menu', 'modify_admin_bar', 999);
 
 /**
  * ファンクションの読み込み

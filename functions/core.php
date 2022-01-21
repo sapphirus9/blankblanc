@@ -23,17 +23,28 @@ function bb_body_id_class($classes = array()) {
   if ($bb_theme_config['add_body_class']) {
     $classes = get_body_class($classes);
   }
-  if (is_page() || is_single()) {
+  if (is_home() || is_front_page()) {
+    if (is_page()) {
+      $layout = get_post_meta(get_the_ID(), 'bb_page_layout_select', true);
+    } else {
+      $layout = $bb_theme_config['homepage_layout']['column'];
+    }
+    array_push($classes, (empty($layout) ? 'defualt' :  $layout) . '-layout');
+  } elseif (is_page() || is_single()) {
     $layout = get_post_meta(get_the_ID(), 'bb_page_layout_select', true);
     if (is_attachment()) {
       $layout = 'onecolumn';
     }
     array_push($classes, (empty($layout) ? 'defualt' :  $layout) . '-layout');
+  } elseif (is_archive()) {
+    $obj = get_queried_object();
+    $layout = get_term_meta($obj->term_id, 'bb_term_layout_select', true);
+    array_push($classes, (empty($layout) ? 'defualt' :  $layout) . '-layout');
   }
-  $class = '';
   if (!empty($classes)) {
     $class = ' class="' . join(' ', array_unique($classes)) . '"';
   } else {
+    $class = '';
   }
   echo "id=\"{$bb_theme_id_class->id}\"{$class}";
 }
@@ -234,9 +245,16 @@ function custom_template_include($template) {
           return $new_template;
         }
       }
-    } else if (is_page()) {
+    } elseif (is_page()) {
       if ($template_name = get_post_meta($post->ID, 'bb_page_layout_select', true)) {
         if ($new_template = locate_template($template_name . '-page.php', false, true)) {
+          return $new_template;
+        }
+      }
+    } elseif (is_archive()) {
+      $obj = get_queried_object();
+      if ($template_name = get_term_meta($obj->term_id, 'bb_term_layout_select', true)) {
+        if ($new_template = locate_template($template_name . '-archive.php', false, true)) {
           return $new_template;
         }
       }

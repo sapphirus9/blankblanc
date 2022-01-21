@@ -2,7 +2,7 @@
 /**
  * Theme Name: BlankBlanc
  * Author: Naoki Yamamoto
- * Description: 投稿ページ／固定ページのレイアウトを設定
+ * Description: カラムレイアウトを設定
  */
 
 function call_bb_page_layout_select() {
@@ -27,7 +27,7 @@ class bbPageLayoutSelectMeta
     if (in_array($post_type, $post_types)) {
       add_meta_box(
         'page_layout_select',
-        'ページレイアウト',
+        'カラムレイアウト',
         array($this, 'page_layout_select_meta'),
         $post_type,
         'side',
@@ -64,12 +64,12 @@ class bbPageLayoutSelectMeta
     ?>
 <fieldset class="bb-confirm-changes">
   <?php
-  $_meta_key = get_post_meta($post->ID, $this->meta_key, true);
+  $meta_data = get_post_meta($post->ID, $this->meta_key, true);
   foreach ($layouts as $select) :
-  $checked = ((empty($_meta_key) && $select['value'] == 'default') || $_meta_key == $select['value']) ? 'checked' : '';
+    $checked = ((empty($meta_data) && $select['value'] == 'default') || $meta_data == $select['value']) ? ' checked' : '';
   ?>
     <div class="group">
-      <input name="<?php echo $this->meta_key; ?>" type="radio" class="post-format" id="bb-page-layout-<?php echo $select['id']; ?>" value="<?php echo $select['value']; ?>" <?php echo $checked; ?>>
+      <input name="<?php echo $this->meta_key; ?>" type="radio" class="post-format" id="bb-page-layout-<?php echo $select['id']; ?>" value="<?php echo $select['value']; ?>"<?php echo $checked; ?>>
       <label for="bb-page-layout-<?php echo $select['id']; ?>" class="post-format-icon"><?php echo $select['label']; ?></label>
     </div>
   <?php endforeach; ?>
@@ -88,5 +88,112 @@ class bbPageLayoutSelectMeta
     } else {
       update_post_meta($post_id, $this->meta_key, $_POST[$this->meta_key]);
     }
+  }
+}
+
+
+/**
+ * カテゴリー
+ */
+function call_bb_term_layout_select() {
+  new bbTermLayoutSelectMeta();
+}
+if (is_admin() && current_user_can('edit_pages')) {
+  add_action('load-edit-tags.php', 'call_bb_term_layout_select');
+  // 新規カテゴリーを追加時の ajax 処理
+  add_action('check_ajax_referer', 'call_bb_term_layout_select');
+}
+
+class bbTermLayoutSelectMeta
+{
+  private $meta_key = 'bb_term_layout_select';
+  private $meta_info = array(
+    'title' => 'カラムレイアウト',
+    'note'  => '画面全幅ではコンテンツカラムのwidthはauto、左右のpaddingは0になります。',
+  );
+  private $layouts = array(
+    array(
+      'id'    => 'twocolumn',
+      'value' => 'default',
+      'label' => '2カラム（デフォルト）',
+    ),
+    array(
+      'id'    => 'onecolumn',
+      'value' => 'onecolumn',
+      'label' => '1カラム幅固定',
+    ),
+    array(
+      'id'    => 'fullwidth',
+      'value' => 'fullwidth',
+      'label' => '1カラム全幅',
+    ),
+    array(
+      'id'    => 'nowrapwidth',
+      'value' => 'nowrapwidth',
+      'label' => '画面全幅',
+    ),
+  );
+
+  public function __construct() {
+    global $current_screen;
+    if (!empty($current_screen->taxonomy)) {
+      $taxonomy = $current_screen->taxonomy;
+      add_action($taxonomy . '_add_form_fields', array($this, 'term_layout_add_form_fields'), 13);
+      add_action($taxonomy . '_edit_form_fields', array($this, 'term_layout_edit_form_fields'), 13, 2);
+    }
+    add_action('create_term', array($this, 'save_term_layout_meta'), 10, 3);
+    add_action('edit_term', array($this, 'save_term_layout_meta'), 10, 3);
+  }
+
+  // 保存・更新
+  public function save_term_layout_meta($term_id, $tt_id, $taxonomy) {
+    update_term_meta($term_id, $this->meta_key, $_POST[$this->meta_key]);
+  }
+
+  // 新規
+  public function term_layout_add_form_fields() {
+    ?>
+<div class="form-field term-layout-wrap bb-term-field-add" id="bb-term-column">
+  <label><?php echo $this->meta_info['title']; ?></label>
+  <div class="bb-term-field-body">
+    <?php $this->term_layout_html(); ?>
+  </div>
+</div>
+    <?php
+  }
+
+  // 編集
+  public function term_layout_edit_form_fields($tag, $taxonomy = null) {
+    $meta_data = get_term_meta($tag->term_id, $this->meta_key, true);
+    ?>
+<div class="form-field term-layout-wrap bb-term-field-edit" id="bb-term-column">
+  <table class="form-table">
+    <tr class="form-field">
+      <th scope="row">
+        <label><?php echo $this->meta_info['title']; ?></label>
+      </th>
+      <td>
+        <div class="bb-term-field-body">
+          <?php $this->term_layout_html($meta_data); ?>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+    <?php
+  }
+
+  // HTMLブロック
+  private function term_layout_html($meta_data = '') {
+    foreach ($this->layouts as $select) :
+      $checked = ((empty($meta_data) && $select['value'] == 'default') || $meta_data == $select['value']) ? ' checked' : '';
+    ?>
+  <div class="group">
+    <input name="<?php echo $this->meta_key; ?>" type="radio" class="post-format" id="bb-term-layout-<?php echo $select['id']; ?>" value="<?php echo $select['value']; ?>"<?php echo $checked; ?>>
+    <label for="bb-term-layout-<?php echo $select['id']; ?>" class="post-format-icon"><?php echo $select['label']; ?></label>
+  </div>
+    <?php endforeach; ?>
+  <p class="note"><?php echo $this->meta_info['note']; ?></p>
+  <?php
   }
 }

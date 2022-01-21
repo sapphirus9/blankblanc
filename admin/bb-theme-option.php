@@ -104,6 +104,7 @@ function blankblanc_config_edit() {
             <li><a href="#tab-5" class="nav-tab">メインビジュアル</a></li>
           <?php endif; ?>
           <li><a href="#tab-4" class="nav-tab">モバイル</a></li>
+          <li><a href="#tab-7" class="nav-tab">トップページ</a></li>
         </ul>
 
         <!-- tab-1 -->
@@ -152,7 +153,6 @@ function blankblanc_config_edit() {
         <!-- tab-5 -->
         <div id="tab-5">
           <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-mainvisual-common.php'; ?>
-          <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-mainvisual-home.php'; ?>
         </div>
         <!-- /tab-5 -->
 
@@ -161,6 +161,18 @@ function blankblanc_config_edit() {
           <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-table-of-contents.php'; ?>
         </div>
         <!-- /tab-6 -->
+
+        <!-- tab-7 -->
+        <div id="tab-7">
+          <?php if (function_exists('call_bb_mainvisual_term_meta')) : ?>
+            <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-mainvisual-home.php'; ?>
+          <?php endif; ?>
+          <?php if (function_exists('call_bb_page_layout_select')) : ?>
+            <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-homepage-column.php'; ?>
+          <?php endif; ?>
+          <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-homepage-articles.php'; ?>
+        </div>
+        <!-- /tab-7 -->
       </div>
 
       <hr>
