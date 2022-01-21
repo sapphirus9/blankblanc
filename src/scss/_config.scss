@@ -7,6 +7,7 @@
 
 // width
 //--------------------------------------------------------------------
+$width-limit: 1850px;
 $width-desktop: 1050px;
 $first-column: 720px;
 $second-column: 280px;
@@ -15,6 +16,7 @@ $max-width-mobile: 700px;
 $min-width-mobile: 360px;
 $gap-desktop: 25px;
 $gap-mobile: 4.2vw;
+$nowrap-tile-step: 280px;
 
 // color
 //--------------------------------------------------------------------
@@ -105,13 +107,25 @@ $breakpoints: (
   b-md: 600px
 );
 @mixin media-max($type: lg) {
-  @media (max-width: (map.get($breakpoints, $type) - 1)) {
-    @content;
+  @if type-of($type) == 'number' {
+    @media (max-width: #{$type - 1}) {
+      @content;
+    }
+  } @else {
+    @media (max-width: (map.get($breakpoints, $type) - 1)) {
+      @content;
+    }
   }
 }
 @mixin media-min($type: lg) {
-  @media (min-width: map.get($breakpoints, $type)) {
-    @content;
+  @if type-of($type) == 'number' {
+    @media (min-width: #{$type}) {
+      @content;
+    }
+  } @else {
+    @media (min-width: map.get($breakpoints, $type)) {
+      @content;
+    }
   }
 }
 

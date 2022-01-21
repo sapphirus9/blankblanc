@@ -54,7 +54,7 @@
       display: none;
       margin: -10px 0 10px;
       padding: 10px 15px;
-      background-color: #e5e5e5;
+      background-color: #e3e8e9;
       box-sizing: border-box;
       .label-title {
         border-left: 0;
@@ -71,7 +71,7 @@
     line-height: 1.4;
     margin-bottom: 10px;
     padding: 3px 6px;
-    border-left: 4px dotted #c0c0c0;
+    border-left: 4px dotted #c0c5c6;
     em {
       font-size: .93em;
       font-weight: normal !important;
@@ -119,7 +119,7 @@
   .note {
     display: block;
     clear: both;
-    color: #707070;
+    color: #747980;
     font-size: 11px;
     line-height: 1.6;
     margin-top: 12px;
@@ -127,7 +127,7 @@
   .default {
     display: block;
     clear: both;
-    color: #909090;
+    color: #9499a0;
     font-size: 11px;
     line-height: 1.6;
     margin-top: 3px;
@@ -166,7 +166,7 @@
   }
   .no-image {
     display: inline-block;
-    color: #b0b0b0;
+    color: #b0b5b6;
     font-size: .83em;
     line-height: 1;
     text-align: center;
@@ -174,7 +174,7 @@
     max-width: 400px;
     padding: 25px 50px;
     margin: 5px 0;
-    border: 1px dashed #d0d0d0;
+    border: 1px dashed #d0d5d6;
     box-sizing: border-box;
   }
   .submit-btn {
@@ -216,11 +216,11 @@
     position: relative;
     > li {
       margin-bottom: 4px;
-      background-color: #e5e5e5;
+      background-color: #e3e8e9;
       overflow: hidden;
       user-select: none;
       &.active {
-        background-color: #d0d0d0;
+        background-color: #d0d5d6;
       }
       input {
         &[type=checkbox] {
@@ -253,8 +253,112 @@
   .wp-editor-wrap {
     overflow: hidden;
   }
-  // mainvisual
-  &-mv-term {
+  .homepage-column-layout {
+    .group {
+      display: flex;
+      align-items: center;
+      margin-top: 3px;
+      ul {
+        margin: 0;
+      }
+      input[type=radio] {
+        margin: 0 .5em 0 0;
+      }
+      label {
+        padding: 0;
+      }
+    }
+  }
+}
+
+// term
+.bb-term-field {
+  &-add {
+    > label {
+      cursor: default;
+      pointer-events: none;
+    }
+    .note {
+      color: #646970;
+      max-width: 100%;
+    }
+  }
+  &-add &-body {
+    width: 95%;
+    margin-top: 3px;
+    padding: 9px 12px;
+    border: 1px solid rgba(#000, .15);
+    background-color: rgba(#fff, .6);
+    box-sizing: border-box;
+    border-radius: 3px;
+  }
+  &-edit {
+    th {
+      label {
+        cursor: default;
+        pointer-events: none;
+      }
+    }
+    .note {
+      color: #646970;
+      max-width: 100%;
+    }
+  }
+  &-edit &-body {
+    width: 95%;
+    @media (max-width: 782px) {
+      width: 100%;
+    }
+  }
+}
+
+// mainvisual
+.bb-mainvisual-edit {
+  margin-top: 10px;
+  opacity: 0;
+  transition: all .1s;
+  &.loaded {
+    opacity: 1;
+  }
+  &-post {
+    .image-view {
+      width: auto;
+      max-width: 640px;
+      img {
+        display: block;
+        width: auto;
+        height: auto;
+        max-width: 100%;
+        max-height: 480px;
+        margin: 8px 0;
+      }
+    }
+    .no-image {
+      display: inline-block;
+      color: #b0b5b6;
+      font-size: .83em;
+      line-height: 1;
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+      padding: 25px 50px;
+      margin: 8px 0;
+      border: 1px dashed #d0d5d6;
+      box-sizing: border-box;
+    }
+    .bb-media-upload {
+      .input-group {
+        overflow: visible;
+      }
+      .media-title {
+        display: none;
+      }
+    }
+    .note {
+      margin: 8px 0 0;
+    }
+  }
+  &-term {
     input {
       vertical-align: -2px;
       margin: 1px;
@@ -276,7 +380,6 @@
     }
     .image-view {
       width: auto;
-      max-width: 95%;
       #addtag & {
         max-width: 100%;
       }
@@ -293,16 +396,23 @@
     }
     .no-image {
       display: inline-block;
-      color: #b0b0b0;
+      color: #b0b5b6;
       font-size: .83em;
       line-height: 1;
       text-align: center;
       width: 100%;
       padding: 25px 50px;
       margin: 5px 0;
-      border: 1px dashed #d0d0d0;
+      border: 1px dashed #d0d5d6;
       box-sizing: border-box;
     }
+    .note {
+      margin: 4px 0 0;
+    }
+  }
+  .note {
+    color: #646970;
+    max-width: 100%;
   }
 }
 
@@ -334,21 +444,15 @@
     .input-group {
       overflow: visible;
     }
-    .notes {
-      margin: 10px 0 0;
-    }
   }
 }
 
-#bb-mainvisual {
-  .edit-tags-php & {
-    max-width: 95%;
+.bb-term-layout {
+  overflow: hidden;
+  ul {
+    display: flex;
+    margin: 5px 0;
   }
-}
-
-#bb-taxonomy-layout {
-  display: flex;
-  margin: 5px 0;
   li {
     display: flex;
     align-items: center;
@@ -357,15 +461,13 @@
   .box {
     display: block;
     padding: 7px 10px;
-    background-color: #fff;
-    border: 1px solid #7e8993;
+    background-color: rgba(#9499a0, .25);
     border-radius: 5px;
-    opacity: .35;
     z-index: 2;
   }
   .dashicons {
     display: block;
-    color: #666;
+    color: rgba(#fff, .75);
     font-size: 60px;
     width: 60px;
     height: 60px;
@@ -373,7 +475,7 @@
   }
   .title {
     display: block;
-    color: #666;
+    color: rgba(#fff, .75);
     font-size: .83em;
     margin-top: 4px;
   }
@@ -381,7 +483,25 @@
     display: none;
     z-index: 1;
     &:checked + .box {
-      opacity: 1;
+      background-color: rgba(#9499a0, 1);
+      .dashicons,
+      .title {
+        color: #fff;
+      }
+    }
+  }
+}
+
+#bb-term-column {
+  .group {
+    display: flex;
+    align-items: center;
+    margin: 4px 0 8px;
+    input[type=radio] {
+      margin: 0 .5em 0 0;
+    }
+    label {
+      padding: 0;
     }
   }
 }
@@ -495,7 +615,7 @@
     }
     fieldset {
       width: 100%;
-      border-bottom: 1px dotted #d0d0d0;
+      border-bottom: 1px dotted #d0d5d6;
       box-sizing: border-box;
       &.sub-field {
         width: 100%;
