@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/sapphirus9/blankblanc#readme",
   "devDependencies": {
-    "autoprefixer": "^10.4.0",
+    "autoprefixer": "^10.4.2",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-dart-sass": "^1.0.2",
@@ -26,8 +26,8 @@
     "gulp-plumber": "^1.2.1",
     "gulp-postcss": "^9.0.1",
     "gulp-terser": "^2.1.0",
-    "postcss-merge-rules": "^5.0.3",
-    "postcss-normalize-charset": "^5.0.1",
-    "postcss-sort-media-queries": "^4.1.0"
+    "postcss-merge-rules": "^5.0.5",
+    "postcss-normalize-charset": "^5.0.2",
+    "postcss-sort-media-queries": "^4.2.1"
   }
 }
