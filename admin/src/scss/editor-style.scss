@@ -5,4 +5,5 @@
  * Description: 管理画面（編集）用スタイルシートです。
  */
 @use 'editor';
-@use '../../../src/scss/modules/content-tinymce';
+@use '../../../src/scss/common/add-tinymce' as tinymce;
+@include tinymce.add-tinymce();

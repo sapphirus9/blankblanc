@@ -53,12 +53,12 @@ if (!function_exists('customize_tiny_mce')) {
             'classes'  => 'text-highlighter text-highlighter-pink',
           ),
           array(
-            'title'    => '水色',
+            'title'    => '空色',
             'inline'   => 'em',
             'classes'  => 'text-highlighter text-highlighter-sky',
           ),
           array(
-            'title'    => '灰色',
+            'title'    => 'グレー',
             'inline'   => 'em',
             'classes'  => 'text-highlighter text-highlighter-gray',
           ),
@@ -174,4 +174,5 @@ if (!function_exists('customize_tiny_mce')) {
   }
 }
 add_filter('tiny_mce_before_init', 'customize_tiny_mce', 1000);
+add_theme_support('editor-styles');
 add_editor_style('admin/assets/css/editor-style.css');
