@@ -5,6 +5,12 @@
 
 // common
 //--------------------------------------------------------------------
+#contents-container .sticky-widget {
+  position: sticky;
+  top: 60px;
+}
+
+
 .widget {
   margin-bottom: 30px;
   ul {
