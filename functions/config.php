@@ -43,11 +43,12 @@ function bb_setup_theme_config() {
   if ($load_config = get_option('blankblanc_config_values')) {
     // アップデートチェック（バージョンが異なる場合はDBを更新）
     if (!isset($load_config['theme_version']) || $load_config['theme_version'] != $bb_theme_default['theme_version']) {
+      unset($load_config['theme_version']);
       $bb_theme_config = array_merge($bb_theme_default, $load_config);
       update_option('blankblanc_config_values', wp_unslash($bb_theme_config));
-      return;
+    } else {
+      $bb_theme_config = $load_config;
     }
-    $bb_theme_config = $load_config;
   } else {
     // DBにテーマオプションがない場合は登録
     $bb_theme_config = $bb_theme_default;
