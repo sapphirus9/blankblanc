@@ -104,9 +104,21 @@
       }
     }
     a {
-      color: cfg.$base-gray-3;
+      @include cfg.media-min(xl) {
+        position: relative;
+        padding-bottom: 2px;
+        background: linear-gradient(0deg, cfg.$link-color-hover 1px, transparent 1px);
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        background-size: 0 100%;
+        transition: all .1s;
+      }
       &:hover, &:active {
-        color: cfg.$link-color-hover;
+        @include cfg.media-min(xl) {
+          color: cfg.$link-color-hover;
+          text-decoration: none;
+          background-size: 100% 100%;
+        }
       }
     }
   }

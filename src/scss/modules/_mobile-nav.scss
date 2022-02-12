@@ -253,10 +253,12 @@ body.nav-window-show {
   .widget_meta {
     a {
       position: relative;
-      padding-left: 25px;
+      padding-right: 20px;
       &::before {
         position: absolute;
-        margin-left: -1.25em;
+        top: calc(50% - .65em);
+        right: 3px;
+        margin-right: .15em;
         @include cfg.icon-font('f0142');
       }
     }
@@ -264,7 +266,7 @@ body.nav-window-show {
     .children {
       margin-bottom: 0;
       a {
-        padding-left: 40px;
+        padding-left: 25px;
       }
     }
   }
