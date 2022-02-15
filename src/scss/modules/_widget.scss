@@ -6,11 +6,15 @@
 // common
 //--------------------------------------------------------------------
 #contents-container {
-  // ウイジェットの上部オフセットと幅を設定
+  // ウイジェットの上部オフセットを設定
   .sticky-widget,
   .bottom-fixed-widget.initial,
   .bottom-fixed-widget.sticky {
     top: 60px;
+  }
+  // ウイジェットの幅を設定
+  .sticky-widget,
+  .bottom-fixed-widget {
     width: cfg.$second-column;
   }
   .sticky-widget {
