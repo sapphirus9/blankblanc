@@ -18,17 +18,18 @@ const cfg = {
  * モジュール
  */
 const { src, dest, watch, parallel } = require('gulp')
-const autoprefixer = require('autoprefixer')
-const babel        = require('gulp-babel')
-const sass         = require('gulp-dart-sass')
-const notify       = require('gulp-notify')
-const plumber      = require('gulp-plumber')
-const postcss      = require('gulp-postcss')
-const terser       = require('gulp-terser')
-const path         = require('path')
-const mergerules   = require('postcss-merge-rules')
-const normcharset  = require('postcss-normalize-charset')
-const smqueries    = require('postcss-sort-media-queries')
+const autoprefixer  = require('autoprefixer')
+const sass          = require('gulp-dart-sass')
+const notify        = require('gulp-notify')
+const plumber       = require('gulp-plumber')
+const postcss       = require('gulp-postcss')
+const rename        = require('gulp-rename')
+const path          = require('path')
+const mergerules    = require('postcss-merge-rules')
+const normcharset   = require('postcss-normalize-charset')
+const smqueries     = require('postcss-sort-media-queries')
+const webpack       = require('webpack')
+const webpackStream = require('webpack-stream')
 
 /**
  * パス
@@ -63,12 +64,34 @@ ScssProd.displayName = 'Build SCSS';
 /**
  * JS
  */
-const JsProd = () =>
+const webpackConfig = (_file) => {
+  return {
+    mode: 'production',
+      output: {
+      filename: `${_file.basename}.js`,
+    },
+    module: {
+      rules: [{
+        use: [{
+          loader: 'babel-loader',
+          options: {
+            presets: ["@babel/preset-env"]
+          }
+        }]
+      }]
+    }
+  }
+}
+const JsProd = done => {
   src(_files.js)
-    .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
-    .pipe(babel({ "presets": ["@babel/preset-env"] }))
-    .pipe(terser())
-    .pipe(dest(_dist.js))
+    .pipe(rename((_file) => {
+      src(path.join(__dirname, cfg.rootDir, cfg.srcDir, cfg.jsDir, _file.basename + _file.extname))
+        .pipe(webpackStream(webpackConfig(_file), webpack))
+        .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
+        .pipe(dest(_dist.js))
+    }))
+  done()
+}
 JsProd.displayName = 'Build JS'
 
 /**

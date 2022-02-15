@@ -20,15 +20,17 @@
   "devDependencies": {
     "@babel/preset-env": "^7.16.11",
     "autoprefixer": "^10.4.2",
+    "babel-loader": "^8.2.3",
     "gulp": "^4.0.2",
-    "gulp-babel": "^8.0.0",
     "gulp-dart-sass": "^1.0.2",
     "gulp-notify": "^4.0.0",
     "gulp-plumber": "^1.2.1",
     "gulp-postcss": "^9.0.1",
-    "gulp-terser": "^2.1.0",
-    "postcss-merge-rules": "^5.0.5",
-    "postcss-normalize-charset": "^5.0.2",
-    "postcss-sort-media-queries": "^4.2.1"
+    "gulp-rename": "^2.0.0",
+    "postcss-merge-rules": "^5.0.6",
+    "postcss-normalize-charset": "^5.0.3",
+    "postcss-sort-media-queries": "^4.2.1",
+    "webpack": "^5.68.0",
+    "webpack-stream": "^7.0.0"
   }
 }
