@@ -386,7 +386,7 @@ let _BbBreakPoint = 768;
     const $headerPart = document.querySelector('#header-part');
     if ($headerPart) {
       const rect = $headerPart.getBoundingClientRect();
-      if (window.pageYOffset  >= window.pageYOffset  + rect.top) $headerPart.classList.add('fixed');
+      if (window.pageYOffset  >= parseInt(window.pageYOffset  + rect.top)) $headerPart.classList.add('fixed');
       else $headerPart.classList.remove('fixed');
     }
   });
@@ -420,6 +420,54 @@ let _BbBreakPoint = 768;
         document.querySelector('#main-container').classList.remove('gnav-active');
       });
     });
+  });
+
+  /**
+   * サイドウィジェットを下で固定
+   */
+  let initfixedWidget = {
+    top: null,
+    offset: null
+  }
+  const _FixedWidgetColumn = (() => {
+    const $secondCol = document.querySelector('#second-column');
+    // サイドカラムが非表示の場合は処理をしない
+    if (!$secondCol || window.getComputedStyle($secondCol).getPropertyValue('display') == 'none') return;
+    const $fixedWidget = document.querySelector('.bottom-fixed-widget');
+    if (!$fixedWidget) return;
+    // ウィジェットのtopオフセットをcssから取得
+    if (initfixedWidget.offset === null) {
+      $fixedWidget.classList.add('initial');
+      initfixedWidget.offset = parseInt(window.getComputedStyle($fixedWidget).getPropertyValue('top'));
+      $fixedWidget.classList.remove('initial');
+    }
+    const secondColRect = $secondCol.getBoundingClientRect();
+    const fixedWidgetRect = $fixedWidget.getBoundingClientRect();
+    // コンテンツカラムよりウィジェットの方が高い場合は処理をしない
+    if (secondColRect.height <= fixedWidgetRect.height) return;
+    const currentBottom = window.pageYOffset + document.documentElement.clientHeight;
+    if (initfixedWidget.top === null) initfixedWidget.top = window.pageYOffset + fixedWidgetRect.top;
+    // 画面よりウィジェットが小さい場合（ie11対応）
+    if (fixedWidgetRect.height <= document.documentElement.clientHeight - initfixedWidget.top) {
+      if (parseInt(initfixedWidget.top - initfixedWidget.offset) < window.pageYOffset) $fixedWidget.classList.add('sticky');
+      else $fixedWidget.classList.remove('sticky');
+      const fixedWidgetBottom = parseInt(window.pageYOffset + fixedWidgetRect.bottom);
+      const secondColBottom = parseInt(window.pageYOffset + secondColRect.bottom);
+      if (fixedWidgetBottom >= secondColBottom) {
+        $fixedWidget.classList.add('absolute');
+        if (fixedWidgetRect.top > initfixedWidget.offset) $fixedWidget.classList.remove('absolute');
+      }
+      else $fixedWidget.classList.remove('absolute');
+    } else {
+      // ウィジェットのボトムを判定
+      const fixedWidgetBottom = parseInt(initfixedWidget.top + fixedWidgetRect.height);
+      if (currentBottom >= fixedWidgetBottom) $fixedWidget.classList.add('fixed');
+      else $fixedWidget.classList.remove('fixed');
+      // カラムのボトムを判定
+      const secondColBottom = parseInt(window.pageYOffset + secondColRect.bottom);
+      if (currentBottom >= secondColBottom) $fixedWidget.classList.add('absolute');
+      else $fixedWidget.classList.remove('absolute');
+    }
   });
 
   /**
@@ -491,7 +539,7 @@ let _BbBreakPoint = 768;
         localStorage.setItem('submitBack', 1);
       });
       if (localStorage.getItem('submitBack') == 1) {
-        const $formBlockTop = document.createElement('div')
+        const $formBlockTop = document.createElement('div');
         $formBlockTop.classList.add(formTop.substring(1));
         $formBlock.parentNode.insertBefore($formBlockTop, $formBlock);
         new BbSmoothScroll($formBlockTop, scrollOptions);
@@ -552,6 +600,7 @@ let _BbBreakPoint = 768;
     _SearchForm();
     _BbToc();
     _GlobalNav();
+    _FixedWidgetColumn();
     _BbFormStyle();
   });
 
@@ -570,6 +619,7 @@ let _BbBreakPoint = 768;
    */
   window.addEventListener('scroll', () => {
     _FixedHeaderPart();
+    _FixedWidgetColumn();
     _ImgLazyLoad();
   });
 
@@ -578,6 +628,7 @@ let _BbBreakPoint = 768;
    */
   window.addEventListener('resize', () => {
     _FixedHeaderPart();
+    _FixedWidgetColumn();
     _ImgLazyLoad();
   });
 })();

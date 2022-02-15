@@ -5,11 +5,34 @@
 
 // common
 //--------------------------------------------------------------------
-#contents-container .sticky-widget {
-  position: sticky;
-  top: 60px;
+#contents-container {
+  // ウイジェットの上部オフセットと幅を設定
+  .sticky-widget,
+  .bottom-fixed-widget.initial,
+  .bottom-fixed-widget.sticky {
+    top: 60px;
+    width: cfg.$second-column;
+  }
+  .sticky-widget {
+    position: sticky;
+  }
+  .bottom-fixed-widget {
+    position: relative;
+    bottom: 0;
+    &.fixed {
+      position: fixed;
+    }
+    &.sticky {
+      position: fixed;
+      bottom: auto;
+    }
+    &.absolute {
+      position: absolute;
+      top: auto;
+      bottom: 0;
+    }
+  }
 }
-
 
 .widget {
   margin-bottom: 30px;
@@ -32,7 +55,7 @@
       margin-bottom: 16px;
       > li {
         margin-top: 8px;
-        padding-left: 1.5em;
+        padding-left: 1em;
       }
     }
     .cat-item-none {
@@ -267,6 +290,8 @@
 // global widget
 //--------------------------------------------------------------------
 #global-widget {
+  position: relative;
+  overflow: hidden;
   .widgettitle {
     font-size: 1.8rem;
     line-height: 1.3;
