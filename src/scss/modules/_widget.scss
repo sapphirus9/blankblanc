@@ -295,7 +295,11 @@
 //--------------------------------------------------------------------
 #global-widget {
   position: relative;
-  overflow: hidden;
+  &::after {
+    display: block;
+    content: '';
+    overflow: hidden;
+  }
   .widgettitle {
     font-size: 1.8rem;
     line-height: 1.3;
