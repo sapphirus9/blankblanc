@@ -140,6 +140,7 @@ function blankblanc_config_edit() {
         <!-- tab-3 -->
         <div id="tab-3">
           <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-logo-image.php'; ?>
+          <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-siteicon.php'; ?>
         </div>
         <!-- /tab-3 -->
 

@@ -91,22 +91,26 @@ function bb_config_default() {
     // 目次設定 [array]
     'toc_config'           => array(
       // 目次を表示 [bool]
-      'toc_active'     => true,
+      'toc_active'   => true,
       // 目次を閉じた状態にする [bool]
-      'toc_closed'     => false,
+      'toc_closed'   => false,
       // 目次タイトル [string]
-      'toc_title'      => 'Contents',
+      'toc_title'    => 'Contents',
       // 除外する見出し（h1~h6） [array]
-      'toc_hidden'     => array('h1'),
+      'toc_hidden'   => array('h1'),
       // アンカーIDに付加する文字列（Index-数字） [string]
-      'toc_prefix'     => 'Index-',
+      'toc_prefix'   => 'Index-',
       // 目次の挿入場所（ボディ最上部:0 ボディ最下部:-1 x番目の見出し前:1~） [int]
-      'toc_position'   => 1,
+      'toc_position' => 1,
     ),
+    // ファビコンのURL [string(url)]
+    'favicon'              => '',
+    // サイトアイコンのURL [string(url)]
+    'siteicon'             => '',
     // テーマ用CSS/JSのバージョンパラメータを別で指定 ※ブラウザキャッシュ対策用 [bool/string]
     'version_param'        => false,
     // テーマのバージョン情報
-    'theme_version' => '2.8.2.2',
+    'theme_version'        => '2.8.2.2',
   );
 }
 
