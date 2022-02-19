@@ -86,6 +86,8 @@
 |+ 除外する見出し|toc_hidden|array<br>h1～h6|array('h1')|
 |+ アンカーIDに付加する文字列|toc_prefix|string|Index-|
 |+ 目次の挿入場所|toc_position|int<br>ボディ最上部: 0<br>ボディ最下部: -1<br>x番目の見出し出現前: 1~|1|
+|ファビコンを設定|favicon|string (url)|空|
+|サイトアイコンを設定|siteicon|string (url)|空|
 |テーマ用CSS/JSのバージョンパラメータを別で指定（デフォルトはfalse）※ブラウザキャッシュ対策用|version_param|false<br>またはバージョン番号等|false|
 
 ## ライセンス
