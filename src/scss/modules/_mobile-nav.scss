@@ -258,8 +258,10 @@ body.nav-window-show {
         position: absolute;
         top: calc(50% - .65em);
         right: 3px;
+        color: cfg.$base-gray-3;
         margin-right: .15em;
         @include cfg.icon-font('f0142');
+        transform: scale(1.3);
       }
     }
     .sub-menu,
@@ -273,35 +275,35 @@ body.nav-window-show {
   // acoordion categories
   .acoordion-menu {
     > a {
-      margin-right: 38px;
+      margin-right: 42px;
     }
   }
   .icon-toggle {
     display: block;
     position: absolute;
-    top: calc(50% - 16px);
-    right: -38px;
-    width: 32px;
-    height: 32px;
-    background-color: cfg.$base-white;
-    border: 1px solid cfg.$base-gray-5;
-    border-radius: 50%;
-    box-sizing: border-box;
+    top: calc(50% - 17px);
+    right: -42px;
+    width: 34px;
+    height: 34px;
+    // border: 1px solid cfg.$base-gray-6;
     z-index: 2;
-    &::before {
+    &::before,
+    &::after {
       display: block;
       position: absolute;
-      top: calc(32% - .5px);
-      left: calc(30% - .5px);
+      top: 8px;
+      bottom: 8px;
+      left: calc(50% - 1px);
       content: '';
-      width: 8px;
-      height: 8px;
-      border-right: 1px solid cfg.$base-gray-2;
-      border-bottom: 1px solid cfg.$base-gray-2;
-      transform-origin: 70% 70%;
-      transform: rotate(45deg);
+      width: 2px;
+      height: auto;
+      background-color: cfg.$base-gray-3;
+      opacity: 1;
       transition: all .3s;
       z-index: 2;
+    }
+    &::after {
+      transform: rotate(90deg);
     }
   }
   .widget_pages > ul > .page_item,
@@ -319,10 +321,10 @@ body.nav-window-show {
         opacity: 1;
         overflow-y: auto;
       }
-      .icon-toggle{
+      .icon-toggle {
         &::before {
-          border-color: cfg.$base-gray-4;
-          transform: rotate(45deg) scale(-1, -1);
+          transform: rotate(270deg);
+          opacity: 0;
         }
       }
     }
@@ -344,8 +346,8 @@ body.nav-window-show {
       }
       .icon-toggle {
         &::before {
-          border-color: cfg.$base-gray-4;
-          transform: rotate(45deg) scale(-1, -1);
+          transform: rotate(270deg);
+          opacity: 0;
         }
       }
     }
