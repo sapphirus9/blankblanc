@@ -1,3 +1,4 @@
+'use strict';
 (function ($) {
   // 設定の初期化
   $(function () {
@@ -42,9 +43,9 @@
     $(target).on('click', func);
     function func() {
       if ($(target).prop('checked')) {
-        $('.auto-post-slug').fadeIn(300).css({ display: 'inline-block' });
+        $('.auto_post_slug').fadeIn(300).css({ display: 'inline-block' });
       } else {
-        $('.auto-post-slug').fadeOut(300);
+        $('.auto_post_slug').fadeOut(300);
       }
     }
   });

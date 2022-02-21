@@ -2,6 +2,7 @@
  * WordPress Gutenbergのリッチテキストツールバーにドロップダウンメニューボタン追加
  * 参考: https://celtislab.net/archives/20200319/wordpress-richtext-toolbar-button/
  */
+'use strict';
 (function () {
   const { Fragment, createElement } = wp.element;
   const { registerFormatType, toggleFormat } = wp.richText;

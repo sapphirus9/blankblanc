@@ -4,6 +4,7 @@
  * Description: 共通で使用するJavaScriptです
  */
 
+'use strict';
 /**
  * ブラウザー確認
  * element: html
@@ -143,7 +144,6 @@ class BbSmoothScroll {
  */
 let _BbBreakPoint = 768;
 (() => {
-  'use strict';
   /* forEach (ie11 measures) */
   if (window.NodeList && !NodeList.prototype.forEach) {
     NodeList.prototype.forEach = Array.prototype.forEach;
