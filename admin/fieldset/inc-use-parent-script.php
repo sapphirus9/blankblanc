@@ -1,5 +1,5 @@
 <?php if (is_child_theme()) : ?>
-  <fieldset class="use-parent-script">
+  <fieldset <?php $this->has_modified('with_parent_script'); ?>>
     <div class="col-left">
       <div class="label-title">親テーマのJavaScriptを利用</div>
       <div class="note">子テーマを利用時に親テーマの {theme}/assets/js/functions.js, {theme}/assets/js/mobile-nav.js ファイルの読み込みます。<br>

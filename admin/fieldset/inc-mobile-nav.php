@@ -1,4 +1,4 @@
-<fieldset class="mobile-nav">
+<fieldset <?php $this->has_modified('mobile_nav'); ?>>
   <?php
   global $wp_registered_sidebars, $wp_registered_widgets;
   $before_nav = has_nav_menu('global_nav') ? array('global-nav' => array('global-nav')) : array();

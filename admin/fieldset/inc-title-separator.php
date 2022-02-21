@@ -1,4 +1,4 @@
-<fieldset class="title-separator">
+<fieldset <?php $this->has_modified('title_separator'); ?>>
   <div class="col-left">
     <div class="label-title">titleタグのセパレーター</div>
   </div>

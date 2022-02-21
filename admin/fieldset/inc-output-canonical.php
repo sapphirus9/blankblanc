@@ -1,4 +1,4 @@
-<fieldset class="output-canonical">
+<fieldset <?php $this->has_modified('output_canonical'); ?>>
   <div class="col-left">
     <div class="label-title">rel=canonical／prev／next出力</div>
     <div class="note">プラグイン等を利用して設定を行う場合はチェックを外します。</div>

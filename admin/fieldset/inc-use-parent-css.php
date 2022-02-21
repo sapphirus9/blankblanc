@@ -1,5 +1,5 @@
 <?php if (is_child_theme()) : ?>
-  <fieldset class="use-parent-css">
+  <fieldset <?php $this->has_modified('with_parent_css'); ?>>
     <div class="col-left">
       <div class="label-title">親テーマのCSSを利用</div>
       <div class="note">子テーマを利用時に親テーマのCSSファイル（{theme}/assets/css/theme.css）を読み込みます。<br>

@@ -1,6 +1,6 @@
 <?php // [extention] extensions/ex-mainvisual.php ---
   if (function_exists('call_bb_mainvisual_term_meta')) : ?>
-  <fieldset id="bb-mainvisual" class="bb-media-upload">
+  <fieldset id="bb-mainvisual" <?php $this->has_modified('mv_image', 'bb-media-upload'); ?>>
     <div class="col-left">
       <div class="media-title">共通メインビジュアル画像</div>
       <div class="label-title">共通メインビジュアル</div>

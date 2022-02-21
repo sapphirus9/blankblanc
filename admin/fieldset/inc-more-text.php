@@ -1,4 +1,4 @@
-<fieldset class="more-text">
+<fieldset <?php $this->has_modified('more_text'); ?>>
   <div class="col-left">
     <div class="label-title">『続きを読む』の表記</div>
     <div class="note">投稿・固定ページの『続きを読む』の表記のしかたを設定します。</div>

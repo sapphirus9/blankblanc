@@ -1,4 +1,4 @@
-<fieldset class="excerpt-length-rss">
+<fieldset <?php $this->has_modified('excerpt_length_rss'); ?>>
   <div class="col-left">
     <div class="label-title">RSSの記事出力文字数</div>
     <div class="note">無指定の場合、記事抜粋の文字数が適用されます。</div>

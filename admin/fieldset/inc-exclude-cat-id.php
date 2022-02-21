@@ -1,6 +1,6 @@
 <?php // [extention] ex-exclude-categories.php ---
   if (class_exists('bbExcludeCategories')) : ?>
-  <fieldset class="exclude-cat-id">
+  <fieldset <?php $this->has_modified('exclude_cat_id'); ?>>
     <div class="col-left">
       <div class="label-title">除外対象のカテゴリーID</div>
       <div class="note">特定のカテゴリーをカテゴリーウィジェットやフィード等の対象から除外します。（カンマ区切り）</div>

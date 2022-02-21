@@ -1,4 +1,4 @@
-<fieldset class="archive-title-suffix">
+<fieldset <?php $this->has_modified('archive_title_suffix'); ?>>
   <div class="col-left">
     <div class="label-title">一覧ページのタイトル接尾辞</div>
   </div>

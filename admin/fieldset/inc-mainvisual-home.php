@@ -1,6 +1,6 @@
 <?php // [extention] extensions/ex-mainvisual.php ---
   if (function_exists('call_bb_mainvisual_term_meta')) : ?>
-  <fieldset id="bb-mainvisual-home" class="bb-media-upload">
+  <fieldset id="bb-mainvisual-home" <?php $this->has_modified('mv_home_image', 'bb-media-upload'); ?>>
     <div class="col-left">
       <div class="label-title">メインビジュアル</div>
       <div class="note">HomeまたはFront Pageが対象です。</div>
@@ -37,7 +37,7 @@
     </div>
   </fieldset>
 
-  <fieldset class="bb-mainvisual-home-content">
+  <fieldset <?php $this->has_modified('mv_home_content'); ?>>
     <div class="col-left">
       <div class="label-title">メインビジュアル内コンテンツ</div>
       <div class="note">HomeまたはFront Pageが対象です。<br>

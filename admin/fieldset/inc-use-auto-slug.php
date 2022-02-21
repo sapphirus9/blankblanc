@@ -1,4 +1,4 @@
-<fieldset class="use-auto-slug">
+<fieldset <?php $this->has_modified('use_auto_slug'); ?>>
   <div class="col-left">
     <div class="label-title">日本語タイトル時のスラッグ設定</div>
     <div class="note">投稿時に自動で設定される日本語スラッグを「接頭辞-ポストID（e.g. post-99）」に置き換えます。</div>
@@ -12,7 +12,7 @@
   </div>
 </fieldset>
 
-<fieldset class="auto-post-slug sub-field">
+<fieldset <?php $this->has_modified('auto_post_slug', 'sub-field'); ?>>
   <div class="col-left">
     <div class="label-title">設定するスラッグの接頭辞</div>
     <div class="note">無指定の時は {post_type} を接頭辞として使用します。</div>

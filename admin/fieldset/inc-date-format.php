@@ -1,4 +1,4 @@
-<fieldset class="date-format">
+<fieldset <?php $this->has_modified('date_format'); ?>>
   <div class="col-left">
     <div class="label-title">年月日個別フォーマット</div>
   </div>

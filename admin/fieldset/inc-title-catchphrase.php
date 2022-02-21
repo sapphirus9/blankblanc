@@ -1,4 +1,4 @@
-<fieldset class="title-catchphrase">
+<fieldset <?php $this->has_modified('title_catchphrase'); ?>>
   <div class="col-left">
     <div class="label-title">titleに併記するキャッチフレーズ</div>
     <div class="note">無指定の場合、一般設定のキャッチフレーズを適用します。</div>

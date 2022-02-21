@@ -1,6 +1,6 @@
 <?php // [extention] ex-breadcrumb.php ---
   if (class_exists('bbBreadCrumb')) : ?>
-  <fieldset class="bread-crumb-multi">
+  <fieldset <?php $this->has_modified('bread_crumb_multi'); ?>>
     <div class="col-left">
       <div class="label-title">カテゴリー毎（複数）のパンくず表示</div>
       <div class="note">投稿ページにおいて、属するカテゴリーが複数指定の場合、カテゴリー毎（複数）のパンくずリストを表示します。</div>

@@ -1,4 +1,4 @@
-<fieldset class="favicon">
+<fieldset <?php $this->has_modified('favicon'); ?>>
   <div class="col-left">
     <div class="label-title">favicon画像のURL</div>
     <div class="note">通常はico画像またはpng画像を用意してください。<br>
@@ -13,11 +13,11 @@
   </div>
 </fieldset>
 
-<fieldset class="siteicon">
+<fieldset <?php $this->has_modified('siteicon'); ?>>
   <div class="col-left">
     <div class="label-title">サイトアイコン画像のURL</div>
     <div class="note">通常はpng画像を用意してください。<br>
-    （192×192pxくらいで正方形のpng画像が望ましい）<br>
+    （正方形で192×192pxくらいのpng画像が望ましい）<br>
     ※テーマカスタマイザでサイトアイコンが設定されている場合、これは使用されません。</div>
   </div>
   <div class="col-right">

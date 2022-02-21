@@ -1,4 +1,4 @@
-<fieldset id="bb-logo-image" class="bb-media-upload">
+<fieldset id="bb-logo-image" <?php $this->has_modified('logo_image', 'bb-media-upload'); ?>>
   <div class="col-left">
     <div class="media-title">ロゴ画像</div>
     <div class="label-title">ロゴ画像</div>
@@ -34,7 +34,7 @@
   </div>
 </fieldset>
 
-<fieldset class="logo-alt">
+<fieldset <?php $this->has_modified('logo_alt'); ?>>
   <div class="col-left">
     <div class="label-title">ロゴ画像のalt（またはテキスト）</div>
     <div class="note">画像を設定していない場合、ロゴの代わりにこのテキストを適用します。</div>
@@ -47,7 +47,7 @@
   </div>
 </fieldset>
 
-<fieldset class="logo-size">
+<fieldset <?php $this->has_modified('logo_size'); ?>>
   <div class="col-left">
     <div class="label-title">ロゴ画像サイズ</div>
     <div class="note">ロゴ画像のサイズ（width/height）を追加できます。<br>

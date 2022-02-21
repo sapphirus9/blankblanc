@@ -1,7 +1,7 @@
 <?php // [extention] extensions/ex-table-of-contents.php ---
   if (function_exists('call_bb_table_of_contents')) : ?>
   <div class="activate-block-header">
-    <fieldset class="use-toc">
+    <fieldset <?php $this->has_modified('use_toc'); ?>>
       <div class="col-left">
         <div class="label-title">目次機能の有効化</div>
       </div>
@@ -16,7 +16,7 @@
   </div>
 
   <div class="activate-block-body<?php if ($config_values['use_toc']) echo ' active'; ?>">
-    <fieldset class="toc-active">
+    <fieldset <?php $this->has_modified('toc_config.toc_active'); ?>>
       <div class="col-left">
         <div class="label-title">デフォルトの目次表示</div>
       </div>
@@ -28,7 +28,7 @@
         <div class="default">初期値: <?php _echo($bb_theme_default['toc_config']['toc_active']); ?></div>
       </div>
     </fieldset>
-    <fieldset class="toc-closed">
+    <fieldset <?php $this->has_modified('toc_config.toc_closed'); ?>>
       <div class="col-left">
         <div class="label-title">目次を閉じた状態にする</div>
       </div>
@@ -40,7 +40,7 @@
         <div class="default">初期値: <?php _echo($bb_theme_default['toc_config']['toc_closed']); ?></div>
       </div>
     </fieldset>
-    <fieldset class="toc-title">
+    <fieldset <?php $this->has_modified('toc_config.toc_title'); ?>>
       <div class="col-left">
         <div class="label-title">目次ブロックのタイトル</div>
       </div>
@@ -51,7 +51,7 @@
         <div class="default">初期値: <?php _echo($bb_theme_default['toc_config']['toc_title']); ?></div>
       </div>
     </fieldset>
-    <fieldset class="toc-hidden">
+    <fieldset <?php $this->has_modified('toc_config.toc_hidden'); ?>>
       <div class="col-left">
         <div class="label-title">目次から除外する見出し</div>
       </div>
@@ -68,7 +68,7 @@
         <div class="default">初期値: <?php _echo(implode(', ', $bb_theme_default['toc_config']['toc_hidden'])); ?></div>
       </div>
     </fieldset>
-    <fieldset class="toc-prefix">
+    <fieldset <?php $this->has_modified('toc_config.toc_prefix'); ?>>
       <div class="col-left">
         <div class="label-title">目次アンカーIDに付加する文字列</div>
       </div>
@@ -79,7 +79,7 @@
         <div class="default">初期値: <?php _echo($bb_theme_default['toc_config']['toc_prefix']); ?></div>
       </div>
     </fieldset>
-    <fieldset class="toc-position">
+    <fieldset <?php $this->has_modified('toc_config.toc_position'); ?>>
         <div class="col-left">
           <div class="label-title">目次の挿入場所</div>
           <div class="note">ボディ最上部:0／ボディ最下部:-1／x番目の見出し前:1~</div>

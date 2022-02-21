@@ -1,6 +1,6 @@
 <?php // [extention] extensions/ex-page-layout.php ---
   if (function_exists('call_bb_page_layout_select')) : ?>
-  <fieldset class="homepage-column-layout">
+  <fieldset <?php $this->has_modified('homepage_layout.column'); ?>>
     <div class="col-left">
       <div class="label-title">カラムレイアウト</div>
       <div class="note">トップページを「<a href="<?php echo get_admin_url(); ?>options-reading.php">最新の投稿</a>」に設定した場合に有効です。</div>

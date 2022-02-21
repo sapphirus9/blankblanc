@@ -61,6 +61,12 @@
         padding: 0;
       }
     }
+    &.config-modified {
+      .label-title {
+        color: #ad002b;
+        border-left-color: #ff4a4a;
+      }
+    }
   }
   .label-title {
     position: relative;
@@ -686,7 +692,7 @@
 
 // copyright
 #bb-config-edit {
-  .copyright-text {
+  .copyright {
     .group {
       display: block;
       margin: 3px 0 0;

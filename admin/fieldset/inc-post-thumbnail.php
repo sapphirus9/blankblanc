@@ -1,4 +1,4 @@
-<fieldset class="post-thumbnail">
+<fieldset <?php $this->has_modified('post_thumbnail'); ?>>
   <div class="col-left">
     <div class="label-title">アイキャッチ画像</div>
     <div class="note">アイキャッチ画像の使用サイズと画像の切り出し方法を設定します。<br>

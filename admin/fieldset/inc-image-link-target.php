@@ -1,4 +1,4 @@
-<fieldset class="image-link-target">
+<fieldset <?php $this->has_modified('image_link_target'); ?>>
   <div class="col-left">
     <div class="label-title">画像リンクを別窓で開く</div>
     <div class="note">画像へのリンクはすべて別窓（_blank）として開きます。<br>※対象：jpg, png, gif, svg, pdf</div>

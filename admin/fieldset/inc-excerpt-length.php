@@ -1,4 +1,4 @@
-<fieldset class="excerpt-length">
+<fieldset <?php $this->has_modified('excerpt_length'); ?>>
   <div class="col-left">
     <div class="label-title">記事抜粋の文字数<em>※必須</em></div>
   </div>

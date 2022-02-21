@@ -1,4 +1,4 @@
-<fieldset class="taxonomy-layout">
+<fieldset <?php $this->has_modified('taxonomy_layout'); ?>>
   <div class="col-left">
     <div class="label-title">共通の投稿一覧レイアウトタイプ</div>
   </div>
