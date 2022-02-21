@@ -613,20 +613,20 @@ add_filter('widget_title', 'remove_widget_title');
  * 参考:
  * http://www.warna.info/archives/2317/
  */
-if (!function_exists('bb_auto_post_slug')) {
-  function bb_auto_post_slug($slug, $post_ID, $post_status, $post_type) {
+if (!function_exists('bb_ja_auto_post_slug')) {
+  function bb_ja_auto_post_slug($slug, $post_ID, $post_status, $post_type) {
     global $bb_theme_config;
-    if ($bb_theme_config['use_auto_slug'] === true) {
+    if ($bb_theme_config['ja_auto_post_slug']['rewrite'] === true) {
       if (preg_match('/(%[0-9a-f]{2})+/', $slug)) {
-        $prefix = $bb_theme_config['auto_post_slug'] ? $bb_theme_config['auto_post_slug'] : (utf8_uri_encode($post_type) . '-');
+        $prefix = $bb_theme_config['ja_auto_post_slug']['prefix'] ? $bb_theme_config['ja_auto_post_slug']['prefix'] : (utf8_uri_encode($post_type) . '-');
         $slug = $prefix . $post_ID;
       }
     }
-    $slug = apply_filters('bb_auto_post_slug', $slug);
+    $slug = apply_filters('bb_ja_auto_post_slug', $slug);
     return $slug;
   }
 }
-add_filter('wp_unique_post_slug', 'bb_auto_post_slug', 10, 4);
+add_filter('wp_unique_post_slug', 'bb_ja_auto_post_slug', 10, 4);
 
 
 /**

@@ -38,14 +38,14 @@
 
   // 日本語タイトル時のスラッグ設定
   $(function () {
-    var target = '#bb-config-use-auto-slug';
+    var target = '#bb-config-ja-auto-post-slug';
     func();
     $(target).on('click', func);
     function func() {
       if ($(target).prop('checked')) {
-        $('.auto_post_slug').fadeIn(300).css({ display: 'inline-block' });
+        $(target + '_sub-field').fadeIn(300).css({ display: 'inline-block' });
       } else {
-        $('.auto_post_slug').fadeOut(300);
+        $(target + '_sub-field').fadeOut(300);
       }
     }
   });

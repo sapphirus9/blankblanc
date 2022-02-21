@@ -31,10 +31,13 @@ function bb_config_default() {
     'date_format'          => array('Y年', 'n月', 'j日', ''),
     // 投稿・固定ページのMOREテキスト表示 [string]
     'more_text'            => ' &#x22ef; 続きを読む',
-    // 日本語タイトル時のスラッグにIDを使って自動設定する [bool]
-    'use_auto_slug'        => true,
-    // 自動設定するスラッグの接頭辞（無指定はpost_type） [string]
-    'auto_post_slug'       => '',
+    // 日本語タイトル時のスラッグ設定
+    'ja_auto_post_slug'    => array(
+      // スラッグにIDを使って自動設定する [bool]
+      'rewrite' => true,
+      // 自動設定するスラッグの接頭辞（無指定はpost_type） [string]
+      'prefix'  => '',
+    ),
     // ロゴイメージ画像（デフォルトは{theme_name}/img/logo.png） [string(url)]
     'logo_image'           => get_template_directory_uri() . '/assets/img/logo.png',
     // ロゴのサイズ（幅[数値], 高さ[数値]） [array]
