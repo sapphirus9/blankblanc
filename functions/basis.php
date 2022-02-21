@@ -754,27 +754,27 @@ if (!function_exists('bb_logo_image')) {
 if (!function_exists('bb_copyright')) {
   function bb_copyright() {
     global $bb_theme_config;
-    if (empty($bb_theme_config['copyright_text'])) {
+    if (empty($bb_theme_config['copyright']['text'])) {
       echo '';
       return;
     }
     $prefix = '';
-    if (!empty($bb_theme_config['copyright_prefix'])) {
-      $prefix = "<span class=\"prefix\">{$bb_theme_config['copyright_prefix']}</span>";
+    if (!empty($bb_theme_config['copyright']['prefix'])) {
+      $prefix = "<span class=\"prefix\">{$bb_theme_config['copyright']['prefix']}</span>";
     }
     $year = '';
-    if (!empty($bb_theme_config['start_year'])) {
+    if (!empty($bb_theme_config['copyright']['start_year'])) {
       $year = date_i18n('Y');
-      if ((string) $bb_theme_config['start_year'] !== $year) {
-        $year = $bb_theme_config['start_year'] . '-' . $year;
+      if ((string) $bb_theme_config['copyright']['start_year'] !== $year) {
+        $year = $bb_theme_config['copyright']['start_year'] . '-' . $year;
       }
       $year = "<span class=\"year\">{$year}</span>";
     }
     $suffix = '';
-    if (!empty($bb_theme_config['copyright_suffix'])) {
-      $suffix = "<span class=\"suffix\">{$bb_theme_config['copyright_suffix']}</span>";
+    if (!empty($bb_theme_config['copyright']['suffix'])) {
+      $suffix = "<span class=\"suffix\">{$bb_theme_config['copyright']['suffix']}</span>";
     }
-    $src = "{$prefix}<span class=\"copyright-text\"><span class=\"sign\">&#169;</span>{$year}<span class=\"text\">{$bb_theme_config['copyright_text']}</span></span>{$suffix}";
+    $src = "{$prefix}<span class=\"copyright-text\"><span class=\"sign\">&#169;</span>{$year}<span class=\"text\">{$bb_theme_config['copyright']['text']}</span></span>{$suffix}";
     $src = apply_filters('bb_copyright', $src);
     echo $src;
     return;

@@ -41,14 +41,17 @@ function bb_config_default() {
     'logo_size'            => array(230, 40),
     // ロゴのalt出力（デフォルトはブログ名） [string]
     'logo_alt'             => get_bloginfo('name'),
-    // コピーライトの接頭辞（デフォルトは無指定） [string]
-    'copyright_prefix'     => '',
-    // コピーライトの接尾時（デフォルトは無指定） [string]
-    'copyright_suffix'     => '',
-    // サイト開始年（コピーライト箇所で使用） [string]
-    'start_year'           => date_i18n('Y'),
-    // コピーライトの表示テキスト（デフォルトはブログ名） [string]
-    'copyright_text'       => get_bloginfo('name') . '.',
+    // コピーライト設定 [array]
+    'copyright'            =>  array(
+      // コピーライトの接頭辞（デフォルトは無指定） [string]
+      'prefix' => '',
+      // サイト開始年（コピーライト箇所で使用） [string]
+      'start_year'       => date_i18n('Y'),
+      // コピーライトの表示テキスト（デフォルトはブログ名） [string]
+      'text'   => get_bloginfo('name') . '.',
+      // コピーライトの接尾辞（デフォルトは無指定） [string]
+      'suffix' => '',
+    ),
     // カノニカル出力の有無 [bool]
     'output_canonical'     => true,
     // 子テーマ利用時に親テーマのCSSファイルを読み込む [bool]
