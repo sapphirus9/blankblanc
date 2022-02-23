@@ -22,7 +22,7 @@ function bb_config_default() {
     // アーカイブページのサムネイル画像サイズ（幅[int], 高さ[int], 切り出し[bool]） [array]
     'archive_thumbnail'    => array(300, 300, true),
     // 記事抜粋時の省略表記 [string]
-    'excerpt_more'         => ' &#x22ef;',
+    'excerpt_more'         => ' ⋯',
     // 記事抜粋の文字数 [int]
     'excerpt_length'       => 110,
     // RSSの記事出力文字数 [int]
@@ -30,7 +30,7 @@ function bb_config_default() {
     // 年月日個別フォーマット（年[string],月[string],日[string],セパレータ[string]） [array]
     'date_format'          => array('Y年', 'n月', 'j日', ''),
     // 投稿・固定ページのMOREテキスト表示 [string]
-    'more_text'            => ' &#x22ef; 続きを読む',
+    'more_text'            => ' ⋯ 続きを読む',
     // 日本語タイトル時のスラッグ設定
     'ja_auto_post_slug'    => array(
       // スラッグにIDを使って自動設定する [bool]
