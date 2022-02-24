@@ -765,7 +765,7 @@ if (!function_exists('bb_copyright')) {
     $year = '';
     if (!empty($bb_theme_config['copyright']['start_year'])) {
       $year = date_i18n('Y');
-      if ((string) $bb_theme_config['copyright']['start_year'] !== $year) {
+      if ((string) $bb_theme_config['copyright']['start_year'] < $year) {
         $year = $bb_theme_config['copyright']['start_year'] . '-' . $year;
       }
       $year = "<span class=\"year\">{$year}</span>";
