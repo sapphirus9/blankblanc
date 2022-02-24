@@ -5,7 +5,7 @@
   </div>
   <div class="col-right">
     <div class="group">
-      <input type="hidden" name="blankblanc_config_values[mobile_nav_position]" value="false">
+      <input type="hidden" name="blankblanc_config_values[mobile_nav_position]" value="">
       <input type="checkbox" name="blankblanc_config_values[mobile_nav_position]" id="bb-config-mobile-nav-position" value="right"<?php if ($config_values['mobile_nav_position'] === 'right') echo ' checked'; ?>>
     </div>
     <?php
