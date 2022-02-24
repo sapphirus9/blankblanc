@@ -28,15 +28,19 @@
 * Chrome, Firefox, Edge, Safariは原則として最新バージョンの対応
 * IE 11は一部非対応（おもにCSS）
 
+## インストールに際し
+CodeまたはTagsダウンロードすると、アーカイブファイル内のフォルダにmasterやバージョンが付加されるので、**「blankblanc」にフォルダ名を書き換え**（場合によっては再アーカイブ化）てからテーマのインストールや更新を行ってください。  
+※フォルダ名の変更（同じテーマではフォルダ名を合わせる）を行わないと別テーマとして登録されるため、アップデートなどの際に重複によるエラーの原因になります。
+
 ## 基本設定
 ### 初期値
-[*functions.php*](https://github.com/sapphirus9/blankblanc/blob/master/functions.php)にある*bb_config_default()*で設定した値が使用されます。
+[*functions.php*](https://github.com/sapphirus9/blankblanc/blob/master/functions.php)にある *bb_config_default()* 内で設定した値が使用されます。
 
 ### テーマオプション（WP管理画面 > 外観）
-各項目の初期値として*bb_config_default()*の設定値が設定されます。
+各項目の初期値として *bb_config_default()* の設定値が設定されます。
 ここで『設定を保存』すると初期値とは別にWP内に保存され、以降はここでの設定値が反映されます。
 
-『初期状態に戻す』ボタンを押すと変更した項目はすべてクリアされ、*bb_config_default()*の設定値が再び有効になります。
+『初期状態に戻す』ボタンを押すと変更した項目はすべてクリアされ、 *bb_config_default()* の設定値が再び有効になります。
 
 #### 各項目と設定値
 |項目|キー|タイプ|初期値|
@@ -46,21 +50,24 @@
 |一覧ページのタイトル接尾辞|archive_title_suffix|string|の一覧|
 |アイキャッチ画像|post_thumbnail|array<br>幅[数値], 高さ[数値], 切り出し[true/false]|array(1024, 768, true)|
 |一覧ページのサムネイル画像|archive_thumbnail|array<br>幅[数値], 高さ[数値], 切り出し[true/false]|array(300, 300, true)|
-|記事抜粋時の省略表記|excerpt_more|string|&#x22ef;|
+|記事抜粋時の省略表記|excerpt_more|string|⋯|
 |記事抜粋の文字数|excerpt_length|int|110|
 |RSSの記事出力文字数|excerpt_length_rss|int|200|
 |年月日個別フォーマット|date_format|array<br>Y年, n月, j日, セパレータ|array('Y年', 'n月', 'j日', '')|
-|『続きを読む』の表記|more_text|string|&#x22ef; 続きを読む|
-|日本語タイトル時のスラッグ設定|use_auto_slug|bool|true|
+|『続きを読む』の表記|more_text|string|⋯ 続きを読む|
+|日本語タイトル時のスラッグ設定|ja_auto_post_slug|array|※以下の配列用|
+|+ スラッグ設定|rewrite|bool|true|
+|+ 設定するスラッグの接頭辞|prefix|string|空|
 |設定するスラッグの接頭辞|auto_post_slug|string|空|
 |ロゴ画像|logo_image|string (url)|blankblanc/assets/img/logo.png|
 |ロゴ画像サイズ|logo_size|array<br>幅[数値], 高さ[数値]|array(230, 40)|
 |ロゴ画像のalt|logo_alt|string|ブログ名|
 |共通メインビジュアル画像|mv_image|string (url)|空|
-|コピーライトの表記（接頭辞）|copyright_prefix|string|空|
-|コピーライトの表記（接尾時）|copyright_suffix|string|空|
-|コピーライトの表記（開始年）|start_year|string|date_i18n('Y')|
-|コピーライトの表記（テキスト）|copyright_text|string|ブログ名|
+|コピーライト設定|copyright|array|※以下の配列用|
+|+ コピーライトの表記（接頭辞）|prefix|string|空|
+|+ コピーライトの表記（開始年）|start_year|string|date_i18n('Y')|
+|+ コピーライトの表記（テキスト）|text|string|ブログ名|
+|+ コピーライトの表記（接尾辞）|suffix|string|空|
 |rel=canonical／prev／next出力|output_canonical|bool|true|
 |親テーマのCSSを利用|with_parent_css|bool|true|
 |親テーマのスクリプト（js）を利用|with_parent_script|bool|true|
@@ -100,5 +107,5 @@ BlankBlancのテーマに含まれるオリジナルについては、すべて*
 * [Material Design Icons](https://materialdesignicons.com/) - [SIL Open Font License 1.1](http://scripts.sil.org/cms/scripts/page.php?item_id=OFL_web)
 
 ## 付記
-動作の不具合などが見つかるかもしれません。予めご了承ください。<br>
+動作の不具合などが見つかるかもしれません。予めご了承ください。  
 ※現在、加筆途中です …

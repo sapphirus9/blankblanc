@@ -24,6 +24,65 @@ class blankblancConfig
     add_action('admin_menu', array($this, 'add_blankblanc_config_edit'));
   }
 
+  // 仕様変更による確認とメッセージ
+  private function specification_change() {
+    $error = array();
+    // date_format ->
+    if (!isset($this->config_values['date_format'][3])) {
+      $this->config_values['date_format'][3] = $this->bb_theme_default['date_format'][3];
+      $error[] = 'date_format';
+    }
+    // <- date_format
+    // copyright ->
+    if (isset($this->config_values['copyright_prefix'])) {
+      $this->config_values['copyright']['prefix'] = $this->config_values['copyright_prefix'];
+      $error[] = 'copyright';
+    }
+    if (isset($this->config_values['start_year'])) {
+      $this->config_values['copyright']['start_year'] = $this->config_values['start_year'];
+      $error[] = 'copyright';
+    }
+    if (isset($this->config_values['copyright_text'])) {
+      $this->config_values['copyright']['text'] = $this->config_values['copyright_text'];
+      $error[] = 'copyright';
+    }
+    if (isset($this->config_values['copyright_suffix'])) {
+      $this->config_values['copyright']['suffix'] = $this->config_values['copyright_suffix'];
+      $error[] = 'copyright';
+    }
+    // <- copyright
+    // auto_post_slug ->
+    if (isset($this->config_values['use_auto_slug'])) {
+      $this->config_values['ja_auto_post_slug']['rewrite'] = $this->config_values['use_auto_slug'];
+      $error[] = 'ja_auto_post_slug';
+    }
+    if (isset($this->config_values['auto_post_slug'])) {
+      $this->config_values['ja_auto_post_slug']['prefix'] = $this->config_values['auto_post_slug'];
+      $error[] = 'ja_auto_post_slug';
+    }
+    // <- auto_post_slug
+    if (!empty($error)) {
+      $msg = '';
+      if (array_search('date_format', $error) !== false) {
+        $msg .= "・<strong>「年月日個別フォーマット」</strong>について仕様を変更しています。\n";
+      }
+      if (array_search('copyright', $error) !== false) {
+        $msg .= "・<strong>「コピーライト」</strong>について仕様を変更しています。\n";
+      }
+      if (array_search('ja_auto_post_slug', $error) !== false) {
+        $msg .= "・<strong>「日本語タイトル時のスラッグ設定」</strong>について仕様を変更しています。\n";
+      }
+      $msg .= "上記を反映するためには、一度<strong>「設定を保存」</strong>を行って<strong>更新</strong>してください。";
+  ?>
+    <div id="setting-error-settings_updated" class="error settings-error notice is-dismissible">
+      <p><?php echo nl2br($msg); ?></p>
+    </div>
+  <?php
+      return true;
+    }
+    return false;
+  }
+
   public function blankblanc_config_edit() {
     $bb_theme_default = $this->bb_theme_default;
     //postデータを取得 & numeric/bool変換
@@ -89,6 +148,9 @@ class blankblancConfig
       echo $val;
     }
     $this->config_values = $config_values;
+    if ($this->specification_change()) {
+      $config_values = $this->config_values;
+    }
   ?>
   <div class="wrap">
     <h1>テーマオプション<small> (バージョン <?php echo $config_values['theme_version']; ?>)</small></h1>
@@ -126,6 +188,7 @@ class blankblancConfig
             <?php endif; ?>
             <li><a href="#tab-4" class="nav-tab">モバイル</a></li>
             <li><a href="#tab-7" class="nav-tab">トップページ</a></li>
+            <li><a href="#tab-8" class="nav-tab">設定一覧</a></li>
           </ul>
 
           <!-- tab-1 -->
@@ -195,6 +258,12 @@ class blankblancConfig
             <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-homepage-articles.php'; ?>
           </div>
           <!-- /tab-7 -->
+
+          <!-- tab-8 -->
+          <div id="tab-8">
+            <?php $this->config_list(); ?>
+          </div>
+          <!-- /tab-8 -->
         </div>
 
         <hr>
@@ -242,5 +311,64 @@ class blankblancConfig
       }
     }
     echo " class=\"{$key_class}{$add_class}{$modified}\"";
+  }
+
+  // 設定一覧
+  private function config_list($current = '', $level = 1, $child = '', $default = '') {
+    if (empty($current)) {
+      $current = $this->config_values; // 現在の設定
+      $default = $this->bb_theme_default; // 初期設定
+    }
+    $src = array();
+    $tab = str_repeat("\t", $level);
+    foreach ($current as $key => $value) {
+      if (is_array($value)) {
+        if (empty($value)) {
+          array_push($src, "{$tab}'{$key}' => array(),\n");
+        } else {
+          array_push($src, "{$tab}'{$key}' => array(\n");
+          array_push($src, $this->config_list($value, $level + 1, 'child', $default[$key]));
+          array_push($src, "{$tab}),\n");
+        }
+      } else {
+        $_default = isset($default[$key]) ? $default[$key] : ''; //デフォルト値を取得
+        $modified = $_default !== $value ? true : false;
+        // 現在の設定値の型変更
+        if (is_bool($value)) {
+          $value = $value ? 'true' : 'false';
+        } elseif (is_string($value)) {
+          $value = "'{$value}'";
+        }
+        // デフォルト設定値の型変更
+        if (is_bool($_default)) {
+          $_default = $_default ? 'true' : 'false';
+        } elseif (is_string($_default)) {
+          $_default = "'{$_default}'";
+        }
+        // 変更値を強調
+        $value = esc_html($value);
+        $_value = $modified ? sprintf("<strong class=\"modified\">%s</strong>", $value) : $value;
+        array_push($src, (is_numeric($key) ? "{$tab}{$_value}" : "{$tab}'{$key}' => {$_value}") . ",\n");
+      }
+    }
+    if (empty($child)) {
+      array_unshift($src, "array(\n");
+      array_push($src, ');');
+    }
+    $src = implode('', $src);
+    if ($child) {
+      return $src;
+    } else {
+      echo <<<EOD
+<fieldset class="config-list">
+  <div class="label-title">現在の設定一覧を配列表示</div>
+  <div class="note">初期値から変更の箇所は<strong class="modified">赤字</strong>で表示されます。</div>
+  <div class="list-block">
+    <pre contenteditable="true" spellcheck="false">{$src}</pre>
+  </div>
+</fieldset>
+
+EOD;
+    }
   }
 }
