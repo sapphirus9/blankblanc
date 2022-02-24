@@ -15,8 +15,11 @@ $one-column: 720px;
 $max-width-mobile: 700px;
 $min-width-mobile: 360px;
 $gap-desktop: 25px;
-$gap-mobile: 4.2vw;
 $nowrap-tile-step: 280px;
+
+// mobile
+$gap-mobile: 4.2vw;
+$mobile-header-height: 54px;
 
 // color
 //--------------------------------------------------------------------
@@ -46,7 +49,6 @@ $input-border-shadow: #6af;
 $nav-gray-1: #a0a0a0;
 
 $form-red-1: #c50010;
-
 
 // font
 //--------------------------------------------------------------------
