@@ -6,13 +6,20 @@
 カテゴリーやページ毎に設定したslug名と同じスタイルシートをテーマ内に用意することで、各々スタイルの調整を行うことができます。<br>
 基本CSSではレスポンシブデザインとして、767pxでスマートフォン向けのレイアウト切り替えを設けています。<br>
 <br>
-<a href="https://user-images.githubusercontent.com/7519663/88454183-aff33280-cea8-11ea-8c75-87935530a8e2.jpg" target="_blank"><img src="https://user-images.githubusercontent.com/7519663/88454183-aff33280-cea8-11ea-8c75-87935530a8e2.jpg" title="フロントページ (front page)" width="30%"></a>&emsp;
-<a href="https://user-images.githubusercontent.com/7519663/88457674-4e8c8d00-cec3-11ea-9026-f96248d70ea7.jpg" target="_blank"><img src="https://user-images.githubusercontent.com/7519663/88457674-4e8c8d00-cec3-11ea-9026-f96248d70ea7.jpg" title="一覧ページ (archive)" width="30%"></a>&emsp;
-<a href="https://user-images.githubusercontent.com/7519663/88457677-51877d80-cec3-11ea-84dc-ddfa5ccfae1e.jpg" target="_blank"><img src="https://user-images.githubusercontent.com/7519663/88457677-51877d80-cec3-11ea-84dc-ddfa5ccfae1e.jpg" title="投稿ページ (single)" width="30%"></a>&emsp;
-<br><br>
-<a href="https://user-images.githubusercontent.com/7519663/88469932-90541c80-cf31-11ea-8bb6-711ba5ba2dca.jpg" target="_blank"><img src="https://user-images.githubusercontent.com/7519663/88469932-90541c80-cf31-11ea-8bb6-711ba5ba2dca.jpg" title="タイル状の一覧ページ［htmlクラス指定］ (archive)" width="30%"></a>&emsp;
-<a href="https://user-images.githubusercontent.com/7519663/88457680-53e9d780-cec3-11ea-8e3f-3af63617e890.jpg" target="_blank"><img src="https://user-images.githubusercontent.com/7519663/88457680-53e9d780-cec3-11ea-8e3f-3af63617e890.jpg" title="テーマオプション" width="30%"></a>&emsp;
-<a href="https://user-images.githubusercontent.com/7519663/88469918-6c90d680-cf31-11ea-85ea-4f81ac7f8795.jpg" target="_blank"><img src="https://user-images.githubusercontent.com/7519663/88469918-6c90d680-cf31-11ea-85ea-4f81ac7f8795.jpg" title="テーマオプション" width="30%"></a>&emsp;
+<a href="https://user-images.githubusercontent.com/7519663/156091074-127bc438-5e22-419c-b0d5-c71b0f0ac8a0.jpg" target="_blank"><img src="https://user-images.githubusercontent.com/7519663/156091074-127bc438-5e22-419c-b0d5-c71b0f0ac8a0.jpg" title="フロントページ  1カラム全福・タイル表示" width="22.5%"></a>&emsp;
+<a href="https://user-images.githubusercontent.com/7519663/155995531-1dd66bfe-fa59-462b-b6e4-4ab4816484dc.jpg" target="_blank"><img src="https://user-images.githubusercontent.com/7519663/155995531-1dd66bfe-fa59-462b-b6e4-4ab4816484dc.jpg" title="アーカイブ一覧 2カラム・リスト表示" width="22.5%"></a>&emsp;
+<a href="https://user-images.githubusercontent.com/7519663/155995712-0019063f-a538-40a2-878e-f77f7ec90a91.jpg" target="_blank"><img src="https://user-images.githubusercontent.com/7519663/155995712-0019063f-a538-40a2-878e-f77f7ec90a91.jpg" title="アーカイブ一覧 1カラム幅固定・タイル表示" width="22.5%"></a>&emsp;
+<a href="https://user-images.githubusercontent.com/7519663/155995746-cdf05b2e-9b28-46d3-bacb-4f64dae7c7ad.jpg" target="_blank"><img src="https://user-images.githubusercontent.com/7519663/155995746-cdf05b2e-9b28-46d3-bacb-4f64dae7c7ad.jpg" title="投稿ページ 2カラム表示（&amp;目次機能）" width="22.5%"></a>&emsp;
+  
+<a href="https://user-images.githubusercontent.com/7519663/155995787-9747a459-a301-467e-8a91-752d4e898aa5.jpg" target="_blank"><img src="https://user-images.githubusercontent.com/7519663/155995787-9747a459-a301-467e-8a91-752d4e898aa5.jpg" title="投稿ページ 1カラム幅固定表示" width="22.5%"></a>&emsp;
+<a href="https://user-images.githubusercontent.com/7519663/155995802-7569e110-271a-4c1f-b163-996f17794450.jpg" target="_blank"><img src="https://user-images.githubusercontent.com/7519663/155995802-7569e110-271a-4c1f-b163-996f17794450.jpg" title="投稿ページ 1カラム全福（&amp;目次機能）" width="22.5%"></a>&emsp;
+<a href="https://user-images.githubusercontent.com/7519663/155996181-6309c75f-bebc-4517-8287-1429d1e58ca9.jpg" target="_blank"><img src="https://user-images.githubusercontent.com/7519663/155996181-6309c75f-bebc-4517-8287-1429d1e58ca9.jpg" title="フッターブロック 4列ウィジェット" width="22.5%"></a>&emsp;
+<a href="https://user-images.githubusercontent.com/7519663/155996938-ab9d795b-355c-49de-a539-35a87ad8b535.jpg" target="_blank"><img src="https://user-images.githubusercontent.com/7519663/155996938-ab9d795b-355c-49de-a539-35a87ad8b535.jpg" title="フォーム用CSS （MW WP Form）" width="22.5%"></a>&emsp;
+  
+<a href="https://user-images.githubusercontent.com/7519663/155995384-4efc1dd5-cdd5-4b8e-b3fd-3c08bb13c19f.jpg" target="_blank"><img src="https://user-images.githubusercontent.com/7519663/155995384-4efc1dd5-cdd5-4b8e-b3fd-3c08bb13c19f.jpg" title="BlankBlanc用テーマオプション" width="22.5%"></a>&emsp;
+<a href="https://user-images.githubusercontent.com/7519663/155995964-32de58dc-d1ca-498e-985e-b48dc3387bae.jpg" target="_blank"><img src="https://user-images.githubusercontent.com/7519663/155995964-32de58dc-d1ca-498e-985e-b48dc3387bae.jpg" title="BlankBlanc用テーマオプション" width="22.5%"></a>&emsp;
+<a href="https://user-images.githubusercontent.com/7519663/155995982-7ff276ce-c2bb-4198-bfca-233e77642ca7.jpg" target="_blank"><img src="https://user-images.githubusercontent.com/7519663/155995982-7ff276ce-c2bb-4198-bfca-233e77642ca7.jpg" title="BlankBlanc用テーマオプション" width="22.5%"></a>&emsp;
+<a href="https://user-images.githubusercontent.com/7519663/155996035-87c9858b-32c1-4e99-aaf2-44903e19c6a2.jpg" target="_blank"><img src="https://user-images.githubusercontent.com/7519663/155996035-87c9858b-32c1-4e99-aaf2-44903e19c6a2.jpg" title="投稿画面 追加項目（カラムレイアウト・メインビジュアル画像・目次設定）" width="22.5%"></a>&emsp;
 
 #### ～ ご利用にあたり ～
 - サイトに合わせてCSS等でデザイン加工やレイアウトを行って利用されることを前提としていますので、完成されたデザインテーマを望まれる方の用途には向いておりません。
@@ -28,7 +35,7 @@
 * Chrome, Firefox, Edge, Safariは原則として最新バージョンの対応
 * IE 11は一部非対応（おもにCSS）
 
-## インストールに際し
+## インストールの前に
 CodeまたはTagsダウンロードすると、アーカイブファイル内のフォルダにmasterやバージョンが付加されるので、**「blankblanc」にフォルダ名を書き換え**（場合によっては再アーカイブ化）てからテーマのインストールや更新を行ってください。  
 ※フォルダ名の変更（同じテーマではフォルダ名を合わせる）を行わないと別テーマとして登録されるため、アップデートなどの際に重複によるエラーの原因になります。
 
