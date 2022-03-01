@@ -240,14 +240,14 @@
     padding: 8px 0 7px;
   }
   thead {
-    background-color: cfg.$base-gray-7;
+    background-color: cfg.$base-gray-6;
     tr {
-      color: cfg.$base-gray-3;
+      color: cfg.$base-gray-2;
     }
     th {
       @include cfg.font-weight(normal);
       text-align: center;
-      border: 1px solid cfg.$base-gray-5;
+      border: 1px solid cfg.$base-gray-4;
       &:last-of-type {
         color: cfg.$base-red-1;
       }
@@ -256,13 +256,14 @@
   tbody {
     background-color: cfg.$base-white;
     tr {
-      color: cfg.$base-gray-5;
+      color: cfg.$base-gray-2;
     }
     td {
       text-align: center;
       border: 1px solid cfg.$base-gray-5;
       a {
         display: block;
+        @include cfg.font-weight(bold);
         margin: -8px 0 -7px;
         padding: 8px 0 7px;
         background-color: cfg.$base-gray-7;
@@ -287,7 +288,9 @@
     }
   }
   #today {
+    @include cfg.font-weight(bold);
     color: cfg.$base-gray-1;
+    text-decoration: underline;
   }
 }
 
