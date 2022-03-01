@@ -116,7 +116,7 @@ function bb_config_default() {
     // テーマ用CSS/JSのバージョンパラメータを別で指定 ※ブラウザキャッシュ対策用 [bool/string]
     'version_param'        => false,
     // テーマのバージョン情報
-    'theme_version'        => '2.8.4',
+    'theme_version'        => wp_get_theme(basename(__DIR__))->get('Version'),
   );
 }
 

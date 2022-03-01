@@ -38,8 +38,8 @@ function bb_body_id_class($classes = array()) {
     array_push($classes, (empty($layout) ? 'defualt' :  $layout) . '-layout');
   } elseif (is_archive()) {
     $obj = get_queried_object();
-    $layout = get_term_meta($obj->term_id, 'bb_term_layout_select', true);
-    array_push($classes, (empty($layout) ? 'defualt' :  $layout) . '-layout');
+    $layout = isset($obj->term_id) ? get_term_meta($obj->term_id, 'bb_term_layout_select', true) : 'defualt';
+    array_push($classes, $layout . '-layout');
   }
   if (!empty($classes)) {
     $class = ' class="' . join(' ', array_unique($classes)) . '"';
@@ -253,7 +253,7 @@ function custom_template_include($template) {
       }
     } elseif (is_archive()) {
       $obj = get_queried_object();
-      if ($template_name = get_term_meta($obj->term_id, 'bb_term_layout_select', true)) {
+      if (isset($obj->term_id) && $template_name = get_term_meta($obj->term_id, 'bb_term_layout_select', true)) {
         if ($new_template = locate_template($template_name . '-archive.php', false, true)) {
           return $new_template;
         }
