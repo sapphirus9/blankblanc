@@ -1,9 +1,9 @@
 @font-face {
   font-family: 'BlankBlanc-Icons';
   src:
-    url('../fonts/BlankBlanc-Icons.ttf?7nner8') format('truetype'),
+    url('../fonts/BlankBlanc-Icons.woff2?7nner8') format('woff2'),
     url('../fonts/BlankBlanc-Icons.woff?7nner8') format('woff'),
-    url('../fonts/BlankBlanc-Icons.svg?7nner8#BlankBlanc-Icons') format('svg');
+    url('../fonts/BlankBlanc-Icons.ttf?7nner8') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: block;
