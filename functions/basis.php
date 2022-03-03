@@ -365,6 +365,21 @@ if (is_child_theme()) {
   add_action('wp_enqueue_scripts', 'theme_styles', 30);
 }
 
+// JSに読み込みの属性を追加
+function add_script_loader_tag($tag, $handle) {
+  $handles = array(
+    'mobile-nav',
+    'functions',
+    'child-functions',
+  );
+  if (array_search($handle, $handles) !== false) {
+    return str_replace('src', 'defer src', $tag);
+  } else {
+    return $tag;
+  }
+}
+add_filter('script_loader_tag', 'add_script_loader_tag', 10, 3);
+
 
 /**
  * 絵文字を無効化
