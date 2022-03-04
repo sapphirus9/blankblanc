@@ -194,3 +194,22 @@ $breakpoints: (
     }
   }
 }
+
+// transition border line
+@mixin transition-border-line() {
+  @include media-min(xl) {
+    position: relative;
+    background: linear-gradient(0deg, $link-color-hover 1px, transparent 1px);
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-size: 0 100%;
+    transition: background-size .15s;
+    @content;
+    &:hover, &:active {
+      color: $link-color-hover;
+      text-decoration: none;
+      background-position: bottom left;
+      background-size: 100% 100%;
+    }
+  }
+}

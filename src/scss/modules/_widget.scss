@@ -79,6 +79,7 @@
   .select-area {
     display: inline-block;
     position: relative;
+    width: 100%;
     background-color: cfg.$base-white;
     border-radius: 2px;
     &::before {
@@ -141,6 +142,14 @@
   &:last-of-type {
     margin-bottom: -5px;
   }
+  a {
+    &:hover {
+      .count {
+        color: cfg.$base-gray-3;
+        background-color: cfg.$base-gray-6;
+      }
+    }
+  }
   > li {
     &.year-title {
       margin-left: 0;
@@ -171,6 +180,7 @@
           }
         }
         .count {
+          transition: all .2s;
           @include cfg.media-max(xl) {
             font-size: 1rem;
             margin: 3px 0 0 0;
@@ -309,7 +319,8 @@
     @include cfg.font-weight(normal);
     margin-bottom: 10px;
   }
-  // custom menu (widget)
+  .widget_meta > ul,
+  .widget_categories > ul,
   .widget_nav_menu .menu {
     margin-bottom: 30px;
     background-color: cfg.$base-white;
@@ -319,10 +330,18 @@
       a {
         display: block;
         font-size: 1.5rem;
+        text-decoration: none;
         line-height: 1.3;
         transition: all .2s;
+        .count {
+          transition: all .2s;
+        }
         &:hover {
           background-color: cfg.$base-gray-7;
+          .count {
+            color: cfg.$base-gray-2;
+            background-color: cfg.$base-gray-5;
+          }
         }
       }
     }
@@ -334,20 +353,25 @@
       &:first-child {
         border-top: none;
       }
-      .sub-menu {
+      ul {
         margin-bottom: 0;
-        li {
-          padding-left: 0;
-          border-top: 1px dotted cfg.$base-gray-6;
-          > a {
-            font-size: .933333em;
-            line-height: 1.4;
-            padding: 10px 8px 10px 20px;
-          }
+      }
+      > ul li { // child lv1
+        padding-left: 0;
+        border-top: 1px dotted cfg.$base-gray-6;
+        > a {
+          font-size: .933333em;
+          line-height: 1.4;
+          padding: 10px 8px 10px 20px;
         }
-        .sub-menu {
+        > ul li { // child lv2
           a {
             padding-left: 30px;
+          }
+          > ul li { // child lv3
+            a {
+              padding-left: 40px;
+            }
           }
         }
       }

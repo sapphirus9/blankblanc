@@ -227,21 +227,6 @@ body.nav-window-show {
         border-radius: 10px;
       }
     }
-    > li {
-      margin-top: 0;
-      // level 2
-      > ul > li {
-        a {
-          font-size: 1.4rem;
-          padding-left: 20px;
-        }
-        // level 3
-        > ul > li a {
-          font-size: 1.4rem;
-          padding-left: 40px;
-        }
-      }
-    }
   }
   > ul,
   > ol {
@@ -250,10 +235,12 @@ body.nav-window-show {
       border-bottom: none;
     }
   }
-  .menu,
-  .widget_pages,
-  .widget_categories,
-  .widget_meta {
+  .widget_meta > ul,
+  .widget_categories > ul,
+  .widget_nav_menu .menu {
+    ul {
+      margin-bottom: 0;
+    }
     a {
       position: relative;
       padding-right: 20px;
@@ -267,11 +254,25 @@ body.nav-window-show {
         transform: scale(1.5);
       }
     }
-    .sub-menu,
-    .children {
-      margin-bottom: 0;
-      a {
-        padding-left: 25px;
+    > li {
+      margin-top: 0;
+      > ul li { // child lv1
+        a {
+          font-size: 1.4rem;
+          padding-left: calc(10px + 1em);
+        }
+        > ul li { // child lv2
+          a {
+            font-size: 1.4rem;
+          padding-left: calc(10px + 2em);
+          }
+          > ul li { // child lv3
+            a {
+              font-size: 1.4rem;
+          padding-left: calc(10px + 3em);
+            }
+          }
+        }
       }
     }
   }

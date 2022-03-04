@@ -103,7 +103,7 @@
           @include cfg.media-max(xl) {
             margin-bottom: 0;
           }
-          > li {
+          > li { // child lv1
             @include cfg.media-max(xl) {
               padding-left: 0;
               border-top: 1px dotted cfg.$base-gray-5;
@@ -111,15 +111,19 @@
             a {
               @include cfg.media-max(xl) {
                 font-size: 1.4rem;
-                padding-left: 6%;
+                padding-left: calc(2.4% + 1em);
               }
             }
-            // level 3
-            .sub-menu, .children {
-              > li {
+            ul > li { // child lv2
+              a {
+                @include cfg.media-max(xl) {
+                  padding-left: calc(2.4% + 2em);
+                }
+              }
+              ul > li { // child lv3
                 a {
                   @include cfg.media-max(xl) {
-                    padding-left: 12%;
+                    padding-left: calc(2.4% + 3em);
                   }
                 }
               }
@@ -134,7 +138,7 @@
     font-size: 1.4rem;
     line-height: 1.3;
     @include cfg.font-weight(normal);
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     padding-bottom: 10px;
     border-bottom: 1px solid cfg.$base-gray-4;
     @include cfg.media-max(xl) {
@@ -186,6 +190,7 @@
   }
   .count {
     background-color: cfg.$base-gray-6;
+    transition: all .2s;
   }
   .widget_archive {
     .month-list {
@@ -200,6 +205,12 @@
           border-top: 1px solid cfg.$base-gray-6 !important;
         }
         a {
+          &:hover {
+            .count {
+              color: cfg.$base-gray-2;
+              background-color: cfg.$base-gray-5;
+            }
+          }
           @include cfg.media-max(xl) {
             padding: 10px 0 !important;
           }
@@ -218,66 +229,21 @@
       }
     }
   }
-  .widget_categories {
-    > ul {
-      @include cfg.media-max(xl) {
-        margin-top: -12px;
-      }
+  .widget_meta > ul,
+  .widget_categories > ul,
+  .widget_nav_menu .menu {
+    @include cfg.media-max(xl) {
+      margin-top: -12px;
     }
     a {
-      @include cfg.media-min(xl) {
-        position: relative;
+      @include cfg.transition-border-line() {
         padding-bottom: 2px;
-        background: linear-gradient(0deg, cfg.$link-color-hover 1px, transparent 1px);
-        background-repeat: no-repeat;
-        background-position: 0 0;
-        background-size: 0 100%;
-        transition: all .1s;
-      }
-      &:hover, &:active {
-        @include cfg.media-min(xl) {
-          color: cfg.$link-color-hover;
-          text-decoration: none;
-          background-size: 100% 100%;
-        }
       }
     }
     li {
       &:not(:first-of-type) {
         @include cfg.media-min(xl) {
           margin-top: 10px;
-        }
-      }
-    }
-  }
-  .widget_nav_menu {
-    .menu {
-      @include cfg.media-max(xl) {
-        margin-top: -12px;
-      }
-      a {
-        @include cfg.media-min(xl) {
-          position: relative;
-          padding-bottom: 2px;
-          background: linear-gradient(0deg, cfg.$link-color-hover 1px, transparent 1px);
-          background-repeat: no-repeat;
-          background-position: 0 0;
-          background-size: 0 100%;
-          transition: all .1s;
-        }
-        &:hover, &:active {
-          @include cfg.media-min(xl) {
-            color: cfg.$link-color-hover;
-            text-decoration: none;
-            background-size: 100% 100%;
-          }
-        }
-      }
-      li {
-        &:not(:first-of-type) {
-          @include cfg.media-min(xl) {
-            margin-top: 10px;
-          }
         }
       }
     }
