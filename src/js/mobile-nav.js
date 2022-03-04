@@ -74,7 +74,7 @@
         const $nav = document.querySelector(slide + ' .menu');
         if ($nav) {
           list.innerHTML = '<li>' + $nav.outerHTML.replace(/ id=["|'].*?["|']/g, '') + '</li>';
-          list.classList.add('menu');
+          list.classList.add('widget_nav_menu');
         }
       } else {
         const $nav = document.querySelector(slide);
