@@ -23,22 +23,24 @@
       align-items: center;
       justify-content: center;
       position: absolute;
-      top: 1px;
-      right: 1px;
+      top: 0;
+      right: 0;
       color: cfg.$base-gray-4;
       @include cfg.icon-font('f0349');
       font-size: 24px;
       line-height: 1;
-      width: 38px;
+      width: 40px;
       height: 38px;
       padding-top: 2px;
-      cursor: pointer;
+      margin: 1px;
+      border-left: 1px solid cfg.$base-gray-5;
       transition: all .2s;
       box-sizing: border-box;
     }
     &.hover {
       &::after {
         color: cfg.$base-gray-2;
+        background-color: cfg.$base-gray-7;
       }
     }
   }
@@ -51,7 +53,7 @@
     vertical-align: middle;
     width: 100%;
     height: 40px;
-    padding: 8px 40px 8px 8px;
+    padding: 8px 48px 8px 8px;
     background-color: cfg.$base-white;
     border: 1px solid cfg.$base-gray-5;
     border-radius: 2px;
