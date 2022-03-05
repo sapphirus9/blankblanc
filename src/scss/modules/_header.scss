@@ -35,15 +35,27 @@
       height: 54px;
     }
   }
+  .header {
+    &-container {
+      display: flex;
+      justify-content: space-between;
+    }
+    &-brand {
+      align-self: center;
+      margin-right: 30px;
+      @include cfg.media-max(xl) {
+        align-self: center;
+        margin: 0 auto;
+      }
+    }
+    &-right {
+      margin-top: 15px;
+    }
+  }
   .logo {
-    position: absolute;
-    top: 18px;
-    left: cfg.$gap-desktop;
     @include cfg.media-max(xl) {
-      top: 9px;
-      left: 0;
-      right: 0;
       text-align: center;
+      margin-top: 4px;
     }
     a {
       display: block;
@@ -68,27 +80,18 @@
     }
   }
   .copy {
-    position: absolute;
-    top: 68px;
-    left: cfg.$gap-desktop;
     color: cfg.$base-gray-1;
     font-size: 1.3rem;
+    margin-top: 10px;
     @include cfg.font-weight(normal);
     @include cfg.media-max(xl) {
-      top: auto;
-      left: 0;
-      right: 0;
-      bottom: 6px;
       font-size: 1.125rem;
-      text-align: center;
+      margin-top: 6px;
     }
   }
 }
 
 #header-nav {
-  position: absolute;
-  top: 15px;
-  right: cfg.$gap-desktop;
   @include cfg.media-max(xl) {
     display: none;
   }

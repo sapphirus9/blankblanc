@@ -18,21 +18,25 @@
 <?php wp_body_open(); ?>
 <div id="main-screen">
   <header id="global-header">
-    <div class="wrap">
-      <div class="logo"><?php bb_logo_image(); ?></div>
-      <?php if (is_home() || is_front_page()) : ?>
-        <h1 class="copy"><?php echo get_bloginfo('description'); ?></h1>
-      <?php else : ?>
-        <p class="copy"><?php echo get_bloginfo('description'); ?></p>
-      <?php endif; ?>
-      <?php if (has_nav_menu('header_nav')) : ?>
-        <nav id="header-nav">
-          <?php wp_nav_menu(array(
-            'theme_location' => 'header_nav',
-            'container' => false,
-          )); ?>
-        </nav>
-      <?php endif; ?>
+    <div class="wrap header-container">
+      <div class="header-brand">
+        <div class="logo"><?php bb_logo_image(); ?></div>
+        <?php if (is_home() || is_front_page()) : ?>
+          <h1 class="copy"><?php echo get_bloginfo('description'); ?></h1>
+        <?php else : ?>
+          <p class="copy"><?php echo get_bloginfo('description'); ?></p>
+        <?php endif; ?>
+      </div>
+      <div class="header-right">
+        <?php if (has_nav_menu('header_nav')) : ?>
+          <nav id="header-nav">
+            <?php wp_nav_menu(array(
+              'theme_location' => 'header_nav',
+              'container' => false,
+            )); ?>
+          </nav>
+        <?php endif; ?>
+      </div>
     </div>
   </header>
 
