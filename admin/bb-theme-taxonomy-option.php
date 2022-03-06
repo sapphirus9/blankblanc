@@ -5,7 +5,7 @@
  * Description: 管理画面：タクソノミー（カテゴリー・タグ等）にレイアウト選択を追加
  */
 
-if (is_admin() && current_user_can('edit_pages')) {
+if (current_user_can('edit_pages')) {
   add_action('load-edit-tags.php', 'call_bb_taxonomy_options');
   // 新規カテゴリーを追加時の ajax 処理
   add_action('check_ajax_referer', 'call_bb_taxonomy_options');

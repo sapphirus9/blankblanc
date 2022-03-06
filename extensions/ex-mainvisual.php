@@ -11,7 +11,7 @@
 function call_bb_mainvisual_post_meta() {
   new bbMainvisualPostMeta();
 }
-if (is_admin() && current_user_can('edit_pages')) {
+if (is_admin() && current_user_can('edit_posts')) {
   add_action('load-post.php', 'call_bb_mainvisual_post_meta');
   add_action('load-post-new.php', 'call_bb_mainvisual_post_meta');
 }

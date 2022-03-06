@@ -8,10 +8,13 @@
 /**
  * 外観メニューにテーマの基本設定項目を追加
  */
+if (current_user_can('edit_themes')) {
+  add_action('init', 'call_blankblanc_config');
+}
+
 function call_blankblanc_config() {
   new blankblancConfig();
 }
-add_action('init', 'call_blankblanc_config');
 
 class blankblancConfig
 {

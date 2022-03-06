@@ -14,26 +14,30 @@ function admin_extend_css_init() {
 }
 add_action('admin_head', 'admin_extend_css_init');
 
-/**
- * テーマオプション管理画面
- */
-$bb_theme_option = BB_ADMIN_DIR . '/bb-theme-option.php';
-if (file_exists($bb_theme_option)) {
-  require_once $bb_theme_option;
-}
+if (is_admin()) {
+  /**
+   * テーマオプション管理画面
+   */
+  $bb_theme_option = BB_ADMIN_DIR . '/bb-theme-option.php';
+  if (file_exists($bb_theme_option)) {
+    require_once $bb_theme_option;
+  }
 
-/**
- * タクソノミー（カテゴリー・タグ等）に項目を追加
- */
-$bb_theme_taxonomy_option = BB_ADMIN_DIR . '/bb-theme-taxonomy-option.php';
-if (file_exists($bb_theme_taxonomy_option)) {
-  require_once $bb_theme_taxonomy_option;
+  /**
+   * タクソノミー（カテゴリー・タグ等）に項目を追加
+   */
+  $bb_theme_taxonomy_option = BB_ADMIN_DIR . '/bb-theme-taxonomy-option.php';
+  if (file_exists($bb_theme_taxonomy_option)) {
+    require_once $bb_theme_taxonomy_option;
+  }
 }
 
 /**
  * テーマカスタマイザ
  */
-$bb_theme_customizer = BB_ADMIN_DIR . '/bb-theme-customizer.php';
-if (file_exists($bb_theme_customizer)) {
-  require_once $bb_theme_customizer;
+if (is_customize_preview()) {
+  $bb_theme_customizer = BB_ADMIN_DIR . '/bb-theme-customizer.php';
+  if (file_exists($bb_theme_customizer)) {
+    require_once $bb_theme_customizer;
+  }
 }

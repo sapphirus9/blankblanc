@@ -62,12 +62,10 @@ add_action('after_setup_theme', 'bb_setup_theme_config');
 /**
  * ファンクションの読み込み
  */
-if (is_admin()) {
-  require_once BB_ADMIN_DIR . '/bb-theme-admin.php';
-}
 require_once BB_THEME_DIR . '/core.php';
 require_once BB_THEME_DIR . '/basis.php';
 require_once BB_THEME_DIR . '/extensions.php';
+require_once BB_ADMIN_DIR . '/bb-theme-admin.php';
 
 
 /**
