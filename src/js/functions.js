@@ -481,6 +481,13 @@ let _BbBreakPoint = 768;
     const $tocBlockAll = document.querySelectorAll(tocBlock);
     $tocBlockAll.forEach(($tocBlock) => {
       const $tocToggle = $tocBlock.querySelector('.bb-toc-toggle');
+      const maxHeight = () => {
+        const $tocBodyInner = $tocBlock.querySelector('.bb-toc-body-inner').getBoundingClientRect();
+        const height = parseInt($tocBodyInner.height) + 25;
+        $tocBlock.querySelector('.bb-toc-body').style.maxHeight = `${height}px`;
+      };
+      window.addEventListener('load', maxHeight);
+      window.addEventListener('resize', maxHeight);
       $tocToggle && $tocToggle.addEventListener('click', () => {
         $tocBlock.classList.toggle('changed');
       });

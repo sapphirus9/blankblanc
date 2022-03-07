@@ -14,7 +14,7 @@
     }
     &.changed .bb-toc {
       &-body {
-        max-height: 0;
+        max-height: 0 !important;
         opacity: 0;
       }
       &-toggle {
@@ -107,11 +107,7 @@
     max-height: 150vh;
     opacity: 1;
     overflow: hidden;
-    transition: all .3s;
-    @include cfg.media-max(lg) {
-      max-height: 65vh;
-      overflow: auto;
-    }
+    transition: all .3s ease-out;
     &-inner {
       margin: 0;
       padding: 30px 20px 20px;
