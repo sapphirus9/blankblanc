@@ -448,7 +448,10 @@ let _BbBreakPoint = 768;
     const currentBottom = window.pageYOffset + document.documentElement.clientHeight;
     if (initfixedWidget.top === null) initfixedWidget.top = window.pageYOffset + fixedWidgetRect.top;
     // 画面よりウィジェットが小さい場合（ie11対応）
-    if (fixedWidgetRect.height <= document.documentElement.clientHeight - initfixedWidget.top) {
+    const globalNavRect = document.querySelector('#global-nav').getBoundingClientRect();
+    const widget_size1 = fixedWidgetRect.height <= document.documentElement.clientHeight - initfixedWidget.top ? true : false;
+    const widget_size2 = document.documentElement.clientHeight - globalNavRect.height > fixedWidgetRect.height + initfixedWidget.offset ? true : false;
+    if (widget_size1 || widget_size2) {
       if (parseInt(initfixedWidget.top - initfixedWidget.offset) < window.pageYOffset) $fixedWidget.classList.add('sticky');
       else $fixedWidget.classList.remove('sticky');
       const fixedWidgetBottom = parseInt(window.pageYOffset + fixedWidgetRect.bottom);
