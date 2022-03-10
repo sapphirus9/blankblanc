@@ -2,7 +2,6 @@
 //--------------------------------------------------------------------
 // header part
 //--------------------------------------------------------------------
-
 #header-part {
   position: relative;
   height: 40px;
@@ -23,12 +22,8 @@
 
 // global nav
 //--------------------------------------------------------------------
-
 #global-nav {
   background-color: cfg.$base-gray-7;
-  ul {
-    font-size: 1.4rem;
-  }
   .menu {
     padding-bottom: 40px;
     > li {
@@ -36,6 +31,9 @@
       float: left;
       border-right: 1px solid cfg.$base-gray-7;
       box-sizing: border-box;
+      .child-group {
+        left: 0;
+      }
       > a {
         display: block;
         font-size: 1.5rem;
@@ -59,45 +57,71 @@
       &.current-menu-item > a {
         background-color: cfg.$base-gray-5;
       }
-      // pull-down menu
-      > .sub-menu {
+    }
+  }
+}
+
+// pull-down menu
+//--------------------------------------------------------------------
+#header-nav,
+#global-nav {
+  .menu {
+    > li {
+      .child-group {
         position: absolute;
         top: auto;
-        left: 0;
+        visibility: hidden;
+      }
+      .sub-menu {
+        font-size: 1.5rem;
         min-width: 160px;
         padding: 0;
         background-color: cfg.$base-white;
         border: 1px solid cfg.$base-gray-5;
         z-index: 2;
         box-sizing: border-box;
-        visibility: hidden;
         li {
           border-top: 1px solid cfg.$base-gray-6;
           a {
             display: block;
             text-align: left;
-            font-size: 1.4rem;
+            font-size: 1em;
             line-height: 1.3;
             white-space: nowrap;
             width: auto;
             height: auto;
             padding: 10px 15px;
+            background-color: transparent;
+            transition: all .2s;
             &:hover {
               text-decoration: none;
-              background-color: cfg.$base-gray-7;
+              background-color: rgba(cfg.$base-gray-6, .5);
             }
           }
-          > .sub-menu > li {
-            border-top-style: dashed;
-            > a {
-              font-size: .933333em;
-              line-height: 1.4;
-              padding-left: 12px;
-              &::before {
-                @include cfg.icon-font('f0142');
-                color: cfg.$base-gray-4;
-                vertical-align: -1px;
-                margin-right: 3px;
+          .sub-menu {
+            background-color: transparent;
+            border: none;
+            li {
+              border-top: 1px dashed cfg.$base-gray-7;
+              a {
+                font-size: .93333em;
+                line-height: 1.4;
+                padding-left: 1em;
+                // &::before {
+                //   @include cfg.icon-font('f0142');
+                //   color: cfg.$base-gray-4;
+                //   vertical-align: -1px;
+                //   margin-right: 3px;
+                //   transition: all .2s;
+                // }
+                // &:hover::before {
+                //   color: cfg.$base-gray-3;
+                // }
+              }
+              li {
+                a {
+                  padding-left: 2em;
+                }
               }
             }
           }
@@ -109,16 +133,16 @@
           border-top: none;
         }
       }
-      // submenu animation
-      .sub-menu {
-        max-height: 0; // accordion
-        // opacity: 0; // fade
+      // pull-down animation
+      .child-group {
+        max-height: 0;
+        opacity: 0;
         transition: all .12s ease-out;
         overflow: hidden;
       }
-      &:hover .sub-menu {
-        max-height: 40vh; // accordion
-        // opacity: 1; // fade
+      &:hover .child-group {
+        max-height: 100vh;
+        opacity: 1;
         transition: all .2s linear;
         visibility: visible;
       }
@@ -135,7 +159,7 @@
     left: 0;
     right: 0;
     content: '';
-    background-color: #000;
+    background-color: cfg.$base-black;
     opacity: 0;
     z-index: -1;
     transition: opacity .2s 0s, z-index 0s .2s;

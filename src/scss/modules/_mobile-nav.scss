@@ -177,9 +177,9 @@ body.nav-window-show {
   .menu {
     margin: 0;
     padding: 15px cfg.$gap-mobile;
-    .menu {
-      padding: 0;
-    }
+  }
+  .widget .menu {
+    padding: 0;
   }
   .widgettitle {
     color: cfg.$base-gray-3;
@@ -235,8 +235,9 @@ body.nav-window-show {
       border-bottom: none;
     }
   }
-  .widget_meta > ul,
-  .widget_categories > ul,
+  .widget_meta,
+  .widget_pages,
+  .widget_categories,
   .widget_nav_menu .menu {
     ul {
       margin-bottom: 0;
@@ -254,19 +255,19 @@ body.nav-window-show {
         transform: scale(1.5);
       }
     }
-    > li {
+    li {
       margin-top: 0;
-      > ul li { // child lv1
+      ul li { // child lv1
         a {
           font-size: 1.4rem;
           padding-left: calc(10px + 1em);
         }
-        > ul li { // child lv2
+        ul li { // child lv2
           a {
             font-size: 1.4rem;
           padding-left: calc(10px + 2em);
           }
-          > ul li { // child lv3
+          ul li { // child lv3
             a {
               font-size: 1.4rem;
           padding-left: calc(10px + 3em);
@@ -276,7 +277,7 @@ body.nav-window-show {
       }
     }
   }
-  // acoordion categories
+  // acoordion menu
   .acoordion-menu {
     > a {
       margin-right: 42px;
@@ -310,43 +311,21 @@ body.nav-window-show {
       transform: rotate(90deg);
     }
   }
-  .widget_pages > ul > .page_item,
-  .widget_categories > ul > .cat-item {
+  .widget_meta,
+  .widget_pages,
+  .widget_categories,
+  .menu {
     position: relative;
-    > .children {
+    .child-group {
       max-height: 0;
       opacity: 0;
       overflow-y: hidden;
       transition: all .3s;
     }
-    &.active {
-      > .children {
-        max-height: 80vh;
+    .acoordion-menu.active {
+      .child-group {
+        max-height: 150vh;
         opacity: 1;
-        overflow-y: auto;
-      }
-      .icon-toggle {
-        &::before {
-          transform: rotate(270deg);
-          opacity: 0;
-        }
-      }
-    }
-  }
-  // acoordion menu
-  .menu > .menu-item {
-    position: relative;
-    > .sub-menu {
-      max-height: 0;
-      opacity: 0;
-      overflow-y: hidden;
-      transition: all .3s;
-    }
-    &.active {
-      > .sub-menu {
-        max-height: 80vh;
-        opacity: 1;
-        overflow-y: auto;
       }
       .icon-toggle {
         &::before {

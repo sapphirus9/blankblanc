@@ -230,6 +230,7 @@
     }
   }
   .widget_meta > ul,
+  .widget_pages > ul,
   .widget_categories > ul,
   .widget_nav_menu .menu {
     @include cfg.media-max(xl) {

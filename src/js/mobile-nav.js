@@ -88,22 +88,25 @@
     /**
      * 動作：サブメニュー表示の切り替え
      */
-    const subMenuItems = [
-      nameNavWindowScroll + ' .menu > .menu-item > .sub-menu',
-      nameNavWindowScroll + ' .widget_pages > ul > .page_item > .children',
-      nameNavWindowScroll + ' .widget_categories > ul > .cat-item > .children'
-    ];
-    subMenuItems.forEach((items) => {
-      const $itemAll = document.querySelectorAll(items);
-      $itemAll.forEach(($item) => {
-        $item.previousElementSibling.appendChild(createHtml('span', null, '.icon-toggle'));
-        const $itemParent = $item.parentNode;
-        $itemParent.classList.add('acoordion-menu');
-        $itemParent.querySelector('.icon-toggle').addEventListener('click', (e) => {
-          $itemParent.classList.toggle('active');
-          e.stopPropagation();
-          e.preventDefault();
-        });
+    const $itemAll = document.querySelectorAll(nameNavWindowScroll + ' .child-group');
+    $itemAll.forEach(($item) => {
+      $item.previousElementSibling.appendChild(createHtml('span', null, '.icon-toggle'));
+      const $itemParent = $item.parentNode;
+      $itemParent.classList.add('acoordion-menu');
+      const maxHeight = (act) => {
+        let height = 0;
+        if (act == 'open') {
+          const $subMenu = $item.querySelector('ul').getBoundingClientRect();
+          height = parseInt($subMenu.height) + 25;
+        }
+        $item.style.maxHeight = `${height}px`;
+      };
+      $itemParent.querySelector('.icon-toggle').addEventListener('click', (e) => {
+        $itemParent.classList.toggle('active');
+        e.stopPropagation();
+        e.preventDefault();
+        if ($itemParent.classList.contains('active')) maxHeight('open');
+        else maxHeight();
       });
     });
 

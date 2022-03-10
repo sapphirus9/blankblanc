@@ -33,6 +33,7 @@
             <?php wp_nav_menu(array(
               'theme_location' => 'header_nav',
               'container' => false,
+              'walker' => new custom_walker_nav_menu,
             )); ?>
           </nav>
         <?php endif; ?>
@@ -49,6 +50,7 @@
               <?php wp_nav_menu(array(
                 'theme_location' => 'global_nav',
                 'container' => false,
+                'walker' => new custom_walker_nav_menu,
               )); ?>
             </div>
           </nav>

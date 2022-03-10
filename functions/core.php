@@ -366,6 +366,73 @@ add_filter('widget_tag_cloud_args', 'customize_widget_tag_cloud');
 
 
 /**
+ * グローバルナビ／ウィジェットの下層リストをラップ
+ */
+// グローバルナビ
+class custom_walker_nav_menu extends Walker_Nav_Menu {
+  public function start_lvl(&$output, $depth = 0, $args = null) {
+    if ($depth === 0) {
+      $output .= "\n<div class=\"child-group\">";
+    }
+    parent::start_lvl($output, $depth, $args);
+  }
+  public function end_lvl(&$output, $depth = 0, $args = null) {
+    parent::end_lvl($output, $depth, $args);
+    if ($depth === 0) {
+      $output .= "</div>\n";
+    }
+  }
+}
+function customize_widget_nav_menu_args($args) {
+  $args['walker'] =  new custom_walker_nav_menu();
+  return $args;
+}
+add_filter('widget_nav_menu_args', 'customize_widget_nav_menu_args', 10, 2);
+
+// カテゴリー
+class custom_walker_category extends Walker_Category {
+  public function start_lvl(&$output, $depth = 0, $args = null) {
+    if ($depth === 0) {
+      $output .= "\n<div class=\"child-group\">";
+    }
+    parent::start_lvl($output, $depth, $args);
+  }
+  public function end_lvl(&$output, $depth = 0, $args = null) {
+    parent::end_lvl($output, $depth, $args);
+    if ($depth === 0) {
+      $output .= "</div>\n";
+    }
+  }
+}
+function customize_widget_categories_args($args, $instance) {
+  $args['walker'] =  new custom_walker_category();
+  return $args;
+}
+add_filter('widget_categories_args', 'customize_widget_categories_args', 10, 2);
+
+// 固定ページ
+class custom_walker_page extends Walker_Page {
+  public function start_lvl(&$output, $depth = 0, $args = null) {
+    if ($depth === 0) {
+      $output .= "\n<div class=\"child-group\">";
+    }
+    parent::start_lvl($output, $depth, $args);
+  }
+  public function end_lvl(&$output, $depth = 0, $args = null) {
+    parent::end_lvl($output, $depth, $args);
+    if ($depth === 0) {
+      $output .= "</div>\n";
+    }
+  }
+}
+function customize_widget_pages_args($args, $instance) {
+  $args['walker'] =  new custom_walker_page();
+  return $args;
+}
+add_filter('widget_pages_args', 'customize_widget_pages_args', 10, 2);
+
+
+/**
  * inputなどstring型をフィルター処理
  * numeric -> int or float
  * true/false -> bool

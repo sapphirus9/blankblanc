@@ -125,13 +125,17 @@
     text-decoration: underline;
   }
   .comment-user {
-    color: cfg.$base-gray-3;
+    color: cfg.$base-gray-2;
     font-size: 1.2rem;
+    transition: all .2s;
     &::before {
       content: '（';
     }
     &::after {
       content: '）';
+    }
+    &:hover {
+    color: cfg.$base-gray-1;
     }
   }
 }
@@ -319,61 +323,60 @@
     @include cfg.font-weight(normal);
     margin-bottom: 10px;
   }
-  .widget_meta > ul,
-  .widget_categories > ul,
-  .widget_nav_menu .menu {
-    margin-bottom: 30px;
-    background-color: cfg.$base-white;
-    li {
-      margin: 0;
-      list-style: none;
-      a {
-        display: block;
-        font-size: 1.5rem;
-        text-decoration: none;
-        line-height: 1.3;
-        transition: all .2s;
-        .count {
+  .widget_meta,
+  .widget_categories,
+  .widget_pages,
+  .widget_nav_menu {
+    ul {
+      margin-bottom: 0;
+      background-color: cfg.$base-white;
+      li {
+        margin: 0;
+        padding-left: 0;
+        list-style: none;
+        border-top: 1px solid cfg.$base-gray-5;
+        a {
+          display: block;
+          font-size: 1.5rem;
+          text-decoration: none;
+          line-height: 1.3;
+          padding: 12px 8px;
           transition: all .2s;
-        }
-        &:hover {
-          background-color: cfg.$base-gray-7;
           .count {
-            color: cfg.$base-gray-1;
-            background-color: cfg.$base-gray-5;
+            transition: all .2s;
+          }
+          &:hover {
+            background-color: cfg.$base-gray-7;
+            .count {
+              color: cfg.$base-gray-1;
+              background-color: cfg.$base-gray-5;
+            }
+          }
+        }
+        ul li { // child lv1
+          padding-left: 0;
+          border-top: 1px dotted cfg.$base-gray-6;
+          a {
+            font-size: .933333em;
+            line-height: 1.4;
+            padding: 10px 8px 10px 20px;
+          }
+          ul li { // child lv2
+            a {
+              padding-left: 30px;
+            }
+            ul li { // child lv3
+              a {
+                padding-left: 40px;
+              }
+            }
           }
         }
       }
     }
-    > li {
-      border-top: 1px solid cfg.$base-gray-5;
-      > a {
-        padding: 12px 8px;
-      }
-      &:first-child {
-        border-top: none;
-      }
-      ul {
-        margin-bottom: 0;
-      }
-      > ul li { // child lv1
-        padding-left: 0;
-        border-top: 1px dotted cfg.$base-gray-6;
-        > a {
-          font-size: .933333em;
-          line-height: 1.4;
-          padding: 10px 8px 10px 20px;
-        }
-        > ul li { // child lv2
-          a {
-            padding-left: 30px;
-          }
-          > ul li { // child lv3
-            a {
-              padding-left: 40px;
-            }
-          }
-        }
+    .menu, > ul {
+      > li:first-child {
+        border-top: none !important;
       }
     }
   }

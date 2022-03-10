@@ -406,18 +406,34 @@ let _BbBreakPoint = 768;
   });
 
   /**
-   * 子メニューのあるグローバルナビ
+   * 子メニューのあるグローバルナビ／ヘッダーナビ
    */
   const _GlobalNav = (() => {
-    const $gnav = document.querySelector('#global-nav');
-    if (!$gnav) return;
-    const $navAll = $gnav.querySelectorAll('.menu-item-has-children');
-    $navAll.forEach(($nav) => {
-      $nav.addEventListener('mouseover', () => {
-        document.querySelector('#main-container').classList.add('gnav-active');
-      });
-      $nav.addEventListener('mouseout', () => {
-        document.querySelector('#main-container').classList.remove('gnav-active');
+    const navs = [
+      '#header-nav',
+      '#global-nav'
+    ];
+    navs.forEach((nav) => {
+      const $gnav = document.querySelector(nav);
+      if (!$gnav) return;
+      const $navAll = $gnav.querySelectorAll('.menu > .menu-item-has-children');
+      $navAll.forEach(($nav) => {
+        const maxHeight = (act) => {
+          let height = 0;
+          if (act == 'open') {
+            const $subMenu = $nav.querySelector('.sub-menu').getBoundingClientRect();
+            height = parseInt($subMenu.height) + 25;
+          }
+          $nav.querySelector('.child-group').style.maxHeight = `${height}px`;
+        };
+        $nav.addEventListener('mouseover', () => {
+          if (nav == '#global-nav') document.querySelector('#main-container').classList.add('gnav-active');
+          maxHeight('open');
+        });
+        $nav.addEventListener('mouseout', () => {
+          if (nav == '#global-nav') document.querySelector('#main-container').classList.remove('gnav-active');
+          maxHeight();
+        });
       });
     });
   });
