@@ -282,6 +282,13 @@ function add_cfg_styles_scripts() {
 }
 add_action('wp_enqueue_scripts', 'add_cfg_styles_scripts', 90);
 
+// プリロード
+function bb_preload_files() {
+  // アイコンフォント用
+  echo '<link rel="preload" href="' . get_template_directory_uri() . '/assets/fonts/BlankBlanc-Icons.woff2?7nner8" as="font" type="font/woff2" crossorigin>' . "\n";
+}
+add_action('wp_head', 'bb_preload_files', 5);
+
 
 /**
  * インライン css / js
