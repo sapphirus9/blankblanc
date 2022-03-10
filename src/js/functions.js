@@ -614,6 +614,7 @@ let _BbBreakPoint = 768;
       });
     }
     if (_options.breakPoint) _BbBreakPoint = _options.breakPoint;
+    window._BbBreakPoint = _BbBreakPoint;
 
     new BbSetUserAgent().addClass();
     _BackgroundImage();

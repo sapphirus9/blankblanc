@@ -168,6 +168,19 @@
       });
       e.preventDefault();
     });
+
+    /**
+     * PC幅にリサイズでリセット
+     */
+    window.addEventListener('resize', () => {
+      const bp = !window._BbBreakPoint ? 768 : window._BbBreakPoint;
+      if (document.documentElement.clientWidth >= bp) {
+        toggleElement.forEach((toggle) => {
+          document.body.classList.remove(nameShowBtn);
+          document.querySelector(toggle).classList.remove(nameShowBtn);
+        });
+      }
+    });
   };
 
   /**
