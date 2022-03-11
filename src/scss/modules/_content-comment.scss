@@ -24,11 +24,13 @@
   }
   #comments-title {
     font-size: 2.2rem;
+    line-height: 1;
     @include cfg.font-weight(normal);
     margin-bottom: 15px;
   }
   #reply-title {
     font-size: 2rem;
+    line-height: 1;
     @include cfg.font-weight(normal);
     margin-bottom: 10px;
     @include cfg.media-max(lg) {

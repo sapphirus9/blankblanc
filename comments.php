@@ -15,7 +15,7 @@ if (post_password_required()) {
 <?php if ((comments_open() || get_comments_number()) && post_type_supports(get_post_type(), 'comments')) : ?>
   <section id="comments" class="bb-form-style">
     <?php if (have_comments()) : ?>
-      <h3 id="comments-title">コメント一覧</h3>
+      <div id="comments-title">コメント一覧</div>
       <ol class="comment-list">
         <?php wp_list_comments(array('callback' => 'bb_theme_comment')); ?>
       </ol>

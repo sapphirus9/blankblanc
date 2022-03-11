@@ -664,7 +664,7 @@ add_action('widgets_init', 'remove_recent_comments_style');
 /**
  * コメント欄をカスタマイズ
  */
-//コメントリスト表示用カスタマイズコード
+// コメントリスト表示用カスタマイズコード
 function bb_theme_comment($comment, $args, $depth) {
   $GLOBALS['comment'] = $comment;
 ?>
@@ -691,6 +691,13 @@ function bb_theme_comment($comment, $args, $depth) {
   </div>
 <?php
 }
+// 「コメントを残す」タグを変更（h3 -> div）
+function customize_reply_title($defaults) {
+  $defaults['title_reply_before'] = '<div id="reply-title" class="comment-reply-title">';
+  $defaults['title_reply_after'] = "</div>\n";
+  return $defaults;
+}
+add_filter('comment_form_defaults', 'customize_reply_title');
 
 
 /**
