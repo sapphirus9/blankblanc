@@ -43,6 +43,9 @@
         padding: 0 20px;
         background-color: cfg.$base-gray-6;
         box-sizing: border-box;
+        &:hover {
+          background-color: cfg.$base-gray-4 !important;
+        }
       }
       a {
         color: cfg.$base-gray-1;
@@ -50,7 +53,7 @@
         &:hover {
           color: cfg.$base-gray-1;
           text-decoration: none;
-          background-color: cfg.$base-gray-5;
+          background-color: cfg.$base-gray-7;
         }
       }
       &.current-menu-parent > a,
@@ -95,7 +98,7 @@
             transition: all .2s;
             &:hover {
               text-decoration: none;
-              background-color: rgba(cfg.$base-gray-6, .5);
+              background-color: cfg.$base-gray-6 !important;
             }
           }
           .sub-menu {
