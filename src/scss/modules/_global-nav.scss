@@ -60,6 +60,9 @@
       &.current-menu-item > a {
         background-color: cfg.$base-gray-5;
       }
+      &.menu-active > a {
+        background-color: cfg.$base-gray-4 !important;
+      }
     }
   }
 }
@@ -148,6 +151,16 @@
         opacity: 1;
         transition: all .2s linear;
         visibility: visible;
+      }
+      .touch-device &.menu-item-has-children {
+        a {
+          pointer-events: none;
+        }
+        &.touchstart {
+          a {
+            pointer-events: initial;
+          }
+        }
       }
     }
   }

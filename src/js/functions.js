@@ -16,7 +16,8 @@ class BbSetUserAgent
     const config = {
       os: 'other',
       device: 'desktop',
-      browser: 'other'
+      browser: 'other',
+      touchevent:false
     };
     if (window.navigator.userAgentData) {
       ua = navigator.userAgentData;
@@ -35,6 +36,7 @@ class BbSetUserAgent
       else if (/Macintosh/.test(ua)) config.os = 'macosx';
       else if (/Android/.test(ua)) config.os = 'android';
       else if (/iP.*?Mac OS X/.test(ua)) config.os = 'ios';
+      else if (/Silk/.test(ua)) config.os = 'firehd';
       else if (/Linux/.test(ua)) config.os = 'linux';
       /* Device */
       if (/iPhone.*?Mac OS X/.test(ua)) config.device = 'mobile';
@@ -44,13 +46,18 @@ class BbSetUserAgent
       else if (/Trident\/7\.0/.test(ua)) config.browser = 'ie11';
       else if (/Firefox/.test(ua)) config.browser = 'firefox';
       else if (/Chrome/.test(ua)) config.browser = 'chromium';
+      else if (/Silk/.test(ua)) config.browser = 'silk';
     }
+    if (/windows|macosx/.test(config.os)) config.touchevent = false;
+    else if (/android|ios|firehd/.test(config.os)) config.touchevent = true;
+    else if (window.ontouchstart !== undefined && navigator.maxTouchPoints > 0) config.touchevent = true;
     this.config = config;
   };
   addClass() {
     document.documentElement.classList.add('os-' + this.config.os);
     document.documentElement.classList.add('device-' + this.config.device);
     document.documentElement.classList.add('browser-' + this.config.browser);
+    if (this.config.touchevent) document.documentElement.classList.add('touch-device');
   };
 };
 
@@ -417,6 +424,7 @@ let _BbBreakPoint = 768;
       const $gnav = document.querySelector(nav);
       if (!$gnav) return;
       const $navAll = $gnav.querySelectorAll('.menu > .menu-item-has-children');
+      let $prev_nav = '';
       $navAll.forEach(($nav) => {
         const maxHeight = (act) => {
           let height = 0;
@@ -426,14 +434,36 @@ let _BbBreakPoint = 768;
           }
           $nav.querySelector('.child-group').style.maxHeight = `${height}px`;
         };
-        $nav.addEventListener('mouseover', () => {
-          if (nav == '#global-nav') document.querySelector('#main-container').classList.add('gnav-active');
-          maxHeight('open');
-        });
-        $nav.addEventListener('mouseout', () => {
-          if (nav == '#global-nav') document.querySelector('#main-container').classList.remove('gnav-active');
-          maxHeight();
-        });
+        if (document.documentElement.classList.contains('touch-device')) { // タッチデバイス
+          $nav.addEventListener('touchstart', () => {
+            if (nav == navs[1]) document.querySelector('#main-container').classList.add('gnav-active');
+            maxHeight('open');
+            $nav.classList.add('menu-active');
+            $prev_nav = $nav;
+            if (!$nav.classList.contains('touchstart')) {
+              setTimeout(() => {
+                $nav.classList.add('touchstart');
+              }, 400);
+            }
+          });
+          $nav.addEventListener('mouseout', () => {
+            if (nav == navs[1] && $prev_nav === $nav) document.querySelector('#main-container').classList.remove('gnav-active');
+            maxHeight();
+            $nav.classList.remove('menu-active');
+            setTimeout(() => {
+              $nav.classList.remove('touchstart');
+            }, 100);
+          });
+        } else { // デスクトップ
+          $nav.addEventListener('mouseover', () => {
+            if (nav == navs[1]) document.querySelector('#main-container').classList.add('gnav-active');
+            maxHeight('open');
+          });
+          $nav.addEventListener('mouseout', () => {
+            if (nav ==  navs[1]) document.querySelector('#main-container').classList.remove('gnav-active');
+            maxHeight();
+          });
+        }
       });
     });
   });

@@ -19,6 +19,9 @@ a {
 #main-screen {
   position: relative;
   min-width: cfg.$width-desktop + cfg.$gap-desktop * 2;
+  .touch-device & {
+    overflow-x: hidden;
+  }
   @include cfg.media-max(xl) {
     top: 0;
     left: 0;
