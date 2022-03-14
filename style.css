@@ -6,7 +6,7 @@ Theme URI: https://github.com/sapphirus9/blankblanc
 Author: Sapphirus9 (Naoki Yamamoto)
 Author URI: https://github.com/sapphirus9
 Description: ウェブサイト+ブログを構築するためのベース用テーマとして、オリジナルのデザインやレイアウトを組み込みやすさを主眼に置いた、飾りを抑えたシンプルな2カラムタイプのHTML LS(前HTML5)テーマです。カテゴリーやページ毎に設定したslug名と同じスタイルシートをテーマ内に用意することで、各々スタイルの調整を行うことができます。基本CSSではレスポンシブデザインとして、768px未満でスマートフォン向けのレイアウト切り替えを設けています。
-Version: 2.8.8
+Version: 2.8.8.1
 Requires at least: 5.5
 Tested up to: 5.9
 Requires PHP: 5.6.20
