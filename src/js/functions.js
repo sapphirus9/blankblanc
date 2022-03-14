@@ -48,7 +48,7 @@ class BbSetUserAgent
       else if (/Chrome/.test(ua)) config.browser = 'chromium';
       else if (/Silk/.test(ua)) config.browser = 'silk';
     }
-    if (/windows|macosx/.test(config.os)) config.touchevent = false;
+    if (/windows/.test(config.os)) config.touchevent = false;
     else if (/android|ios|firehd/.test(config.os)) config.touchevent = true;
     else if (window.ontouchstart !== undefined && navigator.maxTouchPoints > 0) config.touchevent = true;
     this.config = config;

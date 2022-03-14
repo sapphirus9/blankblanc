@@ -312,8 +312,10 @@
 //--------------------------------------------------------------------
 #global-widget {
   position: relative;
-  &::after {
+  &::after { // マージンを含めたウィジェットの高さを取得するため
     display: block;
+    padding-bottom: 1px; //Safariで必要
+    margin-bottom: -1px;
     content: '';
     overflow: hidden;
   }
