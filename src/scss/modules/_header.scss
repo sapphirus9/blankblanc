@@ -20,6 +20,9 @@
 //--------------------------------------------------------------------
 #global-header {
   background-color: cfg.$base-white;
+  .touch-device & {
+    overflow-x: hidden;
+  }
   @include cfg.media-max(xl) {
     position: fixed;
     top: 0;
