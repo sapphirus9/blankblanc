@@ -153,12 +153,21 @@
         visibility: visible;
       }
       .touch-device &.menu-item-has-children {
-        a {
-          pointer-events: none;
+        &::before {
+          display: block;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          content: '';
+          background-color: transparent;
+          z-index: 2;
+          transition: z-index .5s;
         }
         &.touchstart {
-          a {
-            pointer-events: initial;
+          &::before {
+            z-index: -1;
           }
         }
       }

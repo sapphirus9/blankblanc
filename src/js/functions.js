@@ -51,13 +51,13 @@ class BbSetUserAgent
     if (/windows/.test(config.os)) config.touchevent = false;
     else if (/android|ios|firehd/.test(config.os)) config.touchevent = true;
     else if (window.ontouchstart !== undefined && navigator.maxTouchPoints > 0) config.touchevent = true;
-    this.config = config;
+    window.BbOptions.deviceInfo = config;
   };
   addClass() {
-    document.documentElement.classList.add('os-' + this.config.os);
-    document.documentElement.classList.add('device-' + this.config.device);
-    document.documentElement.classList.add('browser-' + this.config.browser);
-    if (this.config.touchevent) document.documentElement.classList.add('touch-device');
+    document.documentElement.classList.add('os-' + window.BbOptions.deviceInfo.os);
+    document.documentElement.classList.add('device-' + window.BbOptions.deviceInfo.device);
+    document.documentElement.classList.add('browser-' + window.BbOptions.deviceInfo.browser);
+    if (window.BbOptions.deviceInfo.touchevent) document.documentElement.classList.add('touch-device');
   };
 };
 
@@ -72,7 +72,7 @@ class BbSmoothScroll {
       speed: 50,
       desktop: 0,
       mobile: 0,
-      breakPoint: _BbBreakPoint
+      breakPoint: window.BbOptions.breakPoint
     };
     /**
      * loaded: ページの表示完了後に実行（ページ遷移時など）
@@ -149,7 +149,6 @@ class BbSmoothScroll {
  * main
  * -------------------------
  */
-let _BbBreakPoint = 768;
 (() => {
   /* forEach (ie11 measures) */
   if (window.NodeList && !NodeList.prototype.forEach) {
@@ -311,7 +310,7 @@ let _BbBreakPoint = 768;
     eventAll.forEach((event) => {
       const indicate = () => {
         const currentPos = window.pageYOffset;
-        const pageBottomTop = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const pageBottomTop = document.documentElement.scrollHeight - window.BbOptions.shrinkHeight;
         if (start < currentPos) {
           $gotopBtn.classList.add('gotop-show');
         } else {
@@ -403,7 +402,7 @@ let _BbBreakPoint = 768;
    * attr: loading="lazy"
    */
   const _ImgLazyLoad = (() => {
-    const showPos = document.documentElement.clientHeight * 0.94;
+    const showPos = window.BbOptions.shrinkHeight * 0.94;
     const $imgAll = document.querySelectorAll('[loading="lazy"]');
     $imgAll.forEach(($img) => {
       const rect = $img.getBoundingClientRect();
@@ -434,25 +433,21 @@ let _BbBreakPoint = 768;
           }
           $nav.querySelector('.child-group').style.maxHeight = `${height}px`;
         };
-        if (document.documentElement.classList.contains('touch-device')) { // タッチデバイス
+        if (window.BbOptions.deviceInfo.touchevent) { // タッチデバイス
           $nav.addEventListener('touchstart', () => {
             if (nav == navs[1]) document.querySelector('#main-container').classList.add('gnav-active');
             maxHeight('open');
             $nav.classList.add('menu-active');
             $prev_nav = $nav;
             if (!$nav.classList.contains('touchstart')) {
-              setTimeout(() => {
-                $nav.classList.add('touchstart');
-              }, 400);
+              $nav.classList.add('touchstart');
             }
           });
           $nav.addEventListener('mouseout', () => {
             if (nav == navs[1] && $prev_nav === $nav) document.querySelector('#main-container').classList.remove('gnav-active');
             maxHeight();
             $nav.classList.remove('menu-active');
-            setTimeout(() => {
-              $nav.classList.remove('touchstart');
-            }, 100);
+            $nav.classList.remove('touchstart');
           });
         } else { // デスクトップ
           $nav.addEventListener('mouseover', () => {
@@ -491,12 +486,12 @@ let _BbBreakPoint = 768;
     const fixedWidgetRect = $fixedWidget.getBoundingClientRect();
     // コンテンツカラムよりウィジェットの方が高い場合は処理をしない
     if (secondColRect.height <= fixedWidgetRect.height) return;
-    const currentBottom = window.pageYOffset + document.documentElement.clientHeight;
+    const currentBottom = window.pageYOffset + window.BbOptions.shrinkHeight;
     if (initfixedWidget.top === null) initfixedWidget.top = window.pageYOffset + fixedWidgetRect.top;
     // 画面よりウィジェットが小さい場合（ie11対応）
     const globalNavRect = document.querySelector('#global-nav').getBoundingClientRect();
-    const widget_size1 = fixedWidgetRect.height <= document.documentElement.clientHeight - initfixedWidget.top ? true : false;
-    const widget_size2 = document.documentElement.clientHeight - globalNavRect.height > fixedWidgetRect.height + initfixedWidget.offset ? true : false;
+    const widget_size1 = fixedWidgetRect.height <= window.BbOptions.shrinkHeight - initfixedWidget.top ? true : false;
+    const widget_size2 = window.BbOptions.shrinkHeight - globalNavRect.height > fixedWidgetRect.height + initfixedWidget.offset ? true : false;
     if (widget_size1 || widget_size2) {
       if (parseInt(initfixedWidget.top - initfixedWidget.offset) < window.pageYOffset) $fixedWidget.classList.add('sticky');
       else $fixedWidget.classList.remove('sticky');
@@ -605,8 +600,23 @@ let _BbBreakPoint = 768;
   };
 
   /**
+   * 画面比率
+   */
+  const _ShrinkRatio = () => {
+    const $mainScreen = document.querySelector('#main-screen');
+    const minWidth = parseInt(window.getComputedStyle($mainScreen).getPropertyValue('min-width'));
+    window.BbOptions.shrinkRatio = minWidth && minWidth > document.documentElement.clientWidth ? parseFloat(minWidth / document.documentElement.clientWidth) : 1;
+    window.BbOptions.shrinkHeight = document.documentElement.clientHeight * window.BbOptions.shrinkRatio;
+    // if (window.BbOptions.deviceInfo.touchevent && /ios|macosx/.test(window.BbOptions.deviceInfo.os)) {
+    //   const deviceWidth = window.BbOptions.breakPoint <= document.documentElement.clientWidth ? minWidth : 'device-width';
+    //   document.querySelector("meta[name='viewport']").setAttribute("content", `width=${deviceWidth}, viewport-fit=cover`);
+    // }
+  };
+
+  /**
    * DOM読み込み後に実行
    */
+  const initBreakPoint = 768;
   let _options = {
     scrollCommon: {
       loaded: false,
@@ -614,7 +624,7 @@ let _BbBreakPoint = 768;
       speed: 40,
       desktop: 65,
       mobile: 65,
-      breakPoint: _BbBreakPoint
+      breakPoint: initBreakPoint
     },
     scrollPageTop: {
       loaded: false,
@@ -622,7 +632,7 @@ let _BbBreakPoint = 768;
       speed: 40,
       desktop: 0,
       mobile: 0,
-      breakPoint: _BbBreakPoint
+      breakPoint: initBreakPoint
     },
     scrollForm: {
       loaded: true,
@@ -630,9 +640,9 @@ let _BbBreakPoint = 768;
       speed: 40,
       desktop: 80,
       mobile: 65,
-      breakPoint: _BbBreakPoint
+      breakPoint: initBreakPoint
     },
-    breakPoint: _BbBreakPoint
+    breakPoint: initBreakPoint
   };
   document.addEventListener('DOMContentLoaded', () => {
     if ('bbOptions' in window) {
@@ -643,10 +653,10 @@ let _BbBreakPoint = 768;
         });
       });
     }
-    if (_options.breakPoint) _BbBreakPoint = _options.breakPoint;
-    window._BbBreakPoint = _BbBreakPoint;
+    window.BbOptions = _options;
 
     new BbSetUserAgent().addClass();
+    _ShrinkRatio();
     _BackgroundImage();
     _MoreContent();
     _WidgetArchive();
@@ -684,6 +694,7 @@ let _BbBreakPoint = 768;
    * ページリサイズ時に実行
    */
   window.addEventListener('resize', () => {
+    _ShrinkRatio();
     _FixedHeaderPart();
     _FixedWidgetColumn();
     _ImgLazyLoad();
