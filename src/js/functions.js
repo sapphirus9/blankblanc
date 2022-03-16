@@ -489,9 +489,10 @@ class BbSmoothScroll {
     const currentBottom = window.pageYOffset + window.BbOptions.shrinkHeight;
     if (initfixedWidget.top === null) initfixedWidget.top = window.pageYOffset + fixedWidgetRect.top;
     // 画面よりウィジェットが小さい場合（ie11対応）
-    const globalNavRect = document.querySelector('#global-nav').getBoundingClientRect();
+    const $globalNav = document.querySelector('#global-nav');
+    const globalNavHeight = $globalNav ? $globalNav.getBoundingClientRect().height : 0;
     const widget_size1 = fixedWidgetRect.height <= window.BbOptions.shrinkHeight - initfixedWidget.top ? true : false;
-    const widget_size2 = window.BbOptions.shrinkHeight - globalNavRect.height > fixedWidgetRect.height + initfixedWidget.offset ? true : false;
+    const widget_size2 = window.BbOptions.shrinkHeight - globalNavHeight > fixedWidgetRect.height + initfixedWidget.offset ? true : false;
     if (widget_size1 || widget_size2) {
       if (parseInt(initfixedWidget.top - initfixedWidget.offset) < window.pageYOffset) $fixedWidget.classList.add('sticky');
       else $fixedWidget.classList.remove('sticky');
