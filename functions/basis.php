@@ -372,13 +372,14 @@ if (is_child_theme()) {
   add_action('wp_enqueue_scripts', 'theme_styles', 30);
 }
 
-// JSに読み込みの属性を追加
+// JSに遅延（defer）読み込み属性を追加
 function add_script_loader_tag($tag, $handle) {
   $handles = array(
     'mobile-nav',
     'functions',
     'child-functions',
   );
+  $handles = apply_filters('bb_defer_script_loader_tag', $handles);
   if (array_search($handle, $handles) !== false) {
     return str_replace('src', 'defer src', $tag);
   } else {
@@ -386,6 +387,20 @@ function add_script_loader_tag($tag, $handle) {
   }
 }
 add_filter('script_loader_tag', 'add_script_loader_tag', 10, 3);
+
+// CSSに非同期での読み込み記述を追加
+function add_style_loader_tag($tag, $handle) {
+  $handles = array(
+    'wp-block-library',
+  );
+  $handles = apply_filters('bb_async_style_loader_tag', $handles);
+  if (array_search($handle, $handles) !== false) {
+    return str_replace("media='all'", "media='print' onload='this.media=\"all\"; this.onload=null;'", $tag);
+  } else {
+    return $tag;
+  }
+}
+add_filter('style_loader_tag', 'add_style_loader_tag', 10, 3);
 
 
 /**
