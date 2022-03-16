@@ -97,6 +97,11 @@
       z-index: 1;
     }
   }
+  .post-date {
+    color: cfg.$base-gray-2;
+    font-size: 1.2rem;
+    margin-left: .5em;
+  }
   label {
     display: none;
   }
