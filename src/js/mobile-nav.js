@@ -122,7 +122,9 @@
      */
     const openBtn = createHtml('div', nameOpenBtn, isMobile);
     openBtn.appendChild(createHtml('span', null, '.btn-symbol'));
-    document.querySelector('#global-header').appendChild(openBtn);
+    const $globalHeader = document.querySelector('#global-header');
+    if (!$globalHeader) return;
+    $globalHeader.appendChild(openBtn);
     const toggleElement = [
       nameMainScreen,
       nameMainScreenMask,
