@@ -192,40 +192,53 @@
     background-color: cfg.$base-gray-6;
     transition: all .2s;
   }
-  .widget_archive {
-    .month-list {
-      @include cfg.media-max(xl) {
-        margin: 4px -1.5% 0;
+  .widget_archive ul {
+    @include cfg.media-max(xl) {
+      margin: 4px -1.5% 0;
+    }
+    > li {
+      flex: 0 1 20%;
+      &.with-count {
+        flex: 0 1 33.33333%;
       }
-      > li {
-        @include cfg.media-max(xl) {
-          width: 22%;
-          margin: 0 1.5% !important;
-          text-align: center;
-          border-top: 1px solid cfg.$base-gray-6 !important;
-        }
-        a {
-          &:hover {
-            .count {
-              color: cfg.$base-gray-2;
-              background-color: cfg.$base-gray-5;
-            }
-          }
-          @include cfg.media-max(xl) {
-            padding: 10px 0 !important;
-          }
-        }
-        .month {
-          @include cfg.media-max(xl) {
-            display: block;
-          }
-        }
+      @include cfg.media-max(xl) {
+        flex: 0 1 22%;
+        margin: 0 1.5%;
+        text-align: center;
+        border-top: 1px solid cfg.$base-gray-6;
+      &.with-count {
+        flex: 0 1 22%;
+      }
+      }
+    }
+    .year-title {
+      flex: 0 1 100%;
+      margin-bottom: 4px;
+      @include cfg.media-max(xl) {
+        text-align: left;
+        border-top: none;
+      }
+    }
+    a {
+      &:hover {
         .count {
-          @include cfg.media-max(xl) {
-            font-size: 1.2rem;
-            margin: 3px 0 0 0 !important;
-          }
+          color: cfg.$base-gray-2;
+          background-color: cfg.$base-gray-5;
         }
+      }
+      @include cfg.media-max(xl) {
+        padding: 8px 0 !important;
+      }
+    }
+    .month {
+      @include cfg.media-max(xl) {
+        display: block;
+      }
+    }
+    .count {
+      @include cfg.media-max(xl) {
+        font-size: 1.2rem;
+        margin: 3px 0 0 0 !important;
       }
     }
   }

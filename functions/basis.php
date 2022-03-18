@@ -719,31 +719,38 @@ add_filter('comment_form_defaults', 'customize_reply_title');
  * アーカイブの記事数表示を変更（対象: 日本語の一覧表示）
  */
 if (!function_exists('bb_get_archives_link')) {
-  function bb_get_archives_link($html, $url, $text, $format) {
+  function bb_get_archives_link($html, $url, $text, $format, $before, $after) {
     if ($format != 'html' || !strpos($html, '年')) {
       return $html;
     }
     static $year = null;
-    $dat = array_fill(0, 7, null);
     $src = '';
-    preg_match('/<li><a href=\'(.+)?\'>(\d{4})年(\d{1,2})月<\/a>((&nbsp;|\s)\((\d+)\))?<\/li>/', $html, $dat);
-    if (!empty($dat)) {
-      $count = !empty($dat[6]) ? "<span class=\"count\">{$dat[6]}</span>" : '';
-      if ($year != $dat[2]) {
-        if ($year && $year > $dat[2]) { // 注: 年が新しい順の場合のみ
-          $src .= "\t\t</ul>\n";
-          $src .= "\t\t<ul>\n";
+    preg_match('/(\d{4})年(\d{1,2})月/', $text, $date);
+    if ($year < $date[1]) {
+      $year = null;
+    }
+    if (!empty($date)) {
+      if ($year != $date[1]) {
+        if (!empty($year)) {
+          $src .= "</ul>\n";
+          $src .= "<ul>\n";
         }
-        $year = $dat[2];
-        $src .= "\t\t\t<li class=\"year-title\"><span>{$dat[2]}年</span></li>\n";
+        $year = $date[1];
+        $src .= "\t<li class=\"year-title\"><span>{$date[1]}年</span></li>\n";
       }
-      $src .= "\t\t\t<li><a href=\"{$dat[1]}\"><span class=\"year\">{$dat[2]}年</span><span class=\"month\">{$dat[3]}月</span>{$count}</a></li>\n";
+      $class = '';
+      if (!empty($after)) {
+        $after = preg_replace('/.*\((\d+)\)/', '$1', $after);
+        $after = "<span class=\"count\">{$after}</span>";
+        $class = ' class="with-count"';
+      }
+      $src .= "\t<li{$class}><a href=\"{$url}\"><span class=\"year\">{$date[1]}年</span><span class=\"month\">{$date[2]}月</span>{$after}</a></li>\n";
     }
     $src = apply_filters('bb_get_archives_link', $src);
     return $src;
   }
 }
-add_filter('get_archives_link', 'bb_get_archives_link', 10, 4);
+add_filter('get_archives_link', 'bb_get_archives_link', 10, 6);
 
 
 /**

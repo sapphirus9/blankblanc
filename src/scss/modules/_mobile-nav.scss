@@ -182,7 +182,7 @@ body.nav-window-show {
     padding: 0;
   }
   .widgettitle {
-    color: cfg.$base-gray-3;
+    color: cfg.$base-gray-2;
     font-size: 1.3rem;
     @include cfg.font-weight(bold);
     padding: 8px 12px;
@@ -205,17 +205,6 @@ body.nav-window-show {
         padding: 15px 10px;
         background-color: transparent;
         -webkit-tap-highlight-color: rgba(0, 0, 0, .06);
-      }
-      &.year-title {
-        > span {
-          display: block;
-          color: cfg.$base-gray-4;
-          font-size: 1.3rem;
-          margin: 5px 0 0 1.5%;
-        }
-        &:first-of-type span {
-          margin-top: 0;
-        }
       }
       .count {
         display: inline-block;
@@ -341,21 +330,32 @@ body.nav-window-show {
   .recentcomments .entry-title:hover {
     text-decoration: none;
   }
-  .widget_archive .month-list {
-    margin: 4px -1.5% 0;
-    > li {
-      width: 22%;
-      margin: 0 1.5%;
-      a {
-        padding: 10px 0;
+  .widget_archive {
+    .widgettitle {
+      margin-bottom: 15px;
+    }
+    ul {
+      margin: 4px -1.5% 0;
+      > li {
+        flex: 0 1 22%;
+        margin: 0 1.5%;
+        a {
+          padding: 10px 0;
+        }
       }
-      .month {
-        display: block;
-      }
-      .count {
-        font-size: 1.2rem;
-        margin: 3px 0 0 0;
-      }
+    }
+    .year-title {
+      flex: 0 1 100%;
+      font-size: 1.3rem;
+      margin: 0 0 4px 1.5%;
+      border-top: none;
+    }
+    .month {
+      display: block;
+    }
+    .count {
+      font-size: 1.2rem;
+      margin: 3px 0 0 0;
     }
   }
   .tagcloud {

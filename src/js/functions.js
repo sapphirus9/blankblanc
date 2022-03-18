@@ -191,23 +191,6 @@ class BbSmoothScroll {
   };
 
   /**
-   * 月間アーカイブの階層化
-   * attr: .widget_archive
-   */
-  const _WidgetArchive = () => {
-    const $archiveAll = document.querySelectorAll('.widget_archive > ul');
-    $archiveAll.forEach(($archive) => {
-      const $monthList = document.createElement('ul');
-      $monthList.classList.add('month-list');
-      const $monthAll = $archive.querySelectorAll('li:not(.year-title)');
-      $monthAll.forEach(($month) => {
-        $monthList.appendChild($month);
-      });
-      $archive.querySelector('.year-title').appendChild($monthList);
-    });
-  };
-
-  /**
    * 最近のコメント
    * attr: .widget_recent_comments
    */
@@ -294,6 +277,7 @@ class BbSmoothScroll {
    */
   const _GoPageTop = (() => {
     const $gotopBtn = document.querySelector('#gotop-button');
+    if (!$gotopBtn) return;
     const $div = document.createElement('div');
     ['gotop-cfg', 'gotop-start', 'gotop-end'].forEach((cls) => {
       $div.classList.add(cls);
@@ -660,7 +644,6 @@ class BbSmoothScroll {
     _ShrinkRatio();
     _BackgroundImage();
     _MoreContent();
-    _WidgetArchive();
     _WidgetComments();
     _SelectTags();
     _GoPageTop();
