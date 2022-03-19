@@ -266,6 +266,36 @@ add_filter('template_include', 'custom_template_include', 99);
 
 
 /**
+ * ファビコンとサイトアイコンを設定
+ * @return output  link icon, apple-touch-icon
+ */
+function add_theme_favicon() {
+  global $bb_theme_config;
+  // テーマカスタマイザでサイトアイコンが設定されている場合は無効
+  if (get_site_icon_url()) return;
+  if (!empty($bb_theme_config['favicon'])) {
+    echo "<link rel=\"icon\" href=\"{$bb_theme_config['favicon']}\">\n";
+  }
+  if (!empty($bb_theme_config['siteicon'])) {
+    echo "<link rel=\"apple-touch-icon\" href=\"{$bb_theme_config['siteicon']}\">\n";
+  }
+}
+add_action('wp_head', 'add_theme_favicon', 10);
+// ファビコンが未設定の場合にテーマアイコンを設定
+function bb_theme_favicon() {
+  global $bb_theme_config;
+  if (empty($bb_theme_config['favicon'])) {
+    $favicon = '/assets/img/favicon.ico';
+    if (is_file(get_template_directory() . $favicon)) {
+      wp_redirect(get_site_icon_url(512, get_template_directory_uri() . $favicon));
+    }
+  }
+  exit;
+}
+add_action('do_faviconico', 'bb_theme_favicon');
+
+
+/**
  * ショートコードを登録
  * @shortcode template_url
  * @shortcode home_url
