@@ -75,6 +75,7 @@ CodeまたはTagsダウンロードすると、アーカイブファイル内の
 |+ コピーライトの表記（開始年）|start_year|string|date_i18n('Y')|
 |+ コピーライトの表記（テキスト）|text|string|ブログ名|
 |+ コピーライトの表記（接尾辞）|suffix|string|空|
+|ローディング画面の有無|loading_screen|bool|false|
 |rel=canonical／prev／next出力|output_canonical|bool|true|
 |親テーマのCSSを利用|with_parent_css|bool|true|
 |親テーマのスクリプト（js）を利用|with_parent_script|bool|true|
@@ -85,7 +86,7 @@ CodeまたはTagsダウンロードすると、アーカイブファイル内の
 |カテゴリー毎（複数）のパンくず表示|bread_crumb_multi|bool|false|
 |絵文字を無効化|disable_emoji|bool|true|
 |画像へのリンクはすべて別窓（_blank）として開く|image_link_target|bool|false|
-|bodyにbody_classを追加|add_body_class|bool|false|
+|WP標準のbody_class設定を追加|add_body_class|bool|false|
 |共通の投稿一覧レイアウトタイプ|taxonomy_layout|string<br>list（リスト）/tiles（タイル）|list|
 |トップページ用メインビジュアル|mv_home_image|string (url)|blankblanc/img/img-hero.jpg|
 |トップページ用メインビジュアル内コンテンツ|mv_home_content|string (html)|空|
