@@ -41,6 +41,9 @@ function bb_body_id_class($classes = array()) {
     $layout = isset($obj->term_id) ? get_term_meta($obj->term_id, 'bb_term_layout_select', true) : 'defualt';
     array_push($classes, $layout . '-layout');
   }
+  if ($bb_theme_config['loading_screen']) { // ローディング画面用
+    array_push($classes, 'loading-screen-enable');
+  }
   if (!empty($classes)) {
     $class = ' class="' . join(' ', array_unique($classes)) . '"';
   } else {
@@ -48,6 +51,18 @@ function bb_body_id_class($classes = array()) {
   }
   echo "id=\"{$bb_theme_id_class->id}\"{$class}";
 }
+
+
+/**
+ * ページが構築されるまでのローディング画面
+ */
+function bb_loading_screen() {
+  global $bb_theme_config;
+  if ($bb_theme_config['loading_screen']) {
+    echo "<div id=\"loading-screen\"></div>\n";
+  }
+}
+add_action('wp_footer', 'bb_loading_screen');
 
 
 /**

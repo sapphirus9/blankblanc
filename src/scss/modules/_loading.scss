@@ -1,0 +1,74 @@
+@use 'config' as cfg;
+//--------------------------------------------------------------------
+// loading screen
+//--------------------------------------------------------------------
+@keyframes loading-symbol {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
+}
+
+body.loading-screen-enable {
+  #main-screen {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0s, visibility 0s;
+    html.page-loaded & {
+      opacity: 1;
+      visibility: visible;
+      transition: opacity .5s, visibility 0s;
+    }
+  }
+  #loading-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity .5s, visibility .5s;
+    z-index: 1;
+    &::before {
+      display: block;
+      position: absolute;
+      content: '';
+      width: 36px;
+      height: 36px;
+      border: 3px solid #eee;
+      border-radius: 50%;
+      box-sizing: border-box;
+    }
+    &::after {
+      display: block;
+      position: absolute;
+      content: '';
+      width: 36px;
+      height: 36px;
+      border-top: 3px solid #ccc;
+      border-left: 3px solid transparent;
+      border-bottom: 3px solid transparent;
+      border-right: 3px solid transparent;
+      border-radius: 50%;
+      box-sizing: border-box;
+      animation: loading-symbol .8s linear infinite;
+    }
+    html.page-loaded & {
+      display: none;
+      opacity: 0;
+      visibility: hidden;
+      z-index: -1;
+      &::after {
+        animation: none;
+      }
+    }
+  }
+}

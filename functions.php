@@ -55,6 +55,8 @@ function bb_config_default() {
       // コピーライトの接尾辞（デフォルトは無指定） [string]
       'suffix' => '',
     ),
+    // ローディング画面の有無 [bool]
+    'loading_screen'       => false,
     // カノニカル出力の有無 [bool]
     'output_canonical'     => true,
     // 子テーマ利用時に親テーマのCSSファイルを読み込む [bool]
@@ -75,9 +77,9 @@ function bb_config_default() {
     'disable_emoji'        => true,
     // 画像へのリンクはすべて別窓（_blank）として開く [bool]
     'image_link_target'    => false,
-    // bodyにbody_classを追加 [bool]
+    // WP標準のbody_class設定を追加 [bool]
     'add_body_class'       => false,
-    // きょうつうの投稿一覧レイアウトタイプ（list/tiles） [string]
+    //共通の投稿一覧レイアウトタイプ（list/tiles） [string]
     'taxonomy_layout'      => 'list',
     // メインビジュアル画像 [string(url)]
     'mv_image'             => '',

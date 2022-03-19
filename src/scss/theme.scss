@@ -9,6 +9,7 @@
  */
 @use 'modules/initialize';
 @use 'modules/base';
+@use 'modules/loading';
 @use '../../assets/fonts/BlankBlanc-Icons'; // icons
 @use 'modules/header';
 @use 'modules/global-nav';

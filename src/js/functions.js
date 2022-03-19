@@ -639,7 +639,6 @@ class BbSmoothScroll {
       });
     }
     window.BbOptions = _options;
-
     new BbSetUserAgent().addClass();
     _ShrinkRatio();
     _BackgroundImage();
@@ -651,7 +650,6 @@ class BbSmoothScroll {
     _SearchForm();
     _BbToc();
     _GlobalNav();
-    _FixedWidgetColumn();
     _BbFormStyle();
   });
 
@@ -662,7 +660,10 @@ class BbSmoothScroll {
     _TableContents();
     _ToAnchorLink();
     _FixedHeaderPart();
+    _FixedWidgetColumn();
     _ImgLazyLoad();
+    // ページ読み込み完了のクラスを追加
+    document.documentElement.classList.add('page-loaded');
   });
 
   /**

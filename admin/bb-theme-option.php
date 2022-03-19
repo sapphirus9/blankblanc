@@ -208,6 +208,7 @@ class blankblancConfig
             <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-date-format.php'; ?>
             <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-more-text.php'; ?>
             <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-taxonomy-layout.php'; ?>
+            <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-loading-screen.php'; ?>
           </div>
           <!-- /tab-1 -->
 
