@@ -150,8 +150,6 @@
 .widget_archive > ul {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row-reverse;
-  justify-content: flex-end;
   @include cfg.media-max(xl) {
     margin: 4px 2.5% 0;
   }
@@ -162,13 +160,18 @@
     margin: 0 0 5px 0;
     flex: 0 1 16.66666%;
     &.with-count {
-      flex: 0 1 25%;
+      flex: 0 1 33.33333%;
     }
     @include cfg.media-max(xl) {
       flex: 0 1 22%;
       margin: 0 1.5%;
       text-align: center;
       border-top: 1px solid cfg.$base-gray-7;
+    }
+    @for $i from 2 to 13 {
+      &:nth-child(#{$i}) {
+        order: #{14 - $i};
+      }
     }
   }
   .year-title {
