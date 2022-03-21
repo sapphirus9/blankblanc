@@ -43,7 +43,7 @@
 
   <div id="main-container">
     <?php if (has_nav_menu('global_nav')) : ?>
-      <div id="header-part">
+      <div id="header-part"<?php echo bb_get_fixed_global_nav();?>>
         <div id="header-part-inner">
           <nav id="global-nav">
             <div class="wrap">

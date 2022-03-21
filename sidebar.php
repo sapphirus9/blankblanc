@@ -7,7 +7,7 @@
  */
 ?>
 
-<aside id="global-widget" class="bottom-fixed-widget">
+<aside id="global-widget"<?php echo bb_get_fixed_widget();?>>
   <?php if (is_active_sidebar('sidebar-widget-1')) : ?>
     <ul id="sidebar-widget-1">
       <?php dynamic_sidebar('sidebar-widget-1'); ?>

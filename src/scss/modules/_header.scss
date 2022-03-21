@@ -13,6 +13,14 @@
         position: fixed;
       }
     }
+    &.non-fixed {
+      position: relative !important;
+      .browser-ie11 & { // ie11
+        &.fixed #header-part-inner {
+          position: relative !important;
+        }
+      }
+    }
   }
 }
 
