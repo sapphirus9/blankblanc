@@ -181,7 +181,8 @@ class blankblancConfig
         <div id="nav-tabs">
           <ul class="nav-tab-wrapper">
             <li><a href="#tab-1" class="nav-tab nav-tab-active">共通1</a></li>
-            <li><a href="#tab-2" class="nav-tab">共通2</a></li>
+            <li><a href="#tab-8" class="nav-tab">共通2</a></li>
+            <li><a href="#tab-2" class="nav-tab">共通3</a></li>
             <li><a href="#tab-3" class="nav-tab">ロゴ</a></li>
             <?php if (function_exists('call_bb_table_of_contents')) : ?>
               <li><a href="#tab-6" class="nav-tab">目次</a></li>
@@ -189,9 +190,9 @@ class blankblancConfig
             <?php if (function_exists('call_bb_mainvisual_term_meta')) : ?>
               <li><a href="#tab-5" class="nav-tab">メインビジュアル</a></li>
             <?php endif; ?>
-            <li><a href="#tab-4" class="nav-tab">モバイル</a></li>
             <li><a href="#tab-7" class="nav-tab">トップページ</a></li>
-            <li><a href="#tab-8" class="nav-tab">設定一覧</a></li>
+            <li><a href="#tab-4" class="nav-tab">モバイル</a></li>
+            <li><a href="#tab-9" class="nav-tab">設定一覧</a></li>
           </ul>
 
           <!-- tab-1 -->
@@ -207,8 +208,6 @@ class blankblancConfig
             <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-excerpt-length-rss.php'; ?>
             <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-date-format.php'; ?>
             <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-more-text.php'; ?>
-            <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-taxonomy-layout.php'; ?>
-            <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-loading-screen.php'; ?>
           </div>
           <!-- /tab-1 -->
 
@@ -222,7 +221,6 @@ class blankblancConfig
             <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-use-parent-script.php'; ?>
             <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-disable-emoji.php'; ?>
             <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-add-body-class.php'; ?>
-            <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-image-link-target.php'; ?>
           </div>
           <!-- /tab-2 -->
 
@@ -266,9 +264,19 @@ class blankblancConfig
 
           <!-- tab-8 -->
           <div id="tab-8">
-            <?php $this->config_list(); ?>
+            <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-taxonomy-layout.php'; ?>
+            <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-fixed-global-nav.php'; ?>
+            <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-fixed-widget.php'; ?>
+            <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-image-link-target.php'; ?>
+            <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-loading-screen.php'; ?>
           </div>
           <!-- /tab-8 -->
+
+          <!-- tab-9 -->
+          <div id="tab-9">
+            <?php $this->config_list(); ?>
+          </div>
+          <!-- /tab-9 -->
         </div>
 
         <hr>

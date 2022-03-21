@@ -909,6 +909,30 @@ if (!function_exists('bb_get_taxonomy_layout')) {
 
 
 /**
+ * グローバルナビの固定
+ * @return output  class=non-fixed
+ */
+if (!function_exists('bb_get_fixed_global_nav')) {
+  function bb_get_fixed_global_nav() {
+    global $bb_theme_config;
+    return $bb_theme_config['fixed_global_nav'] === true ? '' : ' class="non-fixed"';
+  }
+}
+
+
+/**
+ * サイドバー（ウィジェット）の固定
+ * @return output  class=bottom-fixed-widget
+ */
+if (!function_exists('bb_get_fixed_widget')) {
+  function bb_get_fixed_widget() {
+    global $bb_theme_config;
+    return $bb_theme_config['fixed_widget'] === true ? ' class="bottom-fixed-widget"' : '';
+  }
+}
+
+
+/**
  * 新着の日付＋タイトル一覧を取得
  * @param array  パラメータは WP_Query と同じ
  *        （デフォルトは5件、category__in および category__not_in はカンマ区切り）
