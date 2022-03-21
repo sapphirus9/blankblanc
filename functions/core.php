@@ -62,7 +62,7 @@ function bb_loading_screen() {
     echo "<div id=\"loading-screen\"></div>\n";
   }
 }
-add_action('wp_footer', 'bb_loading_screen');
+add_action('wp_body_open', 'bb_loading_screen', 9);
 
 
 /**
