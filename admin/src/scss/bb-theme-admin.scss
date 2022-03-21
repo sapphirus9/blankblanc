@@ -124,6 +124,11 @@
     &[type=checkbox] {
       margin-top: 7px;
     }
+    &[type=radio] {
+      ~ label {
+        vertical-align: text-bottom;
+      }
+    }
     &[type=button] {
       margin: 6px 3px 0 0;
     }
@@ -169,6 +174,7 @@
   }
   .group {
     display: inline-block;
+    vertical-align: top;
     margin-left: 1em;
     &:first-of-type {
       margin-left: 0;

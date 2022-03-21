@@ -6,6 +6,9 @@ body {
   color: cfg.$base-gray-1;
   background-color: cfg.$base-gray-7;
   -webkit-tap-highlight-color: transparent;
+  .browser-ie11 & {
+    overflow-x: hidden;
+  }
 }
 
 a {
