@@ -378,6 +378,7 @@ function add_script_loader_tag($tag, $handle) {
     'mobile-nav',
     'functions',
     'child-functions',
+    'comment-reply',
   );
   $handles = apply_filters('bb_defer_script_loader_tag', $handles);
   if (array_search($handle, $handles) !== false) {
