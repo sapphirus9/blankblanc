@@ -76,6 +76,8 @@ CodeまたはTagsダウンロードすると、アーカイブファイル内の
 |+ コピーライトの表記（テキスト）|text|string|ブログ名|
 |+ コピーライトの表記（接尾辞）|suffix|string|空|
 |ローディング画面の有無|loading_screen|bool|false|
+|グローバルナビの固定|fixed_global_nav|bool|true|
+|サイドバー（ウィジェット）の固定|fixed_widget|bool|true|
 |rel=canonical／prev／next出力|output_canonical|bool|true|
 |親テーマのCSSを利用|with_parent_css|bool|true|
 |親テーマのスクリプト（js）を利用|with_parent_script|bool|true|
