@@ -70,7 +70,7 @@ require_once BB_ADMIN_DIR . '/bb-theme-admin.php';
 
 /**
  * ウィジェットのブロックエディターを停止
- * ※プラグイン等で一部不具合がでるため暫定的な処置
+ * ※一部不具合が発生（プラグイン等含め）するため暫定的な処置
  */
 function temporary_theme_support() {
   remove_theme_support('widgets-block-editor');
