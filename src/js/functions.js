@@ -150,6 +150,13 @@ class BbSmoothScroll {
  * -------------------------
  */
 (() => {
+  // html確認
+  if (!document.getElementById('main-screen')) {
+    window.BbOptions = [];
+    document.documentElement.id = 'blankblanc-wp-admin';
+    new BbSetUserAgent().addClass();
+    return;
+  }
   /* forEach (ie11 measures) */
   if (window.NodeList && !NodeList.prototype.forEach) {
     NodeList.prototype.forEach = Array.prototype.forEach;

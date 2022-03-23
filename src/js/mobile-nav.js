@@ -5,6 +5,8 @@
  */
 (() => {
   'use strict';
+  // html確認
+  if (!document.getElementById('main-screen')) return;
   /**
    * スライドナビの設定
    */

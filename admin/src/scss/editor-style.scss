@@ -4,6 +4,7 @@
  * Author: Naoki Yamamoto
  * Description: 管理画面（編集）用スタイルシートです。
  */
+@use 'common';
 @use 'editor';
 @use '../../../src/scss/common/add-tinymce' as tinymce;
 @include tinymce.add-tinymce();

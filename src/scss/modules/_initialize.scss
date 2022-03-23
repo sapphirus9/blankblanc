@@ -20,7 +20,7 @@ body {
   @include cfg.font-weight(normal);
   line-height: 1;
   line-break: strict;
-  height: 100%;
+  min-height: 100%;
   margin: 0;
   padding: 0;
   text-size-adjust: 100%;

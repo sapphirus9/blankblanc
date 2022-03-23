@@ -1,0 +1,12 @@
+@use 'config' as cfg;
+//--------------------------------------------------------------------
+// common
+//--------------------------------------------------------------------
+.wp-block-legacy-widget {
+  &__edit-preview-iframe {
+    vertical-align: bottom;
+    margin: 10px;
+    width: calc(100% - 20px);
+    box-sizing: border-box;
+  }
+}

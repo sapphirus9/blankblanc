@@ -356,6 +356,7 @@ body.nav-window-show {
     .count {
       font-size: 1.2rem;
       margin: 3px 0 0 0;
+      background-color: cfg.$base-gray-7;
     }
   }
   .tagcloud {
@@ -370,7 +371,7 @@ body.nav-window-show {
           line-height: 1;
           padding: 9px;
           margin: 5px;
-          background-color: cfg.$base-gray-6;
+          background-color: cfg.$base-gray-7;
           -webkit-tap-highlight-color: rgba(0, 0, 0, .06);
         }
       }
