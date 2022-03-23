@@ -210,7 +210,13 @@ if (!function_exists('add_styles_scripts')) {
   function add_styles_scripts() {
     global $bb_theme_config;
     if ($bb_theme_config['with_parent_css'] === true) {
-      wp_enqueue_style('style', get_template_directory_uri() . '/assets/css/theme.css', array(), VERSION_PARAM);
+      wp_register_style(
+        'theme',
+        get_template_directory_uri() . '/assets/css/theme.css',
+        array(),
+        VERSION_PARAM
+      );
+      wp_enqueue_style('theme');
     }
     // comments
     if (is_singular() && comments_open() && get_option('thread_comments')) {
@@ -226,15 +232,22 @@ if (!function_exists('add_mobile_styles_scripts')) {
     if (is_admin()) return;
     global $bb_theme_config;
     if ($bb_theme_config['with_parent_script'] === true) {
-      wp_enqueue_script('mobile-nav', get_template_directory_uri() . '/assets/js/mobile-nav.js', array(), VERSION_PARAM, true);
+      wp_register_script(
+        'mobile-nav',
+        get_template_directory_uri() . '/assets/js/mobile-nav.js',
+        array(),
+        VERSION_PARAM,
+        true
+      );
+      wp_enqueue_script('mobile-nav');
     }
     // スライドメニューの登録
     $_js = array();
     if (!empty($bb_theme_config['mobile_nav'])) {
-      $_js[] = "\tslideNav : ['" . implode("', '", $bb_theme_config['mobile_nav']) . "']";
+      $_js[] = "\tslideNav: ['" . implode("', '", $bb_theme_config['mobile_nav']) . "']";
     }
     if (!empty($bb_theme_config['mobile_nav_footer'])) {
-      $_js[] = "\tfooterNav : ['" . implode("', '", $bb_theme_config['mobile_nav_footer']) . "']";
+      $_js[] = "\tfooterNav: ['" . implode("', '", $bb_theme_config['mobile_nav_footer']) . "']";
     }
     if (!empty($_js)) {
       $js = "var bbCfgMobileNav = {\n" . implode(",\n", $_js) . "\n};";
@@ -250,7 +263,14 @@ if (!function_exists('add_common_scripts')) {
     if (is_admin()) return;
     global $bb_theme_config;
     if ($bb_theme_config['with_parent_script'] === true) {
-      wp_enqueue_script('functions', get_template_directory_uri() . '/assets/js/functions.js', array(), VERSION_PARAM, true);
+      wp_register_script(
+        'functions',
+        get_template_directory_uri() . '/assets/js/functions.js',
+        array(),
+        VERSION_PARAM,
+        true
+      );
+      wp_enqueue_script('functions');
     }
   }
 }
@@ -262,22 +282,54 @@ function add_cfg_styles_scripts() {
   // css
   if (!empty($bb_theme_id_class->css)) {
     if (is_file(get_stylesheet_directory() . '/assets/css/' . $bb_theme_id_class->css)) {
-      wp_enqueue_style('current', get_stylesheet_directory_uri() . '/assets/css/' . $bb_theme_id_class->css, array(), VERSION_PARAM);
+      wp_register_style(
+        'current',
+        get_stylesheet_directory_uri() . '/assets/css/' . $bb_theme_id_class->css,
+        array(),
+        VERSION_PARAM
+      );
     } elseif (is_file(get_stylesheet_directory() . '/css/' . $bb_theme_id_class->css)) {
-      wp_enqueue_style('current', get_stylesheet_directory_uri() . '/css/' . $bb_theme_id_class->css, array(), VERSION_PARAM);
+      wp_register_style(
+        'current',
+        get_stylesheet_directory_uri() . '/css/' . $bb_theme_id_class->css,
+        array(),
+        VERSION_PARAM
+      );
     } elseif (is_file(get_stylesheet_directory() . '/' . $bb_theme_id_class->css)) {
-      wp_enqueue_style('current', get_stylesheet_directory_uri() . '/' . $bb_theme_id_class->css, array(), VERSION_PARAM);
+      wp_register_style(
+        'current',
+        get_stylesheet_directory_uri() . '/' . $bb_theme_id_class->css,
+        array(),
+        VERSION_PARAM
+      );
     }
+    wp_enqueue_style('current');
   }
   // js
   if (!empty($bb_theme_id_class->js)) {
     if (is_file(get_stylesheet_directory() . '/assets/js/' . $bb_theme_id_class->js)) {
-      wp_enqueue_script('current', get_stylesheet_directory_uri() . '/assets/js/' . $bb_theme_id_class->js, array(), VERSION_PARAM);
+      wp_register_script(
+        'current',
+        get_stylesheet_directory_uri() . '/assets/js/' . $bb_theme_id_class->js,
+        array(),
+        VERSION_PARAM
+      );
     } elseif (is_file(get_stylesheet_directory() . '/js/' . $bb_theme_id_class->js)) {
-      wp_enqueue_script('current', get_stylesheet_directory_uri() . '/js/' . $bb_theme_id_class->js, array(), VERSION_PARAM);
+      wp_register_script(
+        'current',
+        get_stylesheet_directory_uri() . '/js/' . $bb_theme_id_class->js,
+        array(),
+        VERSION_PARAM
+      );
     } elseif (is_file(get_stylesheet_directory() . '/' . $bb_theme_id_class->js)) {
-      wp_enqueue_script('current', get_stylesheet_directory_uri() . '/' . $bb_theme_id_class->js, array(), VERSION_PARAM);
+      wp_register_script(
+        'current',
+        get_stylesheet_directory_uri() . '/' . $bb_theme_id_class->js,
+        array(),
+        VERSION_PARAM
+      );
     }
+    wp_enqueue_script('current');
   }
 }
 add_action('wp_enqueue_scripts', 'add_cfg_styles_scripts', 90);
@@ -337,57 +389,98 @@ add_action('wp_footer', 'add_inline_js_body', 99);
  * 子テーマ用 JS, CSS の読込
  */
 if (is_child_theme()) {
-  // scripts
-  if (!function_exists('theme_scripts')) {
-    function theme_scripts() {
+  // js
+  if (!function_exists('child_theme_scripts')) {
+    function child_theme_scripts() {
       $filename = '/js/mobile-nav.js';
       if (is_file(get_stylesheet_directory() . '/assets' . $filename)) {
-        wp_enqueue_script('child-mobile-nav', get_stylesheet_directory_uri() . '/assets' . $filename, array(), VERSION_PARAM, true);
+        wp_register_script(
+          'child-mobile-nav',
+          get_stylesheet_directory_uri() . '/assets' . $filename,
+          array(),
+          VERSION_PARAM,
+          true
+        );
       } elseif (is_file(get_stylesheet_directory() . $filename)) {
-        wp_enqueue_script('child-mobile-nav', get_stylesheet_directory_uri() . $filename, array(), VERSION_PARAM, true);
+        wp_register_script(
+          'child-mobile-nav',
+          get_stylesheet_directory_uri() . $filename, array(),
+          VERSION_PARAM,
+          true
+        );
       }
+      wp_enqueue_script('child-mobile-nav');
+
       $filename = '/js/functions.js';
       if (is_file(get_stylesheet_directory() . '/assets' . $filename)) {
-        wp_enqueue_script('child-functions', get_stylesheet_directory_uri() . '/assets' . $filename, array(), VERSION_PARAM, true);
+        wp_register_script(
+          'child-functions',
+          get_stylesheet_directory_uri() . '/assets' . $filename,
+          array(),
+          VERSION_PARAM,
+          true
+        );
       } elseif (is_file(get_stylesheet_directory() . $filename)) {
-        wp_enqueue_script('child-functions', get_stylesheet_directory_uri() . $filename, array(), VERSION_PARAM, true);
+        wp_register_script(
+          'child-functions',
+          get_stylesheet_directory_uri() . $filename, array(),
+          VERSION_PARAM,
+          true
+        );
       }
+      wp_enqueue_script('child-functions');
     }
   }
-  add_action('wp_enqueue_scripts', 'theme_scripts', 50);
+  add_action('wp_enqueue_scripts', 'child_theme_scripts', 50);
 
-  // styles
-  if (!function_exists('theme_styles')) {
-    function theme_styles() {
+  // css
+  if (!function_exists('child_theme_styles')) {
+    function child_theme_styles() {
       $filename = 'theme.css';
       if (is_file(get_stylesheet_directory() . '/assets/css/' . $filename)) {
-        wp_enqueue_style('child', get_stylesheet_directory_uri() . '/assets/css/' . $filename, array(), VERSION_PARAM);
+        wp_register_style(
+          'child',
+          get_stylesheet_directory_uri() . '/assets/css/' . $filename,
+          array(),
+          VERSION_PARAM
+        );
       } elseif (is_file(get_stylesheet_directory() . '/css/' . $filename)) {
-        wp_enqueue_style('child', get_stylesheet_directory_uri() . '/css/' . $filename, array(), VERSION_PARAM);
+        wp_register_style(
+          'child',
+          get_stylesheet_directory_uri() . '/css/' . $filename,
+          array(),
+          VERSION_PARAM
+        );
       } else {
-        wp_enqueue_style('child', get_stylesheet_uri(), array(), VERSION_PARAM);
+        wp_register_style(
+          'child',
+          get_stylesheet_uri(),
+          array(),
+          VERSION_PARAM
+        );
       }
+      wp_enqueue_style('child');
     }
   }
-  add_action('wp_enqueue_scripts', 'theme_styles', 30);
+  add_action('wp_enqueue_scripts', 'child_theme_styles', 30);
 }
 
 // JSに遅延（defer）読み込み属性を追加
 function add_script_loader_tag($tag, $handle) {
   $handles = array(
-    'mobile-nav',
     'functions',
-    'child-functions',
+    'mobile-nav',
     'comment-reply',
+    'child-functions',
+    'child-mobile-nav',
   );
   $handles = apply_filters('bb_defer_script_loader_tag', $handles);
   if (array_search($handle, $handles) !== false) {
     return str_replace('src', 'defer src', $tag);
-  } else {
-    return $tag;
   }
+  return $tag;
 }
-add_filter('script_loader_tag', 'add_script_loader_tag', 10, 3);
+add_filter('script_loader_tag', 'add_script_loader_tag', 10, 2);
 
 // CSSに非同期での読み込み記述を追加
 function add_style_loader_tag($tag, $handle) {
@@ -397,11 +490,10 @@ function add_style_loader_tag($tag, $handle) {
   $handles = apply_filters('bb_async_style_loader_tag', $handles);
   if (array_search($handle, $handles) !== false) {
     return str_replace("media='all'", "media='print' onload='this.media=\"all\"; this.onload=null;'", $tag);
-  } else {
-    return $tag;
   }
+  return $tag;
 }
-add_filter('style_loader_tag', 'add_style_loader_tag', 10, 3);
+add_filter('style_loader_tag', 'add_style_loader_tag', 10, 2);
 
 
 /**
