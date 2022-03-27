@@ -167,7 +167,7 @@
     margin: 0 0 5px 0;
     flex: 0 1 16.66666%;
     &.with-count {
-      flex: 0 1 33.33333%;
+      flex: 0 1 25%;
     }
     @include cfg.media-max(xl) {
       flex: 0 1 22%;
