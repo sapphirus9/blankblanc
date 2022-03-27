@@ -5,11 +5,9 @@
 
 // search
 //--------------------------------------------------------------------
-.widget_search.widget label {
-  display: block;
-}
 .search-form {
   position: relative;
+  min-width: 250px;
   @include cfg.media-max(xl) {
     margin: 5px 0;
   }
@@ -17,6 +15,7 @@
     display: none;
   }
   label {
+    display: block;
     position: relative;
     &::after {
       display: flex;
@@ -47,6 +46,9 @@
   input {
     @include cfg.bb-input-decoration();
     @include cfg.bb-input-placeholder();
+    &:focus {
+      border-color: cfg.$input-border-focus !important;
+    }
   }
   .search-field {
     font-size: 14px;
@@ -59,7 +61,7 @@
     border-radius: 2px;
     box-sizing: border-box;
     @include cfg.media-max(xl) {
-      border-color: cfg.$base-gray-4;
+      border-color: cfg.$base-gray-3;
     }
   }
   .search-submit {
@@ -76,6 +78,11 @@
     &:focus {
       border-width: 0 !important;
       box-shadow: none;
+    }
+  }
+  &:hover {
+    .search-field {
+      border-color: cfg.$base-gray-3;
     }
   }
 }
