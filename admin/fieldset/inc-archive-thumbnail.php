@@ -1,7 +1,8 @@
 <fieldset <?php $this->has_modified('archive_thumbnail'); ?>>
   <div class="col-left">
     <div class="label-title">一覧ページのサムネイル画像<em>※必須</em></div>
-    <div class="note">サムネイル画像の使用サイズと画像の切り出し方法を設定します。</div>
+    <div class="note">サムネイル画像の使用サイズと画像の切り出し方法を設定します。<br>
+    ※値を変更した場合、既存画像については新たにファイルが生成されません。</div>
   </div>
   <div class="col-right">
     <div class="group">

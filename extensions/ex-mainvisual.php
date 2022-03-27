@@ -2,7 +2,7 @@
 /**
  * Theme Name: BlankBlanc
  * Author: Naoki Yamamoto
- * Description: 固定ページ用メインビジュアル設定の追加
+ * Description: メインビジュアル設定の追加
  */
 
 /**

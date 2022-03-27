@@ -2,7 +2,7 @@
 /**
  * Theme Name: BlankBlanc
  * Author: Naoki Yamamoto
- * Description: 投稿ページにインライン JavaScript とスタイルシートを追加する
+ * Description: インライン JavaScript とスタイルシートを追加する
  */
 
 function call_bb_inline_css_js_post_meta() {
