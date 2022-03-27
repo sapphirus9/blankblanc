@@ -241,6 +241,7 @@ class blankblancConfig
           <!-- tab-5 -->
           <div id="tab-5">
             <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-mainvisual-common.php'; ?>
+            <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-mainvisual-size.php'; ?>
           </div>
           <!-- /tab-5 -->
 

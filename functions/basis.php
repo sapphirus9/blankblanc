@@ -20,22 +20,19 @@ if (!function_exists('set_theme_support')) {
       'caption',
       'gallery',
     ));
-    // アーカイブページ用サムネイル
-    if (strpos($bb_theme_config['archive_thumbnail'][2], ',') !== false) {
-      $crop = explode(',', str_replace(array(' ', "\t"), '', $bb_theme_config['archive_thumbnail'][2]));
-    } else {
-      $crop = $bb_theme_config['archive_thumbnail'][2];
+    function _crop($crop) {
+      return strpos($crop, ',') !== false ? explode(',', str_replace(array(' ', "\t"), '', $crop)) : $crop;
     }
-    add_image_size('archive-thumbnail', $bb_theme_config['archive_thumbnail'][0], $bb_theme_config['archive_thumbnail'][1], $crop);
+    // アーカイブページ用サムネイル
+    add_image_size('archive-thumbnail', $bb_theme_config['archive_thumbnail'][0], $bb_theme_config['archive_thumbnail'][1], _crop($bb_theme_config['archive_thumbnail'][2]));
     // アイキャッチ
     if (!empty($bb_theme_config['post_thumbnail'][0]) && !empty($bb_theme_config['post_thumbnail'][1])) {
       add_theme_support('post-thumbnails');
-      if (strpos($bb_theme_config['post_thumbnail'][2], ',') !== false) {
-        $crop = explode(',', str_replace(array(' ', "\t"), '', $bb_theme_config['post_thumbnail'][2]));
-      } else {
-        $crop = $bb_theme_config['post_thumbnail'][2];
-      }
-      set_post_thumbnail_size($bb_theme_config['post_thumbnail'][0], $bb_theme_config['post_thumbnail'][1], $crop);
+      set_post_thumbnail_size($bb_theme_config['post_thumbnail'][0], $bb_theme_config['post_thumbnail'][1], _crop($bb_theme_config['post_thumbnail'][2]));
+    }
+    // メインビジュアル
+    if (!empty($bb_theme_config['mv_image_size'][0]) && !empty($bb_theme_config['mv_image_size'][1])) {
+      add_image_size('mainvisual', $bb_theme_config['mv_image_size'][0], $bb_theme_config['mv_image_size'][1], _crop($bb_theme_config['mv_image_size'][2]));
     }
   }
 }

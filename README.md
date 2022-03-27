@@ -55,7 +55,7 @@ CodeまたはTagsダウンロードすると、アーカイブファイル内の
 |titleタグのセパレーター|title_separator|string|｜|
 |titleに併記するキャッチフレーズ|title_catchphrase|string|一般設定のキャッチフレーズ|
 |一覧ページのタイトル接尾辞|archive_title_suffix|string|の一覧|
-|アイキャッチ画像|post_thumbnail|array<br>幅[数値], 高さ[数値], 切り出し[true/false]|array(1024, 768, true)|
+|アイキャッチ画像|post_thumbnail|array<br>幅[数値], 高さ[数値], 切り出し[true/false]|array(1200, 900, true)|
 |一覧ページのサムネイル画像|archive_thumbnail|array<br>幅[数値], 高さ[数値], 切り出し[true/false]|array(300, 300, true)|
 |記事抜粋時の省略表記|excerpt_more|string|⋯|
 |記事抜粋の文字数|excerpt_length|int|110|
@@ -70,6 +70,7 @@ CodeまたはTagsダウンロードすると、アーカイブファイル内の
 |ロゴ画像サイズ|logo_size|array<br>幅[数値], 高さ[数値]|array(230, 40)|
 |ロゴ画像のalt|logo_alt|string|ブログ名|
 |共通メインビジュアル画像|mv_image|string (url)|空|
+|メインビジュアル画像サイズ|mv_image_size|array<br>幅[数値], 高さ[数値], 切り出し[true/false]|array(2000, 600, true)|
 |コピーライト設定|copyright|array|※以下の配列用|
 |+ コピーライトの表記（接頭辞）|prefix|string|空|
 |+ コピーライトの表記（開始年）|start_year|string|date_i18n('Y')|

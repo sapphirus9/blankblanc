@@ -18,7 +18,7 @@ function bb_config_default() {
     // アーカイブページのタイトル接尾辞 [string]
     'archive_title_suffix' => 'の一覧',
     // アイキャッチ画像サイズ（幅[int], 高さ[int], 切り出し[bool]） [array]
-    'post_thumbnail'       => array(1024, 786, true),
+    'post_thumbnail'       => array(1200, 900, true),
     // アーカイブページのサムネイル画像サイズ（幅[int], 高さ[int], 切り出し[bool]） [array]
     'archive_thumbnail'    => array(300, 300, true),
     // 記事抜粋時の省略表記 [string]
@@ -87,6 +87,8 @@ function bb_config_default() {
     'taxonomy_layout'      => 'list',
     // メインビジュアル画像 [string(url)]
     'mv_image'             => '',
+    // メインビジュアル画像サイズ（幅[int], 高さ[int], 切り出し[bool]） [array]
+    'mv_image_size'        => array(2000, 600, true),
     // トップページメインビジュアル（HomeまたはFront Pageが対象） [string(url)]
     'mv_home_image'        => get_template_directory_uri() . '/assets/img/img-hero.jpg',
     // トップページメインビジュアル内コンテンツ（HomeまたはFront Pageが対象） [string]
