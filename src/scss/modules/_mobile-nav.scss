@@ -33,26 +33,24 @@ body.nav-window-show {
   display: none;
   position: fixed;
   top: 0;
-  left: -401px;
   bottom: -100px;
-  right: 0;
+  left: 0;
+  right: auto;
   z-index: 2;
   width: 400px;
   background-color: cfg.$base-white;
-  transition: left .3s;
+  transform: translateX(-401px);
+  transition: transform .3s;
   @include cfg.media-max(xl) {
     display: block;
   }
-  &.nav-window-show {
-    left: 0;
-  }
   .nav-window-right & {
     left: auto;
-    right: -401px;
-    transition: right .3s;
-    &.nav-window-show {
-      right: 0;
-    }
+    right: 0;
+    transform: translateX(401px);
+  }
+  &.nav-window-show {
+    transform: translateX(0) !important;
   }
 }
 

@@ -7,11 +7,10 @@
   // nav window
   //--------------------------------------------------------------------
   #nav-window-area {
-    left: -85.01vw;
+    transform: translateX(-85.01vw);
     width: 85vw;
     .nav-window-right & {
-      left: auto;
-      right: -85.01vw;
+      transform: translateX(85.01vw);
     }
   }
 }
