@@ -6,13 +6,13 @@
 // global footer
 //--------------------------------------------------------------------
 #global-footer {
-  @include cfg.media-max(xl) {
+  @include cfg.media-max(lg) {
     max-width: cfg.$max-width-mobile;
     margin: 0 auto;
   }
   .wrap {
     min-height: 100px;
-    @include cfg.media-max(xl) {
+    @include cfg.media-max(lg) {
       min-height: 0;
     }
   }
@@ -23,7 +23,7 @@
     text-align: center;
     letter-spacing: .02em;
     padding: 20px 0 30px;
-    @include cfg.media-max(xl) {
+    @include cfg.media-max(lg) {
       padding: 20px 0;
     }
     * {
@@ -62,23 +62,23 @@
   flex-wrap: wrap;
   padding-top: 30px;
   margin: 0 -15px;
-  @include cfg.media-max(xl) {
+  @include cfg.media-max(lg) {
     display: block;
     margin: 0;
   }
   .widget {
-    @include cfg.media-max(xl) {
+    @include cfg.media-max(lg) {
       margin-bottom: 40px;
     }
     ul {
       font-size: 1.5rem;
       li {
-        @include cfg.media-max(xl) {
+        @include cfg.media-max(lg) {
           margin-top: 0;
           border-top: 1px solid cfg.$base-gray-6;
         }
         a {
-          @include cfg.media-max(xl) {
+          @include cfg.media-max(lg) {
             position: relative;
             display: block;
             font-size: 1.5rem;
@@ -91,38 +91,38 @@
         }
       }
       > li {
-        @include cfg.media-max(xl) {
+        @include cfg.media-max(lg) {
           border-top: 1px solid cfg.$base-gray-5;
         }
         &:first-of-type {
-          @include cfg.media-max(xl) {
+          @include cfg.media-max(lg) {
             border-top: none;
           }
         }
         .sub-menu, .children {
-          @include cfg.media-max(xl) {
+          @include cfg.media-max(lg) {
             margin-bottom: 0;
           }
           > li { // child lv1
-            @include cfg.media-max(xl) {
+            @include cfg.media-max(lg) {
               padding-left: 0;
               border-top: 1px dotted cfg.$base-gray-5;
             }
             a {
-              @include cfg.media-max(xl) {
+              @include cfg.media-max(lg) {
                 font-size: 1.4rem;
                 padding-left: calc(2.4% + 1em);
               }
             }
             ul > li { // child lv2
               a {
-                @include cfg.media-max(xl) {
+                @include cfg.media-max(lg) {
                   padding-left: calc(2.4% + 2em);
                 }
               }
               ul > li { // child lv3
                 a {
-                  @include cfg.media-max(xl) {
+                  @include cfg.media-max(lg) {
                     padding-left: calc(2.4% + 3em);
                   }
                 }
@@ -141,7 +141,7 @@
     margin-bottom: 12px;
     padding-bottom: 10px;
     border-bottom: 1px solid cfg.$base-gray-4;
-    @include cfg.media-max(xl) {
+    @include cfg.media-max(lg) {
       color: cfg.$base-gray-1;
       padding: 8px 2.4%;
       margin-bottom: 12px;
@@ -150,17 +150,17 @@
     }
   }
   > ul {
-    width: 25%;
+    flex: 0 1 25%;
     padding: 0 15px;
     box-sizing: border-box;
-    @include cfg.media-max(xl) {
+    @include cfg.media-max(lg) {
       float: none;
-      width: 100%;
+      flex: 0 1 100%;
       padding: 0;
     }
   }
   .tagcloud {
-    @include cfg.media-max(xl) {
+    @include cfg.media-max(lg) {
       margin: -5px;
     }
     a {
@@ -171,12 +171,12 @@
     }
     .wp-tag-cloud {
       > li {
-        @include cfg.media-max(xl) {
+        @include cfg.media-max(lg) {
           font-size: 1.4rem;
           border: none;
         }
         a {
-          @include cfg.media-max(xl) {
+          @include cfg.media-max(lg) {
             display: inline-block;
             line-height: 1;
             padding: 9px;
@@ -193,7 +193,7 @@
     transition: all .2s;
   }
   .widget_archive ul {
-    @include cfg.media-max(xl) {
+    @include cfg.media-max(lg) {
       margin: 4px -1.5% 0;
     }
     > li {
@@ -201,7 +201,7 @@
       &.with-count {
         flex: 0 1 33.33333%;
       }
-      @include cfg.media-max(xl) {
+      @include cfg.media-max(lg) {
         flex: 0 1 22%;
         margin: 0 1.5%;
         text-align: center;
@@ -214,7 +214,7 @@
     .year-title {
       flex: 0 1 100%;
       margin-bottom: 4px;
-      @include cfg.media-max(xl) {
+      @include cfg.media-max(lg) {
         text-align: left;
         border-top: none;
       }
@@ -226,17 +226,17 @@
           background-color: cfg.$base-gray-5;
         }
       }
-      @include cfg.media-max(xl) {
+      @include cfg.media-max(lg) {
         padding: 8px 0 !important;
       }
     }
     .month {
-      @include cfg.media-max(xl) {
+      @include cfg.media-max(lg) {
         display: block;
       }
     }
     .count {
-      @include cfg.media-max(xl) {
+      @include cfg.media-max(lg) {
         font-size: 1.2rem;
         margin: 3px 0 0 0 !important;
       }
@@ -245,18 +245,23 @@
   .widget_meta > ul,
   .widget_pages > ul,
   .widget_categories > ul,
+  .widget_recent_entries > ul,
+  .widget_recent_comments > ul,
   .widget_nav_menu .menu {
-    @include cfg.media-max(xl) {
+    @include cfg.media-max(lg) {
       margin-top: -12px;
     }
     a {
       @include cfg.transition-border-line() {
-        padding-bottom: 2px;
+        padding-bottom: 1px;
+      }
+      span {
+        text-decoration: none !important;
       }
     }
     li {
       &:not(:first-of-type) {
-        @include cfg.media-min(xl) {
+        @include cfg.media-min(lg) {
           margin-top: 10px;
         }
       }

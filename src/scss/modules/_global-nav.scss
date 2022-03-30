@@ -6,11 +6,11 @@
   position: relative;
   height: 40px;
   z-index: 2;
-  @include cfg.media-max(xl) {
+  @include cfg.media-max(lg) {
     display: none;
   }
   & &-inner {
-    @include cfg.media-min(xl) {
+    @include cfg.media-min(lg) {
       position: absolute;
       top: 0;
       left: 0;
@@ -188,7 +188,7 @@
     opacity: 0;
     z-index: -1;
     transition: opacity .2s 0s, z-index 0s .2s;
-    @include cfg.media-max(xl) {
+    @include cfg.media-max(lg) {
       display: none;
     }
   }

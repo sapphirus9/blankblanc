@@ -6,14 +6,14 @@
   display: block;
   padding-bottom: 80px;
   background-color: cfg.$base-white;
-  @include cfg.media-max(xl) {
+  @include cfg.media-max(lg) {
     padding: 55px 0 60px;
     overflow-x: hidden;
     -webkit-tap-highlight-color: rgba(0, 0, 0, .06);
   }
   > .wrap {
     padding-top: 40px;
-    @include cfg.media-max(xl) {
+    @include cfg.media-max(lg) {
       padding-top: 30px;
     }
     .nowrapwidth-layout & {
@@ -27,7 +27,7 @@
 #contents-container {
   display: flex;
   justify-content: space-between;
-  @include cfg.media-max(xl) {
+  @include cfg.media-max(lg) {
     flex-direction: column;
   }
   .second-column-right & {
@@ -36,9 +36,9 @@
 }
 
 #first-column {
-  width: cfg.$first-column;
-  @include cfg.media-max(xl) {
-    width: 100%;
+  flex: 0 1 cfg.$first-column;
+  @include cfg.media-max(lg) {
+    flex: 0 1 100%;
     max-width: cfg.$max-width-mobile;
     margin: 0 auto;
     .nowrapwidth-layout & {
@@ -46,43 +46,43 @@
     }
   }
   .onecolumn-layout & {
-    width: cfg.$one-column;
+    flex: 0 1 cfg.$one-column;
     margin: 0 auto;
-    @include cfg.media-max(xl) {
-      width: 100%;
+    @include cfg.media-max(lg) {
+      flex: 0 1 100%;
     }
   }
   .fullwidth-layout & {
-    width: 100%;
+    flex: 0 1 100%;
     margin: 0 auto;
   }
   .nowrapwidth-layout & {
-    width: 100%;
+    flex: 0 1 100%;
     margin: 0 auto;
   }
 }
 
 #second-column {
-  width: cfg.$second-column;
+  flex: 0 1 cfg.$second-column;
   .onecolumn-layout &,
   .fullwidth-layout &,
   .nowrapwidth-layout & {
     display: none;
   }
-  @include cfg.media-max(xl) {
+  @include cfg.media-max(lg) {
     display: none;
   }
 }
 
 // [deprecated]
 #one-column {
-  width: cfg.$one-column;
+  flex: 0 1 cfg.$one-column;
   margin: 0 auto;
   &.full-width {
-    width: 100%;
+    flex: 0 1 100%;
   }
-  @include cfg.media-max(xl) {
-    width: 100%;
+  @include cfg.media-max(lg) {
+    flex: 0 1 100%;
     max-width: cfg.$max-width-mobile;
   }
   & + #second-column {

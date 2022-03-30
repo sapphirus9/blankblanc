@@ -41,7 +41,7 @@ body.nav-window-show {
   background-color: cfg.$base-white;
   transform: translateX(-401px);
   transition: transform .3s;
-  @include cfg.media-max(xl) {
+  @include cfg.media-max(lg) {
     display: block;
   }
   .nav-window-right & {

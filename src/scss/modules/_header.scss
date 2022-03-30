@@ -31,7 +31,7 @@
   .touch-device & {
     overflow-x: hidden;
   }
-  @include cfg.media-max(xl) {
+  @include cfg.media-max(lg) {
     position: fixed;
     top: 0;
     left: 0;
@@ -42,7 +42,7 @@
   }
   .wrap {
     height: 100px;
-    @include cfg.media-max(xl) {
+    @include cfg.media-max(lg) {
       height: 54px;
     }
   }
@@ -54,7 +54,7 @@
     &-brand {
       align-self: center;
       margin-right: 30px;
-      @include cfg.media-max(xl) {
+      @include cfg.media-max(lg) {
         align-self: center;
         margin: 0 auto;
       }
@@ -65,21 +65,21 @@
   }
   .logo {
     display: inline-flex;
-    @include cfg.media-max(xl) {
+    @include cfg.media-max(lg) {
       text-align: center;
       margin-top: 4px;
     }
     a {
       display: block;
       text-decoration: none;
-      @include cfg.media-max(xl) {
+      @include cfg.media-max(lg) {
         display: inline-block;
       }
     }
     img {
       width: auto;
       height: 40px;
-      @include cfg.media-max(xl) {
+      @include cfg.media-max(lg) {
         height: 22px;
       }
     }
@@ -87,7 +87,7 @@
   .site-title {
     display: block;
     font-size: 4rem;
-    @include cfg.media-max(xl) {
+    @include cfg.media-max(lg) {
       font-size: 2rem;
     }
   }
@@ -96,7 +96,7 @@
     font-size: 1.3rem;
     margin-top: 10px;
     @include cfg.font-weight(normal);
-    @include cfg.media-max(xl) {
+    @include cfg.media-max(lg) {
       font-size: 1.125rem;
       margin-top: 6px;
     }
@@ -104,7 +104,7 @@
 }
 
 #header-nav {
-  @include cfg.media-max(xl) {
+  @include cfg.media-max(lg) {
     display: none;
   }
   .menu {

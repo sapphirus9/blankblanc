@@ -10,7 +10,7 @@
       margin: 0 auto;
       box-sizing: border-box;
       .nowrapwidth-layout & {
-        @include cfg.media-max(xl) {
+        @include cfg.media-max(lg) {
           width: calc(100% - #{cfg.$gap-mobile * 2});
           max-width: calc(#{cfg.$max-width-mobile} - #{cfg.$gap-mobile * 2});
         }

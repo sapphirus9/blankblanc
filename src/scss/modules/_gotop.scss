@@ -13,7 +13,7 @@
   overflow: hidden;
   pointer-events: none;
   z-index: 499;
-  @include cfg.media-max(xl) {
+  @include cfg.media-max(lg) {
     width: 90px;
   }
   .gotop {
@@ -48,7 +48,7 @@
     z-index: 2;
     transition: visibility .5s, margin-bottom .5s, opacity .5s;
     pointer-events: auto;
-    @include cfg.media-max(xl) {
+    @include cfg.media-max(lg) {
       right: cfg.$gap-mobile;
     }
     .gotop-symbol {
@@ -60,7 +60,7 @@
       cursor: pointer;
       opacity: .65;
       transition: all .2s;
-      @include cfg.media-max(xl) {
+      @include cfg.media-max(lg) {
         width: 48px;
         height: 48px;
         opacity: .65 !important;
@@ -82,7 +82,7 @@
         border-left: 2px solid cfg.$base-gray-3;
         transform: rotate(45deg);
         box-sizing: border-box;
-        @include cfg.media-max(xl) {
+        @include cfg.media-max(lg) {
           top: 16px;
         }
         &:before {

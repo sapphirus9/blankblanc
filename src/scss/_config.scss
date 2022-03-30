@@ -102,7 +102,6 @@ $base-font-bold: 600;
 $breakpoints: (
   max: 1200px,
   // xl: 1000px,
-  xl: 768px,
   lg: 768px,
   md: 640px,
   sm: 540px,
@@ -197,7 +196,7 @@ $breakpoints: (
 
 // transition border line
 @mixin transition-border-line() {
-  @include media-min(xl) {
+  @include media-min(lg) {
     position: relative;
     background: linear-gradient(0deg, $link-color-hover 1px, transparent 1px);
     background-repeat: no-repeat;

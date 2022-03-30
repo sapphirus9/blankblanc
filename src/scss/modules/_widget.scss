@@ -169,7 +169,7 @@
 .widget_archive > ul {
   display: flex;
   flex-wrap: wrap;
-  @include cfg.media-max(xl) {
+  @include cfg.media-max(lg) {
     margin: 4px 2.5% 0;
   }
   &:last-of-type {
@@ -181,7 +181,7 @@
     &.with-count {
       flex: 0 1 25%;
     }
-    @include cfg.media-max(xl) {
+    @include cfg.media-max(lg) {
       flex: 0 1 22%;
       margin: 0 1.5%;
       text-align: center;
@@ -202,13 +202,13 @@
     order: 0;
   }
   .month {
-    @include cfg.media-max(xl) {
+    @include cfg.media-max(lg) {
       display: block;
     }
   }
   .count {
     transition: all .2s;
-    @include cfg.media-max(xl) {
+    @include cfg.media-max(lg) {
       font-size: 1rem;
       margin: 3px 0 0 0;
     }
