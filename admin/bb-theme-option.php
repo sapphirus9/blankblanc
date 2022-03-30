@@ -187,9 +187,7 @@ class blankblancConfig
             <?php if (function_exists('call_bb_table_of_contents')) : ?>
               <li><a href="#tab-6" class="nav-tab">目次</a></li>
             <?php endif; ?>
-            <?php if (function_exists('call_bb_mainvisual_term_meta')) : ?>
-              <li><a href="#tab-5" class="nav-tab">メインビジュアル</a></li>
-            <?php endif; ?>
+            <li><a href="#tab-5" class="nav-tab">メインビジュアル</a></li>
             <li><a href="#tab-7" class="nav-tab">トップページ</a></li>
             <li><a href="#tab-4" class="nav-tab">モバイル</a></li>
             <li><a href="#tab-9" class="nav-tab">設定一覧</a></li>
