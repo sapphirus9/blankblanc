@@ -198,20 +198,6 @@ class BbSmoothScroll {
   };
 
   /**
-   * 最近のコメント
-   * attr: .widget_recent_comments
-   */
-  const _WidgetComments = () => {
-    const $commentsAll = document.querySelectorAll('.widget_recent_comments .recentcomments');
-    $commentsAll.forEach(($comments) => {
-      const $author = $comments.querySelector('.comment-author-link');
-      const $html = $comments.querySelector('a');
-      $html.innerHTML = '<span class="entry-title">' + $html.innerHTML + '</span>' + '<span class="comment-user">' + $author.innerHTML + '</span>';
-      $comments.innerHTML = $html.outerHTML;
-    });
-  };
-
-  /**
    * selectタグの修飾
    * element: select
    */
@@ -495,6 +481,7 @@ class BbSmoothScroll {
       }
       else $fixedWidget.classList.remove('absolute');
     } else {
+      $fixedWidget.classList.remove('sticky');
       // ウィジェットのボトムを判定
       const fixedWidgetBottom = parseInt(initfixedWidget.top + fixedWidgetRect.height);
       if (currentBottom >= fixedWidgetBottom) $fixedWidget.classList.add('fixed');
@@ -650,7 +637,6 @@ class BbSmoothScroll {
     _ShrinkRatio();
     _BackgroundImage();
     _MoreContent();
-    _WidgetComments();
     _SelectTags();
     _GoPageTop();
     _GoAnchorLink();
@@ -658,6 +644,14 @@ class BbSmoothScroll {
     _BbToc();
     _GlobalNav();
     _BbFormStyle();
+    // ユーザーアクションがあったときの実行
+    // 対象に「class="set-user-action"」を付加
+    const $userAction = document.querySelectorAll('.set-user-action');
+    $userAction.forEach((action) => {
+      action.addEventListener('click', () => {
+        _FixedWidgetColumn();
+      });
+    });
   });
 
   /**
@@ -671,6 +665,13 @@ class BbSmoothScroll {
     _ImgLazyLoad();
     // ページ読み込み完了のクラスを追加
     document.documentElement.classList.add('page-loaded');
+  });
+
+  /**
+   * loadイベント後に実行
+   */
+  window.addEventListener('pageshow', () => {
+    _FixedWidgetColumn();
   });
 
   /**

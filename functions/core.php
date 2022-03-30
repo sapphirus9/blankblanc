@@ -492,3 +492,197 @@ function bb_string_type_filter($values) {
   }));
   return $values;
 }
+
+
+/**
+ * 最近の投稿ウィジェットをカスタマイズ
+ * wp-includes/widgets/class-wp-widget-recent-posts.php
+ */
+class Bb_WP_Widget_Recent_Posts extends WP_Widget_Recent_Posts {
+  public function __construct() {
+    parent::__construct();
+  }
+  public function widget( $args, $instance ) {
+    if ( ! isset( $args['widget_id'] ) ) {
+      $args['widget_id'] = $this->id;
+    }
+
+    $default_title = __( 'Recent Posts' );
+    $title         = ( ! empty( $instance['title'] ) ) ? $instance['title'] : $default_title;
+
+    $title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
+
+    $number = ( ! empty( $instance['number'] ) ) ? absint( $instance['number'] ) : 5;
+    if ( ! $number ) {
+      $number = 5;
+    }
+    $show_date = isset( $instance['show_date'] ) ? $instance['show_date'] : false;
+
+    $r = new WP_Query(
+      apply_filters(
+        'widget_posts_args',
+        array(
+          'posts_per_page'      => $number,
+          'no_found_rows'       => true,
+          'post_status'         => 'publish',
+          'ignore_sticky_posts' => true,
+        ),
+        $instance
+      )
+    );
+
+    if ( ! $r->have_posts() ) {
+      return;
+    }
+    ?>
+
+    <?php echo $args['before_widget']; ?>
+
+    <?php
+    if ( $title ) {
+      echo $args['before_title'] . $title . $args['after_title'];
+    }
+
+    $format = current_theme_supports( 'html5', 'navigation-widgets' ) ? 'html5' : 'xhtml';
+
+    $format = apply_filters( 'navigation_widgets_format', $format );
+
+    if ( 'html5' === $format ) {
+      $title      = trim( strip_tags( $title ) );
+      $aria_label = $title ? $title : $default_title;
+      echo '<nav aria-label="' . esc_attr( $aria_label ) . '">';
+    }
+    ?>
+
+    <ul>
+      <?php foreach ( $r->posts as $recent_post ) : ?>
+        <?php
+        $post_title   = get_the_title( $recent_post->ID );
+        $title        = ( ! empty( $post_title ) ) ? $post_title : __( '(no title)' );
+        $aria_current = '';
+
+        if ( get_queried_object_id() === $recent_post->ID ) {
+          $aria_current = ' aria-current="page"';
+        }
+        ?>
+        <li>
+          <a href="<?php the_permalink( $recent_post->ID ); ?>"<?php echo $aria_current; ?>><span class="entry-title"><?php echo $title; ?></span><?php if ( $show_date ) : ?><span class="post-date"><?php echo get_the_date( '', $recent_post->ID ); ?></span><?php endif; ?></a>
+        </li>
+      <?php endforeach; ?>
+    </ul>
+
+    <?php
+    if ( 'html5' === $format ) {
+      echo '</nav>';
+    }
+
+    echo $args['after_widget'];
+  }
+  public function update( $new_instance, $old_instance ) {
+    parent::update( $new_instance, $old_instance );
+  }
+  public function form( $instance ) {
+    parent::form( $instance );
+  }
+}
+function bb_register_widget_recent_posts() {
+  register_widget('Bb_WP_Widget_Recent_Posts');
+}
+add_action('widgets_init', 'bb_register_widget_recent_posts');
+
+
+/**
+ * 最近のコメントウィジェットをカスタマイズ
+ * wp-includes/widgets/class-wp-widget-recent-comments.php
+ */
+class Bb_WP_Widget_Recent_Comments extends WP_Widget_Recent_Comments {
+  public function __construct() {
+    parent::__construct();
+  }
+  public function widget( $args, $instance ) {
+    static $first_instance = true;
+
+    if ( ! isset( $args['widget_id'] ) ) {
+      $args['widget_id'] = $this->id;
+    }
+
+    $output = '';
+
+    $default_title = __( 'Recent Comments' );
+    $title         = ( ! empty( $instance['title'] ) ) ? $instance['title'] : $default_title;
+
+    /** This filter is documented in wp-includes/widgets/class-wp-widget-pages.php */
+    $title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
+
+    $number = ( ! empty( $instance['number'] ) ) ? absint( $instance['number'] ) : 5;
+    if ( ! $number ) {
+      $number = 5;
+    }
+
+    $comments = get_comments(
+      apply_filters(
+        'widget_comments_args',
+        array(
+          'number'      => $number,
+          'status'      => 'approve',
+          'post_status' => 'publish',
+        ),
+        $instance
+      )
+    );
+
+    $output .= $args['before_widget'];
+    if ( $title ) {
+      $output .= $args['before_title'] . $title . $args['after_title'];
+    }
+
+    $recent_comments_id = ( $first_instance ) ? 'recentcomments' : "recentcomments-{$this->number}";
+    $first_instance     = false;
+
+    $format = current_theme_supports( 'html5', 'navigation-widgets' ) ? 'html5' : 'xhtml';
+
+    $format = apply_filters( 'navigation_widgets_format', $format );
+
+    if ( 'html5' === $format ) {
+      // The title may be filtered: Strip out HTML and make sure the aria-label is never empty.
+      $title      = trim( strip_tags( $title ) );
+      $aria_label = $title ? $title : $default_title;
+      $output    .= '<nav aria-label="' . esc_attr( $aria_label ) . '">';
+    }
+
+    $output .= '<ul id="' . esc_attr( $recent_comments_id ) . '">';
+    if ( is_array( $comments ) && $comments ) {
+      $post_ids = array_unique( wp_list_pluck( $comments, 'comment_post_ID' ) );
+      _prime_post_caches( $post_ids, strpos( get_option( 'permalink_structure' ), '%category%' ), false );
+
+      foreach ( (array) $comments as $comment ) {
+        $output .= '<li class="recentcomments">';
+        $output .= sprintf('<a href="%1$s"><span class="entry-title">%2$s</span><span class="comment-user">%3$s</span></a>', esc_url(get_comment_link($comment)), get_the_title($comment->comment_post_ID), get_comment_author($comment));
+        $output .= '</li>';
+      }
+    }
+    $output .= '</ul>';
+
+    if ( 'html5' === $format ) {
+      $output .= '</nav>';
+    }
+
+    $output .= $args['after_widget'];
+
+    echo $output;
+  }
+  public function update( $new_instance, $old_instance ) {
+    parent::update( $new_instance, $old_instance );
+  }
+  public function form( $instance ) {
+    parent::form( $instance );
+  }
+  public function flush_widget_cache() {
+    parent::flush_widget_cache();
+  }
+}
+function bb_register_widget_recent_comments() {
+  register_widget('Bb_WP_Widget_Recent_Comments');
+}
+add_filter('show_recent_comments_widget_style', '__return_false');
+add_action('widgets_init', 'bb_register_widget_recent_comments');
