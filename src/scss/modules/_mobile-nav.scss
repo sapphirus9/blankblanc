@@ -225,6 +225,8 @@ body.nav-window-show {
   .widget_meta,
   .widget_pages,
   .widget_categories,
+  .widget_recent_entries,
+  .widget_recent_comments,
   .widget_nav_menu .menu {
     ul {
       margin-bottom: 0;
@@ -241,6 +243,9 @@ body.nav-window-show {
         @include cfg.icon-font('f0142');
         transform: scale(1.5);
       }
+    }
+    span {
+      text-decoration: none;
     }
     li {
       margin-top: 0;
