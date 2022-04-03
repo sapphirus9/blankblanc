@@ -54,6 +54,15 @@ function bb_body_id_class($classes = array()) {
 
 
 /**
+ * フッターにモバイルナビ用のhtmlを追加
+ */
+function bb_mobile_nav_src() {
+  get_template_part('includes/inc', 'mobile-nav');
+}
+add_action('wp_footer', 'bb_mobile_nav_src', 10);
+
+
+/**
  * ページが構築されるまでのローディング画面
  */
 function bb_loading_screen() {
@@ -676,9 +685,6 @@ class Bb_WP_Widget_Recent_Comments extends WP_Widget_Recent_Comments {
   }
   public function form( $instance ) {
     parent::form( $instance );
-  }
-  public function flush_widget_cache() {
-    parent::flush_widget_cache();
   }
 }
 function bb_register_widget_recent_comments() {

@@ -57,37 +57,38 @@
     const nameMainScreen = '#main-screen';
     const nameMainScreenMask = '#main-screen-mask';
     const nameNavWindowArea = '#nav-window-area';
-    const nameNavWindowScroll = '#nav-window-scroll';
     const nameNavWindowWidgets = '#nav-window-widgets';
     const nameOpenBtn = '#nav-window-open-btn';
     const nameCloseBtn = '#nav-window-close-btn';
     const nameShowBtn = 'nav-window-show';
     const $mainScreen = document.querySelector(nameMainScreen);
-    $mainScreen.parentNode.insertBefore(createHtml('div', nameNavWindowArea, isMobile), $mainScreen.nextElementSibling);
     $mainScreen.appendChild(createHtml('div', nameMainScreenMask, isMobile));
     const $navWindowArea = document.querySelector(nameNavWindowArea);
-    $navWindowArea.appendChild(createHtml('div', nameNavWindowScroll));
-    const $navWindowScroll = document.querySelector(nameNavWindowScroll);
-    $navWindowScroll.appendChild(createHtml('div', nameNavWindowWidgets));
+    if (!$navWindowArea) return;
 
     /**
      * メニュー／ウィジェットの追加
      */
+    let navEnable = false;
     nav.slideNav.forEach((slide) => {
       const list = createHtml('ol', slide + '-slidenav');
       if (slide == globalNav || slide == headerNav) {
         const $nav = document.querySelector(slide + ' .menu');
         if ($nav) {
+          navEnable = true;
           list.innerHTML = '<li>' + $nav.outerHTML.replace(/ id=["|'].*?["|']/g, '') + '</li>';
           list.classList.add('widget_nav_menu');
         }
       } else {
         const $nav = document.querySelector(slide);
         if ($nav) {
+          navEnable = true;
           list.innerHTML = $nav.outerHTML.replace(/ id=["|'].*?["|']/g, '');
         }
       }
-      document.querySelector(nameNavWindowWidgets).appendChild(list);
+      if (navEnable) {
+        document.querySelector(nameNavWindowWidgets).appendChild(list);
+      }
     });
 
     /**
