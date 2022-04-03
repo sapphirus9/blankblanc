@@ -36,9 +36,9 @@
 }
 
 #first-column {
-  flex: 0 1 cfg.$first-column;
+  width: cfg.$first-column;
   @include cfg.media-max(lg) {
-    flex: 0 1 100%;
+    width: 100%;
     max-width: cfg.$max-width-mobile;
     margin: 0 auto;
     .nowrapwidth-layout & {
@@ -46,24 +46,24 @@
     }
   }
   .onecolumn-layout & {
-    flex: 0 1 cfg.$one-column;
+    width: cfg.$one-column;
     margin: 0 auto;
     @include cfg.media-max(lg) {
-      flex: 0 1 100%;
+      width: 100%;
     }
   }
   .fullwidth-layout & {
-    flex: 0 1 100%;
+    width: 100%;
     margin: 0 auto;
   }
   .nowrapwidth-layout & {
-    flex: 0 1 100%;
+    width: 100%;
     margin: 0 auto;
   }
 }
 
 #second-column {
-  flex: 0 1 cfg.$second-column;
+  width: cfg.$second-column;
   .onecolumn-layout &,
   .fullwidth-layout &,
   .nowrapwidth-layout & {
@@ -76,13 +76,13 @@
 
 // [deprecated]
 #one-column {
-  flex: 0 1 cfg.$one-column;
+  width: cfg.$one-column;
   margin: 0 auto;
   &.full-width {
-    flex: 0 1 100%;
+    width: 100%;
   }
   @include cfg.media-max(lg) {
-    flex: 0 1 100%;
+    width: 100%;
     max-width: cfg.$max-width-mobile;
   }
   & + #second-column {
