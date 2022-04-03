@@ -108,6 +108,7 @@
     color: cfg.$base-gray-2;
     font-size: 1.2rem;
     margin-left: .8em;
+    vertical-align: .1em;
   }
   label {
     display: none;
@@ -141,6 +142,7 @@
     font-size: 1.2rem;
     margin-left: .8em;
     transition: all .2s;
+    vertical-align: .1em;
     // &::before {
     //   content: '（';
     // }
@@ -148,7 +150,7 @@
     //   content: '）';
     // }
     &:hover {
-    color: cfg.$base-gray-1;
+      color: cfg.$base-gray-1;
     }
   }
 }
