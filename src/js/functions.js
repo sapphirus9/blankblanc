@@ -419,7 +419,7 @@ class BbSmoothScroll {
             if (!$nav.classList.contains('touchstart')) {
               $nav.classList.add('touchstart');
             }
-          });
+          }, { passive: true });
           $nav.addEventListener('mouseout', () => {
             if (nav == navs[1] && $prev_nav === $nav) document.querySelector('#main-container').classList.remove('gnav-active');
             maxHeight();
