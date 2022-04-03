@@ -57,8 +57,11 @@ class bbMainvisualPostMeta
     <div class="input-group">
       <?php
       if (!empty($bb_mv_id)) {
-        $tmp_img = wp_get_attachment_image_src($bb_mv_id, 'large');
-        $bb_mv_img = '<img src="' . $tmp_img[0] . '" alt="">';
+        if ($tmp_img = wp_get_attachment_image_src($bb_mv_id, 'large')) {
+          $bb_mv_img = '<img src="' . $tmp_img[0] . '" alt="">';
+        } else {
+          $bb_mv_img = '';
+        }
       } else {
         $bb_mv_id  = '';
         $bb_mv_img = '';

@@ -46,7 +46,11 @@ if (is_home() || is_front_page()) {
   }
 }
 if (is_numeric($bb_mainvisual_image)) {
-  $bb_mainvisual_image = wp_get_attachment_image_src($bb_mainvisual_image, 'mainvisual')[0];
+  if ($_image = wp_get_attachment_image_src($bb_mainvisual_image, 'mainvisual')) {
+    $bb_mainvisual_image = $_image[0];
+  } else {
+    $bb_mainvisual_image = '';
+  }
 }
 
 
