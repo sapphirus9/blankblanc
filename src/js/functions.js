@@ -621,7 +621,8 @@ class BbSmoothScroll {
       mobile: 65,
       breakPoint: initBreakPoint
     },
-    breakPoint: initBreakPoint
+    breakPoint: initBreakPoint,
+    pageLoaded: false
   };
   document.addEventListener('DOMContentLoaded', () => {
     if ('bbOptions' in window) {
@@ -644,14 +645,21 @@ class BbSmoothScroll {
     _BbToc();
     _GlobalNav();
     _BbFormStyle();
-    // ユーザーアクションがあったときの実行
-    // 対象に「class="set-user-action"」を付加
+    _FixedWidgetColumn();
+    // クラス要素「set-user-action」を対象としてユーザーアクションが発生したときに実行
     const $userAction = document.querySelectorAll('.set-user-action');
     $userAction.forEach((action) => {
       action.addEventListener('click', () => {
         _FixedWidgetColumn();
       });
     });
+    // ロードが3秒以上かかる場合はクラス要素「page-load-abort page-loaded」を追加
+    setTimeout(() => {
+      if (!window.BbOptions.pageLoaded) {
+        document.documentElement.classList.add('page-load-abort');
+        document.documentElement.classList.add('page-loaded');
+      }
+    }, 3000);
   });
 
   /**
@@ -661,10 +669,10 @@ class BbSmoothScroll {
     _TableContents();
     _ToAnchorLink();
     _FixedHeaderPart();
-    _FixedWidgetColumn();
     _ImgLazyLoad();
     // ページ読み込み完了のクラスを追加
     document.documentElement.classList.add('page-loaded');
+    window.BbOptions.pageLoaded = true;
   });
 
   /**

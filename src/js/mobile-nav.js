@@ -130,7 +130,7 @@
     openBtn.appendChild(createHtml('span', null, '.btn-symbol'));
     const $globalHeader = document.querySelector('#global-header');
     if (!$globalHeader) return;
-    $globalHeader.appendChild(openBtn);
+    /* 動作：ナビウインドウを開く */
     const toggleElement = [
       nameMainScreen,
       nameMainScreenMask,
@@ -138,15 +138,18 @@
       nameCloseBtn
     ];
     let posY = window.scrollY;
-    /* 動作：ナビウインドウを開く */
-    const $navWindowOpenBtn = document.querySelector(nameOpenBtn);
-    $navWindowOpenBtn && $navWindowOpenBtn.addEventListener('click', (e) => {
+    window.addEventListener('load', () => {
+      $globalHeader.appendChild(openBtn);
       posY = window.scrollY;
-      document.body.classList.add(nameShowBtn);
-      toggleElement.forEach((toggle) => {
-        document.querySelector(toggle).classList.add(nameShowBtn);
+      const $navWindowOpenBtn = document.querySelector(nameOpenBtn);
+      $navWindowOpenBtn && $navWindowOpenBtn.addEventListener('click', (e) => {
+        posY = window.scrollY;
+        document.body.classList.add(nameShowBtn);
+        toggleElement.forEach((toggle) => {
+          document.querySelector(toggle).classList.add(nameShowBtn);
+        });
+        e.preventDefault();
       });
-      e.preventDefault();
     });
     /* 動作：ナビウインドウを閉じる */
     const closeToggle = [
