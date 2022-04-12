@@ -1,0 +1,79 @@
+@use 'config' as cfg;
+//--------------------------------------------------------------------
+// cookie banner
+//--------------------------------------------------------------------
+#cookie-banner {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-height: 0;
+  background-color: cfg.$base-gray-1;
+  overflow: hidden;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity .8s 0s, max-height .8s .8s, z-index 0s .8s;
+  &.indicate {
+    max-height: 200px;
+    opacity: 1;
+    z-index: 10001;
+    transition: opacity .8s 0s, max-height 0s 0s, z-index .8s 0s;
+  }
+  .cookie {
+    &-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 125px;
+      @include cfg.media-max(lg) {
+        flex-direction: column;
+        padding: 12px cfg.$gap-mobile 15px;
+      }
+    }
+    &-text {
+      flex: 1;
+      color: cfg.$base-gray-4;
+      font-size: 1.5rem;
+      line-height: 1.5;
+      margin-right: 30px;
+      @include cfg.media-max(lg) {
+        font-size: 1.3rem;
+        margin-right: 0;
+        margin-bottom: 15px;
+        br {
+          display: none;
+        }
+      }
+      a {
+        color: cfg.$base-gray-4;
+        text-decoration: none;
+        border-bottom: 1px solid cfg.$base-gray-3;
+        transition: all .2s;
+        &:hover {
+          color: cfg.$base-gray-7;
+          border-bottom-color: cfg.$base-gray-5;
+        }
+      }
+    }
+    &-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: cfg.$base-gray-6;
+      font-size: 1.5rem;
+      width: 100px;
+      height: 40px;
+      background-color: transparent;
+      border: 1px solid cfg.$base-gray-3;
+      border-radius: 30px;
+      transition: all .2s;
+      cursor: pointer;
+      box-sizing: border-box;
+      &:hover {
+        color: cfg.$base-gray-7;
+        background-color: rgba(cfg.$base-gray-7, .2);
+        border-color:cfg.$base-gray-4;
+      }
+    }
+  }
+}

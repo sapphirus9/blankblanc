@@ -53,6 +53,7 @@
           'teeny'         => true,
         )
       ); ?>
+      <div class="default">初期値: <?php _echo($bb_theme_default['mv_home_content']); ?></div>
     </div>
   </fieldset>
 <?php endif; // --- [extention]

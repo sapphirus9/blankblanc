@@ -268,6 +268,7 @@ class blankblancConfig
             <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-fixed-widget.php'; ?>
             <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-image-link-target.php'; ?>
             <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-loading-screen.php'; ?>
+            <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-cookie-banner.php'; ?>
           </div>
           <!-- /tab-8 -->
 
@@ -344,7 +345,7 @@ class blankblancConfig
         }
       } else {
         $_default = isset($default[$key]) ? $default[$key] : ''; //デフォルト値を取得
-        $modified = $_default !== $value ? true : false;
+        $modified = $_default !== wp_unslash($value) ? true : false;
         // 現在の設定値の型変更
         if (is_bool($value)) {
           $value = $value ? 'true' : 'false';
@@ -358,7 +359,7 @@ class blankblancConfig
           $_default = "'{$_default}'";
         }
         // 変更値を強調
-        $value = esc_html($value);
+        $value = esc_html(wp_unslash($value));
         $_value = $modified ? sprintf("<strong class=\"modified\">%s</strong>", $value) : $value;
         array_push($src, (is_numeric($key) ? "{$tab}{$_value}" : "{$tab}'{$key}' => {$_value}") . ",\n");
       }

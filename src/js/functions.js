@@ -564,17 +564,18 @@ class BbSmoothScroll {
       /**
        * MW WP Formプラグイン向け
        */
+      const key = 'submitBack';
       const $submitBack = $formBlock.querySelector('[name="submitBack"]');
       $submitBack && $submitBack.addEventListener('click', () => {
-        localStorage.setItem('submitBack', 1);
+        localStorage.setItem(key, 1);
       });
-      if (localStorage.getItem('submitBack') == 1) {
+      if (localStorage.getItem(key) == 1) {
         const $formBlockTop = document.createElement('div');
         $formBlockTop.classList.add(formTop.substring(1));
         $formBlock.parentNode.insertBefore($formBlockTop, $formBlock);
         new BbSmoothScroll($formBlockTop, scrollOptions);
+        localStorage.removeItem(key);
       }
-      localStorage.setItem('submitBack', null);
     });
   };
 
@@ -591,6 +592,30 @@ class BbSmoothScroll {
     //   document.querySelector("meta[name='viewport']").setAttribute("content", `width=${deviceWidth}, viewport-fit=cover`);
     // }
   };
+
+  /**
+   *
+   */
+  const _CookieBanner = () => {
+    const key = 'cookieBanner';
+    const block = document.querySelector('#cookie-banner');
+    if (!block) {
+      localStorage.removeItem(key);
+      return;
+    }
+    const expire = block.dataset.expire ? parseInt(block.dataset.expire) : 365; // 有効期限
+    const data = localStorage.getItem(key);
+    const now = new Date();
+    if (data == null || now.getTime() > parseInt(data)) {
+      block.classList.add('indicate');
+      const btn = block.querySelector('.cookie-btn');
+      btn.addEventListener('click', () => {
+        localStorage.setItem(key, now.getTime() + expire * 86400 * 1000);
+        block.classList.remove('indicate');
+      });
+    }
+  };
+
 
   /**
    * DOM読み込み後に実行
@@ -670,6 +695,7 @@ class BbSmoothScroll {
     _ToAnchorLink();
     _FixedHeaderPart();
     _ImgLazyLoad();
+    _CookieBanner();
     // ページ読み込み完了のクラスを追加
     document.documentElement.classList.add('page-loaded');
     window.BbOptions.pageLoaded = true;

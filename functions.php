@@ -121,6 +121,15 @@ function bb_config_default() {
     'favicon'              => '',
     // サイトアイコンのURL [string(url)]
     'siteicon'             => '',
+    // Cookieの使用同意画面を表示 [array]
+    'cookie_banner'        => array(
+      // 同意画面を表示 [bool]
+      'indicate' => false,
+      // ボタンのラベル [string]
+      'label'    => 'OK',
+      // 表示する内容 [string]
+      'text'     => '当サイトでは、利便性の改善・閲覧の追跡のためCookieを使用しています。サイトの利用を継続することにより、Cookieの使用に同意したものとみなされます。詳細は<a href="' . home_url('/privacy-policy/') . '">プライバシーポリシー</a>をご覧ください。',
+    ),
     // テーマ用CSS/JSのバージョンパラメータを別で指定 ※ブラウザキャッシュ対策用 [bool/string]
     'version_param'        => false,
     // テーマのバージョン情報

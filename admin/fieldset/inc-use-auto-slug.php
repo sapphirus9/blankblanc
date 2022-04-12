@@ -12,15 +12,19 @@
   </div>
 </fieldset>
 
-<fieldset id="bb-config-ja-auto-post-slug_sub-field" <?php $this->has_modified('ja_auto_post_slug.prefix', 'sub-field'); ?>>
-  <div class="col-left">
-    <div class="label-title">設定するスラッグの接頭辞</div>
-    <div class="note">無指定の時は {post_type} を接頭辞として使用します。</div>
+<div id="bb-config-ja-auto-post-slug_sub-field" class="sub-field-block">
+  <div class="sub-field-block-inner">
+    <fieldset <?php $this->has_modified('ja_auto_post_slug.prefix', 'sub-field'); ?>>
+      <div class="col-left">
+        <div class="label-title">設定するスラッグの接頭辞</div>
+        <div class="note">無指定の時は {post_type} を接頭辞として使用します。</div>
+      </div>
+      <div class="col-right">
+        <div class="group">
+          <input type="text" name="blankblanc_config_values[ja_auto_post_slug][prefix]" class="m-text" value="<?php echo esc_textarea($config_values['ja_auto_post_slug']['prefix']); ?>">
+        </div>
+        <div class="default">初期値: <?php _echo($bb_theme_default['ja_auto_post_slug']['prefix']); ?></div>
+      </div>
+    </fieldset>
   </div>
-  <div class="col-right">
-    <div class="group">
-      <input type="text" name="blankblanc_config_values[ja_auto_post_slug][prefix]" class="m-text" value="<?php echo esc_textarea($config_values['ja_auto_post_slug']['prefix']); ?>">
-    </div>
-    <div class="default">初期値: <?php _echo($bb_theme_default['ja_auto_post_slug']['prefix']); ?></div>
-  </div>
-</fieldset>
+</div>

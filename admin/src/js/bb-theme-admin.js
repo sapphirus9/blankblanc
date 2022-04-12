@@ -38,16 +38,17 @@
 
   // 日本語タイトル時のスラッグ設定
   $(function () {
-    var target = '#bb-config-ja-auto-post-slug';
-    func();
-    $(target).on('click', func);
-    function func() {
-      if ($(target).prop('checked')) {
-        $(target + '_sub-field').fadeIn(300).css({ display: 'inline-block' });
-      } else {
-        $(target + '_sub-field').fadeOut(300);
+    var targets = [
+      '#bb-config-ja-auto-post-slug',
+      '#bb-config-cookie-banner'
+    ];
+    $(targets).each(function (i, e) {
+      func();
+      $(e).on('click',func);
+      function func() {
+        $(e + '_sub-field').toggleClass('sub-field-block-open', $(e).prop('checked'));
       }
-    }
+    });
   });
 
   // イメージアップロード

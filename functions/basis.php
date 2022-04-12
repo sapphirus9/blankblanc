@@ -594,6 +594,27 @@ add_action('after_setup_theme', 'customize_output_canonical');
 
 
 /**
+ * Cookieの使用同意画面を表示
+ * @return output  includes/inc-cookie-banner.php
+ */
+if (!function_exists('bb_cookie_banner')) {
+  function bb_cookie_banner() {
+    global $bb_theme_config;
+    if ($bb_theme_config['cookie_banner']['indicate'] === true) {
+      get_template_part('includes/inc', 'cookie-banner');
+    }
+  }
+  function bb_cookie_banner_content($key = '') {
+    global $bb_theme_config;
+    if ($key && $value = $bb_theme_config['cookie_banner'][$key]) {
+      echo $value;
+    }
+  }
+}
+add_action('wp_footer', 'bb_cookie_banner', 10);
+
+
+/**
  * カテゴリータイトルを変更
  */
 if (!function_exists('customize_archive_title')) {

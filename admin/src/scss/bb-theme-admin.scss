@@ -51,16 +51,9 @@
     padding: 15px 0;
     border: 0;
     overflow: hidden;
-    &.sub-field {
-      display: none;
-      margin: -10px 0 10px;
-      padding: 10px 15px;
-      background-color: #e3e8e9;
-      box-sizing: border-box;
-      .label-title {
-        border-left: 0;
-        padding: 0;
-      }
+    .label-title {
+      border-left: 0;
+      padding: 0;
     }
     &.config-modified {
       .label-title {
@@ -72,7 +65,7 @@
       max-width: cfg.$max-width-mobile;
       .list-block {
         [contenteditable] {
-          border: 0;
+          white-space: pre-wrap;
           outline: 1px solid transparent;
           padding: 15px;
           background-color: cfg.$base-gray-7;
@@ -91,6 +84,36 @@
         font-weight: normal;
         border-bottom: 1px dashed cfg.$base-red-2;
       }
+    }
+  }
+  .sub-field-block {
+    position: relative;
+    top: -7px;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: opacity .3s 0s, max-height 0s .3s;
+    &-open {
+      max-height: 100%;
+      opacity: 1;
+      transition: opacity .3s 0s, max-height .3s 0s;
+    }
+    &-inner {
+      display: inline-block;
+      padding: 10px 15px;
+      background-color: #e3e8e9;
+    }
+    fieldset {
+      padding: 0;
+      & ~ fieldset {
+        margin-top: 12px;
+      }
+    }
+    .col-left {
+      width: 265px;
+    }
+    .col-right {
+      margin-left: 300px;
     }
   }
   .label-title {
@@ -140,6 +163,15 @@
       background-color: #fff6f3;
     }
   }
+  textarea {
+    vertical-align: top;
+    width: calc(100% - 2px);
+    height: 6em;
+    margin: 1px;
+    max-height: 12em;
+    max-width: 600px;
+    box-sizing: border-box;
+  }
   .s-text {
     width: 4em;
   }
@@ -167,6 +199,7 @@
     font-size: 11px;
     line-height: 1.6;
     margin-top: 3px;
+    max-width: 600px;
   }
   .input-group {
     padding-bottom: 3px;
@@ -189,6 +222,10 @@
       & + .default {
         margin-top: 5px;
       }
+    }
+    &-block {
+      width: 100%;
+      margin-left: 0;
     }
   }
   .image-view {
@@ -650,6 +687,9 @@
         padding-left: 0;
       }
     }
+    .col-right + .col-left {
+      margin-top: 20px;
+    }
     fieldset {
       width: 100%;
       border-bottom: 1px dotted #d0d5d6;
@@ -657,9 +697,28 @@
       &.sub-field {
         width: 100%;
         margin-top: 0;
+        .col-left {
+          float: none;
+          width: auto;
+          margin-right: 0;
+          margin-bottom: 15px;
+        }
+        .col-right {
+          width: auto;
+          margin-left: 0;
+          padding-left: 0;
+        }
       }
       &:last-of-type {
         border-bottom: 0;
+      }
+    }
+    .sub-field-block {
+      &-inner {
+        display: block;
+        fieldset {
+          border-bottom: 0;
+        }
       }
     }
     .label-title {
@@ -667,6 +726,10 @@
       width: auto;
       margin: 0 0 15px;
       box-sizing: border-box;
+    }
+    textarea {
+      height: 12em;
+      max-height: 20em;
     }
     .l-text {
       width: 99.5%;
