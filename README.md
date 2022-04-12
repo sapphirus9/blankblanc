@@ -22,6 +22,7 @@
 - [x] ページが構築されるまでローディング表示する機能の設定
 - [x] 日本語タイトルの投稿時はスラッグを自動的に設定（投稿タイプ+ポストID）
 - [x] ページ毎にCSS／JSファイルの読み込みが可能（style-{スラッグ}.css／js-{スラッグ}.js）
+- [x] Cookieの使用同意についての画面表示設定を追加
 
 <br>
 <a href="https://user-images.githubusercontent.com/7519663/156091074-127bc438-5e22-419c-b0d5-c71b0f0ac8a0.jpg" target="_blank"><img src="https://user-images.githubusercontent.com/7519663/156091074-127bc438-5e22-419c-b0d5-c71b0f0ac8a0.jpg" title="フロントページ  1カラム全福・タイル表示" width="22.5%"></a>&emsp;
@@ -109,7 +110,7 @@ CodeまたはTagsからダウンロードをする際、アーカイブファイ
 |画像へのリンクはすべて別窓（_blank）として開く|image_link_target|bool|false|
 |WP標準のbody_class設定を追加|add_body_class|bool|false|
 |共通の投稿一覧レイアウトタイプ|taxonomy_layout|string<br>list（リスト）/tiles（タイル）|list|
-|トップページ用メインビジュアル|mv_home_image|string (url)|blankblanc/img/img-hero.jpg|
+|トップページ用メインビジュアル|mv_home_image|string (url)|blankblanc/assets/img/img-hero.jpg|
 |トップページ用メインビジュアル内コンテンツ|mv_home_content|string (html)|空|
 |トップページレイアウト|homepage_layout|array|※以下の配列用|
 |+ カラムレイアウト|column|string<br>default（2カラム）/onecolumn（1カラム幅固定）/fullwidth（1カラム全幅）/nowrapwidth（画面全幅）|default|
@@ -124,6 +125,10 @@ CodeまたはTagsからダウンロードをする際、アーカイブファイ
 |+ 目次の挿入場所|toc_position|int<br>ボディ最上部: 0<br>ボディ最下部: -1<br>x番目の見出し出現前: 1~|1|
 |ファビコンを設定|favicon|string (url)|空|
 |サイトアイコンを設定|siteicon|string (url)|空|
+|Cookieの使用同意設定|cookie_banner|array|※以下の配列用|
+|+ 同意画面を表示|indicate|bool|false|
+|+ ボタンのラベル|label|string|OK|
+|+ 表示する内容|text|string|blankblnac/functions.php内参照|
 |テーマ用CSS/JSのバージョンパラメータを別で指定（デフォルトはfalse）※ブラウザキャッシュ対策用|version_param|false<br>またはバージョン番号等|false|
 
 ## ライセンス
