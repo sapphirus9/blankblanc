@@ -333,8 +333,14 @@ add_action('wp_enqueue_scripts', 'add_cfg_styles_scripts', 90);
 
 // プリロード
 function bb_preload_files() {
+  global $bb_theme_config;
   // アイコンフォント用
-  echo '<link rel="preload" href="' . get_template_directory_uri() . '/assets/fonts/BlankBlanc-Icons.woff2?7nner8" as="font" type="font/woff2" crossorigin>' . "\n";
+  $font_file = '/assets/fonts/BlankBlanc-Icons.woff2';
+  if ($bb_theme_config['with_parent_css'] === true) {
+    echo '<link rel="preload" href="' . get_template_directory_uri() . $font_file . '?7nner8" as="font" type="font/woff2" crossorigin>' . "\n";
+  } elseif (file_exists(get_stylesheet_directory() . $font_file)) {
+    echo '<link rel="preload" href="' . get_stylesheet_directory_uri() . $font_file . '?7nner8" as="font" type="font/woff2" crossorigin>' . "\n";
+  }
 }
 add_action('wp_head', 'bb_preload_files', 5);
 
