@@ -136,7 +136,8 @@ class blankblancConfig
         update_option('blankblanc_config_values', wp_unslash($config_values));
       }
     }
-    wp_enqueue_script('bb-theme-admin-js', get_template_directory_uri() . '/admin/assets/js/bb-theme-admin.js', array('jquery-ui-sortable', 'jquery-touch-punch', 'jquery-ui-tabs'));
+    wp_register_script('bb-theme-admin', get_template_directory_uri() . '/admin/assets/js/bb-theme-admin.js', array('jquery-ui-sortable', 'jquery-touch-punch', 'jquery-ui-tabs'), $config_values['theme_version']);
+    wp_enqueue_script('bb-theme-admin');
     wp_enqueue_media();
 
     // echo
@@ -311,7 +312,7 @@ class blankblancConfig
         ksort($this->bb_theme_default[$keys[0]][$keys[1]]);
         ksort($this->config_values[$keys[0]][$keys[1]]);
       }
-      if ($this->bb_theme_default[$keys[0]][$keys[1]] !== $this->config_values[$keys[0]][$keys[1]]) {
+      if ($this->bb_theme_default[$keys[0]][$keys[1]] !== wp_unslash($this->config_values[$keys[0]][$keys[1]])) {
         $modified = ' config-modified';
       }
     } else {
@@ -319,7 +320,7 @@ class blankblancConfig
         ksort($this->bb_theme_default[$keys[0]]);
         ksort($this->config_values[$keys[0]]);
       }
-      if ($this->bb_theme_default[$keys[0]] !== $this->config_values[$keys[0]]) {
+      if ($this->bb_theme_default[$keys[0]] !== wp_unslash($this->config_values[$keys[0]])) {
         $modified = ' config-modified';
       }
     }

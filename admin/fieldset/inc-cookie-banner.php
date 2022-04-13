@@ -1,4 +1,4 @@
-<fieldset <?php $this->has_modified('cookie_banner'); ?>>
+<fieldset <?php $this->has_modified('cookie_banner.indicate'); ?>>
   <div class="col-left">
     <div class="label-title">Cookieの使用同意画面を表示</div>
     <div class="note">表示用テンプレートはテーマフォルダ内の「includes/inc-cookie-banner.php」です。</div>
