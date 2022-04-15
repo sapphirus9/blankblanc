@@ -269,13 +269,13 @@ class BbSmoothScroll {
    * attr: #gotop-button
    */
   const _GoPageTop = (() => {
-    const $gotopBtn = document.querySelector('#gotop-button');
-    if (!$gotopBtn) return;
+    const $gotop = document.querySelector('#gotop-button');
+    if (!$gotop) return;
     const $div = document.createElement('div');
     ['gotop-cfg', 'gotop-start', 'gotop-end'].forEach((cls) => {
       $div.classList.add(cls);
     });
-    $gotopBtn.parentNode.insertBefore($div, $gotopBtn);
+    $gotop.parentNode.insertBefore($div, $gotop);
     const style = window.getComputedStyle($div);
     const start = parseInt(style.getPropertyValue('top')) || 0;
     const bottom = parseInt(style.getPropertyValue('bottom')) || 0;
@@ -289,20 +289,21 @@ class BbSmoothScroll {
         const currentPos = window.pageYOffset;
         const pageBottomTop = document.documentElement.scrollHeight - window.BbOptions.shrinkHeight;
         if (start < currentPos) {
-          $gotopBtn.classList.add('gotop-show');
+          $gotop.classList.add('gotop-show');
         } else {
-          $gotopBtn.classList.remove('gotop-show');
+          $gotop.classList.remove('gotop-show');
         }
         if (pageBottomTop - bottom < currentPos) {
-          $gotopBtn.classList.add('gotop-bottom');
-          $gotopBtn.classList.add('gotop-end');
+          $gotop.classList.add('gotop-bottom');
+          $gotop.classList.add('gotop-end');
         } else {
-          $gotopBtn.classList.remove('gotop-bottom');
-          $gotopBtn.classList.remove('gotop-end');
+          $gotop.classList.remove('gotop-bottom');
+          $gotop.classList.remove('gotop-end');
         }
       };
       window.addEventListener(event, indicate);
     });
+    const $gotopBtn = $gotop.querySelector('.gotop-symbol');
     $gotopBtn && $gotopBtn.addEventListener('click', () => {
       new BbSmoothScroll(0, Object.create(_options.scrollPageTop));
     });
