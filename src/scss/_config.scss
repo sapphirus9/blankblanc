@@ -160,13 +160,14 @@ $breakpoints: (
       background-color: $btn-color-hover;
     }
   }
+  &:focus,
   &:active {
     @if $type == 'reset' {
-      background-color: $reset-color-hover;
-      box-shadow: 0 0 8px -2px $reset-color-hover;
+      background-color: $reset-color-hover !important;
+      box-shadow: 0 0 8px -2px $reset-color-hover !important;
     } @else {
-      background-color: $btn-color-hover;
-      box-shadow: 0 0 8px -2px $input-border-shadow;
+      background-color: $btn-color-hover !important;
+      box-shadow: 0 0 8px -2px $input-border-shadow !important;
     }
   }
 }

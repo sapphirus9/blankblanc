@@ -480,6 +480,24 @@ $className : '.bb-form-style';
       }
     }
   }
+  .narrow {
+    width: 25% !important;
+    @include cfg.media-max(md) {
+      width: 33% !important;
+    }
+  }
+  .medium {
+    width: 50% !important;
+    @include cfg.media-max(md) {
+      width: 66% !important;
+    }
+  }
+  .wide {
+    width: 75% !important;
+    @include cfg.media-max(md) {
+      width: 100% !important;
+    }
+  }
   .required {
     position: relative;
     .group-label {
@@ -592,6 +610,7 @@ $className : '.bb-form-style';
         align-items: center;
         min-height: 1.725em;
       }
+      &-radio,
       &-checkbox {
         display: flex;
         align-items: center;
