@@ -188,7 +188,9 @@ class blankblancConfig
             <?php if (function_exists('call_bb_table_of_contents')) : ?>
               <li><a href="#tab-6" class="nav-tab">目次</a></li>
             <?php endif; ?>
-            <li><a href="#tab-5" class="nav-tab">メインビジュアル</a></li>
+            <?php if (function_exists('call_bb_mainvisual_term_meta')) : ?>
+              <li><a href="#tab-5" class="nav-tab">メインビジュアル</a></li>
+            <?php endif; ?>
             <li><a href="#tab-7" class="nav-tab">トップページ</a></li>
             <li><a href="#tab-4" class="nav-tab">モバイル</a></li>
             <li><a href="#tab-9" class="nav-tab">設定一覧</a></li>
@@ -213,8 +215,8 @@ class blankblancConfig
           <!-- tab-2 -->
           <div id="tab-2">
             <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-use-auto-slug.php'; ?>
-            <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-exclude-cat-id.php'; // [extention] ?>
-            <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-bread-crumb-multi.php'; // [extention] ?>
+            <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-exclude-cat-id.php'; ?>
+            <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-bread-crumb-multi.php'; ?>
             <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-output-canonical.php'; ?>
             <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-use-parent-css.php'; ?>
             <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-use-parent-script.php'; ?>
@@ -252,12 +254,8 @@ class blankblancConfig
 
           <!-- tab-7 -->
           <div id="tab-7">
-            <?php if (function_exists('call_bb_mainvisual_term_meta')) : ?>
-              <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-mainvisual-home.php'; ?>
-            <?php endif; ?>
-            <?php if (function_exists('call_bb_page_layout_select')) : ?>
-              <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-homepage-column.php'; ?>
-            <?php endif; ?>
+            <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-mainvisual-home.php'; ?>
+            <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-homepage-column.php'; ?>
             <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-homepage-articles.php'; ?>
           </div>
           <!-- /tab-7 -->

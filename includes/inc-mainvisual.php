@@ -57,7 +57,7 @@ if (is_numeric($bb_mainvisual_image)) {
 /**
  * Output
  */
-if (!empty($bb_mainvisual_image)) : ?>
+if (function_exists('call_bb_mainvisual_term_meta') && !empty($bb_mainvisual_image)) : ?>
   <header id="main-visual" class="<?php echo $bb_mainvisual_page; ?>">
     <img src="<?php echo $bb_mainvisual_image; ?>" alt="" class="background-image-src">
     <div class="wrap">
