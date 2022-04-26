@@ -17,7 +17,7 @@ const cfg = {
 /**
  * モジュール
  */
-const { src, dest, watch, parallel } = require('gulp')
+const { src, dest, watch, parallel, lastRun } = require('gulp')
 const autoprefixer  = require('autoprefixer')
 const sass          = require('gulp-dart-sass')
 const notify        = require('gulp-notify')
@@ -83,13 +83,15 @@ const webpackConfig = (_file) => {
   }
 }
 const JsProd = done => {
-  src(_files.js)
-    .pipe(rename((_file) => {
-      src(path.join(__dirname, cfg.rootDir, cfg.srcDir, cfg.jsDir, _file.basename + _file.extname))
-        .pipe(webpackStream(webpackConfig(_file), webpack))
-        .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
-        .pipe(dest(_dist.js))
-    }))
+  const lastRunResult = lastRun(JsProd);
+  const js = (_file) => {
+    src(path.join(__dirname, cfg.rootDir, cfg.srcDir, cfg.jsDir, _file.basename + _file.extname))
+      .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
+      .pipe(webpackStream(webpackConfig(_file), webpack))
+      .pipe(dest(_dist.js))
+  }
+  src(_files.js, { since: lastRunResult })
+    .pipe(rename(js))
   done()
 }
 JsProd.displayName = 'Build JS'
