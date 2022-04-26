@@ -104,9 +104,8 @@ const WatchBuild = done => {
   watch(_files.js, JsProd)
   done()
 }
-WatchBuild.displayName = 'Watch Build'
 
-exports.build = parallel([ScssProd, JsProd])
-exports.watch_build = WatchBuild
-exports.build_scss = ScssProd
-exports.build_js = JsProd
+exports.Build = parallel([ScssProd, JsProd])
+exports.Watch = WatchBuild
+exports.Build_SCSS = ScssProd
+exports.Build_JS = JsProd
