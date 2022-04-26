@@ -36,41 +36,50 @@ class bbPageLayoutSelectMeta
     }
   }
 
-  // 追加ボックス
-  public function page_layout_select_meta() {
-    global $post;
-    $layouts = array(
-      array(
-        'id'    => 'twocolumn',
+  public function column_layout() {
+    return array(
+      'default' => array(
         'value' => 'default',
-        'label' => '2カラム（デフォルト）',
+        'label' => '共通設定',
       ),
-      array(
-        'id'    => 'onecolumn',
+      'twocolumn' => array(
+        'value' => 'twocolumn',
+        'label' => '2カラム',
+      ),
+      'onecolumn' => array(
         'value' => 'onecolumn',
         'label' => '1カラム幅固定',
       ),
-      array(
-        'id'    => 'fullwidth',
+      'fullwidth' => array(
         'value' => 'fullwidth',
         'label' => '1カラム全幅',
       ),
-      array(
-        'id'    => 'nowrapwidth',
+      'nowrapwidth' => array(
         'value' => 'nowrapwidth',
         'label' => '画面全幅',
       ),
     );
+  }
+
+  // 追加ボックス
+  public function page_layout_select_meta() {
+    global $post;
     ?>
 <fieldset class="bb-confirm-changes">
   <?php
+  global $bb_theme_config;
   $meta_data = get_post_meta($post->ID, $this->meta_key, true);
+  if (empty($meta_data)) {
+    $meta_data = 'default';
+  }
+  $layouts = $this->column_layout();
   foreach ($layouts as $select) :
-    $checked = ((empty($meta_data) && $select['value'] == 'default') || $meta_data == $select['value']) ? ' checked' : '';
+    $checked = $select['value'] == $meta_data ? ' checked' : '';
+    $default = $select['value'] == 'default' ? "（{$layouts[$bb_theme_config['column_layout']]['label']}）" : '';
   ?>
     <div class="group">
-      <input name="<?php echo $this->meta_key; ?>" type="radio" class="post-format" id="bb-page-layout-<?php echo $select['id']; ?>" value="<?php echo $select['value']; ?>"<?php echo $checked; ?>>
-      <label for="bb-page-layout-<?php echo $select['id']; ?>" class="post-format-icon"><?php echo $select['label']; ?></label>
+      <input name="<?php echo $this->meta_key; ?>" type="radio" class="post-format" id="bb-page-layout-<?php echo $select['value']; ?>" value="<?php echo $select['value']; ?>"<?php echo $checked; ?>>
+      <label for="bb-page-layout-<?php echo $select['value']; ?>" class="post-format-icon"><?php echo $select['label']. $default; ?></label>
     </div>
   <?php endforeach; ?>
   <p class="note">画面全幅ではコンテンツカラムのwidthはauto、左右のpaddingは0になります</p>
@@ -111,29 +120,6 @@ class bbTermLayoutSelectMeta
     'title' => 'カラムレイアウト',
     'note'  => '画面全幅ではコンテンツカラムのwidthはauto、左右のpaddingは0になります。',
   );
-  private $layouts = array(
-    array(
-      'id'    => 'twocolumn',
-      'value' => 'default',
-      'label' => '2カラム（デフォルト）',
-    ),
-    array(
-      'id'    => 'onecolumn',
-      'value' => 'onecolumn',
-      'label' => '1カラム幅固定',
-    ),
-    array(
-      'id'    => 'fullwidth',
-      'value' => 'fullwidth',
-      'label' => '1カラム全幅',
-    ),
-    array(
-      'id'    => 'nowrapwidth',
-      'value' => 'nowrapwidth',
-      'label' => '画面全幅',
-    ),
-  );
-
   public function __construct() {
     global $current_screen;
     if (!empty($current_screen->taxonomy)) {
@@ -185,12 +171,20 @@ class bbTermLayoutSelectMeta
 
   // HTMLブロック
   private function term_layout_html($meta_data = '') {
-    foreach ($this->layouts as $select) :
-      $checked = ((empty($meta_data) && $select['value'] == 'default') || $meta_data == $select['value']) ? ' checked' : '';
+    global $bb_theme_config;
+    if (empty($meta_data)) {
+      $meta_data = 'default';
+    }
+    $_layouts = new bbPageLayoutSelectMeta();
+    $layouts = $_layouts->column_layout();
+    foreach ($layouts as $select) :
+      $checked = $select['value'] == $meta_data ? ' checked' : '';
+      $default = $select['value'] == 'default' ? "（{$layouts[$bb_theme_config['column_layout']]['label']}）" : '';
+      $default = $select['value'] == 'default' ? "（{$layouts[$bb_theme_config['column_layout']]['label']}）" : '';
     ?>
   <div class="group">
-    <input name="<?php echo $this->meta_key; ?>" type="radio" class="post-format" id="bb-term-layout-<?php echo $select['id']; ?>" value="<?php echo $select['value']; ?>"<?php echo $checked; ?>>
-    <label for="bb-term-layout-<?php echo $select['id']; ?>" class="post-format-icon"><?php echo $select['label']; ?></label>
+    <input name="<?php echo $this->meta_key; ?>" type="radio" class="post-format" id="bb-term-layout-<?php echo $select['value']; ?>" value="<?php echo $select['value']; ?>"<?php echo $checked; ?>>
+    <label for="bb-term-layout-<?php echo $select['value']; ?>" class="post-format-icon"><?php echo $select['label'] . $default; ?></label>
   </div>
     <?php endforeach; ?>
   <p class="note"><?php echo $this->meta_info['note']; ?></p>

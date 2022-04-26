@@ -93,10 +93,12 @@ function bb_config_default() {
     'mv_home_image'        => get_template_directory_uri() . '/assets/img/img-hero.jpg',
     // トップページメインビジュアル内コンテンツ（HomeまたはFront Pageが対象） [string]
     'mv_home_content'      => '',
+    // デフォルトのカラムレイアウト（twocolumn, onecolumn, fullwidth, nowrapwidth） [string]
+    'column_layout'        => 'twocolumn',
     // トップページレイアウト（HomeまたはFront Pageが対象） [array]
     'homepage_layout'      => array(
-      // カラムレイアウト（default, onecolumn, fullwidth, nowrapwidth） [string]
-      'column'   => 'default',
+      // カラムレイアウト（twocolumn, onecolumn, fullwidth, nowrapwidth） [string]
+      'column'   => 'twocolumn',
       // 投稿一覧レイアウト（list/tiles） [string]
       'articles' => 'list',
     ),

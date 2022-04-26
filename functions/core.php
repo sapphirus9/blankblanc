@@ -23,22 +23,42 @@ function bb_body_id_class($classes = array()) {
   if ($bb_theme_config['add_body_class']) {
     $classes = get_body_class($classes);
   }
+  $default_layout = $bb_theme_config['column_layout'];
+  if ($default_layout == 'default') { // 旧設定を差し替え default -> twocolumn
+    $default_layout = 'twocolumn';
+  }
   if (is_home() || is_front_page()) {
     if (is_page()) {
       $layout = get_post_meta(get_the_ID(), 'bb_page_layout_select', true);
+      if ($layout == 'default') { // 旧設定を差し替え default -> twocolumn
+        $layout = 'twocolumn';
+      }
     } else {
       $layout = $bb_theme_config['homepage_layout']['column'];
     }
-    array_push($classes, (empty($layout) ? 'defualt' :  $layout) . '-layout');
+    array_push($classes, (empty($layout) ? $default_layout :  $layout) . '-layout');
   } elseif (is_page() || is_single()) {
     $layout = get_post_meta(get_the_ID(), 'bb_page_layout_select', true);
+    if ($layout == 'default') { // 旧設定を差し替え default -> twocolumn
+      $layout = 'twocolumn';
+    }
     if (is_attachment()) {
       $layout = 'onecolumn';
     }
-    array_push($classes, (empty($layout) ? 'defualt' :  $layout) . '-layout');
+    array_push($classes, (empty($layout) ? $default_layout :  $layout) . '-layout');
   } elseif (is_archive()) {
     $obj = get_queried_object();
-    $layout = isset($obj->term_id) ? get_term_meta($obj->term_id, 'bb_term_layout_select', true) : 'defualt';
+    if (isset($obj->term_id)) {
+      $layout = get_term_meta($obj->term_id, 'bb_term_layout_select', true);
+      if (empty($layout)) {
+        $layout = $default_layout;
+      }
+    } else {
+      $layout = $default_layout;
+    }
+    if ($layout == 'default') { // 旧設定を差し替え default -> twocolumn
+      $layout = 'twocolumn';
+    }
     array_push($classes, $layout . '-layout');
   }
   if ($bb_theme_config['loading_screen']) { // ローディング画面用
@@ -310,7 +330,9 @@ function bb_theme_favicon() {
   global $bb_theme_config;
   if (empty($bb_theme_config['favicon'])) {
     $favicon = '/assets/img/favicon.ico';
-    if (is_file(get_template_directory() . $favicon)) {
+    if (is_file(get_stylesheet_directory() . $favicon)) {
+      wp_redirect(get_site_icon_url(512, get_stylesheet_directory_uri() . $favicon));
+    } elseif (is_file(get_template_directory() . $favicon)) {
       wp_redirect(get_site_icon_url(512, get_template_directory_uri() . $favicon));
     }
   }

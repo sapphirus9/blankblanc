@@ -262,6 +262,7 @@ class blankblancConfig
 
           <!-- tab-8 -->
           <div id="tab-8">
+            <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-column-layout.php'; ?>
             <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-taxonomy-layout.php'; ?>
             <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-fixed-global-nav.php'; ?>
             <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-fixed-widget.php'; ?>

@@ -74,7 +74,7 @@ CodeまたはTagsからダウンロードをする際、アーカイブファイ
 |titleタグのセパレーター|title_separator|string|｜|
 |titleに併記するキャッチフレーズ|title_catchphrase|string|一般設定のキャッチフレーズ|
 |一覧ページのタイトル接尾辞|archive_title_suffix|string|の一覧|
-|アイキャッチ画像|post_thumbnail|array<br>幅[数値], 高さ[数値], 切り出し[true/false]|array(1200, 900, true)|
+|アイキャッチ画像|post_thumbnail|array<br>幅[数値], 高さ[数値], 切り出し[true/false]|array(1200, 630, true)|
 |一覧ページのサムネイル画像|archive_thumbnail|array<br>幅[数値], 高さ[数値], 切り出し[true/false]|array(300, 300, true)|
 |記事抜粋時の省略表記|excerpt_more|string|⋯|
 |記事抜粋の文字数|excerpt_length|int|110|
@@ -112,8 +112,9 @@ CodeまたはTagsからダウンロードをする際、アーカイブファイ
 |共通の投稿一覧レイアウトタイプ|taxonomy_layout|string<br>list（リスト）/tiles（タイル）|list|
 |トップページ用メインビジュアル|mv_home_image|string (url)|blankblanc/assets/img/img-hero.jpg|
 |トップページ用メインビジュアル内コンテンツ|mv_home_content|string (html)|空|
+|デフォルトのカラムレイアウト|column_layout|string<br>twocolumn（2カラム）/onecolumn（1カラム幅固定）/fullwidth（1カラム全幅）/nowrapwidth（画面全幅）|twocolumn|
 |トップページレイアウト|homepage_layout|array|※以下の配列用|
-|+ カラムレイアウト|column|string<br>default（2カラム）/onecolumn（1カラム幅固定）/fullwidth（1カラム全幅）/nowrapwidth（画面全幅）|default|
+|+ カラムレイアウト|column|string<br>twocolumn（2カラム）/onecolumn（1カラム幅固定）/fullwidth（1カラム全幅）/nowrapwidth（画面全幅）|twocolumn|
 |+ 投稿一覧レイアウトタイプ|articles|string<br>list（リスト）/tiles（タイル）|list|
 |目次機能を有効化|use_toc|bool|true|
 |目次設定|toc_config|array|※以下の配列用|

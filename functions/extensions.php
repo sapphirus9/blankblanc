@@ -12,7 +12,7 @@ function bb_add_extensions() {
   if (is_admin()) {
     locate_template('extensions/ex-tinymce.php', true);
     locate_template('extensions/ex-inline-css-js.php', true);
-    locate_template('extensions/ex-page-layout.php', true);
+    locate_template('extensions/ex-column-layout.php', true);
     locate_template('extensions/ex-blockeditor-texthighlighter.php', true);
   }
   locate_template('extensions/ex-mainvisual.php', true);
