@@ -93,17 +93,17 @@ $base-font-bold: 600;
 //--------------------------------------------------------------------
 //  @media (max-width:)
 //  |max: 1000px ~ 1200px ------------------>|
-//  |xl: 768px ~ 999px --------------->|
-//  |lg: 640px ~ 767px ---------->|
-//  |md: 540px ~ 639px ------>|
+//  |xl: 782px ~ 999px --------------->|
+//  |lg: 600px ~ 781px ---------->|
+//  |md: 540px ~ 599px ------>|
 //  |sm: 450px ~ 539px --->|
 //  |xs: 360px ~ 449px ->|
 //  |min: ~ 359px ---->|
 $breakpoints: (
   max: 1200px,
   // xl: 1000px,
-  lg: 768px,
-  md: 640px,
+  lg: 782px, // *block editor default bp: 782px
+  md: 600px, //  *block editor default bp: 600px
   sm: 540px,
   xs: 450px,
   min: 360px,
