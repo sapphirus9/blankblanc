@@ -3,8 +3,8 @@
 
 ウェブサイト＋ブログを構築するためのベース用テーマとして、CSSによるデザインやレイアウトの組み込みやすさを主眼に置き、飾りなどを抑えたシンプルなレスポンシブデザイン対応のオリジナル無料テーマです。
 
-カテゴリーやページ毎に設定したslug名と同じスタイルシートをテーマ内に用意することで、各々スタイルの調整を行うことができます。<br>
-基本CSSではレスポンシブデザインとして、767pxでスマートフォン向けのレイアウト切り替えを設けています。<br>
+カテゴリーやページ毎に設定したslug名と同じスタイルシートをテーマ内に用意することで、各々スタイルの調整を行うことができます。  
+基本CSSではレスポンシブデザインとして、767pxでスマートフォン向けのレイアウト切り替えを設けています。  
 
 ## おもな機能
 - [x] レスポンシブデザイン（モバイル表示：<768px）
@@ -24,17 +24,17 @@
 - [x] ページ毎にCSS／JSファイルの読み込みが可能（style-{スラッグ}.css／js-{スラッグ}.js）
 - [x] Cookieの使用同意についての画面表示設定を追加
 
-<br>
+&emsp;  
 <a href="https://user-images.githubusercontent.com/7519663/156091074-127bc438-5e22-419c-b0d5-c71b0f0ac8a0.jpg" target="_blank"><img src="https://user-images.githubusercontent.com/7519663/156091074-127bc438-5e22-419c-b0d5-c71b0f0ac8a0.jpg" title="フロントページ  1カラム全福・タイル表示" width="22.5%"></a>&emsp;
 <a href="https://user-images.githubusercontent.com/7519663/155995531-1dd66bfe-fa59-462b-b6e4-4ab4816484dc.jpg" target="_blank"><img src="https://user-images.githubusercontent.com/7519663/155995531-1dd66bfe-fa59-462b-b6e4-4ab4816484dc.jpg" title="アーカイブ一覧 2カラム・リスト表示" width="22.5%"></a>&emsp;
 <a href="https://user-images.githubusercontent.com/7519663/155995712-0019063f-a538-40a2-878e-f77f7ec90a91.jpg" target="_blank"><img src="https://user-images.githubusercontent.com/7519663/155995712-0019063f-a538-40a2-878e-f77f7ec90a91.jpg" title="アーカイブ一覧 1カラム幅固定・タイル表示" width="22.5%"></a>&emsp;
 <a href="https://user-images.githubusercontent.com/7519663/155995746-cdf05b2e-9b28-46d3-bacb-4f64dae7c7ad.jpg" target="_blank"><img src="https://user-images.githubusercontent.com/7519663/155995746-cdf05b2e-9b28-46d3-bacb-4f64dae7c7ad.jpg" title="投稿ページ 2カラム表示（&amp;目次機能）" width="22.5%"></a>&emsp;
-  
+&emsp;  
 <a href="https://user-images.githubusercontent.com/7519663/155995787-9747a459-a301-467e-8a91-752d4e898aa5.jpg" target="_blank"><img src="https://user-images.githubusercontent.com/7519663/155995787-9747a459-a301-467e-8a91-752d4e898aa5.jpg" title="投稿ページ 1カラム幅固定表示" width="22.5%"></a>&emsp;
 <a href="https://user-images.githubusercontent.com/7519663/155995802-7569e110-271a-4c1f-b163-996f17794450.jpg" target="_blank"><img src="https://user-images.githubusercontent.com/7519663/155995802-7569e110-271a-4c1f-b163-996f17794450.jpg" title="投稿ページ 1カラム全福（&amp;目次機能）" width="22.5%"></a>&emsp;
 <a href="https://user-images.githubusercontent.com/7519663/155996181-6309c75f-bebc-4517-8287-1429d1e58ca9.jpg" target="_blank"><img src="https://user-images.githubusercontent.com/7519663/155996181-6309c75f-bebc-4517-8287-1429d1e58ca9.jpg" title="フッターブロック 4列ウィジェット" width="22.5%"></a>&emsp;
 <a href="https://user-images.githubusercontent.com/7519663/155996938-ab9d795b-355c-49de-a539-35a87ad8b535.jpg" target="_blank"><img src="https://user-images.githubusercontent.com/7519663/155996938-ab9d795b-355c-49de-a539-35a87ad8b535.jpg" title="フォーム用CSS （MW WP Form）" width="22.5%"></a>&emsp;
-  
+&emsp;  
 <a href="https://user-images.githubusercontent.com/7519663/155995384-4efc1dd5-cdd5-4b8e-b3fd-3c08bb13c19f.jpg" target="_blank"><img src="https://user-images.githubusercontent.com/7519663/155995384-4efc1dd5-cdd5-4b8e-b3fd-3c08bb13c19f.jpg" title="BlankBlanc用テーマオプション" width="22.5%"></a>&emsp;
 <a href="https://user-images.githubusercontent.com/7519663/155995964-32de58dc-d1ca-498e-985e-b48dc3387bae.jpg" target="_blank"><img src="https://user-images.githubusercontent.com/7519663/155995964-32de58dc-d1ca-498e-985e-b48dc3387bae.jpg" title="BlankBlanc用テーマオプション" width="22.5%"></a>&emsp;
 <a href="https://user-images.githubusercontent.com/7519663/155995982-7ff276ce-c2bb-4198-bfca-233e77642ca7.jpg" target="_blank"><img src="https://user-images.githubusercontent.com/7519663/155995982-7ff276ce-c2bb-4198-bfca-233e77642ca7.jpg" title="BlankBlanc用テーマオプション" width="22.5%"></a>&emsp;
