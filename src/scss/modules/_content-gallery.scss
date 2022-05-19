@@ -6,19 +6,18 @@
   .gallery {
     display: flex;
     flex-wrap: wrap;
-    margin: -8px;
+    margin: -5px;
     @include cfg.media-max(lg) {
-      margin: -6px;
+      margin: -5px;
     }
   }
   .gallery-item {
-    margin: 8px;
+    margin: 5px;
     background-color: cfg.$base-white;
     border: 1px solid cfg.$base-gray-6;
     box-sizing: border-box;
     @include cfg.media-max(lg) {
-      margin: 6px;
-      width: calc(33.33% - 12px) !important;
+      width: calc(33.33333% - 10px) !important;
     }
     img {
       width: auto;
@@ -28,61 +27,57 @@
   }
   .gallery-columns-1 {
     .gallery-item {
-      width: calc(100% - 16px);
+      width: calc(100% - 10px);
     }
   }
   .gallery-columns-2 {
     .gallery-item {
-      width: calc(50% - 16px);
+      width: calc(100% / 2 - 10px);
     }
   }
   .gallery-columns-3 {
     .gallery-item {
-      width: calc(33.33% - 16px);
+      width: calc(100% / 3 - 10px);
     }
   }
   .gallery-columns-4 {
     .gallery-item {
-      width: calc(25% - 16px);
+      width: calc(100% / 4 - 10px);
     }
   }
   .gallery-columns-5 {
     .gallery-item {
-      width: calc(20% - 16px);
+      width: calc(100% / 5 - 10px);
     }
   }
   .gallery-columns-6 {
     .gallery-item {
-      width: calc(16.66% - 16px);
+      width: calc(100% / 6 - 10px);
     }
   }
   .gallery-columns-7 {
     .gallery-item {
-      width: calc(14.28% - 16px);
+      width: calc(100% / 7 - 10px);
     }
   }
   .gallery-columns-8 {
     .gallery-item {
-      width: calc(12.5% - 16px);
-    }
-  }
-  .gallery-columns-8 {
-    .gallery-item {
-      width: calc(12.5% - 16px);
+      width: calc(100% / 8 - 10px);
     }
   }
   .gallery-columns-9 {
     .gallery-item {
-      width: calc(11.11% - 16px);
+      width: calc(100% / 9 - 10px);
     }
   }
   .gallery-icon {
-    padding: 5%;
+    padding: 3%;
     background-color: cfg.$base-white;
     box-sizing: border-box;
     a {
       display: inline-block;
       text-align: center;
+      vertical-align: top;
       width: 100%;
       overflow: hidden;
     }
