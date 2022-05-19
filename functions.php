@@ -81,6 +81,8 @@ function bb_config_default() {
     'disable_emoji'        => true,
     // 画像へのリンクはすべて別窓（_blank）として開く [bool]
     'image_link_target'    => false,
+    // ウィンドウ内で画像を表示 [bool]
+    'image_fade_in'        => true,
     // WP標準のbody_class設定を追加 [bool]
     'add_body_class'       => false,
     // 共通の投稿一覧レイアウトタイプ（list/tiles） [string]

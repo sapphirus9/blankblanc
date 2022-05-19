@@ -723,19 +723,41 @@ add_filter('post_class', 'remove_hentry');
 
 
 /**
- * 画像へのリンクはすべて別窓（_blank）として開く
+ * コンテンツ内のテーマオプションの反映
  */
 function add_image_link_target($content) {
   global $bb_theme_config;
+  // 画像へのリンクはすべて別窓（_blank）として開く
   if ($bb_theme_config['image_link_target'] === true) {
     $ext = apply_filters('add_image_link_target', 'je?pg|png|gif|svg|pdf');
     $pat = sprintf('!<(a.+?href=".+?\.(%s)[^\s]*"?)>!i', $ext);
     $rep = '<$1 target="_blank" rel="noopener"$3>';
     $content = preg_replace($pat, $rep, $content);
   }
+  // 画像に「bb-fade-in」data属性を付加
+  if ($bb_theme_config['image_fade_in'] === true) {
+    $pat = '!<(img.+?)(\s?\/?)>!i';
+    $rep = '<$1 data-bb-option="fade-in"$3>';
+    $content = preg_replace($pat, $rep, $content);
+  }
   return $content;
 }
 add_filter('the_content', 'add_image_link_target', 99, 1);
+
+
+/**
+ * サムネイルに「bb-fade-in」data属性を付加
+ */
+function add_post_thumbnail_html($html) {
+  global $bb_theme_config;
+  if ($bb_theme_config['image_fade_in'] === true) {
+    $pat = '!<(img.+?)(\s?\/?)>!i';
+    $rep = '<$1 data-bb-option="fade-in"$3>';
+    $html = preg_replace($pat, $rep, $html);
+  }
+  return $html;
+}
+add_filter('post_thumbnail_html', 'add_post_thumbnail_html');
 
 
 /**

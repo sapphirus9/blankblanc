@@ -376,16 +376,16 @@ class BbSmoothScroll {
   });
 
   /**
-   * 遅延読み込み画像の表示
-   * attr: loading="lazy"
+   * ウィンドウ内で対象要素を表示
+   * attr: data-bb-option="fade-in"
    */
-  const _ImgLazyLoad = (() => {
+  const _FadeInActive = (() => {
     const showPos = window.BbOptions.shrinkHeight * 0.94;
-    const $imgAll = document.querySelectorAll('[loading="lazy"]');
-    $imgAll.forEach(($img) => {
-      const rect = $img.getBoundingClientRect();
+    const $fadeInAll = document.querySelectorAll('[data-bb-option="fade-in"]');
+    $fadeInAll.forEach(($fadeIn) => {
+      const rect = $fadeIn.getBoundingClientRect();
       const position = parseInt(rect.top - showPos);
-      if (position < 0) $img.classList.add('show');
+      if (position < 0) $fadeIn.classList.add('active');
     });
   });
 
@@ -695,7 +695,7 @@ class BbSmoothScroll {
     _TableContents();
     _ToAnchorLink();
     _FixedHeaderPart();
-    _ImgLazyLoad();
+    _FadeInActive();
     _CookieBanner();
     // ページ読み込み完了のクラスを追加
     document.documentElement.classList.add('page-loaded');
@@ -715,7 +715,7 @@ class BbSmoothScroll {
   window.addEventListener('scroll', () => {
     _FixedHeaderPart();
     _FixedWidgetColumn();
-    _ImgLazyLoad();
+    _FadeInActive();
   });
 
   /**
@@ -725,6 +725,6 @@ class BbSmoothScroll {
     _ShrinkRatio();
     _FixedHeaderPart();
     _FixedWidgetColumn();
-    _ImgLazyLoad();
+    _FadeInActive();
   });
 })();
