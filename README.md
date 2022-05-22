@@ -108,6 +108,7 @@ CodeまたはTagsからダウンロードをする際、アーカイブファイ
 |カテゴリー毎（複数）のパンくず表示|bread_crumb_multi|bool|false|
 |絵文字を無効化|disable_emoji|bool|true|
 |画像へのリンクはすべて別窓（_blank）として開く|image_link_target|bool|false|
+|画面内に入ったら画像を表示|image_fade_in|bool|true|
 |WP標準のbody_class設定を追加|add_body_class|bool|false|
 |共通の投稿一覧レイアウトタイプ|taxonomy_layout|string<br>list（リスト）/tiles（タイル）|list|
 |トップページ用メインビジュアル|mv_home_image|string (url)|blankblanc/assets/img/img-hero.jpg|
