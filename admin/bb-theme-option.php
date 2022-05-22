@@ -268,6 +268,7 @@ class blankblancConfig
             <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-fixed-widget.php'; ?>
             <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-image-link-target.php'; ?>
             <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-loading-screen.php'; ?>
+            <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-image-fade-in.php'; ?>
             <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-cookie-banner.php'; ?>
           </div>
           <!-- /tab-8 -->

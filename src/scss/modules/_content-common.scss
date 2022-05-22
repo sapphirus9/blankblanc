@@ -74,7 +74,7 @@
 //--------------------------------------------------------------------
 #contents [data-bb-option="fade-in"] {
   opacity: 0;
-  transition: opacity .2s;
+  transition: opacity .5s;
   &.active {
     opacity: 1;
   }
