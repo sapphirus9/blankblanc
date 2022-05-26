@@ -3,7 +3,10 @@
 // initialize
 //--------------------------------------------------------------------
 * {
-  font-family: 'Helvetica Neue', 'Segoe UI', '游ゴシック', YuGothic, 'Hiragino Kaku Gothic ProN', Meiryo, 'メイリオ', sans-serif;
+  font-family: 'Helvetica Neue', 'Segoe UI', 'Yu Gothic Medium', 'Yu Gothic', YuGothic, 'Hiragino Kaku Gothic ProN', Meiryo, 'メイリオ', sans-serif;
+  html.browser-firefox & {
+    font-family: 'Helvetica Neue', 'Segoe UI', 'Yu Gothic', YuGothic, 'Hiragino Kaku Gothic ProN', Meiryo, 'メイリオ', sans-serif;
+  }
   @media all and (-ms-high-contrast: none) { // ie11
     font-family: 'Helvetica Neue', 'Segoe UI', Meiryo, 'メイリオ', sans-serif;
   }

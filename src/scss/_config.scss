@@ -57,12 +57,12 @@ $base-font-bold: 600;
 @mixin font-weight($weight: '') {
   @if $weight == 'bold' {
     font-weight: bold;
-    .os-windows & {
+    html.browser-firefox & {
       font-weight: $base-font-bold;
     }
   } @else {
     font-weight: normal;
-    .os-windows & {
+    html.browser-firefox & {
       font-weight: $base-font-normal;
     }
   }
