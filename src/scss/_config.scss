@@ -52,19 +52,23 @@ $form-red-1: #c50010;
 
 // font
 //--------------------------------------------------------------------
-$base-font-normal: 450;
-$base-font-bold: 600;
+@mixin font-family($type: '') {
+  @if $type == 'bold' {
+    font-family: 'Helvetica Neue', 'Segoe UI', 'Yu Gothic', YuGothic, 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+  } @else if $type == 'ie11' { // ie11
+    font-family: 'Helvetica Neue', 'Segoe UI', Meiryo, sans-serif !important;
+  } @else {
+    font-family: 'Helvetica Neue', 'Segoe UI', 'Yu Gothic Medium', 'Yu Gothic', YuGothic, 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+  }
+}
+// $base-font-normal: 450;
+// $base-font-bold: 600;
 @mixin font-weight($weight: '') {
   @if $weight == 'bold' {
+    @include font-family(bold);
     font-weight: bold;
-    html.browser-firefox & {
-      font-weight: $base-font-bold;
-    }
   } @else {
     font-weight: normal;
-    html.browser-firefox & {
-      font-weight: $base-font-normal;
-    }
   }
 }
 
