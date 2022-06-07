@@ -61,13 +61,12 @@ $form-red-1: #c50010;
     font-family: 'Helvetica Neue', 'Segoe UI', 'Yu Gothic Medium', 'Yu Gothic', YuGothic, 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
   }
 }
-// $base-font-normal: 450;
-// $base-font-bold: 600;
 @mixin font-weight($weight: '') {
   @if $weight == 'bold' {
     @include font-family(bold);
     font-weight: bold;
   } @else {
+    @include font-family();
     font-weight: normal;
   }
 }
