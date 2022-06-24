@@ -84,7 +84,6 @@ CodeまたはTagsからダウンロードをする際、アーカイブファイ
 |日本語タイトル時のスラッグ設定|ja_auto_post_slug|array|※以下の配列用|
 |+ スラッグ設定|rewrite|bool|true|
 |+ 設定するスラッグの接頭辞|prefix|string|空|
-|設定するスラッグの接頭辞|auto_post_slug|string|空|
 |ロゴ画像|logo_image|string (url)|blankblanc/assets/img/logo.png|
 |ロゴ画像サイズ|logo_size|array<br>幅[数値], 高さ[数値]|array(230, 40)|
 |ロゴ画像のalt|logo_alt|string|ブログ名|
