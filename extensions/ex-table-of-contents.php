@@ -46,6 +46,10 @@ class bbTableOfContents
   }
 
   public function generate_table_of_contents($content) {
+    // フィードの場合は無効化
+    if (is_feed()) {
+      return $content;
+    }
     // moreで分割がある場合、前半部分の目次を無効化
     global $more;
     if ($more === 0) {
