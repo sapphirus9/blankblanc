@@ -2,9 +2,9 @@
 //--------------------------------------------------------------------
 // wp-block: basic
 //--------------------------------------------------------------------
-.entry-body .wp-block {
-  &-group {
-    &__inner-container {
+.entry-body {
+  > .wp-block-group {
+    > .wp-block-group__inner-container {
       width: 100%;
       max-width: cfg.$width-desktop;
       margin: 0 auto;
@@ -17,6 +17,9 @@
       }
     }
   }
+}
+
+.entry-body .wp-block {
   &-table {
     margin: 25px 0;
     .table-content {

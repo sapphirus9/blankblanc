@@ -78,6 +78,10 @@ h1, h2, h3, h4, h5, h6, th, strong {
   @include cfg.font-weight(bold);
 }
 
+figure {
+  margin: 0;
+}
+
 form {
   margin: 0;
   padding: 0;
