@@ -9,11 +9,13 @@
       <div class="input-group">
         <?php
         $nouse = (empty($config_values['mv_home_image']) || $config_values['mv_home_image'] == -1) ? true : false;
-        if ($mv_home_image = wp_get_attachment_image_src($config_values['mv_home_image'], 600)) {
-          $img = $mv_home_image[0];
-        } else {
-          $img = $bb_theme_default['mv_home_image'];
-          $config_values['mv_home_image'] = $bb_theme_default['mv_home_image'];
+        if (!$nouse) {
+          if ($mv_home_image = wp_get_attachment_image_src($config_values['mv_home_image'], 600)) {
+            $img = $mv_home_image[0];
+          } else {
+            $img = $bb_theme_default['mv_home_image'];
+            $config_values['mv_home_image'] = $bb_theme_default['mv_home_image'];
+          }
         }
         ?>
         <div class="image-view">
