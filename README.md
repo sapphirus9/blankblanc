@@ -49,10 +49,10 @@
 - BlankBlancは日本語向けテーマです。(Japanese Only)
 
 ## 動作要件
-* WordPress 5.5以降
+* WordPress 5.9以降
 * PHP 5.6.20以降（原則WordPress本体の動作条件に準ずる）
-* Chrome, Firefox, Edge, Safariは原則として最新バージョンの対応
-* IE 11は一部非対応（おもにCSS）
+* Chrome, Firefox, Edge, Safariは原則として最新バージョンに対応
+* IE 11は非対応
 
 ## インストールの前に
 CodeまたはTagsからダウンロードをする際、アーカイブファイル内のフォルダにmasterやバージョンが付加されるので、**「blankblanc」にフォルダ名を書き換え**（場合によっては再アーカイブ化）てからテーマのインストールや更新を行ってください。  
