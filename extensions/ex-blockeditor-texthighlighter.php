@@ -2,22 +2,20 @@
 /**
  * ブロックエディターにマーカー機能を追加
  */
-function ex_texthighliter_init() {
-  wp_register_style(
-    'ex-texthighliter',
-    get_template_directory_uri() . '/admin/assets/css/editor-style.css'
-  );
+function add_blockeditor_text_highlighter() {
+  $build = '/extensions/blockeditor/text-highlighter/build';
+  $asset = include get_template_directory() . $build . '/index.asset.php';
   wp_register_script(
-    'ex-texthighliter',
-    get_template_directory_uri() . '/admin/assets/js/ex-blockeditor-texthighliter.js',
-    array('wp-rich-text', 'wp-element', 'wp-block-editor', 'wp-components', 'wp-keycodes')
+    'text-highlighter',
+    get_template_directory_uri() . $build . '/index.js',
+    $asset['dependencies'],
+    $asset['version'],
   );
   register_block_type(
-    'blankblanc/block',
+    'blankblanc/text-highlighter',
     array(
-      'editor_script' => 'ex-texthighliter',
-      'editor_style'  => 'ex-texthighliter',
+      'editor_script' => 'text-highlighter',
     )
   );
 }
-add_action('enqueue_block_editor_assets', 'ex_texthighliter_init');
+add_action('init', 'add_blockeditor_text_highlighter');

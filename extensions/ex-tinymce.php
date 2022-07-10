@@ -15,10 +15,10 @@ if (!function_exists('customize_tiny_mce')) {
     $init['block_formats'] = '段落=p;見出し1=h1;見出し2=h2;見出し3=h3;見出し4=h4;見出し5=h5;見出し6=h6;<div>=div;<pre>=pre';
     $style_formats = array(
       array(
-        'title' => 'マーカーを引く',
+        'title' => 'マーカー',
         'items' => array(
           array(
-            'title'    => '赤',
+            'title'    => 'レッド',
             'inline'   => 'em',
             'classes'  => 'text-highlighter text-highlighter-red',
           ),
@@ -28,22 +28,22 @@ if (!function_exists('customize_tiny_mce')) {
             'classes'  => 'text-highlighter text-highlighter-orange',
           ),
           array(
-            'title'    => '黄',
+            'title'    => 'イエロー',
             'inline'   => 'em',
             'classes'  => 'text-highlighter text-highlighter-yellow',
           ),
           array(
-            'title'    => '緑',
+            'title'    => '・グリーン',
             'inline'   => 'em',
             'classes'  => 'text-highlighter text-highlighter-green',
           ),
           array(
-            'title'    => '青',
+            'title'    => 'ブルー',
             'inline'   => 'em',
             'classes'  => 'text-highlighter text-highlighter-blue',
           ),
           array(
-            'title'    => '紫',
+            'title'    => 'パープル',
             'inline'   => 'em',
             'classes'  => 'text-highlighter text-highlighter-purple',
           ),
@@ -53,7 +53,7 @@ if (!function_exists('customize_tiny_mce')) {
             'classes'  => 'text-highlighter text-highlighter-pink',
           ),
           array(
-            'title'    => '空色',
+            'title'    => 'スカイブルー',
             'inline'   => 'em',
             'classes'  => 'text-highlighter text-highlighter-sky',
           ),
