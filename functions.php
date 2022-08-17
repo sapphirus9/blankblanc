@@ -47,13 +47,13 @@ function bb_config_default() {
     // コピーライト設定 [array]
     'copyright'            =>  array(
       // コピーライトの接頭辞（デフォルトは無指定） [string]
-      'prefix' => '',
+      'prefix'     => '',
       // サイト開始年（コピーライト箇所で使用） [string]
-      'start_year'       => date_i18n('Y'),
+      'start_year' => date_i18n('Y'),
       // コピーライトの表示テキスト（デフォルトはブログ名） [string]
-      'text'   => get_bloginfo('name') . '.',
+      'text'       => get_bloginfo('name') . '.',
       // コピーライトの接尾辞（デフォルトは無指定） [string]
-      'suffix' => '',
+      'suffix'     => '',
     ),
     // ローディング画面の有無 [bool]
     'loading_screen'       => false,
