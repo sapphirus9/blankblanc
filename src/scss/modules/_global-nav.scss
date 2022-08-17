@@ -34,8 +34,10 @@
     > li {
       position: relative;
       flex: 1 0 auto;
-      border-right: 1px solid $base-gray-7;
       box-sizing: border-box;
+      &:not(:last-of-type) {
+        border-right: 1px solid $base-gray-7;
+      }
       .child-group {
         left: 0;
       }
