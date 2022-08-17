@@ -21,7 +21,7 @@
     <div class="wrap header-container">
       <div class="header-brand">
         <div class="logo"><?php bb_logo_image(); ?></div>
-        <?php if (is_home() || is_front_page()) : ?>
+        <?php if (is_front_page()) : ?>
           <h1 class="copy"><?php echo get_bloginfo('description'); ?></h1>
         <?php else : ?>
           <p class="copy"><?php echo get_bloginfo('description'); ?></p>

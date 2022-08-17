@@ -48,19 +48,25 @@ class bbBreadCrumb
     global $post, $bb_theme_config;
     $bc = array();
     $i = 0;
-    if (is_home() || is_front_page()) {
+    if (is_front_page()) {
       $bc[$i][100] = array(
         'url' => home_url('/'),
         'val' => esc_attr($this->args['home'])
       );
     } else {
-      // ホーム
+      // フロントページ
       $bc[$i][0] = array(
         'url' => home_url('/'),
         'val' => esc_attr($this->args['home'])
       );
+      // すべての投稿一覧
+      if (is_home()) {
+        $bc[$i][] = array(
+          'url' => get_permalink(get_option('page_for_posts')),
+          'val' => esc_attr(single_post_title('', false))
+        );
       // 固定ページ
-      if (is_page()) {
+      } elseif (is_page()) {
         if ($post->post_parent != 0) {
           $ancestors = array_reverse(get_post_ancestors($post->ID));
           foreach ($ancestors as $ancestor) {

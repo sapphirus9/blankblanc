@@ -167,9 +167,11 @@ if (!function_exists('bb_get_document_title')) {
     $suffix = $bb_theme_config['archive_title_suffix'];
     $sep = $bb_theme_config['title_separator'];
     $_paged = $paged >= 2 || $page >= 2 ? sprintf('（%sページ）', max($paged, $page)) : '';
-    if (is_front_page() || is_home()) {
+    if (is_front_page()) {
       $subtitle = empty($bb_theme_config['title_catchphrase']) ? '' : $sep . $bb_theme_config['title_catchphrase'];
       $title = $_title . $_paged . $subtitle;
+    } elseif (is_home()) {
+      $title = single_post_title('', false) . $_paged . $sep . $_title;
     } elseif (is_search()) {
       $title = '「' . get_search_query() . '」の検索結果一覧' . $_paged . $sep . $_title;
     } elseif (is_year()) {

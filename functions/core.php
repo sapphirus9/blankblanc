@@ -184,10 +184,17 @@ function bb_get_pagination($args = array()) {
  */
 function bb_setup_theme_id_class() {
   $obj = get_queried_object();
-  if (is_home() || is_front_page() && !is_page()) {
+  if (is_front_page()) {
     $cfg = array(
       'name'  => 'home',
-      'id'    => 'home',
+      'id'    => 'front',
+      'class' => '',
+    );
+  } elseif (is_home()) {
+    $name = preg_match('/%/', $obj->post_name) ? 'page-' . $obj->ID : $obj->post_name;
+    $cfg = array(
+      'name'  => $name,
+      'id'    => 'wp',
       'class' => '',
     );
   } elseif (is_404()) {
