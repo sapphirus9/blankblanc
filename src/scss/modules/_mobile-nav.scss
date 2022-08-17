@@ -240,11 +240,12 @@ body.nav-window-show {
       &::before {
         position: absolute;
         top: calc(50% - .65em);
-        right: 3px;
+        right: 0;
         color: cfg.$base-gray-3;
-        margin-right: .15em;
+        font-size: 2.25rem;
+        margin-right: 0;
         @include cfg.icon-font('f0142');
-        transform: scale(1.5);
+        // transform: scale(1.5);
       }
     }
     span {
@@ -252,6 +253,7 @@ body.nav-window-show {
     }
     li {
       margin-top: 0;
+      overflow: hidden;
       ul li { // child lv1
         a {
           font-size: 1.4rem;
