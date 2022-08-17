@@ -1,4 +1,4 @@
-@use 'config' as cfg;
+@use 'config' as *;
 //--------------------------------------------------------------------
 // attachment
 //--------------------------------------------------------------------
@@ -24,7 +24,7 @@
       text-align: left;
       margin: 0;
       padding: 8px 12px;
-      background-color: cfg.$base-gray-7;
+      background-color: $base-gray-7;
       min-width: 100%;
       box-sizing: border-box;
     }
@@ -35,26 +35,26 @@
     border-top: none;
     a {
       display: inline-block;
-      color: cfg.$base-white;
+      color: $base-white;
       font-size: 1.5rem;
       line-height: 40px;
       height: 40px;
       max-width: 240px;
-      background-color: cfg.$reset-color;
+      background-color: $reset-color;
       border: none;
       border-radius: 4px;
       padding: 0 20px;
       box-sizing: border-box;
       cursor: pointer;
       transition: all .2s;
-      @include cfg.media-max(lg) {
+      @include media-max(lg) {
         font-size: 1.7rem;
         line-height: 50px;
         height: 50px;
       }
       &:hover {
         text-decoration: none;
-        background-color: cfg.$reset-color-hover;
+        background-color: $reset-color-hover;
       }
     }
   }

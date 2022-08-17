@@ -1,11 +1,11 @@
-@use 'config' as cfg;
+@use 'config' as *;
 //--------------------------------------------------------------------
 // initialize
 //--------------------------------------------------------------------
 * {
-  @include cfg.font-family();
+  @include font-family();
   @media all and (-ms-high-contrast: none) { // ie11
-    @include cfg.font-family(ie11);
+    @include font-family(ie11);
   }
 }
 
@@ -17,14 +17,14 @@ html {
 
 body {
   position: relative;
-  @include cfg.font-weight(normal);
+  @include font-weight(normal);
   line-height: 1;
   line-break: strict;
   min-height: 100%;
   margin: 0;
   padding: 0;
   text-size-adjust: 100%;
-  @include cfg.media-max(lg) {
+  @include media-max(lg) {
     position: static;
     top: 0;
     left: 0;
@@ -53,7 +53,7 @@ ul, ol {
 img {
   vertical-align: top;
   border: none;
-  @include cfg.media-max(lg) {
+  @include media-max(lg) {
     max-width: 100%;
   }
 }
@@ -64,7 +64,7 @@ a {
   }
   &:hover, &:active {
     text-decoration: underline;
-    @include cfg.media-max(lg) {
+    @include media-max(lg) {
       text-decoration: none;
     }
   }
@@ -75,7 +75,7 @@ em {
 }
 
 h1, h2, h3, h4, h5, h6, th, strong {
-  @include cfg.font-weight(bold);
+  @include font-weight(bold);
 }
 
 figure {
@@ -88,7 +88,7 @@ form {
 }
 
 input, textarea, select, button {
-  @include cfg.font-weight(normal);
+  @include font-weight(normal);
   outline: none;
   appearance: none;
 }

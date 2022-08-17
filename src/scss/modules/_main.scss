@@ -1,19 +1,19 @@
-@use 'config' as cfg;
+@use 'config' as *;
 //--------------------------------------------------------------------
 // main
 //--------------------------------------------------------------------
 #contents {
   display: block;
   padding-bottom: 80px;
-  background-color: cfg.$base-white;
-  @include cfg.media-max(lg) {
+  background-color: $base-white;
+  @include media-max(lg) {
     padding: 55px 0 60px;
     overflow-x: hidden;
     -webkit-tap-highlight-color: rgba(0, 0, 0, .06);
   }
   > .wrap {
     padding-top: 40px;
-    @include cfg.media-max(lg) {
+    @include media-max(lg) {
       padding-top: 30px;
     }
     .nowrapwidth-layout & {
@@ -27,7 +27,7 @@
 #contents-container {
   display: flex;
   justify-content: space-between;
-  @include cfg.media-max(lg) {
+  @include media-max(lg) {
     flex-direction: column;
   }
   .second-column-right & {
@@ -36,19 +36,19 @@
 }
 
 #first-column {
-  width: cfg.$first-column;
-  @include cfg.media-max(lg) {
+  width: $first-column;
+  @include media-max(lg) {
     width: 100%;
-    max-width: cfg.$max-width-mobile;
+    max-width: $max-width-mobile;
     margin: 0 auto;
     .nowrapwidth-layout & {
       max-width: none;
     }
   }
   .onecolumn-layout & {
-    width: cfg.$one-column;
+    width: $one-column;
     margin: 0 auto;
-    @include cfg.media-max(lg) {
+    @include media-max(lg) {
       width: 100%;
     }
   }
@@ -63,27 +63,27 @@
 }
 
 #second-column {
-  width: cfg.$second-column;
+  width: $second-column;
   .onecolumn-layout &,
   .fullwidth-layout &,
   .nowrapwidth-layout & {
     display: none;
   }
-  @include cfg.media-max(lg) {
+  @include media-max(lg) {
     display: none;
   }
 }
 
 // [deprecated]
 #one-column {
-  width: cfg.$one-column;
+  width: $one-column;
   margin: 0 auto;
   &.full-width {
     width: 100%;
   }
-  @include cfg.media-max(lg) {
+  @include media-max(lg) {
     width: 100%;
-    max-width: cfg.$max-width-mobile;
+    max-width: $max-width-mobile;
   }
   & + #second-column {
     display: none;

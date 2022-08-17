@@ -1,10 +1,10 @@
-@use 'config' as cfg;
+@use 'config' as *;
 //--------------------------------------------------------------------
 // base
 //--------------------------------------------------------------------
 body {
-  color: cfg.$base-gray-1;
-  background-color: cfg.$base-gray-7;
+  color: $base-gray-1;
+  background-color: $base-gray-7;
   -webkit-tap-highlight-color: transparent;
   .browser-ie11 & {
     overflow-x: hidden;
@@ -12,28 +12,28 @@ body {
 }
 
 a {
-  color: cfg.$link-color;
+  color: $link-color;
   &:hover {
-    color: cfg.$link-color-hover;
+    color: $link-color-hover;
   }
 }
 
 // fixed content width
 #main-screen {
   position: relative;
-  min-width: cfg.$width-desktop + cfg.$gap-desktop * 2;
-  @include cfg.media-max(lg) {
+  min-width: $width-desktop + $gap-desktop * 2;
+  @include media-max(lg) {
     top: 0;
     left: 0;
     z-index: 2;
     width: 100%;
     min-height: 100%;
-    min-width: cfg.$min-width-mobile;
-    background-color: cfg.$base-gray-7;
+    min-width: $min-width-mobile;
+    background-color: $base-gray-7;
   }
-  @include cfg.media-min(lg) { // iPhone notch measures
+  @include media-min(lg) { // iPhone notch measures
     .os-ios.device-mobile & {
-      min-width: cfg.$width-desktop + cfg.$gap-desktop * 4;
+      min-width: $width-desktop + $gap-desktop * 4;
     }
   }
 }
@@ -44,12 +44,12 @@ a {
 
 .wrap {
   position: relative;
-  width:  cfg.$width-desktop + cfg.$gap-desktop * 2;
-  padding: 0 cfg.$gap-desktop;
+  width:  $width-desktop + $gap-desktop * 2;
+  padding: 0 $gap-desktop;
   margin-left: auto;
   margin-right: auto;
   box-sizing: border-box;
-  @include cfg.media-max(lg) {
+  @include media-max(lg) {
     width: 100%;
     padding: 0;
   }
@@ -57,13 +57,13 @@ a {
 
 .is-mobile {
   display: none;
-  @include cfg.media-max(lg) {
+  @include media-max(lg) {
     display: inherit;
   }
 }
 
 .is-pc {
-  @include cfg.media-max(lg) {
+  @include media-max(lg) {
     display: none;
   }
 }

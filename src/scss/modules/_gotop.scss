@@ -1,4 +1,4 @@
-@use 'config' as cfg;
+@use 'config' as *;
 @use 'sass:map';
 //--------------------------------------------------------------------
 // gotop button
@@ -13,7 +13,7 @@
   overflow: hidden;
   pointer-events: none;
   z-index: 499;
-  @include cfg.media-max(lg) {
+  @include media-max(lg) {
     width: 90px;
   }
   .gotop {
@@ -40,27 +40,27 @@
     position: fixed;
     top: auto;
     bottom: 0;
-    right: cfg.$gap-desktop;
+    right: $gap-desktop;
     margin-bottom: -90px;
-    padding-bottom: cfg.$gap-desktop;
+    padding-bottom: $gap-desktop;
     visibility: hidden;
     opacity: 0;
     z-index: 2;
     transition: visibility .5s, margin-bottom .5s, opacity .5s;
     pointer-events: auto;
-    @include cfg.media-max(lg) {
-      right: cfg.$gap-mobile;
+    @include media-max(lg) {
+      right: $gap-mobile;
     }
     .gotop-symbol {
       position: relative;
       width: 54px;
       height: 54px;
-      background-color: cfg.$base-gray-5;
+      background-color: $base-gray-5;
       border-radius: 50%;
       cursor: pointer;
       opacity: .65;
       transition: all .2s;
-      @include cfg.media-max(lg) {
+      @include media-max(lg) {
         width: 48px;
         height: 48px;
         opacity: .65 !important;
@@ -78,11 +78,11 @@
         width: 16px;
         height: 16px;
         margin: 0 auto;
-        border-top: 2px solid cfg.$base-gray-3;
-        border-left: 2px solid cfg.$base-gray-3;
+        border-top: 2px solid $base-gray-3;
+        border-left: 2px solid $base-gray-3;
         transform: rotate(45deg);
         box-sizing: border-box;
-        @include cfg.media-max(lg) {
+        @include media-max(lg) {
           top: 16px;
         }
         &:before {
@@ -92,7 +92,7 @@
           content: '';
           width: 2px;
           height: 22px;
-          background-color: cfg.$base-gray-3;
+          background-color: $base-gray-3;
           transform-origin: 0 0;
           transform: rotate(-45deg);
         }

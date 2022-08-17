@@ -1,4 +1,4 @@
-@use 'config' as cfg;
+@use 'config' as *;
 //--------------------------------------------------------------------
 // comment
 //--------------------------------------------------------------------
@@ -8,32 +8,32 @@
   max-width: none;
   margin-top: 40px;
   padding-top: 40px;
-  border-top: 1px solid cfg.$base-gray-5;
-  @include cfg.media-max(lg) {
+  border-top: 1px solid $base-gray-5;
+  @include media-max(lg) {
     font-size: 1.8rem;
     margin-top: 40px;
     padding-top: 20px;
   }
   .nowrapwidth-layout & {
-    width:  cfg.$width-desktop;
+    width:  $width-desktop;
     box-sizing: border-box;
-    @include cfg.media-max(lg) {
-      width: calc(100% - #{cfg.$gap-mobile * 2});
-      max-width: calc(#{cfg.$max-width-mobile} - #{cfg.$gap-mobile * 2});
+    @include media-max(lg) {
+      width: calc(100% - #{$gap-mobile * 2});
+      max-width: calc(#{$max-width-mobile} - #{$gap-mobile * 2});
     }
   }
   #comments-title {
     font-size: 2.2rem;
     line-height: 1;
-    @include cfg.font-weight(normal);
+    @include font-weight(normal);
     margin-bottom: 15px;
   }
   #reply-title {
     font-size: 2rem;
     line-height: 1;
-    @include cfg.font-weight(normal);
+    @include font-weight(normal);
     margin-bottom: 10px;
-    @include cfg.media-max(lg) {
+    @include media-max(lg) {
       font-size: 1.7rem;
     }
     small {
@@ -41,26 +41,26 @@
       font-size: 1.4rem;
       vertical-align: middle;
       margin: -2px 0 0 8px;
-      @include cfg.media-max(lg) {
+      @include media-max(lg) {
         font-size: 1.2rem;
       }
     }
     a {
-      color: cfg.$base-white;
+      color: $base-white;
       text-decoration: none;
       display: inline-block;
       padding: 3px 9px 3px 6px;
-      background-color: cfg.$base-gray-4;
+      background-color: $base-gray-4;
       border-radius: 50px;
-      @include cfg.media-max(lg) {
+      @include media-max(lg) {
         padding: 2px 8px;
       }
       &::before {
-        @include cfg.icon-font('f0156');
+        @include icon-font('f0156');
         margin-right: .2em;
       }
       &:hover {
-        background-color: cfg.$base-gray-3;
+        background-color: $base-gray-3;
       }
     }
   }
@@ -68,16 +68,16 @@
     font-size: 1.5rem;
     margin-bottom: 10px;
     list-style: none;
-    @include cfg.media-max(lg) {
+    @include media-max(lg) {
       overflow: visible;
     }
     #respond {
       margin: 10px 0 30px;
       padding-top: 15px;
-      border-top: 1px dotted cfg.$base-gray-6;
+      border-top: 1px dotted $base-gray-6;
       #reply-title {
         font-size: 2rem;
-        @include cfg.media-max(lg) {
+        @include media-max(lg) {
           font-size: 1.7rem;
         }
       }
@@ -85,10 +85,10 @@
     > .comment {
       padding-bottom: 20px;
       margin-bottom: 20px;
-      border-bottom: 1px dashed cfg.$base-gray-5;
+      border-bottom: 1px dashed $base-gray-5;
     }
     .comment {
-      @include cfg.media-max(lg) {
+      @include media-max(lg) {
         overflow: visible;
       }
       > div {
@@ -98,7 +98,7 @@
     }
     div.avatar {
       margin-right: 20px;
-      @include cfg.media-max(lg) {
+      @include media-max(lg) {
         margin-right: 10px;
       }
       .thumb {
@@ -115,7 +115,7 @@
         font-size: 1.2rem;
         line-height: 1.5;
         margin-bottom: 5px;
-        @include cfg.media-max(lg) {
+        @include media-max(lg) {
           font-size: 1.2rem;
         }
       }
@@ -123,7 +123,7 @@
         display: inline-block;
         font-size: 1.3rem;
         margin-right: 15px;
-        @include cfg.media-max(lg) {
+        @include media-max(lg) {
           margin-right: 10px;
         }
       }
@@ -131,7 +131,7 @@
         display: inline-block;
         font-size: 1.3rem;
         margin-right: 15px;
-        @include cfg.media-max(lg) {
+        @include media-max(lg) {
           margin-right: 10px;
         }
         .year,
@@ -139,7 +139,7 @@
         .day,
         .separator {
           margin-right: .15em;
-          @include cfg.media-max(lg) {
+          @include media-max(lg) {
             margin-right: 0;
           }
         }
@@ -153,14 +153,14 @@
         }
       }
       .awaiting {
-        color: cfg.$base-red-1;
+        color: $base-red-1;
         margin-bottom: 3px;
       }
     }
     .children {
       font-size: 1.5rem;
       margin: 20px 0 0 30px;
-      @include cfg.media-max(lg) {
+      @include media-max(lg) {
         margin: 20px 0 0 15px;
         overflow: visible;
       }
@@ -169,7 +169,7 @@
   #respond {
     position: relative;
     width: 500px;
-    @include cfg.media-max(lg) {
+    @include media-max(lg) {
       width: auto;
     }
     p {
@@ -189,24 +189,24 @@
       margin-bottom: 3px;
     }
     input {
-      @include cfg.bb-input-decoration();
+      @include bb-input-decoration();
       &[type='text'] {
         font-size: 1.5rem;
         line-height: 1.5;
         width: 100%;
         box-sizing: border-box;
-        @include cfg.media-max(lg) {
+        @include media-max(lg) {
           font-size: 1.7rem;
         }
       }
       &[type='submit'] {
-        color: cfg.$base-white;
+        color: $base-white;
         font-size: 1.5rem;
         line-height: 1.5;
         height: 40px;
         width: 160px;
-        @include cfg.bb-button-decoration();
-        @include cfg.media-max(lg) {
+        @include bb-button-decoration();
+        @include media-max(lg) {
           font-size: 1.7rem;
         }
       }
@@ -217,27 +217,27 @@
       width: 100%;
       height: 150px;
       box-sizing: border-box;
-      @include cfg.bb-input-decoration();
-      @include cfg.media-max(lg) {
+      @include bb-input-decoration();
+      @include media-max(lg) {
         font-size: 1.7rem;
         height: 200px;
         padding: 8px;
       }
     }
     .inputtext {
-      @include cfg.media-max(lg) {
+      @include media-max(lg) {
         width: auto;
       }
     }
     .required {
-      color: cfg.$base-red-1;
+      color: $base-red-1;
       font-size: 1.2rem;
     }
     .form-submit {
       clear: both;
       margin-bottom: 0;
       padding-top: 5px;
-      @include cfg.media-max(lg) {
+      @include media-max(lg) {
         text-align: center;
         margin-top: 20px;
       }
@@ -245,7 +245,7 @@
     .not-publish {
       display: inline-block;
       font-size: 1.2rem;
-      @include cfg.media-max(lg) {
+      @include media-max(lg) {
         display: block;
         margin-bottom: 5px;
       }
@@ -259,9 +259,9 @@
     line-height: 1.6;
     width: 235px;
     padding: 0 15px;
-    background-color: cfg.$base-gray-7;
+    background-color: $base-gray-7;
     box-sizing: border-box;
-    @include cfg.media-max(lg) {
+    @include media-max(lg) {
       display: none;
     }
     li {
@@ -288,7 +288,7 @@
         }
       }
       p.comment-form-cookies-consent {
-        @include cfg.media-max(lg) {
+        @include media-max(lg) {
           margin-bottom: -8px;
         }
       }

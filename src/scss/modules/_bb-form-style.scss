@@ -1,4 +1,4 @@
-@use 'config' as cfg;
+@use 'config' as *;
 @use 'sass:color';
 //--------------------------------------------------------------------
 // bb form style
@@ -31,12 +31,12 @@ $className : '.bb-form-style';
     margin: 0 auto 25px;
     &-label {
       position: relative;
-      color: cfg.$base-gray-1;
-      @include cfg.font-weight(bold);
+      color: $base-gray-1;
+      @include font-weight(bold);
       text-align: left;
       width: 100%;
       margin-bottom: 5px;
-      @include cfg.media-max(lg) {
+      @include media-max(lg) {
         text-align: left;
         margin-bottom: 3px;
       }
@@ -46,15 +46,15 @@ $className : '.bb-form-style';
         display: inline-block;
         vertical-align: top;
         content: '任意';
-        color: cfg.$base-gray-3;
+        color: $base-gray-3;
         font-size: .83em;
         line-height: 1;
         padding: 4px 8px;
         margin-left: 10px;
-        @include cfg.font-weight(normal);
-        background-color: cfg.$base-gray-6;
+        @include font-weight(normal);
+        background-color: $base-gray-6;
         border-radius: 2px;
-        @include cfg.media-max(lg) {
+        @include media-max(lg) {
           right: 0;
         }
       }
@@ -81,14 +81,14 @@ $className : '.bb-form-style';
       display: flex;
       justify-content: center;
       margin-top: 50px;
-      @include cfg.media-max(lg) {
+      @include media-max(lg) {
         flex-direction: column;
         margin: 35px auto 0;
-        max-width: cfg.$min-width-mobile;
+        max-width: $min-width-mobile;
       }
       input {
         margin: 0 5px;
-        @include cfg.media-max(lg) {
+        @include media-max(lg) {
           margin: 15px 0 0;
         }
       }
@@ -99,7 +99,7 @@ $className : '.bb-form-style';
     .group {
       align-items: center;
       margin: 0 auto 30px;
-      @include cfg.media-max(lg) {
+      @include media-max(lg) {
         flex-direction: column;
         margin: 0 auto 25px;
       }
@@ -109,7 +109,7 @@ $className : '.bb-form-style';
         margin-bottom: 0;
         padding-right: 90px;
         box-sizing: border-box;
-        @include cfg.media-max(lg) {
+        @include media-max(lg) {
           width: 100%;
           margin-bottom: 3px;
         }
@@ -134,16 +134,16 @@ $className : '.bb-form-style';
   }
   input {
     line-height: 1.5;
-    @include cfg.bb-input-placeholder();
+    @include bb-input-placeholder();
     &[type='text'] {
       font-size: 1.6rem;
       width: 100%;
       height: 40px;
       padding: 0 7px;
-      border: 1px solid cfg.$input-border;
+      border: 1px solid $input-border;
       border-radius: 2px;
       box-sizing: border-box;
-      @include cfg.media-max(lg) {
+      @include media-max(lg) {
         font-size: 1.7rem;
       }
     }
@@ -152,10 +152,10 @@ $className : '.bb-form-style';
       width: 100%;
       height: 40px;
       padding: 0 7px;
-      border: 1px solid cfg.$input-border;
+      border: 1px solid $input-border;
       border-radius: 2px;
       box-sizing: border-box;
-      @include cfg.media-max(lg) {
+      @include media-max(lg) {
         font-size: 1.7rem;
       }
     }
@@ -164,10 +164,10 @@ $className : '.bb-form-style';
       width: 100%;
       height: 40px;
       padding: 0 7px;
-      border: 1px solid cfg.$input-border;
+      border: 1px solid $input-border;
       border-radius: 2px;
       box-sizing: border-box;
-      @include cfg.media-max(lg) {
+      @include media-max(lg) {
         font-size: 1.7rem;
       }
     }
@@ -176,10 +176,10 @@ $className : '.bb-form-style';
       width: 100%;
       height: 40px;
       padding: 0 7px;
-      border: 1px solid cfg.$input-border;
+      border: 1px solid $input-border;
       border-radius: 2px;
       box-sizing: border-box;
-      @include cfg.media-max(lg) {
+      @include media-max(lg) {
         font-size: 1.7rem;
       }
     }
@@ -188,14 +188,14 @@ $className : '.bb-form-style';
       width: 100%;
       height: 40px;
       padding: 0 7px;
-      border: 1px solid cfg.$input-border;
+      border: 1px solid $input-border;
       border-radius: 2px;
       box-sizing: border-box;
-      @include cfg.media-max(lg) {
+      @include media-max(lg) {
         font-size: 1.7rem;
       }
     }
-    @include cfg.bb-input-decoration();
+    @include bb-input-decoration();
     &[type='checkbox'] {
       display: none;
       & + label,
@@ -203,17 +203,17 @@ $className : '.bb-form-style';
         display: inline-flex;
         align-items: center;
         position: relative;
-        color: cfg.$base-gray-2;
+        color: $base-gray-2;
         font-size: 1.6rem;
         line-height: 1.3;
         min-height: 22px;
         padding: 6px;
         margin: 3px;
-        border: 1px solid cfg.$base-white;
+        border: 1px solid $base-white;
         border-radius: 2px;
         cursor: pointer;
         transition: all .2s;
-        @include cfg.media-max(lg) {
+        @include media-max(lg) {
           font-size: 1.7rem;
           padding: 8px;
         }
@@ -224,8 +224,8 @@ $className : '.bb-form-style';
           width: 20px;
           height: 20px;
           margin-right: 5px;
-          background-color: cfg.$base-white;
-          border: 2px solid cfg.$base-gray-4;
+          background-color: $base-white;
+          border: 2px solid $base-gray-4;
           border-radius: 2px;
           box-sizing: border-box;
           transition: all .2s;
@@ -238,12 +238,12 @@ $className : '.bb-form-style';
           content: '';
           width: 6px;
           height: 12px;
-          border-bottom: 2px solid cfg.$base-white;
-          border-right: 2px solid cfg.$base-white;
+          border-bottom: 2px solid $base-white;
+          border-right: 2px solid $base-white;
           transform: rotate(45deg);
           opacity: 0;
           transition: all .2s;
-          @include cfg.media-max(lg) {
+          @include media-max(lg) {
             left: 14px;
           }
         }
@@ -251,12 +251,12 @@ $className : '.bb-form-style';
       &:checked {
         & + label,
         & + span {
-          color: cfg.$base-gray-1;
-          background-color: cfg.$base-gray-7;
-          border: 1px solid cfg.$base-gray-7;
+          color: $base-gray-1;
+          background-color: $base-gray-7;
+          border: 1px solid $base-gray-7;
           &::before {
-            border-color: cfg.$base-gray-2;
-            background-color: cfg.$base-gray-2;
+            border-color: $base-gray-2;
+            background-color: $base-gray-2;
           }
           &::after {
             opacity: 1;
@@ -266,11 +266,11 @@ $className : '.bb-form-style';
       &:disabled {
         & + label,
         & + span {
-          color: cfg.$base-gray-3;
+          color: $base-gray-3;
           cursor: default;
           &::before {
-            background-color: cfg.$base-gray-7;
-            border-color: cfg.$base-gray-5;
+            background-color: $base-gray-7;
+            border-color: $base-gray-5;
           }
         }
       }
@@ -282,17 +282,17 @@ $className : '.bb-form-style';
         display: inline-flex;
         align-items: center;
         position: relative;
-        color: cfg.$base-gray-2;
+        color: $base-gray-2;
         font-size: 1.6rem;
         line-height: 1.3;
         min-height: 22px;
         padding: 6px;
         margin: 3px;
-        border: 1px solid cfg.$base-white;
+        border: 1px solid $base-white;
         border-radius: 2px;
         cursor: pointer;
         transition: all .2s;
-        @include cfg.media-max(lg) {
+        @include media-max(lg) {
           font-size: 1.7rem;
           padding: 8px;
         }
@@ -304,8 +304,8 @@ $className : '.bb-form-style';
           height: 22px;
           margin-right: 4px;
           margin-left: -1px;
-          background-color: cfg.$base-white;
-          border: 2px solid cfg.$base-gray-4;
+          background-color: $base-white;
+          border: 2px solid $base-gray-4;
           border-radius: 50%;
           box-sizing: border-box;
           transition: all .2s;
@@ -318,11 +318,11 @@ $className : '.bb-form-style';
           content: '';
           width: 12px;
           height: 12px;
-          background-color: cfg.$base-gray-2;
+          background-color: $base-gray-2;
           border-radius: 50%;
           opacity: 0;
           transition: all .2s;
-          @include cfg.media-max(lg) {
+          @include media-max(lg) {
             left: 12px;
           }
         }
@@ -330,11 +330,11 @@ $className : '.bb-form-style';
       &:checked {
         & + label,
         & + span {
-          color: cfg.$base-gray-1;
-          background-color: cfg.$base-gray-7;
-          border: 1px solid cfg.$base-gray-7;
+          color: $base-gray-1;
+          background-color: $base-gray-7;
+          border: 1px solid $base-gray-7;
           &::before {
-            border-color: cfg.$base-gray-2;
+            border-color: $base-gray-2;
           }
           &::after {
             opacity: 1;
@@ -344,18 +344,18 @@ $className : '.bb-form-style';
       &:disabled {
         & + label,
         & + span {
-          color: cfg.$base-gray-3;
+          color: $base-gray-3;
           cursor: default;
           &::before {
-            background-color: cfg.$base-gray-7;
-            border-color: cfg.$base-gray-5;
+            background-color: $base-gray-7;
+            border-color: $base-gray-5;
           }
         }
       }
     }
     &[type='range'] {
       width: 100%;
-      @include cfg.media-max(lg) {
+      @include media-max(lg) {
       }
       &:focus {
         border-width: 0 !important;
@@ -363,28 +363,28 @@ $className : '.bb-form-style';
       }
     }
     &[type='submit'] {
-      color: cfg.$base-white;
+      color: $base-white;
       font-size: 1.6rem;
       line-height: 1;
       vertical-align: top;
       height: 40px;
       min-width: 160px;
-      @include cfg.bb-button-decoration();
-      @include cfg.media-max(lg) {
+      @include bb-button-decoration();
+      @include media-max(lg) {
         font-size: 1.7rem;
         height: 50px;
       }
     }
     &[name='submitBack'], // MW WP Form
     &[type='reset'] {
-      color: cfg.$base-white;
+      color: $base-white;
       font-size: 1.6rem;
       line-height: 1;
       vertical-align: top;
       height: 40px;
       min-width: 80px;
-      @include cfg.bb-button-decoration(reset);
-      @include cfg.media-max(lg) {
+      @include bb-button-decoration(reset);
+      @include media-max(lg) {
         font-size: 1.7rem;
         height: 50px;
       }
@@ -392,21 +392,21 @@ $className : '.bb-form-style';
     &[readonly],
     &:read-only {
       &:focus {
-        border-color: cfg.$base-gray-4;
-        box-shadow: 0 0 8px -2px cfg.$base-gray-4;
+        border-color: $base-gray-4;
+        box-shadow: 0 0 8px -2px $base-gray-4;
       }
     }
   }
   input[type='button'],
   button {
-    color: cfg.$base-white;
+    color: $base-white;
     font-size: 1.6rem;
     line-height: 1;
     vertical-align: top;
     height: 40px;
     min-width: 160px;
-    @include cfg.bb-button-decoration();
-    @include cfg.media-max(lg) {
+    @include bb-button-decoration();
+    @include media-max(lg) {
       font-size: 1.7rem;
       height: 50px;
     }
@@ -414,9 +414,9 @@ $className : '.bb-form-style';
   .select-area {
     display: inline-block;
     position: relative;
-    background-color: cfg.$base-white;
+    background-color: $base-white;
     border-radius: 3px;
-    @include cfg.media-max(sm) {
+    @include media-max(sm) {
       width: 100%;
     }
     &::before {
@@ -426,8 +426,8 @@ $className : '.bb-form-style';
       content: '';
       width: 8px;
       height: 8px;
-      border-right: 2px solid cfg.$base-gray-3;
-      border-bottom: 2px solid cfg.$base-gray-3;
+      border-right: 2px solid $base-gray-3;
+      border-bottom: 2px solid $base-gray-3;
       transform: rotate(45deg);
       transition: all .2s;
       z-index: 1;
@@ -442,13 +442,13 @@ $className : '.bb-form-style';
     padding: 0 35px 0 7px;
     margin: 0;
     background-color: transparent;
-    border: 1px solid cfg.$input-border;
+    border: 1px solid $input-border;
     border-radius: 2px;
     box-sizing: border-box;
     cursor: pointer;
     z-index: 2;
-    @include cfg.bb-input-decoration();
-    @include cfg.media-max(lg) {
+    @include bb-input-decoration();
+    @include media-max(lg) {
       font-size: 1.7rem;
       max-width: none;
       width: 100%;
@@ -464,37 +464,37 @@ $className : '.bb-form-style';
     width: 100%;
     min-height: 200px;
     padding: 7px;
-    border: 1px solid cfg.$input-border;
+    border: 1px solid $input-border;
     border-radius: 2px;
     box-sizing: border-box;
-    @include cfg.bb-input-decoration();
-    @include cfg.media-max(lg) {
+    @include bb-input-decoration();
+    @include media-max(lg) {
       font-size: 1.7rem;
       min-height: 250px;
     }
     &[readonly],
     &:read-only {
       &:focus {
-        border-color: cfg.$base-gray-4;
-        box-shadow: 0 0 8px -2px cfg.$base-gray-4;
+        border-color: $base-gray-4;
+        box-shadow: 0 0 8px -2px $base-gray-4;
       }
     }
   }
   .narrow {
     width: 25% !important;
-    @include cfg.media-max(md) {
+    @include media-max(md) {
       width: 33% !important;
     }
   }
   .medium {
     width: 50% !important;
-    @include cfg.media-max(md) {
+    @include media-max(md) {
       width: 66% !important;
     }
   }
   .wide {
     width: 75% !important;
-    @include cfg.media-max(md) {
+    @include media-max(md) {
       width: 100% !important;
     }
   }
@@ -503,21 +503,21 @@ $className : '.bb-form-style';
     .group-label {
       &::after {
         content: '必須';
-        color: cfg.$base-white;
-        background-color: cfg.$base-gray-2;
+        color: $base-white;
+        background-color: $base-gray-2;
       }
     }
   }
   .group-error {
     input, select, textarea {
-      border-color: cfg.$form-red-1;
-      box-shadow: 0 0 0 1px cfg.$form-red-1;
+      border-color: $form-red-1;
+      box-shadow: 0 0 0 1px $form-red-1;
     }
     input[type=radio] + label::before,
     input[type=radio] + span::before,
     input[type=checkbox] + label::before,
     input[type=checkbox] + span::before {
-      border-color: cfg.$form-red-1;
+      border-color: $form-red-1;
     }
   }
   &--error-float {
@@ -525,17 +525,17 @@ $className : '.bb-form-style';
       position: absolute;
       top: -15px;
       left: -5px;
-      color: cfg.$base-white;
+      color: $base-white;
       font-size: 1.3rem;
       line-height: 1;
       padding: 4px 8px;
-      background-color: rgba(cfg.$form-red-1, .8);
+      background-color: rgba($form-red-1, .8);
       border-radius: 2px;
-      box-shadow: 1px 1px 3px rgba(cfg.$base-black, .3);
+      box-shadow: 1px 1px 3px rgba($base-black, .3);
       z-index: 2;
       opacity: 1;
       transition: all .2s;
-      @include cfg.media-max(lg) {
+      @include media-max(lg) {
         top: -8px;
         left: -1px;
         font-size: 1.15rem;
@@ -564,14 +564,14 @@ $className : '.bb-form-style';
     }
     .error {
       display: block !important;
-      color: cfg.$form-red-1;
+      color: $form-red-1;
       font-size: 1.4rem;
       line-height: 1.2;
       width: 100%;
       max-height: 50px;
       padding: 5px 8px;
       margin-top: 10px;
-      background-color: color.scale(cfg.$form-red-1, $lightness: 96%);
+      background-color: color.scale($form-red-1, $lightness: 96%);
       border-radius: 2px;
       box-sizing: border-box;
       &-hidden {
@@ -602,7 +602,7 @@ $className : '.bb-form-style';
       &-body {
         font-size: 1.05em;
         padding: 8px 12px;
-        background-color: cfg.$base-gray-7;
+        background-color: $base-gray-7;
         border-radius: 2px;
       }
       &-input {

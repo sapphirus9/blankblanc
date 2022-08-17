@@ -1,4 +1,4 @@
-@use 'config' as cfg;
+@use 'config' as *;
 //--------------------------------------------------------------------
 // gallery
 //--------------------------------------------------------------------
@@ -7,16 +7,16 @@
     display: flex;
     flex-wrap: wrap;
     margin: -5px;
-    @include cfg.media-max(lg) {
+    @include media-max(lg) {
       margin: -5px;
     }
   }
   .gallery-item {
     margin: 5px;
-    background-color: cfg.$base-white;
-    border: 1px solid cfg.$base-gray-6;
+    background-color: $base-white;
+    border: 1px solid $base-gray-6;
     box-sizing: border-box;
-    @include cfg.media-max(lg) {
+    @include media-max(lg) {
       width: calc(33.33333% - 10px) !important;
     }
     img {
@@ -72,7 +72,7 @@
   }
   .gallery-icon {
     padding: 3%;
-    background-color: cfg.$base-white;
+    background-color: $base-white;
     box-sizing: border-box;
     a {
       display: inline-block;
@@ -85,6 +85,6 @@
   .gallery-caption {
     padding: 8px 5%;
     background-color: transparent;
-    border-top: 1px dotted cfg.$base-gray-6;
+    border-top: 1px dotted $base-gray-6;
   }
 }

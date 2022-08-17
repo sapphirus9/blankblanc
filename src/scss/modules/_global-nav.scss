@@ -1,16 +1,16 @@
-@use 'config' as cfg;
+@use 'config' as *;
 //--------------------------------------------------------------------
 // header part
 //--------------------------------------------------------------------
 #header-part {
   position: relative;
-  height: 40px;
+  height: $global-nav-height;
   z-index: 2;
-  @include cfg.media-max(lg) {
+  @include media-max(lg) {
     display: none;
   }
   & &-inner {
-    @include cfg.media-min(lg) {
+    @include media-min(lg) {
       position: absolute;
       top: 0;
       left: 0;
@@ -23,45 +23,51 @@
 // global nav
 //--------------------------------------------------------------------
 #global-nav {
-  background-color: cfg.$base-gray-7;
+  background-color: $base-gray-7;
+  .wrap {
+    > .menu {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
   .menu {
-    padding-bottom: 40px;
     > li {
       position: relative;
-      float: left;
-      border-right: 1px solid cfg.$base-gray-7;
+      flex: 1 0 auto;
+      border-right: 1px solid $base-gray-7;
       box-sizing: border-box;
       .child-group {
         left: 0;
       }
       > a {
-        display: block;
+        display: flex;
         font-size: 1.5rem;
-        text-align: center;
-        line-height: 40px;
-        height: 40px;
+        align-items: center;
+        justify-content: center;
+        line-height: 1.2;
+        min-height: $global-nav-height;
         padding: 0 20px;
-        background-color: cfg.$base-gray-6;
+        background-color: $base-gray-6;
         box-sizing: border-box;
         &:hover {
-          background-color: cfg.$base-gray-4 !important;
+          background-color: $base-gray-4 !important;
         }
       }
       a {
-        color: cfg.$base-gray-1;
+        color: $base-gray-1;
         transition: all .2s;
         &:hover {
-          color: cfg.$base-gray-1;
+          color: $base-gray-1;
           text-decoration: none;
-          background-color: cfg.$base-gray-7;
+          background-color: $base-gray-7;
         }
       }
       &.current-menu-parent > a,
       &.current-menu-item > a {
-        background-color: cfg.$base-gray-5;
+        background-color: $base-gray-5;
       }
       &.menu-active > a {
-        background-color: cfg.$base-gray-4 !important;
+        background-color: $base-gray-4 !important;
       }
     }
   }
@@ -82,12 +88,12 @@
         font-size: 1.5rem;
         min-width: 160px;
         padding: 0;
-        background-color: cfg.$base-white;
-        border: 1px solid cfg.$base-gray-5;
+        background-color: $base-white;
+        border: 1px solid $base-gray-5;
         z-index: 2;
         box-sizing: border-box;
         li {
-          border-top: 1px solid cfg.$base-gray-6;
+          border-top: 1px solid $base-gray-6;
           a {
             display: block;
             text-align: left;
@@ -101,27 +107,27 @@
             transition: all .2s;
             &:hover {
               text-decoration: none;
-              background-color: cfg.$base-gray-6 !important;
+              background-color: $base-gray-6 !important;
             }
           }
           .sub-menu {
             background-color: transparent;
             border: none;
             li {
-              border-top: 1px dashed cfg.$base-gray-7;
+              border-top: 1px dashed $base-gray-7;
               a {
                 font-size: .93333em;
                 line-height: 1.4;
                 padding-left: 1em;
                 // &::before {
-                //   @include cfg.icon-font('f0142');
-                //   color: cfg.$base-gray-4;
+                //   @include icon-font('f0142');
+                //   color: $base-gray-4;
                 //   vertical-align: -1px;
                 //   margin-right: 3px;
                 //   transition: all .2s;
                 // }
                 // &:hover::before {
-                //   color: cfg.$base-gray-3;
+                //   color: $base-gray-3;
                 // }
               }
               li {
@@ -132,7 +138,7 @@
             }
           }
           &.current-menu-item > a {
-            background-color: cfg.$base-gray-7;
+            background-color: $base-gray-7;
           }
         }
         > li:first-child {
@@ -184,11 +190,11 @@
     left: 0;
     right: 0;
     content: '';
-    background-color: cfg.$base-black;
+    background-color: $base-black;
     opacity: 0;
     z-index: -1;
     transition: opacity .2s 0s, z-index 0s .2s;
-    @include cfg.media-max(lg) {
+    @include media-max(lg) {
       display: none;
     }
   }

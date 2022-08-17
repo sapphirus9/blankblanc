@@ -1,4 +1,4 @@
-@use 'config' as cfg;
+@use 'config' as *;
 //--------------------------------------------------------------------
 // mobile nav
 //--------------------------------------------------------------------
@@ -12,7 +12,7 @@
   left: 0;
   bottom: 0;
   right: 0;
-  background-color: cfg.$base-black;
+  background-color: $base-black;
   z-index: 1001;
   opacity: 0;
   visibility: hidden;
@@ -38,10 +38,10 @@ body.nav-window-show {
   right: auto;
   z-index: 2;
   width: 400px;
-  background-color: cfg.$base-white;
+  background-color: $base-white;
   transform: translateX(-401px);
   transition: transform .3s;
-  @include cfg.media-max(lg) {
+  @include media-max(lg) {
     display: block;
   }
   .nav-window-right & {
@@ -61,18 +61,18 @@ body.nav-window-show {
   top: 0;
   left: 0;
   z-index: 2;
-  width: cfg.$mobile-header-height;
-  height:cfg.$mobile-header-height;
+  width: $mobile-header-height;
+  height:$mobile-header-height;
   cursor: pointer;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-      max-width: cfg.$max-width-mobile;
+      max-width: $max-width-mobile;
   .btn-symbol {
     display: block;
     position: relative;
     top: calc(50% - 1px);
     height: 2px;
     margin: 0 16px;
-    background-color: cfg.$nav-gray-1;
+    background-color: $nav-gray-1;
     &::before {
       display: block;
       position: absolute;
@@ -81,7 +81,7 @@ body.nav-window-show {
       right: 0;
       content: '';
       height: 2px;
-      background-color: cfg.$nav-gray-1;
+      background-color: $nav-gray-1;
     }
     &::after {
       display: block;
@@ -91,7 +91,7 @@ body.nav-window-show {
       right: 0;
       content: '';
       height: 2px;
-      background-color: cfg.$nav-gray-1;
+      background-color: $nav-gray-1;
     }
   }
   .nav-window-right & {
@@ -107,8 +107,8 @@ body.nav-window-show {
   top: 5px;
   left: 10px;
   z-index: 7;
-  width: (cfg.$mobile-header-height - 10px);
-  height: (cfg.$mobile-header-height - 10px);
+  width: ($mobile-header-height - 10px);
+  height: ($mobile-header-height - 10px);
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   .nav-window-right & {
     right: 10px;
@@ -121,7 +121,7 @@ body.nav-window-show {
     height: 2px;
     width: 17px;
     margin: 0 auto;
-    background-color: cfg.$nav-gray-1;
+    background-color: $nav-gray-1;
     &::before,
     &::after {
       display: block;
@@ -129,7 +129,7 @@ body.nav-window-show {
       height: 2px;
       width: 12px;
       content: '';
-      background-color: cfg.$nav-gray-1;
+      background-color: $nav-gray-1;
     }
     &::before {
       top: calc(50% + 3px);
@@ -160,11 +160,11 @@ body.nav-window-show {
 //--------------------------------------------------------------------
 #nav-window-scroll {
   position: absolute;
-  top: cfg.$mobile-header-height;
+  top: $mobile-header-height;
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: cfg.$base-white;
+  background-color: $base-white;
   padding: 0 0 120px;
   z-index: 8;
   box-sizing: border-box;
@@ -177,18 +177,18 @@ body.nav-window-show {
   .widget,
   .menu {
     margin: 0;
-    padding: 15px cfg.$gap-mobile;
+    padding: 15px $gap-mobile;
   }
   .widget .menu {
     padding: 0;
   }
   .widgettitle {
-    color: cfg.$base-gray-2;
+    color: $base-gray-2;
     font-size: 1.3rem;
-    @include cfg.font-weight(bold);
+    @include font-weight(bold);
     padding: 8px 12px;
     margin: 4px 0 8px;
-    background-color: cfg.$base-gray-7;
+    background-color: $base-gray-7;
     border-radius: 50px;
   }
   ul {
@@ -201,7 +201,7 @@ body.nav-window-show {
         display: block;
         font-size: 1em;
         line-height: 1.3;
-        color: cfg.$base-gray-1;
+        color: $base-gray-1;
         text-decoration: none;
         padding: 15px 10px;
         background-color: transparent;
@@ -213,14 +213,14 @@ body.nav-window-show {
         line-height: 1;
         margin-left: 7px;
         padding: 2px 10px;
-        background-color: cfg.$base-gray-6;
+        background-color: $base-gray-6;
         border-radius: 10px;
       }
     }
   }
   > ul,
   > ol {
-    border-bottom: 1px solid cfg.$base-gray-6;
+    border-bottom: 1px solid $base-gray-6;
     &:last-child {
       border-bottom: none;
     }
@@ -241,10 +241,10 @@ body.nav-window-show {
         position: absolute;
         top: calc(50% - .65em);
         right: 0;
-        color: cfg.$base-gray-3;
+        color: $base-gray-3;
         font-size: 2.25rem;
         margin-right: 0;
-        @include cfg.icon-font('f0142');
+        @include icon-font('f0142');
         // transform: scale(1.5);
       }
     }
@@ -287,7 +287,7 @@ body.nav-window-show {
     right: -42px;
     width: 34px;
     height: 34px;
-    // border: 1px solid cfg.$base-gray-6;
+    // border: 1px solid $base-gray-6;
     z-index: 2;
     &::before,
     &::after {
@@ -299,7 +299,7 @@ body.nav-window-show {
       content: '';
       width: 2px;
       height: auto;
-      background-color: cfg.$nav-gray-1;
+      background-color: $nav-gray-1;
       opacity: 1;
       transition: all .3s;
       z-index: 2;
@@ -333,7 +333,7 @@ body.nav-window-show {
     }
   }
   .select-area {
-    margin: 0 cfg.$gap-mobile 10px;
+    margin: 0 $gap-mobile 10px;
   }
   .recentcomments .entry-title:hover {
     text-decoration: none;
@@ -364,7 +364,7 @@ body.nav-window-show {
     .count {
       font-size: 1.2rem;
       margin: 3px 0 0 0;
-      background-color: cfg.$base-gray-7;
+      background-color: $base-gray-7;
     }
   }
   .tagcloud {
@@ -379,7 +379,7 @@ body.nav-window-show {
           line-height: 1;
           padding: 9px;
           margin: 5px;
-          background-color: cfg.$base-gray-7;
+          background-color: $base-gray-7;
           -webkit-tap-highlight-color: rgba(0, 0, 0, .06);
         }
       }

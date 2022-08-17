@@ -1,4 +1,4 @@
-@use 'config' as cfg;
+@use 'config' as *;
 //--------------------------------------------------------------------
 // misc
 //--------------------------------------------------------------------
@@ -8,7 +8,7 @@
 .search-form {
   position: relative;
   min-width: 250px;
-  @include cfg.media-max(lg) {
+  @include media-max(lg) {
     margin: 5px 0;
   }
   .screen-reader-text {
@@ -24,30 +24,30 @@
       position: absolute;
       top: 0;
       right: 0;
-      color: cfg.$base-gray-4;
-      @include cfg.icon-font('f0349');
+      color: $base-gray-4;
+      @include icon-font('f0349');
       font-size: 24px;
       line-height: 1;
       width: 40px;
       height: 38px;
       padding-top: 2px;
       margin: 1px;
-      border-left: 1px solid cfg.$base-gray-5;
+      border-left: 1px solid $base-gray-5;
       transition: all .2s;
       box-sizing: border-box;
     }
     &.hover {
       &::after {
-        color: cfg.$base-gray-2;
-        background-color: cfg.$base-gray-7;
+        color: $base-gray-2;
+        background-color: $base-gray-7;
       }
     }
   }
   input {
-    @include cfg.bb-input-decoration();
-    @include cfg.bb-input-placeholder();
+    @include bb-input-decoration();
+    @include bb-input-placeholder();
     &:focus {
-      border-color: cfg.$input-border-focus !important;
+      border-color: $input-border-focus !important;
     }
   }
   .search-field {
@@ -56,12 +56,12 @@
     width: 100%;
     height: 40px;
     padding: 8px 48px 8px 8px;
-    background-color: cfg.$base-white;
-    border: 1px solid cfg.$base-gray-5;
+    background-color: $base-white;
+    border: 1px solid $base-gray-5;
     border-radius: 2px;
     box-sizing: border-box;
-    @include cfg.media-max(lg) {
-      border-color: cfg.$base-gray-3;
+    @include media-max(lg) {
+      border-color: $base-gray-3;
     }
   }
   .search-submit {
@@ -82,7 +82,7 @@
   }
   &:hover {
     .search-field {
-      border-color: cfg.$base-gray-3;
+      border-color: $base-gray-3;
     }
   }
 }

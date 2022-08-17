@@ -1,4 +1,4 @@
-@use 'config' as cfg;
+@use 'config' as *;
 //--------------------------------------------------------------------
 // archive
 //--------------------------------------------------------------------
@@ -7,10 +7,10 @@
   .term-description {
     padding: 20px;
     margin-bottom: 30px;
-    border: 1px solid cfg.$base-gray-6;
-    @include cfg.media-max(lg) {
-      margin-left: cfg.$gap-mobile;
-      margin-right: cfg.$gap-mobile;
+    border: 1px solid $base-gray-6;
+    @include media-max(lg) {
+      margin-left: $gap-mobile;
+      margin-right: $gap-mobile;
       padding: 15px;
     }
     p {
@@ -20,30 +20,30 @@
   }
   .archive-header {
     margin-bottom: 25px;
-    @include cfg.media-max(lg) {
-      margin: 0 cfg.$gap-mobile 15px;
+    @include media-max(lg) {
+      margin: 0 $gap-mobile 15px;
     }
     .page-title {
       font-size: 2.8rem;
       line-height: 1.3;
-      @include cfg.font-weight(normal);
-      @include cfg.media-max(lg) {
+      @include font-weight(normal);
+      @include media-max(lg) {
         font-size: 2.4rem;
         line-height: 1.25;
       }
     }
   }
   .entry-articles {
-    @include cfg.media-max(lg) {
-      margin: 0 cfg.$gap-mobile;
+    @include media-max(lg) {
+      margin: 0 $gap-mobile;
     }
   }
   .entry-article {
     padding: 20px 0;
-    border-bottom: 1px solid cfg.$base-gray-6;
-    @include cfg.media-max(lg) {
+    border-bottom: 1px solid $base-gray-6;
+    @include media-max(lg) {
       padding: 15px 0 0;
-      border-bottom: 1px solid cfg.$base-gray-6;
+      border-bottom: 1px solid $base-gray-6;
     }
     &:first-of-type {
       padding-top: 0;
@@ -54,7 +54,7 @@
   }
   .article-container {
     display: flex;
-    @include cfg.media-max(lg) {
+    @include media-max(lg) {
       display: block;
     }
   }
@@ -62,9 +62,9 @@
     width: 120px;
     height: 120px;
     margin-right: 20px;
-    background-color: cfg.$base-white;
+    background-color: $base-white;
     overflow: hidden;
-    @include cfg.media-max(lg) {
+    @include media-max(lg) {
       float: left;
       width: 80px;
       height: 80px;
@@ -73,9 +73,9 @@
     }
     a {
       display: block;
-      @include cfg.opacity-transition;
+      @include opacity-transition;
       &:hover {
-        @include cfg.opacity-hover;
+        @include opacity-hover;
       }
     }
     img {
@@ -83,7 +83,7 @@
       max-width: 120px;
       height: auto;
       max-height: 120px;
-      @include cfg.media-max(lg) {
+      @include media-max(lg) {
         max-width: 100%;
         max-height: 100%;
       }
@@ -98,13 +98,13 @@
       right: 0;
       bottom: 0;
       left: 0;
-      background-color: cfg.$base-gray-7;
+      background-color: $base-gray-7;
       span {
         position: absolute;
         top: 50%;
         right: 0;
         left: 0;
-        color: cfg.$base-gray-5;
+        color: $base-gray-5;
         font-size: 1.2rem;
         line-height: 1;
         text-align: center;
@@ -117,15 +117,15 @@
   }
   .entry-header {
     margin-bottom: 5px;
-    @include cfg.media-max(lg) {
+    @include media-max(lg) {
       overflow: hidden;
     }
     .title {
       font-size: 2.2rem;
       line-height: 1.3;
-      @include cfg.font-weight(normal);
+      @include font-weight(normal);
       margin-bottom: 5px;
-      @include cfg.media-max(lg) {
+      @include media-max(lg) {
         font-size: 1.6rem;
       }
     }
@@ -133,11 +133,11 @@
       line-height: 0;
       li {
         display: inline-block;
-        color: cfg.$base-gray-2;
+        color: $base-gray-2;
         font-size: 1.3rem;
         line-height: 1.4;
         margin: 0 20px 2px 0;
-        @include cfg.media-max(lg) {
+        @include media-max(lg) {
           font-size: 1.2rem;
           margin: 0 10px 2px 0;
         }
@@ -147,7 +147,7 @@
       .day,
       .separator {
         margin-right: .15em;
-        @include cfg.media-max(lg) {
+        @include media-max(lg) {
           margin-right: 0;
         }
       }
@@ -156,14 +156,14 @@
   .entry-body {
     text-justify: inter-ideograph;
     text-align: justify;
-    @include cfg.media-max(lg) {
+    @include media-max(lg) {
       padding-bottom: 15px;
       clear: both;
     }
     p {
       font-size: 1.6rem;
       line-height: 1.6;
-      @include cfg.media-max(lg) {
+      @include media-max(lg) {
         font-size: 1em;
         line-height: 1.65;
       }
@@ -173,16 +173,16 @@
     clear: both;
     text-align: center;
     padding: 60px 0 80px;
-    @include cfg.media-max(lg) {
+    @include media-max(lg) {
       padding: 80px 0;
     }
     p {
-      color: cfg.$base-gray-3;
+      color: $base-gray-3;
       font-size: 1.6rem;
       line-height: 1.5;
       br {
         display: none;
-        @include cfg.media-max(lg) {
+        @include media-max(lg) {
           display: inherit;
         }
       }

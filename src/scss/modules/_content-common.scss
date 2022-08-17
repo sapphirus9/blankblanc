@@ -1,4 +1,4 @@
-@use 'config' as cfg;
+@use 'config' as *;
 //--------------------------------------------------------------------
 // common
 //--------------------------------------------------------------------
@@ -26,38 +26,38 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    left: cfg.$gap-desktop;
-    right: cfg.$gap-desktop;
-    color: cfg.$base-white;
+    left: $gap-desktop;
+    right: $gap-desktop;
+    color: $base-white;
     font-size: 2.8rem;
     line-height: 1.3;
-    @include cfg.font-weight(normal);
+    @include font-weight(normal);
     align-items: center;
-    @include cfg.media-max(lg) {
+    @include media-max(lg) {
       left: 0;
       right: 0;
       font-size: 2.4rem;
       line-height: 1.25;
-      max-width: cfg.$max-width-mobile;
-      padding: 0 cfg.$gap-mobile;
+      max-width: $max-width-mobile;
+      padding: 0 $gap-mobile;
       margin: 0 auto;
       box-sizing: border-box;
     }
     a {
-      color: cfg.$base-white;
+      color: $base-white;
     }
   }
   .mv-title {
     font-size: 2.8rem;
     line-height: 1.3;
-    @include cfg.media-max(lg) {
+    @include media-max(lg) {
       font-size: 2.2rem;
     }
     &-content {
       p {
         font-size: 2.8rem;
         line-height: 1.3;
-        @include cfg.media-max(lg) {
+        @include media-max(lg) {
           font-size: 2.2rem;
         }
       }
@@ -84,22 +84,22 @@
 //--------------------------------------------------------------------
 #contents .meta {
   .font-icon::before {
-    color: cfg.$base-gray-4;
+    color: $base-gray-4;
     font-size: 1.5rem;
     vertical-align: -.1em;
     margin-right: 4px;
   }
   .date::before {
-    @include cfg.icon-font('f00ee');
+    @include icon-font('f00ee');
   }
   .categories::before {
-    @include cfg.icon-font('f0770');
+    @include icon-font('f0770');
   }
   .tags::before {
-    @include cfg.icon-font('f04fd');
+    @include icon-font('f04fd');
   }
   .author::before {
-    @include cfg.icon-font('f0d13');
+    @include icon-font('f0d13');
   }
 }
 

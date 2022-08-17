@@ -1,4 +1,4 @@
-@use 'config' as cfg;
+@use 'config' as *;
 //--------------------------------------------------------------------
 // wp-block: basic
 //--------------------------------------------------------------------
@@ -6,13 +6,13 @@
   > .wp-block-group {
     > .wp-block-group__inner-container {
       width: 100%;
-      max-width: cfg.$width-desktop;
+      max-width: $width-desktop;
       margin: 0 auto;
       box-sizing: border-box;
       .nowrapwidth-layout & {
-        @include cfg.media-max(lg) {
-          width: calc(100% - #{cfg.$gap-mobile * 2});
-          max-width: calc(#{cfg.$max-width-mobile} - #{cfg.$gap-mobile * 2});
+        @include media-max(lg) {
+          width: calc(100% - #{$gap-mobile * 2});
+          max-width: calc(#{$max-width-mobile} - #{$gap-mobile * 2});
         }
       }
     }
@@ -29,7 +29,7 @@
       font-size: .8em;
       line-height: 1.5;
       padding: 7px;
-      background-color: cfg.$base-gray-7;
+      background-color: $base-gray-7;
       box-sizing: border-box;
     }
   }
@@ -39,7 +39,7 @@
       line-height: 1.5;
       padding: 7px;
       margin: 0;
-      background-color: cfg.$base-gray-7;
+      background-color: $base-gray-7;
       box-sizing: border-box;
     }
   }
@@ -55,7 +55,7 @@
       &-item {
         margin-top: 0;
         margin-bottom: 1em;
-        @include cfg.media-max(b-md) {
+        @include media-max(b-md) {
           flex: 0 0 calc(50% - .5em);
         }
         &:first-of-type {
@@ -70,7 +70,7 @@
         line-height: 1.5;
         padding: 7px;
         margin: 0;
-        background-color: cfg.$base-gray-7;
+        background-color: $base-gray-7;
         box-sizing: border-box;
       }
     }

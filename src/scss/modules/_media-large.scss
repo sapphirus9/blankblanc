@@ -1,19 +1,19 @@
-@use 'config' as cfg;
+@use 'config' as *;
 //--------------------------------------------------------------------
 // large
 //--------------------------------------------------------------------
 
-@include cfg.media-max(lg) {
+@include media-max(lg) {
   // global footer
   //--------------------------------------------------------------------
   #global-footer .copyright {
-    padding-left: cfg.$gap-mobile;
-    padding-right: cfg.$gap-mobile;
+    padding-left: $gap-mobile;
+    padding-right: $gap-mobile;
   }
 
   // footer widgets
   //--------------------------------------------------------------------
   .footer-widgets > ul {
-    padding: 0 cfg.$gap-mobile;
+    padding: 0 $gap-mobile;
   }
 }

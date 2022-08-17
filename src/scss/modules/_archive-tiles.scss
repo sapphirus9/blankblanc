@@ -1,18 +1,18 @@
 @use 'sass:map';
-@use 'config' as cfg;
+@use 'config' as *;
 //--------------------------------------------------------------------
 // archive (tile style)
 //--------------------------------------------------------------------
 .archive-tiles {
-  @include cfg.media-max(lg) {
-    margin-left: cfg.$gap-mobile;
-    margin-right: cfg.$gap-mobile;
+  @include media-max(lg) {
+    margin-left: $gap-mobile;
+    margin-right: $gap-mobile;
   }
   .term-description {
     padding: 20px;
     margin-bottom: 30px;
-    border: 1px solid cfg.$base-gray-6;
-    @include cfg.media-max(lg) {
+    border: 1px solid $base-gray-6;
+    @include media-max(lg) {
       padding: 15px;
     }
     p {
@@ -22,14 +22,14 @@
   }
   .archive-header {
     margin-bottom: 25px;
-    @include cfg.media-max(lg) {
+    @include media-max(lg) {
       margin: 0 0 15px;
     }
     .page-title {
       font-size: 2.8rem;
       line-height: 1.3;
-      @include cfg.font-weight(normal);
-      @include cfg.media-max(lg) {
+      @include font-weight(normal);
+      @include media-max(lg) {
         font-size: 2.4rem;
         line-height: 1.25;
       }
@@ -41,22 +41,22 @@
     align-items: flex-start;
     font-size: 1.5rem;
     margin: 0 -20px;
-    @include cfg.media-max(lg) {
+    @include media-max(lg) {
       margin: 0 -15px;
     }
-    @include cfg.media-max(md) {
+    @include media-max(md) {
       margin: 0 -10px;
     }
     .nowrapwidth-layout & {
-      margin: 0 cfg.$gap-desktop - 20px;
-      @include cfg.media-min(cfg.$width-limit) {
-        width: cfg.$width-limit - 30px;
+      margin: 0 $gap-desktop - 20px;
+      @include media-min($width-limit) {
+        width: $width-limit - 30px;
         margin: 0 auto;
       }
-      @include cfg.media-max(lg) {
+      @include media-max(lg) {
         margin: 0 -15px;
       }
-      @include cfg.media-max(md) {
+      @include media-max(md) {
         margin: 0 -10px;
       }
     }
@@ -66,29 +66,29 @@
     padding: 0 20px;
     margin-bottom: 40px;
     box-sizing: border-box;
-    @include cfg.media-max(lg) {
+    @include media-max(lg) {
       padding: 0 15px;
       margin-bottom: 30px;
     }
     .nowrapwidth-layout & {
-      @include cfg.media-min(cfg.$nowrap-tile-step * 5) {
+      @include media-min($nowrap-tile-step * 5) {
         width: calc(100% / 5);
       }
-      @include cfg.media-min(cfg.$nowrap-tile-step * 6) {
+      @include media-min($nowrap-tile-step * 6) {
         width: calc(100% / 6);
       }
     }
     .nowrapwidth-layout &,
     .fullwidth-layout & {
       width: calc(100% / 4);
-      @include cfg.media-max(lg) {
+      @include media-max(lg) {
         width: calc(100% / 3);
       }
     }
-    @include cfg.media-max(md) {
+    @include media-max(md) {
       padding: 0 10px;
     }
-    @include cfg.media-max(sm) {
+    @include media-max(sm) {
       width: calc(100% / 2);
       .nowrapwidth-layout &,
       .fullwidth-layout & {
@@ -101,13 +101,13 @@
     height: 0;
     padding-bottom: 100%;
     margin: 0 auto 15px;
-    background-color: cfg.$base-white;
+    background-color: $base-white;
     overflow: hidden;
     a {
       display: block;
-      @include cfg.opacity-transition;
+      @include opacity-transition;
       &:hover {
-        @include cfg.opacity-hover;
+        @include opacity-hover;
       }
     }
     img {
@@ -125,13 +125,13 @@
       right: 0;
       bottom: 0;
       left: 0;
-      background-color: cfg.$base-gray-7;
+      background-color: $base-gray-7;
       span {
         position: absolute;
         top: 50%;
         right: 0;
         left: 0;
-        color: cfg.$base-gray-5;
+        color: $base-gray-5;
         font-size: 1.2rem;
         line-height: 1;
         text-align: center;
@@ -144,9 +144,9 @@
     .title {
       font-size: 2rem;
       line-height: 1.3;
-      @include cfg.font-weight(normal);
+      @include font-weight(normal);
       margin-bottom: 5px;
-      @include cfg.media-max(lg) {
+      @include media-max(lg) {
         font-size: 1.6rem;
         line-height: 1.3;
       }
@@ -155,11 +155,11 @@
       line-height: 0;
       li {
         display: inline-block;
-        color: cfg.$base-gray-2;
+        color: $base-gray-2;
         font-size: 1.3rem;
         line-height: 1.4;
         margin: 0 20px 2px 0;
-        @include cfg.media-max(lg) {
+        @include media-max(lg) {
           font-size: 1.2rem;
           margin: 0 10px 2px 0;
         }
@@ -169,7 +169,7 @@
       .day,
       .separator {
         margin-right: .15em;
-        @include cfg.media-max(lg) {
+        @include media-max(lg) {
           margin-right: 0;
         }
       }
@@ -178,14 +178,14 @@
   .entry-body {
     text-justify: inter-ideograph;
     text-align: justify;
-    @include cfg.media-max(lg) {
+    @include media-max(lg) {
       padding-bottom: 15px;
       clear: both;
     }
     p {
       font-size: 1.5rem;
       line-height: 1.6;
-      @include cfg.media-max(lg) {
+      @include media-max(lg) {
         font-size: 1em;
         line-height: 1.65;
       }
@@ -198,13 +198,13 @@
     padding: 60px 0 80px;
     margin-left: 20px;
     margin-right: 20px;
-    @include cfg.media-max(lg) {
+    @include media-max(lg) {
       padding: 80px 0;
       margin-left: 10px;
       margin-right: 10px;
     }
     p {
-      color: cfg.$base-gray-3;
+      color: $base-gray-3;
       font-size: 1.6rem;
     }
   }

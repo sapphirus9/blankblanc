@@ -1,4 +1,4 @@
-@use 'config' as cfg;
+@use 'config' as *;
 //--------------------------------------------------------------------
 // fixed header
 //--------------------------------------------------------------------
@@ -27,22 +27,22 @@
 // global header
 //--------------------------------------------------------------------
 #global-header {
-  background-color: cfg.$base-white;
+  background-color: $base-white;
   .touch-device & {
     overflow-x: hidden;
   }
-  @include cfg.media-max(lg) {
+  @include media-max(lg) {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(cfg.$base-white, .9);
-    border-bottom: 1px solid cfg.$base-gray-5;
+    background-color: rgba($base-white, .9);
+    border-bottom: 1px solid $base-gray-5;
     z-index: 1000;
   }
   .wrap {
     height: 100px;
-    @include cfg.media-max(lg) {
+    @include media-max(lg) {
       height: 54px;
     }
   }
@@ -54,7 +54,7 @@
     &-brand {
       align-self: center;
       margin-right: 30px;
-      @include cfg.media-max(lg) {
+      @include media-max(lg) {
         align-self: center;
         margin: 0 auto;
       }
@@ -65,21 +65,21 @@
   }
   .logo {
     display: inline-flex;
-    @include cfg.media-max(lg) {
+    @include media-max(lg) {
       text-align: center;
       margin-top: 4px;
     }
     a {
       display: block;
       text-decoration: none;
-      @include cfg.media-max(lg) {
+      @include media-max(lg) {
         display: inline-block;
       }
     }
     img {
       width: auto;
       height: 40px;
-      @include cfg.media-max(lg) {
+      @include media-max(lg) {
         height: 22px;
       }
     }
@@ -87,16 +87,16 @@
   .site-title {
     display: block;
     font-size: 4rem;
-    @include cfg.media-max(lg) {
+    @include media-max(lg) {
       font-size: 2rem;
     }
   }
   .copy {
-    color: cfg.$base-gray-1;
+    color: $base-gray-1;
     font-size: 1.3rem;
     margin-top: 10px;
-    @include cfg.font-weight(normal);
-    @include cfg.media-max(lg) {
+    @include font-weight(normal);
+    @include media-max(lg) {
       font-size: 1.125rem;
       margin-top: 6px;
     }
@@ -104,7 +104,7 @@
 }
 
 #header-nav {
-  @include cfg.media-max(lg) {
+  @include media-max(lg) {
     display: none;
   }
   .menu {
@@ -120,7 +120,7 @@
         margin-right: 0;
       }
       > a {
-        @include cfg.transition-border-line() {
+        @include transition-border-line() {
           padding-bottom: 2px;
         }
     }
@@ -130,12 +130,12 @@
     left: 50%;
     transform: translate(-50%, 5px);
     a {
-      color: cfg.$base-gray-1;
+      color: $base-gray-1;
       transition: all .2s;
       &:hover {
-        color: cfg.$base-gray-1;
+        color: $base-gray-1;
         text-decoration: none;
-        background-color: cfg.$base-gray-5;
+        background-color: $base-gray-5;
       }
     }
   }

@@ -1,4 +1,4 @@
-@use 'config' as cfg;
+@use 'config' as *;
 //--------------------------------------------------------------------
 // widget
 //--------------------------------------------------------------------
@@ -15,7 +15,7 @@
   // ウイジェットの幅を設定
   .sticky-widget,
   .bottom-fixed-widget {
-    width: cfg.$second-column;
+    width: $second-column;
   }
   .sticky-widget {
     position: sticky;
@@ -44,7 +44,7 @@
   .widgettitle {
     font-size: 1.8rem;
     line-height: 1.3;
-    @include cfg.font-weight(normal);
+    @include font-weight(normal);
     margin-bottom: 10px;
   }
   ul {
@@ -70,24 +70,24 @@
       }
     }
     .cat-item-none {
-      color: cfg.$base-gray-4;
+      color: $base-gray-4;
     }
   }
   .count {
     display: inline-block;
-    color: cfg.$base-gray-2;
+    color: $base-gray-2;
     font-size: 1.2rem;
     line-height: 1;
     margin-left: 5px;
     padding: 2px 10px;
-    background-color: cfg.$base-gray-7;
+    background-color: $base-gray-7;
     border-radius: 15px;
   }
   .select-area {
     display: inline-block;
     position: relative;
     width: 100%;
-    background-color: cfg.$base-white;
+    background-color: $base-white;
     border-radius: 2px;
     &::before {
       display: block;
@@ -97,15 +97,15 @@
       content: '';
       width: 6px;
       height: 6px;
-      border-bottom: 2px solid cfg.$base-gray-2;
-      border-right: 2px solid cfg.$base-gray-2;
+      border-bottom: 2px solid $base-gray-2;
+      border-right: 2px solid $base-gray-2;
       transform: rotate(45deg);
       transform-origin: center;
       z-index: 1;
     }
   }
   .post-date {
-    color: cfg.$base-gray-2;
+    color: $base-gray-2;
     font-size: 1.2rem;
     margin-left: .8em;
     vertical-align: .1em;
@@ -121,7 +121,7 @@
     padding: 5px 25px 5px 5px;
     margin: 0;
     background-color: transparent;
-    border: 1px solid cfg.$base-gray-4;
+    border: 1px solid $base-gray-4;
     border-radius: 2px;
     box-sizing: border-box;
     z-index: 2;
@@ -138,7 +138,7 @@
     text-decoration: underline;
   }
   .comment-user {
-    color: cfg.$base-gray-2;
+    color: $base-gray-2;
     font-size: 1.2rem;
     margin-left: .8em;
     transition: all .2s;
@@ -150,7 +150,7 @@
     //   content: '）';
     // }
     &:hover {
-      color: cfg.$base-gray-1;
+      color: $base-gray-1;
     }
   }
 }
@@ -171,7 +171,7 @@
 .widget_archive > ul {
   display: flex;
   flex-wrap: wrap;
-  @include cfg.media-max(lg) {
+  @include media-max(lg) {
     margin: 4px 2.5% 0;
   }
   &:last-of-type {
@@ -183,11 +183,11 @@
     &.with-count {
       flex: 0 1 25%;
     }
-    @include cfg.media-max(lg) {
+    @include media-max(lg) {
       flex: 0 1 22%;
       margin: 0 1.5%;
       text-align: center;
-      border-top: 1px solid cfg.$base-gray-7;
+      border-top: 1px solid $base-gray-7;
     }
     @for $i from 2 to 13 {
       &:nth-child(#{$i}) {
@@ -197,20 +197,20 @@
   }
   .year-title {
     flex: 0 1 100%;
-    color: cfg.$base-gray-2;
+    color: $base-gray-2;
     font-size: .93333em;
     text-align: left;
     margin-bottom: 5px;
     order: 0;
   }
   .month {
-    @include cfg.media-max(lg) {
+    @include media-max(lg) {
       display: block;
     }
   }
   .count {
     transition: all .2s;
-    @include cfg.media-max(lg) {
+    @include media-max(lg) {
       font-size: 1rem;
       margin: 3px 0 0 0;
     }
@@ -221,8 +221,8 @@
   a {
     &:hover {
       .count {
-        color: cfg.$base-gray-1;
-        background-color: cfg.$base-gray-6;
+        color: $base-gray-1;
+        background-color: $base-gray-6;
       }
     }
   }
@@ -252,11 +252,11 @@
     text-decoration: none;
     margin: 3px;
     padding: 6px 9px;
-    background-color: cfg.$base-gray-7;
+    background-color: $base-gray-7;
     border-radius: 2px;
     transition: background-color .2s;
     &:hover {
-      background-color: cfg.$base-gray-6;
+      background-color: $base-gray-6;
     }
   }
 }
@@ -284,39 +284,39 @@
     padding: 8px 0 7px;
   }
   thead {
-    background-color: cfg.$base-gray-6;
+    background-color: $base-gray-6;
     tr {
-      color: cfg.$base-gray-2;
+      color: $base-gray-2;
     }
     th {
-      @include cfg.font-weight(normal);
+      @include font-weight(normal);
       text-align: center;
-      border: 1px solid cfg.$base-gray-4;
+      border: 1px solid $base-gray-4;
       &:last-of-type {
-        color: cfg.$base-red-1;
+        color: $base-red-1;
       }
     }
   }
   tbody {
-    background-color: cfg.$base-white;
+    background-color: $base-white;
     tr {
-      color: cfg.$base-gray-2;
+      color: $base-gray-2;
     }
     td {
       text-align: center;
-      border: 1px solid cfg.$base-gray-5;
+      border: 1px solid $base-gray-5;
       a {
         display: block;
-        @include cfg.font-weight(bold);
+        @include font-weight(bold);
         margin: -8px 0 -7px;
         padding: 8px 0 7px;
-        background-color: cfg.$base-gray-7;
+        background-color: $base-gray-7;
         &:hover {
-          background-color: cfg.$base-gray-6;
+          background-color: $base-gray-6;
         }
       }
       &:last-of-type {
-        color: cfg.$base-red-1;
+        color: $base-red-1;
       }
     }
   }
@@ -332,8 +332,8 @@
     }
   }
   #today {
-    @include cfg.font-weight(bold);
-    color: cfg.$base-gray-1;
+    @include font-weight(bold);
+    color: $base-gray-1;
     text-decoration: underline;
   }
 }
@@ -355,12 +355,12 @@
   .widget_nav_menu {
     ul {
       margin-bottom: 0;
-      background-color: cfg.$base-white;
+      background-color: $base-white;
       li {
         margin: 0;
         padding-left: 0;
         list-style: none;
-        border-top: 1px solid cfg.$base-gray-5;
+        border-top: 1px solid $base-gray-5;
         a {
           display: block;
           font-size: 1.5rem;
@@ -372,16 +372,16 @@
             transition: all .2s;
           }
           &:hover {
-            background-color: cfg.$base-gray-7;
+            background-color: $base-gray-7;
             .count {
-              color: cfg.$base-gray-1;
-              background-color: cfg.$base-gray-5;
+              color: $base-gray-1;
+              background-color: $base-gray-5;
             }
           }
         }
         ul li { // child lv1
           padding-left: 0;
-          border-top: 1px dotted cfg.$base-gray-6;
+          border-top: 1px dotted $base-gray-6;
           a {
             font-size: .933333em;
             line-height: 1.4;

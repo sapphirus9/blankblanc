@@ -1,11 +1,11 @@
-@use 'config' as cfg;
+@use 'config' as *;
 //--------------------------------------------------------------------
 // article
 //--------------------------------------------------------------------
 .main-article {
   font-size: 1.6rem;
-  @include cfg.media-max(lg) {
-    margin: 0 cfg.$gap-mobile;
+  @include media-max(lg) {
+    margin: 0 $gap-mobile;
     .nowrapwidth-layout & {
       margin: 0;
     }
@@ -16,43 +16,43 @@
 //--------------------------------------------------------------------
 .main-article .entry-header {
   margin-bottom: 30px;
-  @include cfg.media-max(lg) {
+  @include media-max(lg) {
     margin-bottom: 20px;
   }
   .nowrapwidth-layout & {
-    width: cfg.$width-desktop;
+    width: $width-desktop;
     margin-left: auto;
     margin-right: auto;
     box-sizing: border-box;
-    @include cfg.media-max(lg) {
-      width: calc(100% - #{cfg.$gap-mobile * 2});
-      max-width: calc(#{cfg.$max-width-mobile} - #{cfg.$gap-mobile * 2});
+    @include media-max(lg) {
+      width: calc(100% - #{$gap-mobile * 2});
+      max-width: calc(#{$max-width-mobile} - #{$gap-mobile * 2});
     }
   }
   .page-title {
     font-size: 2.8rem;
     line-height: 1.3;
-    @include cfg.font-weight(normal);
+    @include font-weight(normal);
     margin-bottom: 10px;
-    @include cfg.media-max(lg) {
+    @include media-max(lg) {
       font-size: 2.4rem;
       line-height: 1.25;
     }
     a {
-      color: cfg.$base-gray-1;
+      color: $base-gray-1;
     }
   }
   .meta {
     line-height: 0;
     > li {
       display: inline-block;
-      color: cfg.$base-gray-2;
+      color: $base-gray-2;
       font-size: 1.3rem;
       line-height: 1.4;
       white-space: nowrap;
       vertical-align: top;
       margin: 0 20px 2px 0;
-      @include cfg.media-max(lg) {
+      @include media-max(lg) {
         font-size: 1.2rem;
         white-space: normal;
         margin: 0 10px 3px 0;
@@ -67,7 +67,7 @@
   .day,
   .separator {
     margin-right: .15em;
-    @include cfg.media-max(lg) {
+    @include media-max(lg) {
       margin-right: 0;
     }
   }
@@ -77,22 +77,22 @@
 //--------------------------------------------------------------------
 .main-article .post-thumbnail {
   margin-bottom: 30px;
-  @include cfg.media-max(lg) {
+  @include media-max(lg) {
     margin-bottom: 25px;
   }
   .entry-content {
-    @include cfg.media-max(lg) {
-      margin: 0 cfg.$gap-mobile;
+    @include media-max(lg) {
+      margin: 0 $gap-mobile;
     }
   }
   .image {
     margin: 0;
-    background-color: cfg.$base-white;
+    background-color: $base-white;
     a {
       display: block;
-      @include cfg.opacity-transition;
+      @include opacity-transition;
       &:hover {
-        @include cfg.opacity-hover;
+        @include opacity-hover;
       }
     }
     img {
@@ -109,9 +109,9 @@
     min-width: 100%;
     margin: 0;
     padding: 7px;
-    background-color: cfg.$base-gray-7;
+    background-color: $base-gray-7;
     box-sizing: border-box;
-    @include cfg.media-max(lg) {
+    @include media-max(lg) {
       font-size: 1.2rem;
       line-height: 1.4;
     }
@@ -125,19 +125,19 @@
   text-justify: inter-ideograph;
   text-align: justify;
   margin-bottom: 50px;
-  @include cfg.media-max(lg) {
+  @include media-max(lg) {
     font-size: 1em;
     margin-bottom: 40px;
   }
   abbr,
   acronym {
     text-decoration: none;
-    border-bottom: 1px dotted cfg.$base-gray-3;
+    border-bottom: 1px dotted $base-gray-3;
     cursor: help;
   }
   ins {
     text-decoration: none;
-    border-bottom: 1px dotted cfg.$base-gray-3;
+    border-bottom: 1px dotted $base-gray-3;
   }
   small {
     font-size: .8em;
@@ -146,33 +146,33 @@
     height: auto;
     max-width: 100%;
     max-height: 100%;
-    @include cfg.media-max(lg) {
+    @include media-max(lg) {
       max-height: 500px;
     }
     &.alignnone {
       display: block;
       margin: 30px 0;
-      @include cfg.media-max(lg) {
+      @include media-max(lg) {
         margin: 15px auto;
       }
     }
     &.aligncenter {
       display: block;
       margin: 30px auto;
-      @include cfg.media-max(lg) {
+      @include media-max(lg) {
         margin: 15px auto;
       }
     }
     &.alignleft {
       margin: 5px 30px 25px 0;
-      @include cfg.media-max(lg) {
+      @include media-max(lg) {
         display: block;
         margin: 15px auto;
       }
     }
     &.alignright {
       margin: 5px 0 25px 30px;
-      @include cfg.media-max(lg) {
+      @include media-max(lg) {
         display: block;
         margin: 15px auto;
       }
@@ -190,14 +190,14 @@
       width: 240px;
       padding: 10px;
       margin: 20px auto 10px;
-      background-color: cfg.$base-white;
-      border: 1px solid cfg.$base-gray-5;
+      background-color: $base-white;
+      border: 1px solid $base-gray-5;
       border-radius: 20px;
       box-sizing: border-box;
       clear: both;
       overflow: hidden;
       transition: all .2s;
-      @include cfg.media-max(lg) {
+      @include media-max(lg) {
         padding: 12px;
         margin-top: 10px;
         width: 70vw;
@@ -207,11 +207,11 @@
         font-size: 1.7rem;
         line-height: 0.5;
         vertical-align: -.2rem;
-        @include cfg.icon-font('0020', 'f0140');
+        @include icon-font('0020', 'f0140');
         margin: -.2rem 0 0 .2rem;
       }
       &:hover {
-        background-color: cfg.$base-gray-7;
+        background-color: $base-gray-7;
       }
       &.active {
         display: none;
@@ -219,10 +219,10 @@
     }
     img {
       display: inline-block;
-      @include cfg.opacity-transition;
+      @include opacity-transition;
     }
     &:hover img {
-      @include cfg.opacity-hover;
+      @include opacity-hover;
     }
   }
   .more-content {
@@ -240,13 +240,13 @@
   }
   .alignleft {
     float: left;
-    @include cfg.media-max(lg) {
+    @include media-max(lg) {
       float: none;
     }
   }
   .alignright {
     float: right;
-    @include cfg.media-max(lg) {
+    @include media-max(lg) {
       float: none;
     }
   }
@@ -290,7 +290,7 @@
     font-size: 1.8em;
     line-height: 1.3;
     margin: 50px 0 20px;
-    @include cfg.media-max(lg) {
+    @include media-max(lg) {
       font-size: 1.6em;
       line-height: 1.25;
     }
@@ -299,7 +299,7 @@
     font-size: 1.6em;
     line-height: 1.35;
     margin: 50px 0 20px;
-    @include cfg.media-max(lg) {
+    @include media-max(lg) {
       font-size: 1.4em;
       line-height: 1.3;
     }
@@ -308,7 +308,7 @@
     font-size: 1.4em;
     line-height: 1.4;
     margin: 50px 0 20px;
-    @include cfg.media-max(lg) {
+    @include media-max(lg) {
       font-size: 1.25em;
       line-height: 1.35;
     }
@@ -317,7 +317,7 @@
     font-size: 1.2em;
     line-height: 1.4;
     margin: 25px 0 15px;
-    @include cfg.media-max(lg) {
+    @include media-max(lg) {
       font-size: 1.15em;
     }
   }
@@ -338,7 +338,7 @@
     height: 0;
     margin: 25px 0;
     border: none;
-    border-bottom: 1px solid cfg.$base-gray-6;
+    border-bottom: 1px solid $base-gray-6;
   }
   pre,
   blockquote {
@@ -346,32 +346,32 @@
     font-size: .933333em;
     line-height: 1.75;
     margin: 25px 0;
-    background-color: cfg.$base-gray-7;
+    background-color: $base-gray-7;
     p {
       margin: 0;
     }
   }
   pre {
     padding: 25px 30px;
-    @include cfg.media-max(md) {
-      padding: 20px cfg.$gap-mobile;
+    @include media-max(md) {
+      padding: 20px $gap-mobile;
     }
   }
   blockquote {
     padding: 30px;
-    @include cfg.media-max(md) {
-      padding: 25px cfg.$gap-mobile;
+    @include media-max(md) {
+      padding: 25px $gap-mobile;
     }
     &::before {
       display: inline-block;
       position: absolute;
       top: 3px;
       left: 5px;
-      @include cfg.icon-font('f0757');
+      @include icon-font('f0757');
       font-size: 3rem;
       line-height: 1;
-      color: cfg.$base-gray-4;
-      @include cfg.media-max(md) {
+      color: $base-gray-4;
+      @include media-max(md) {
         font-size: 2.2rem;
       }
     }
@@ -380,11 +380,11 @@
       position: absolute;
       bottom: 3px;
       right: 5px;
-      @include cfg.icon-font('f027e');
+      @include icon-font('f027e');
       font-size: 3rem;
       line-height: 1;
-      color: cfg.$base-gray-4;
-      @include cfg.media-max(md) {
+      color: $base-gray-4;
+      @include media-max(md) {
         font-size: 2.2rem;
       }
     }
@@ -395,7 +395,7 @@
     line-height: 1.75;
     margin: 20px 0;
     padding-left: 2em;
-    @include cfg.media-max(lg) {
+    @include media-max(lg) {
       margin-left: 0;
     }
     > li {
@@ -423,7 +423,7 @@
     line-height: 1.75;
     margin-bottom: 20px;
     > dt {
-      @include cfg.font-weight(bold);
+      @include font-weight(bold);
       margin-top: 15px;
       &:first-child {
         margin-top: 0;
@@ -451,9 +451,9 @@
       th {
         font-size: 1em;
         padding: 7px;
-        background-color: cfg.$base-gray-5;
-        border: 1px solid cfg.$base-gray-4;
-        @include cfg.media-max(lg) {
+        background-color: $base-gray-5;
+        border: 1px solid $base-gray-4;
+        @include media-max(lg) {
           font-size: .933333em;
           padding: 5px;
         }
@@ -461,9 +461,9 @@
       td {
         font-size: 1em;
         padding: 7px;
-        background-color: cfg.$base-gray-7;
-        border: 1px solid cfg.$base-gray-4;
-        @include cfg.media-max(lg) {
+        background-color: $base-gray-7;
+        border: 1px solid $base-gray-4;
+        @include media-max(lg) {
           font-size: .933333em;
           padding: 5px;
         }
@@ -473,9 +473,9 @@
       th {
         font-size: 1em;
         padding: 7px;
-        background-color: cfg.$base-gray-7;
-        border: 1px solid cfg.$base-gray-4;
-        @include cfg.media-max(lg) {
+        background-color: $base-gray-7;
+        border: 1px solid $base-gray-4;
+        @include media-max(lg) {
           font-size: .933333em;
           padding: 5px;
         }
@@ -483,9 +483,9 @@
       td {
         font-size: 1em;
         padding: 7px;
-        background-color: cfg.$base-white;
-        border: 1px solid cfg.$base-gray-4;
-        @include cfg.media-max(lg) {
+        background-color: $base-white;
+        border: 1px solid $base-gray-4;
+        @include media-max(lg) {
           font-size: .933333em;
           padding: 5px;
         }
@@ -493,7 +493,7 @@
     }
   }
   fieldset {
-    border: 1px solid cfg.$base-gray-5;
+    border: 1px solid $base-gray-5;
     padding: 16px;
     margin: 0;
     box-sizing: border-box;
@@ -525,7 +525,7 @@
       opacity: 0;
       z-index: 9;
       pointer-events: none;
-      @include cfg.media-max(lg) {
+      @include media-max(lg) {
         width: 30px;
         cursor: default;
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -534,12 +534,12 @@
         display: block;
         position: absolute;
         top: calc(50% - 18px);
-        color: rgba(cfg.$base-black, .2);
+        color: rgba($base-black, .2);
         font-size: 30px;
         line-height: 36px;
         text-align: center;
         width: 100%;
-        @include cfg.media-max(lg) {
+        @include media-max(lg) {
           top: calc(50% - 12px);
           font-size: 24px;
           line-height: 24px;
@@ -551,16 +551,16 @@
     }
     .table-arrow-left {
       left: 0;
-      background: linear-gradient(-90deg, rgba(cfg.$base-white, 0) 0%, rgba(cfg.$base-white, 1) 100%);
+      background: linear-gradient(-90deg, rgba($base-white, 0) 0%, rgba($base-white, 1) 100%);
       &::after {
-        @include cfg.icon-font('f004d');
+        @include icon-font('f004d');
       }
     }
     .table-arrow-right {
       right: 0;
-      background: linear-gradient(90deg, rgba(cfg.$base-white, 0) 0%, rgba(cfg.$base-white, 1) 100%);
+      background: linear-gradient(90deg, rgba($base-white, 0) 0%, rgba($base-white, 1) 100%);
       &::after {
-        @include cfg.icon-font('f0054');
+        @include icon-font('f0054');
       }
     }
   }
@@ -571,7 +571,7 @@
 .main-article .entry-body {
   .wp-caption {
     margin: 0;
-    @include cfg.media-max(lg) {
+    @include media-max(lg) {
       text-align: inherit;
       max-width: 100%;
       margin: 0 auto;
@@ -579,7 +579,7 @@
     img {
       display: inline-block;
       margin: 0;
-      @include cfg.media-max(lg) {
+      @include media-max(lg) {
         width: 100%;
         max-width: 500px;
         height: auto;
@@ -588,25 +588,25 @@
     }
     &.alignnone {
       margin: 30px 0;
-      @include cfg.media-max(lg) {
+      @include media-max(lg) {
         margin: 20px 0;
       }
     }
     &.aligncenter {
       margin: 30px auto;
-      @include cfg.media-max(lg) {
+      @include media-max(lg) {
         margin: 20px auto;
       }
     }
     &.alignleft {
       margin: 5px 30px 25px 0;
-      @include cfg.media-max(lg) {
+      @include media-max(lg) {
         margin: 20px auto;
       }
     }
     &.alignright {
       margin: 5px 0 25px 30px;
-      @include cfg.media-max(lg) {
+      @include media-max(lg) {
         margin: 20px auto;
       }
     }
@@ -617,10 +617,10 @@
     text-align: left;
     margin: 0;
     padding: 7px;
-    background-color: cfg.$base-gray-7;
+    background-color: $base-gray-7;
     min-width: 100%;
     box-sizing: border-box;
-    @include cfg.media-max(lg) {
+    @include media-max(lg) {
       line-height: 1.3;
     }
   }
@@ -632,9 +632,9 @@
   .post-password-form {
     margin-top: 30px;
     padding: 25px 50px;
-    background-color: cfg.$base-gray-7;
+    background-color: $base-gray-7;
     text-align: center;
-    @include cfg.media-max(lg) {
+    @include media-max(lg) {
       padding: 25px 20px;
     }
     p {
@@ -648,21 +648,21 @@
       &:last-of-type {
         text-align: center;
         margin: 15px 0 5px;
-        @include cfg.media-max(lg) {
+        @include media-max(lg) {
           text-align: left;
         }
       }
     }
   }
   .post-password-required {
-    @include cfg.media-max(lg) {
+    @include media-max(lg) {
       padding: 20px 0;
     }
     label {
       font-size: 1em;
       line-height: 1.5;
       display: inline-block;
-      @include cfg.media-max(lg) {
+      @include media-max(lg) {
         display: inline-block;
         max-width: 300px;
       }
@@ -674,19 +674,19 @@
         height: 40px;
         margin: 0 3px;
         padding: 6px;
-        border: 1px solid cfg.$base-gray-4;
+        border: 1px solid $base-gray-4;
         border-radius: 2px;
         box-sizing: border-box;
-        @include cfg.media-max(lg) {
+        @include media-max(lg) {
           font-size: 1.7rem;
           width: 100%;
           margin: 5px 0 0;
         }
       }
-      @include cfg.bb-input-decoration();
-      @include cfg.bb-input-placeholder();
+      @include bb-input-decoration();
+      @include bb-input-placeholder();
       &[type='submit'] {
-        color: cfg.$base-white;
+        color: $base-white;
         font-size: 1.6rem;
         line-height: 1;
         vertical-align: top;
@@ -694,8 +694,8 @@
         min-width: 80px;
         border: none;
         border-radius: 4px;
-        @include cfg.bb-button-decoration();
-        @include cfg.media-max(lg) {
+        @include bb-button-decoration();
+        @include media-max(lg) {
           display: block;
           min-width: 100px;
           margin: 10px auto 0;
@@ -712,7 +712,7 @@
   text-align: center;
   padding: 0;
   margin-bottom: 30px;
-  @include cfg.media-max(lg) {
+  @include media-max(lg) {
     margin: 0 -5px;
   }
   .heading {
@@ -727,10 +727,10 @@
     width: 36px;
     height: 36px;
     margin: 0 2px;
-    background-color: cfg.$base-gray-6;
-    border: 1px solid cfg.$base-gray-5;
+    background-color: $base-gray-6;
+    border: 1px solid $base-gray-5;
     box-sizing: border-box;
-    @include cfg.media-max(lg) {
+    @include media-max(lg) {
       text-align: center;
       line-height: 44px;
       width: 44px;
@@ -739,23 +739,23 @@
     }
   }
   > .page {
-    color: cfg.$base-gray-2;
+    color: $base-gray-2;
   }
   > a {
     display: inline-block;
     margin: 0 2px;
-    @include cfg.media-max(lg) {
+    @include media-max(lg) {
       margin: 5px;
     }
     > span.page {
       margin: 0;
-      border: 1px solid cfg.$base-gray-6;
-      background-color: cfg.$base-white;
+      border: 1px solid $base-gray-6;
+      background-color: $base-white;
       box-sizing: border-box;
       transition: all .2s;
     }
     &:hover .page {
-      background-color: cfg.$base-gray-7;
+      background-color: $base-gray-7;
       text-decoration: underline;
     }
   }
@@ -765,16 +765,16 @@
 //--------------------------------------------------------------------
 .main-article .page-navigation {
   margin-top: 40px;
-  border-top: 1px solid cfg.$base-gray-5;
+  border-top: 1px solid $base-gray-5;
   padding-top: 15px;
   .nowrapwidth-layout & {
-    width:  cfg.$width-desktop;
+    width:  $width-desktop;
     margin-left: auto;
     margin-right: auto;
     box-sizing: border-box;
-    @include cfg.media-max(lg) {
-      width: calc(100% - #{cfg.$gap-mobile * 2});
-      max-width: calc(#{cfg.$max-width-mobile} - #{cfg.$gap-mobile * 2});
+    @include media-max(lg) {
+      width: calc(100% - #{$gap-mobile * 2});
+      max-width: calc(#{$max-width-mobile} - #{$gap-mobile * 2});
     }
   }
   ul {
@@ -790,20 +790,20 @@
     width: 100%;
     height: 100%;
     padding: 10px;
-    border: 1px solid cfg.$base-gray-6;
+    border: 1px solid $base-gray-6;
     box-sizing: border-box;
     transition: all .2s;
-    @include cfg.media-max(lg) {
+    @include media-max(lg) {
       padding: 2.8vw;
     }
     &:hover {
-      background-color: cfg.$base-gray-7;
+      background-color: $base-gray-7;
     }
   }
   .dir {
     position: relative;
     display: block;
-    color: cfg.$base-gray-2;
+    color: $base-gray-2;
     font-size: 1.2rem;
     margin-bottom: 4px;
   }
@@ -812,7 +812,7 @@
     font-size: 1.5rem;
     line-height: 1.3;
     text-align: left;
-    @include cfg.media-max(lg) {
+    @include media-max(lg) {
       font-size: 1.4rem;
     }
   }
@@ -823,7 +823,7 @@
       left: -4px;
       &::before {
         font-size: 1.7rem;
-        @include cfg.icon-font('f0141');
+        @include icon-font('f0141');
         vertical-align: -2px;
       }
     }
@@ -834,7 +834,7 @@
       right: -4px;
       &::after {
         font-size: 1.7rem;
-        @include cfg.icon-font('f0142');
+        @include icon-font('f0142');
         vertical-align: -2px;
       }
     }
