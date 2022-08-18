@@ -35,6 +35,11 @@ class bbTableOfContents
     if (empty($post->ID)) {
       return;
     }
+    // [filter] bb_table_of_contents
+    $post_types = apply_filters('bb_table_of_contents', array('post', 'page'));
+    if (!in_array(get_post_type($post->ID), $post_types)) {
+      return;
+    }
     if (!$meta_key = get_post_meta($post->ID, 'bb_table_of_contents', true)) {
       $meta_key = array();
     }
