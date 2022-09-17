@@ -467,7 +467,7 @@ class custom_walker_nav_menu extends Walker_Nav_Menu {
   }
 }
 function customize_widget_nav_menu_args($args) {
-  $args['walker'] =  new custom_walker_nav_menu();
+  $args['walker'] = new custom_walker_nav_menu();
   return $args;
 }
 add_filter('widget_nav_menu_args', 'customize_widget_nav_menu_args', 10, 2);
@@ -488,7 +488,7 @@ class custom_walker_category extends Walker_Category {
   }
 }
 function customize_widget_categories_args($args, $instance) {
-  $args['walker'] =  new custom_walker_category();
+  $args['walker'] = new custom_walker_category();
   return $args;
 }
 add_filter('widget_categories_args', 'customize_widget_categories_args', 10, 2);
@@ -509,7 +509,7 @@ class custom_walker_page extends Walker_Page {
   }
 }
 function customize_widget_pages_args($args, $instance) {
-  $args['walker'] =  new custom_walker_page();
+  $args['walker'] = new custom_walker_page();
   return $args;
 }
 add_filter('widget_pages_args', 'customize_widget_pages_args', 10, 2);
