@@ -26,9 +26,9 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    left: $gap-desktop;
-    right: $gap-desktop;
-    color: $base-white;
+    left: var(--bb-gap-desktop);
+    right: var(--bb-gap-desktop);
+    color: var(--bb-white);
     font-size: 2.8rem;
     line-height: 1.3;
     @include font-weight(normal);
@@ -38,13 +38,13 @@
       right: 0;
       font-size: 2.4rem;
       line-height: 1.25;
-      max-width: $max-width-mobile;
-      padding: 0 $gap-mobile;
+      max-width: var(--bb-max-width-mobile);
+      padding: 0 var(--bb-gap-mobile);
       margin: 0 auto;
       box-sizing: border-box;
     }
     a {
-      color: $base-white;
+      color: var(--bb-white);
     }
   }
   .mv-title {
@@ -84,7 +84,7 @@
 //--------------------------------------------------------------------
 #contents .meta {
   .font-icon::before {
-    color: $base-gray-4;
+    color: var(--bb-gray-4);
     font-size: 1.5rem;
     vertical-align: -.1em;
     margin-right: 4px;

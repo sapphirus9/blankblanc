@@ -13,11 +13,11 @@
   }
   .gallery-item {
     margin: 5px;
-    background-color: $base-white;
-    border: 1px solid $base-gray-6;
+    background-color: var(--bb-white);
+    border: 1px solid var(--bb-gray-6);
     box-sizing: border-box;
     @include media-max(lg) {
-      width: calc(33.33333% - 10px) !important;
+      width: calc(100% / 3 - 10px) !important;
     }
     img {
       width: auto;
@@ -72,7 +72,7 @@
   }
   .gallery-icon {
     padding: 3%;
-    background-color: $base-white;
+    background-color: var(--bb-white);
     box-sizing: border-box;
     a {
       display: inline-block;
@@ -85,6 +85,6 @@
   .gallery-caption {
     padding: 8px 5%;
     background-color: transparent;
-    border-top: 1px dotted $base-gray-6;
+    border-top: 1px dotted var(--bb-gray-6);
   }
 }

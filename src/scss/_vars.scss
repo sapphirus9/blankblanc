@@ -1,0 +1,65 @@
+@use 'sass:color';
+@use 'config' as *;
+//--------------------------------------------------------------------
+// vars
+//--------------------------------------------------------------------
+:root {
+  // color
+  --bb-white: #{$base-white};
+  --bb-white-rgb: #{color.red($base-white)}, #{color.green($base-white)}, #{color.blue($base-white)};
+  --bb-black: #{$base-black};
+  --bb-black-rgb: #{color.red($base-black)}, #{color.green($base-black)}, #{color.blue($base-black)};
+  --bb-gray-1: #{$base-gray-1};
+  --bb-gray-2: #{$base-gray-2};
+  --bb-gray-3: #{$base-gray-3};
+  --bb-gray-4: #{$base-gray-4};
+  --bb-gray-5: #{$base-gray-5};
+  --bb-gray-5-rgb: #{color.red($base-gray-5)}, #{color.green($base-gray-5)}, #{color.blue($base-gray-5)};
+  --bb-gray-6: #{$base-gray-6};
+  --bb-gray-7: #{$base-gray-7};
+  --bb-gray-7-rgb: #{color.red($base-gray-7)}, #{color.green($base-gray-7)}, #{color.blue($base-gray-7)};
+  --bb-red-1: #{$base-red-1};
+  --bb-red-2: #{$base-red-2};
+  --bb-red-3: #{$base-red-3};
+
+  --bb-link-color: #{$link-color};
+  --bb-link-color-hover: #{$link-color-hover};
+  --bb-btn-color-hover: #{$btn-color-hover};
+  --bb-reset-color: #{$reset-color};
+  --bb-reset-color-hover: #{$reset-color-hover};
+  --bb-input-border: #{$input-border};
+  --bb-input-border-focus: #{$input-border-focus};
+  --bb-input-border-shadow: #{$input-border-shadow};
+  --bb-nav-gray-1: #{$nav-gray-1};
+  --bb-form-red-1: #{$form-red-1};
+  --bb-form-red-1-rgb: #{color.red($form-red-1)}, #{color.green($form-red-1)}, #{color.blue($form-red-1)};
+  --bb-form-red-1-bg: #{color.scale($form-red-1, $lightness: 96%)};
+
+  // highlighter
+  --bb-hl-red-rgb: #{$hl-red-rgb};
+  --bb-hl-orange-rgb: #{$hl-orange-rgb};
+  --bb-hl-yellow-rgb: #{$hl-yellow-rgb};
+  --bb-hl-green-rgb: #{$hl-green-rgb};
+  --bb-hl-blue-rgb: #{$hl-blue-rgb};
+  --bb-hl-purple-rgb: #{$hl-purple-rgb};
+  --bb-hl-pink-rgb: #{$hl-pink-rgb};
+  --bb-hl-sky-rgb: #{$hl-sky-rgb};
+  --bb-hl-gray-rgb: #{$hl-gray-rgb};
+
+  // font
+  --bb-font-family-bold: 'Helvetica Neue', 'Segoe UI', 'Yu Gothic', YuGothic, 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+  --bb-font-family: 'Helvetica Neue', 'Segoe UI', 'Yu Gothic Medium', 'Yu Gothic', YuGothic, 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+  --bb-sans-serif: Arial, Helvetica, sans-serif;
+
+  // length
+  --bb-width-desktop: #{$width-desktop};
+  --bb-first-column: #{$first-column};
+  --bb-second-column: #{$second-column};
+  --bb-one-column: #{$one-column};
+  --bb-max-width-mobile: #{$max-width-mobile};
+  --bb-min-width-mobile: #{$min-width-mobile};
+  --bb-global-nav-height: #{$global-nav-height};
+  --bb-gap-desktop: #{$gap-desktop};
+  --bb-gap-mobile: #{$gap-mobile};
+  --bb-mobile-header-height: #{$mobile-header-height};
+}

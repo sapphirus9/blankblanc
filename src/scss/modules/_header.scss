@@ -7,19 +7,8 @@
     position: sticky;
     top: 0;
     z-index: 501;
-    .browser-ie11 & { // ie11
-      position: relative;
-      &.fixed #header-part-inner {
-        position: fixed;
-      }
-    }
     &.non-fixed {
       position: relative !important;
-      .browser-ie11 & { // ie11
-        &.fixed #header-part-inner {
-          position: relative !important;
-        }
-      }
     }
   }
 }
@@ -27,7 +16,7 @@
 // global header
 //--------------------------------------------------------------------
 #global-header {
-  background-color: $base-white;
+  background-color: var(--bb-white);
   .touch-device & {
     overflow-x: hidden;
   }
@@ -36,8 +25,8 @@
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba($base-white, .9);
-    border-bottom: 1px solid $base-gray-5;
+    background-color: rgba(var(--bb-white-rgb), .9);
+    border-bottom: 1px solid var(--bb-gray-5);
     z-index: 1000;
   }
   .wrap {
@@ -92,7 +81,7 @@
     }
   }
   .copy {
-    color: $base-gray-1;
+    color: var(--bb-gray-1);
     font-size: 1.3rem;
     margin-top: 10px;
     @include font-weight(normal);
@@ -130,12 +119,12 @@
     left: 50%;
     transform: translate(-50%, 5px);
     a {
-      color: $base-gray-1;
+      color: var(--bb-gray-1);
       transition: all .2s;
       &:hover {
-        color: $base-gray-1;
+        color: var(--bb-gray-1);
         text-decoration: none;
-        background-color: $base-gray-5;
+        background-color: var(--bb-gray-5);
       }
     }
   }

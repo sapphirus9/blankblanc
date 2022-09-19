@@ -18,8 +18,8 @@
     width: 36px;
     height: 36px;
     margin: 0 2px;
-    border: 1px solid $base-gray-6;
-    background-color: $base-white;
+    border: 1px solid var(--bb-gray-6);
+    background-color: var(--bb-white);
     box-sizing: border-box;
     @include media-max(lg) {
       line-height: 44px;
@@ -36,13 +36,13 @@
       background-color: transparent;
     }
     &:hover {
-      background-color: $base-gray-7;
+      background-color: var(--bb-gray-7);
     }
   }
   .current {
-    color: $base-gray-2;
-    background-color: $base-gray-6;
-    border: 1px solid $base-gray-5;
+    color: var(--bb-gray-2);
+    background-color: var(--bb-gray-6);
+    border: 1px solid var(--bb-gray-5);
     @include media-max(lg) {
       margin: 0 4%;
     }
@@ -91,7 +91,7 @@
     }
   }
   .dots {
-    color: $base-gray-3;
+    color: var(--bb-gray-3);
     border: none;
     @include media-max(lg) {
       display: none;

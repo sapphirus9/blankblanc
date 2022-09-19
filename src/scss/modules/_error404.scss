@@ -10,10 +10,10 @@
     }
   }
   .title {
-    color: $base-gray-5;
+    color: var(--bb-gray-5);
     font-size: 4rem;
-    font-family: Arial, Helvetica, sans-serif;
-    @include font-weight(normal);
+    font-family: var(--bb-sans-serif);
+    font-weight: normal;
     line-height: 1;
     text-align: center;
     @include media-max(lg) {

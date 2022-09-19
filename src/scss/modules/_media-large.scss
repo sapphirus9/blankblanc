@@ -7,13 +7,13 @@
   // global footer
   //--------------------------------------------------------------------
   #global-footer .copyright {
-    padding-left: $gap-mobile;
-    padding-right: $gap-mobile;
+    padding-left: var(--bb-gap-mobile);
+    padding-right: var(--bb-gap-mobile);
   }
 
   // footer widgets
   //--------------------------------------------------------------------
   .footer-widgets > ul {
-    padding: 0 $gap-mobile;
+    padding: 0 var(--bb-gap-mobile);
   }
 }

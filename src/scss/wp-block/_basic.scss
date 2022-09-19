@@ -6,13 +6,13 @@
   > .wp-block-group {
     > .wp-block-group__inner-container {
       width: 100%;
-      max-width: $width-desktop;
+      max-width: var(--bb-width-desktop);
       margin: 0 auto;
       box-sizing: border-box;
       .nowrapwidth-layout & {
         @include media-max(lg) {
-          width: calc(100% - #{$gap-mobile * 2});
-          max-width: calc(#{$max-width-mobile} - #{$gap-mobile * 2});
+          width: calc(100% - var(--bb-gap-mobile) * 2);
+          max-width: calc(var(--bb-max-width-mobile) - var(--bb-gap-mobile) * 2);
         }
       }
     }
@@ -29,7 +29,7 @@
       font-size: .8em;
       line-height: 1.5;
       padding: 7px;
-      background-color: $base-gray-7;
+      background-color: var(--bb-gray-7);
       box-sizing: border-box;
     }
   }
@@ -39,7 +39,7 @@
       line-height: 1.5;
       padding: 7px;
       margin: 0;
-      background-color: $base-gray-7;
+      background-color: var(--bb-gray-7);
       box-sizing: border-box;
     }
   }
@@ -70,7 +70,7 @@
         line-height: 1.5;
         padding: 7px;
         margin: 0;
-        background-color: $base-gray-7;
+        background-color: var(--bb-gray-7);
         box-sizing: border-box;
       }
     }

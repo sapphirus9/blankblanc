@@ -8,7 +8,7 @@
   right: 0;
   bottom: 0;
   max-height: 0;
-  background-color: $base-gray-1;
+  background-color: var(--bb-gray-1);
   overflow: hidden;
   opacity: 0;
   z-index: -1;
@@ -27,12 +27,12 @@
       padding: 15px 125px;
       @include media-max(lg) {
         flex-direction: column;
-        padding: 12px $gap-mobile 15px;
+        padding: 12px var(--bb-gap-mobile) 15px;
       }
     }
     &-text {
       flex: 1;
-      color: $base-gray-4;
+      color: var(--bb-gray-4);
       font-size: 1.5rem;
       line-height: 1.5;
       margin-right: 30px;
@@ -45,13 +45,13 @@
         }
       }
       a {
-        color: $base-gray-4;
+        color: var(--bb-gray-4);
         text-decoration: none;
-        border-bottom: 1px solid $base-gray-3;
+        border-bottom: 1px solid var(--bb-gray-3);
         transition: all .2s;
         &:hover {
-          color: $base-gray-7;
-          border-bottom-color: $base-gray-5;
+          color: var(--bb-gray-7);
+          border-bottom-color: var(--bb-gray-5);
         }
       }
     }
@@ -59,20 +59,20 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: $base-gray-6;
+      color: var(--bb-gray-6);
       font-size: 1.5rem;
       width: 100px;
       height: 40px;
       background-color: transparent;
-      border: 1px solid $base-gray-3;
+      border: 1px solid var(--bb-gray-3);
       border-radius: 30px;
       transition: all .2s;
       cursor: pointer;
       box-sizing: border-box;
       &:hover {
-        color: $base-gray-7;
-        background-color: rgba($base-gray-7, .2);
-        border-color:$base-gray-4;
+        color: var(--bb-gray-7);
+        background-color: rgba(var(--bb-gray-7-rgb), .2);
+        border-color: var(--bb-gray-4);
       }
     }
   }

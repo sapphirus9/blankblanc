@@ -7,10 +7,10 @@
   .term-description {
     padding: 20px;
     margin-bottom: 30px;
-    border: 1px solid $base-gray-6;
+    border: 1px solid var(--bb-gray-6);
     @include media-max(lg) {
-      margin-left: $gap-mobile;
-      margin-right: $gap-mobile;
+      margin-left: var(--bb-gap-mobile);
+      margin-right: var(--bb-gap-mobile);
       padding: 15px;
     }
     p {
@@ -21,7 +21,7 @@
   .archive-header {
     margin-bottom: 25px;
     @include media-max(lg) {
-      margin: 0 $gap-mobile 15px;
+      margin: 0 var(--bb-gap-mobile) 15px;
     }
     .page-title {
       font-size: 2.8rem;
@@ -35,15 +35,15 @@
   }
   .entry-articles {
     @include media-max(lg) {
-      margin: 0 $gap-mobile;
+      margin: 0 var(--bb-gap-mobile);
     }
   }
   .entry-article {
     padding: 20px 0;
-    border-bottom: 1px solid $base-gray-6;
+    border-bottom: 1px solid var(--bb-gray-6);
     @include media-max(lg) {
       padding: 15px 0 0;
-      border-bottom: 1px solid $base-gray-6;
+      border-bottom: 1px solid var(--bb-gray-6);
     }
     &:first-of-type {
       padding-top: 0;
@@ -62,7 +62,7 @@
     width: 120px;
     height: 120px;
     margin-right: 20px;
-    background-color: $base-white;
+    background-color: var(--bb-white);
     overflow: hidden;
     @include media-max(lg) {
       float: left;
@@ -98,13 +98,13 @@
       right: 0;
       bottom: 0;
       left: 0;
-      background-color: $base-gray-7;
+      background-color: var(--bb-gray-7);
       span {
         position: absolute;
         top: 50%;
         right: 0;
         left: 0;
-        color: $base-gray-5;
+        color: var(--bb-gray-5);
         font-size: 1.2rem;
         line-height: 1;
         text-align: center;
@@ -133,7 +133,7 @@
       line-height: 0;
       li {
         display: inline-block;
-        color: $base-gray-2;
+        color: var(--bb-gray-2);
         font-size: 1.3rem;
         line-height: 1.4;
         margin: 0 20px 2px 0;
@@ -154,7 +154,6 @@
     }
   }
   .entry-body {
-    text-justify: inter-ideograph;
     text-align: justify;
     @include media-max(lg) {
       padding-bottom: 15px;
@@ -177,7 +176,7 @@
       padding: 80px 0;
     }
     p {
-      color: $base-gray-3;
+      color: var(--bb-gray-3);
       font-size: 1.6rem;
       line-height: 1.5;
       br {

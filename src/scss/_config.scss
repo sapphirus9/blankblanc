@@ -5,18 +5,18 @@
 @use 'sass:map';
 @use 'sass:string';
 
-// width
+// length
 //--------------------------------------------------------------------
 $width-limit: 1850px;
 $width-desktop: 1100px;
 $first-column: 750px;
 $second-column: 300px;
 $one-column: 750px;
-$max-width-mobile: 700px;
+$max-width-mobile: 700px; //?
 $min-width-mobile: 360px;
 $gap-desktop: 25px;
 $nowrap-tile-step: 280px;
-
+$global-nav-height: 40px;
 // mobile
 $gap-mobile: 4.2vw;
 $mobile-header-height: 54px;
@@ -50,27 +50,33 @@ $nav-gray-1: #a0a0a0;
 
 $form-red-1: #c50010;
 
-// size
+// highlighter
 //--------------------------------------------------------------------
-$global-nav-height: 40px;
+$hl-red-rgb: 252, 92, 92;
+$hl-orange-rgb: 253, 153, 38;
+$hl-yellow-rgb: 247, 247, 14;
+$hl-green-rgb: 108, 231, 104;
+$hl-blue-rgb: 114, 152, 233;
+$hl-purple-rgb: 197, 97, 236;
+$hl-pink-rgb: 247, 125, 210;
+$hl-sky-rgb: 137, 208, 255;
+$hl-gray-rgb: 202, 202, 202;
 
 // font
 //--------------------------------------------------------------------
 @mixin font-family($type: '') {
   @if $type == 'bold' {
-    font-family: 'Helvetica Neue', 'Segoe UI', 'Yu Gothic', YuGothic, 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
-  } @else if $type == 'ie11' { // ie11
-    font-family: 'Helvetica Neue', 'Segoe UI', Meiryo, sans-serif !important;
+    font-family: var(--bb-font-family-bold);
   } @else {
-    font-family: 'Helvetica Neue', 'Segoe UI', 'Yu Gothic Medium', 'Yu Gothic', YuGothic, 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+    font-family: var(--bb-font-family);
   }
 }
 @mixin font-weight($weight: '') {
   @if $weight == 'bold' {
-    @include font-family(bold);
+    font-family: var(--bb-font-family-bold);
     font-weight: bold;
   } @else {
-    @include font-family();
+    font-family: var(--bb-font-family);
     font-weight: normal;
   }
 }
@@ -145,15 +151,15 @@ $breakpoints: (
   transition: all .2s;
   box-shadow: none;
   &:focus {
-    border-color: $input-border-focus;
-    box-shadow: 0 0 8px -2px $input-border-shadow;
+    border-color: var(--bb-input-border-focus);
+    box-shadow: 0 0 8px -2px var(--bb-input-border-shadow);
   }
 }
 @mixin bb-button-decoration($type: '') {
   @if $type == 'reset' {
-    background-color: $reset-color;
+    background-color: var(--bb-reset-color);
   } @else {
-    background-color: $link-color;
+    background-color: var(--bb-link-color);
   }
   border: 0;
   border-radius: 4px;
@@ -162,32 +168,32 @@ $breakpoints: (
   cursor: pointer;
   &:hover {
     @if $type == 'reset' {
-      background-color: $reset-color-hover;
+      background-color: var(--bb-reset-color-hover);
     } @else {
-      background-color: $btn-color-hover;
+      background-color: var(--bb-btn-color-hover);
     }
   }
   &:focus,
   &:active {
     @if $type == 'reset' {
-      background-color: $reset-color-hover !important;
-      box-shadow: 0 0 8px -2px $reset-color-hover !important;
+      background-color: var(--bb-reset-color-hover) !important;
+      box-shadow: 0 0 8px -2px var(--bb-reset-color-hover) !important;
     } @else {
-      background-color: $btn-color-hover !important;
-      box-shadow: 0 0 8px -2px $input-border-shadow !important;
+      background-color: var(--bb-btn-color-hover) !important;
+      box-shadow: 0 0 8px -2px var(--bb-input-border-shadow) !important;
     }
   }
 }
 
 @mixin bb-input-placeholder() {
   &::-webkit-input-placeholder {
-    color: $input-border;
+    color: var(--bb-input-border);
   }
   &::-moz-placeholder {
-    color: $input-border;
+    color: var(--bb-input-border);
   }
   &:-ms-input-placeholder {
-    color: $input-border;
+    color: var(--bb-input-border);
   }
   &:focus {
     &::-webkit-input-placeholder {
@@ -206,14 +212,14 @@ $breakpoints: (
 @mixin transition-border-line() {
   @include media-min(lg) {
     position: relative;
-    background: linear-gradient(0deg, $link-color-hover 1px, transparent 1px);
+    background: linear-gradient(0deg, var(--bb-link-color-hover) 1px, transparent 1px);
     background-repeat: no-repeat;
     background-position: bottom right;
     background-size: 0 100%;
     transition: background-size .15s;
     @content;
     &:hover, &:active {
-      color: $link-color-hover;
+      color: var(--bb-link-color-hover);
       text-decoration: none;
       background-position: bottom left;
       background-size: 100% 100%;

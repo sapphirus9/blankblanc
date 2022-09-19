@@ -5,7 +5,7 @@
 .main-article {
   font-size: 1.6rem;
   @include media-max(lg) {
-    margin: 0 $gap-mobile;
+    margin: 0 var(--bb-gap-mobile);
     .nowrapwidth-layout & {
       margin: 0;
     }
@@ -20,13 +20,13 @@
     margin-bottom: 20px;
   }
   .nowrapwidth-layout & {
-    width: $width-desktop;
+    width: var(--bb-width-desktop);
     margin-left: auto;
     margin-right: auto;
     box-sizing: border-box;
     @include media-max(lg) {
-      width: calc(100% - #{$gap-mobile * 2});
-      max-width: calc(#{$max-width-mobile} - #{$gap-mobile * 2});
+      width: calc(100% - var(--bb-gap-mobile) * 2);
+      max-width: calc(var(--bb-max-width-mobile) - var(--bb-gap-mobile) * 2);
     }
   }
   .page-title {
@@ -39,14 +39,14 @@
       line-height: 1.25;
     }
     a {
-      color: $base-gray-1;
+      color: var(--bb-gray-1);
     }
   }
   .meta {
     line-height: 0;
     > li {
       display: inline-block;
-      color: $base-gray-2;
+      color: var(--bb-gray-2);
       font-size: 1.3rem;
       line-height: 1.4;
       white-space: nowrap;
@@ -82,12 +82,12 @@
   }
   .entry-content {
     @include media-max(lg) {
-      margin: 0 $gap-mobile;
+      margin: 0 var(--bb-gap-mobile);
     }
   }
   .image {
     margin: 0;
-    background-color: $base-white;
+    background-color: var(--bb-white);
     a {
       display: block;
       @include opacity-transition;
@@ -109,7 +109,7 @@
     min-width: 100%;
     margin: 0;
     padding: 7px;
-    background-color: $base-gray-7;
+    background-color: var(--bb-gray-7);
     box-sizing: border-box;
     @include media-max(lg) {
       font-size: 1.2rem;
@@ -122,7 +122,6 @@
 //--------------------------------------------------------------------
 .main-article .entry-body {
   font-size: 1.6rem;
-  text-justify: inter-ideograph;
   text-align: justify;
   margin-bottom: 50px;
   @include media-max(lg) {
@@ -132,12 +131,12 @@
   abbr,
   acronym {
     text-decoration: none;
-    border-bottom: 1px dotted $base-gray-3;
+    border-bottom: 1px dotted var(--bb-gray-3);
     cursor: help;
   }
   ins {
     text-decoration: none;
-    border-bottom: 1px dotted $base-gray-3;
+    border-bottom: 1px dotted var(--bb-gray-3);
   }
   small {
     font-size: .8em;
@@ -190,8 +189,8 @@
       width: 240px;
       padding: 10px;
       margin: 20px auto 10px;
-      background-color: $base-white;
-      border: 1px solid $base-gray-5;
+      background-color: var(--bb-white);
+      border: 1px solid var(--bb-gray-5);
       border-radius: 20px;
       box-sizing: border-box;
       clear: both;
@@ -211,7 +210,7 @@
         margin: -.2rem 0 0 .2rem;
       }
       &:hover {
-        background-color: $base-gray-7;
+        background-color: var(--bb-gray-7);
       }
       &.active {
         display: none;
@@ -338,7 +337,7 @@
     height: 0;
     margin: 25px 0;
     border: none;
-    border-bottom: 1px solid $base-gray-6;
+    border-bottom: 1px solid var(--bb-gray-6);
   }
   pre,
   blockquote {
@@ -346,7 +345,7 @@
     font-size: .933333em;
     line-height: 1.75;
     margin: 25px 0;
-    background-color: $base-gray-7;
+    background-color: var(--bb-gray-7);
     p {
       margin: 0;
     }
@@ -354,13 +353,13 @@
   pre {
     padding: 25px 30px;
     @include media-max(md) {
-      padding: 20px $gap-mobile;
+      padding: 20px var(--bb-gap-mobile);
     }
   }
   blockquote {
     padding: 30px;
     @include media-max(md) {
-      padding: 25px $gap-mobile;
+      padding: 25px var(--bb-gap-mobile);
     }
     &::before {
       display: inline-block;
@@ -370,7 +369,7 @@
       @include icon-font('f0757');
       font-size: 3rem;
       line-height: 1;
-      color: $base-gray-4;
+      color: var(--bb-gray-4);
       @include media-max(md) {
         font-size: 2.2rem;
       }
@@ -383,7 +382,7 @@
       @include icon-font('f027e');
       font-size: 3rem;
       line-height: 1;
-      color: $base-gray-4;
+      color: var(--bb-gray-4);
       @include media-max(md) {
         font-size: 2.2rem;
       }
@@ -451,8 +450,8 @@
       th {
         font-size: 1em;
         padding: 7px;
-        background-color: $base-gray-5;
-        border: 1px solid $base-gray-4;
+        background-color: var(--bb-gray-5);
+        border: 1px solid var(--bb-gray-4);
         @include media-max(lg) {
           font-size: .933333em;
           padding: 5px;
@@ -461,8 +460,8 @@
       td {
         font-size: 1em;
         padding: 7px;
-        background-color: $base-gray-7;
-        border: 1px solid $base-gray-4;
+        background-color: var(--bb-gray-7);
+        border: 1px solid var(--bb-gray-4);
         @include media-max(lg) {
           font-size: .933333em;
           padding: 5px;
@@ -473,8 +472,8 @@
       th {
         font-size: 1em;
         padding: 7px;
-        background-color: $base-gray-7;
-        border: 1px solid $base-gray-4;
+        background-color: var(--bb-gray-7);
+        border: 1px solid var(--bb-gray-4);
         @include media-max(lg) {
           font-size: .933333em;
           padding: 5px;
@@ -483,8 +482,8 @@
       td {
         font-size: 1em;
         padding: 7px;
-        background-color: $base-white;
-        border: 1px solid $base-gray-4;
+        background-color: var(--bb-white);
+        border: 1px solid var(--bb-gray-4);
         @include media-max(lg) {
           font-size: .933333em;
           padding: 5px;
@@ -493,7 +492,7 @@
     }
   }
   fieldset {
-    border: 1px solid $base-gray-5;
+    border: 1px solid var(--bb-gray-5);
     padding: 16px;
     margin: 0;
     box-sizing: border-box;
@@ -534,7 +533,7 @@
         display: block;
         position: absolute;
         top: calc(50% - 18px);
-        color: rgba($base-black, .2);
+        color: rgba(var(--bb-black-rgb), .2);
         font-size: 30px;
         line-height: 36px;
         text-align: center;
@@ -551,14 +550,14 @@
     }
     .table-arrow-left {
       left: 0;
-      background: linear-gradient(-90deg, rgba($base-white, 0) 0%, rgba($base-white, 1) 100%);
+      background: linear-gradient(-90deg, rgba(var(--bb-white-rgb), 0) 0%, rgba(var(--bb-white-rgb), 1) 100%);
       &::after {
         @include icon-font('f004d');
       }
     }
     .table-arrow-right {
       right: 0;
-      background: linear-gradient(90deg, rgba($base-white, 0) 0%, rgba($base-white, 1) 100%);
+      background: linear-gradient(90deg, rgba(var(--bb-white-rgb), 0) 0%, rgba(var(--bb-white-rgb), 1) 100%);
       &::after {
         @include icon-font('f0054');
       }
@@ -617,7 +616,7 @@
     text-align: left;
     margin: 0;
     padding: 7px;
-    background-color: $base-gray-7;
+    background-color: var(--bb-gray-7);
     min-width: 100%;
     box-sizing: border-box;
     @include media-max(lg) {
@@ -632,7 +631,7 @@
   .post-password-form {
     margin-top: 30px;
     padding: 25px 50px;
-    background-color: $base-gray-7;
+    background-color: var(--bb-gray-7);
     text-align: center;
     @include media-max(lg) {
       padding: 25px 20px;
@@ -674,7 +673,7 @@
         height: 40px;
         margin: 0 3px;
         padding: 6px;
-        border: 1px solid $base-gray-4;
+        border: 1px solid var(--bb-gray-4);
         border-radius: 2px;
         box-sizing: border-box;
         @include media-max(lg) {
@@ -686,7 +685,7 @@
       @include bb-input-decoration();
       @include bb-input-placeholder();
       &[type='submit'] {
-        color: $base-white;
+        color: var(--bb-white);
         font-size: 1.6rem;
         line-height: 1;
         vertical-align: top;
@@ -727,8 +726,8 @@
     width: 36px;
     height: 36px;
     margin: 0 2px;
-    background-color: $base-gray-6;
-    border: 1px solid $base-gray-5;
+    background-color: var(--bb-gray-6);
+    border: 1px solid var(--bb-gray-5);
     box-sizing: border-box;
     @include media-max(lg) {
       text-align: center;
@@ -739,7 +738,7 @@
     }
   }
   > .page {
-    color: $base-gray-2;
+    color: var(--bb-gray-2);
   }
   > a {
     display: inline-block;
@@ -749,13 +748,13 @@
     }
     > span.page {
       margin: 0;
-      border: 1px solid $base-gray-6;
-      background-color: $base-white;
+      border: 1px solid var(--bb-gray-6);
+      background-color: var(--bb-white);
       box-sizing: border-box;
       transition: all .2s;
     }
     &:hover .page {
-      background-color: $base-gray-7;
+      background-color: var(--bb-gray-7);
       text-decoration: underline;
     }
   }
@@ -765,16 +764,16 @@
 //--------------------------------------------------------------------
 .main-article .page-navigation {
   margin-top: 40px;
-  border-top: 1px solid $base-gray-5;
+  border-top: 1px solid var(--bb-gray-5);
   padding-top: 15px;
   .nowrapwidth-layout & {
-    width:  $width-desktop;
+    width:  var(--bb-width-desktop);
     margin-left: auto;
     margin-right: auto;
     box-sizing: border-box;
     @include media-max(lg) {
-      width: calc(100% - #{$gap-mobile * 2});
-      max-width: calc(#{$max-width-mobile} - #{$gap-mobile * 2});
+      width: calc(100% - var(--bb-gap-mobile) * 2);
+      max-width: calc(var(--bb-max-width-mobile) - var(--bb-gap-mobile) * 2);
     }
   }
   ul {
@@ -790,20 +789,20 @@
     width: 100%;
     height: 100%;
     padding: 10px;
-    border: 1px solid $base-gray-6;
+    border: 1px solid var(--bb-gray-6);
     box-sizing: border-box;
     transition: all .2s;
     @include media-max(lg) {
       padding: 2.8vw;
     }
     &:hover {
-      background-color: $base-gray-7;
+      background-color: var(--bb-gray-7);
     }
   }
   .dir {
     position: relative;
     display: block;
-    color: $base-gray-2;
+    color: var(--bb-gray-2);
     font-size: 1.2rem;
     margin-bottom: 4px;
   }

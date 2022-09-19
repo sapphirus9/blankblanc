@@ -8,18 +8,18 @@
   max-width: none;
   margin-top: 40px;
   padding-top: 40px;
-  border-top: 1px solid $base-gray-5;
+  border-top: 1px solid var(--bb-gray-5);
   @include media-max(lg) {
     font-size: 1.8rem;
     margin-top: 40px;
     padding-top: 20px;
   }
   .nowrapwidth-layout & {
-    width:  $width-desktop;
+    width:  var(--bb-width-desktop);
     box-sizing: border-box;
     @include media-max(lg) {
-      width: calc(100% - #{$gap-mobile * 2});
-      max-width: calc(#{$max-width-mobile} - #{$gap-mobile * 2});
+      width: calc(100% - var(--bb-gap-mobile) * 2);
+      max-width: calc(var(--bb-max-width-mobile) - var(--bb-gap-mobile) * 2);
     }
   }
   #comments-title {
@@ -46,11 +46,11 @@
       }
     }
     a {
-      color: $base-white;
+      color: var(--bb-white);
       text-decoration: none;
       display: inline-block;
       padding: 3px 9px 3px 6px;
-      background-color: $base-gray-4;
+      background-color: var(--bb-gray-4);
       border-radius: 50px;
       @include media-max(lg) {
         padding: 2px 8px;
@@ -60,7 +60,7 @@
         margin-right: .2em;
       }
       &:hover {
-        background-color: $base-gray-3;
+        background-color: var(--bb-gray-3);
       }
     }
   }
@@ -74,7 +74,7 @@
     #respond {
       margin: 10px 0 30px;
       padding-top: 15px;
-      border-top: 1px dotted $base-gray-6;
+      border-top: 1px dotted var(--bb-gray-6);
       #reply-title {
         font-size: 2rem;
         @include media-max(lg) {
@@ -85,7 +85,7 @@
     > .comment {
       padding-bottom: 20px;
       margin-bottom: 20px;
-      border-bottom: 1px dashed $base-gray-5;
+      border-bottom: 1px dashed var(--bb-gray-5);
     }
     .comment {
       @include media-max(lg) {
@@ -145,7 +145,6 @@
         }
       }
       .comment-text {
-        text-justify: inter-ideograph;
         text-align: justify;
         p {
           font-size: 1.4rem;
@@ -153,7 +152,7 @@
         }
       }
       .awaiting {
-        color: $base-red-1;
+        color: var(--bb-red-1);
         margin-bottom: 3px;
       }
     }
@@ -200,7 +199,7 @@
         }
       }
       &[type='submit'] {
-        color: $base-white;
+        color: var(--bb-white);
         font-size: 1.5rem;
         line-height: 1.5;
         height: 40px;
@@ -230,7 +229,7 @@
       }
     }
     .required {
-      color: $base-red-1;
+      color: var(--bb-red-1);
       font-size: 1.2rem;
     }
     .form-submit {
@@ -259,7 +258,7 @@
     line-height: 1.6;
     width: 235px;
     padding: 0 15px;
-    background-color: $base-gray-7;
+    background-color: var(--bb-gray-7);
     box-sizing: border-box;
     @include media-max(lg) {
       display: none;

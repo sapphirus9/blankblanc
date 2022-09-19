@@ -4,7 +4,7 @@
 //--------------------------------------------------------------------
 #bread-crumb {
   padding-top: 7px;
-  background-color: $base-white;
+  background-color: var(--bb-white);
   @include media-max(lg) {
     display: none;
   }
@@ -31,8 +31,8 @@
         width: 4px;
         height: 4px;
         margin-right: 5px;
-        border-top: 1px solid $base-gray-2;
-        border-right: 1px solid $base-gray-2;
+        border-top: 1px solid var(--bb-gray-2);
+        border-right: 1px solid var(--bb-gray-2);
         transform: rotate(45deg);
         transform-origin: center;
       }
@@ -58,7 +58,7 @@
         display: none;
       }
       span {
-        color: $base-gray-2;
+        color: var(--bb-gray-2);
       }
     }
   }

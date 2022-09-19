@@ -5,7 +5,7 @@
 #contents {
   display: block;
   padding-bottom: 80px;
-  background-color: $base-white;
+  background-color: var(--bb-white);
   @include media-max(lg) {
     padding: 55px 0 60px;
     overflow-x: hidden;
@@ -36,17 +36,17 @@
 }
 
 #first-column {
-  width: $first-column;
+  width: var(--bb-first-column);
   @include media-max(lg) {
     width: 100%;
-    max-width: $max-width-mobile;
+    max-width: var(--bb-max-width-mobile);
     margin: 0 auto;
     .nowrapwidth-layout & {
       max-width: none;
     }
   }
   .onecolumn-layout & {
-    width: $one-column;
+    width: var(--bb-one-column);
     margin: 0 auto;
     @include media-max(lg) {
       width: 100%;
@@ -63,7 +63,7 @@
 }
 
 #second-column {
-  width: $second-column;
+  width: var(--bb-second-column);
   .onecolumn-layout &,
   .fullwidth-layout &,
   .nowrapwidth-layout & {
@@ -76,14 +76,14 @@
 
 // [deprecated]
 #one-column {
-  width: $one-column;
+  width: var(--bb-one-column);
   margin: 0 auto;
   &.full-width {
     width: 100%;
   }
   @include media-max(lg) {
     width: 100%;
-    max-width: $max-width-mobile;
+    max-width: var(--bb-max-width-mobile);
   }
   & + #second-column {
     display: none;

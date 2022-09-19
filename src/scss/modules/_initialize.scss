@@ -4,9 +4,6 @@
 //--------------------------------------------------------------------
 * {
   @include font-family();
-  @media all and (-ms-high-contrast: none) { // ie11
-    @include font-family(ie11);
-  }
 }
 
 html {

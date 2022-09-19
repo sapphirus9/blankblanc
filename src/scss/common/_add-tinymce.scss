@@ -16,73 +16,73 @@
   .text-highlighter {
     &-red {
       @include highlighter-base() {
-        background: linear-gradient(180deg, rgba(#fc5c5c, 0) 50%, rgba(#fc5c5c, .5) 50%);
+        background: linear-gradient(180deg, rgba(var(--bb-hl-red-rgb), 0) 50%, rgba(var(--bb-hl-red-rgb), .5) 50%);
         &[data-rich-text-format-boundary]  {
-          background-color: rgba(#fc5c5c, .25) !important;
+          background-color: rgba(var(--bb-hl-red-rgb), .25) !important;
         }
       }
     }
     &-orange {
       @include highlighter-base() {
-        background: linear-gradient(180deg, rgba(#fd9926, 0) 50%, rgba(#fd9926, .5) 50%);
+        background: linear-gradient(180deg, rgba(var(--bb-hl-orange-rgb), 0) 50%, rgba(var(--bb-hl-orange-rgb), .5) 50%);
         &[data-rich-text-format-boundary]  {
-          background-color: rgba(#fd9926, .25) !important;
+          background-color: rgba(var(--bb-hl-orange-rgb), .25) !important;
         }
       }
     }
     &-yellow {
       @include highlighter-base() {
-        background: linear-gradient(180deg, rgba(#f7f70e, 0) 50%, rgba(#f7f70e, .5) 50%);
+        background: linear-gradient(180deg, rgba(var(--bb-hl-yellow-rgb), 0) 50%, rgba(var(--bb-hl-yellow-rgb), .5) 50%);
         &[data-rich-text-format-boundary]  {
-          background-color: rgba(#f7f70e, .25) !important;
+          background-color: rgba(var(--bb-hl-yellow-rgb), .25) !important;
         }
       }
     }
     &-green {
       @include highlighter-base() {
-        background: linear-gradient(180deg, rgba(#6ce768, 0) 50%, rgba(#6ce768, .5) 50%);
+        background: linear-gradient(180deg, rgba(var(--bb-hl-green-rgb), 0) 50%, rgba(var(--bb-hl-green-rgb), .5) 50%);
         &[data-rich-text-format-boundary]  {
-          background-color: rgba(#6ce768, .25) !important;
+          background-color: rgba(var(--bb-hl-green-rgb), .25) !important;
         }
       }
     }
     &-blue {
       @include highlighter-base() {
-        background: linear-gradient(180deg, rgba(#7298e9, 0) 50%, rgba(#7298e9, .5) 50%);
+        background: linear-gradient(180deg, rgba(var(--bb-hl-blue-rgb), 0) 50%, rgba(var(--bb-hl-blue-rgb), .5) 50%);
         &[data-rich-text-format-boundary]  {
-          background-color: rgba(#7298e9, .25) !important;
+          background-color: rgba(var(--bb-hl-blue-rgb), .25) !important;
         }
       }
     }
     &-purple {
       @include highlighter-base() {
-        background: linear-gradient(180deg, rgba(#c561ec, 0) 50%, rgba(#c561ec, .5) 50%);
+        background: linear-gradient(180deg, rgba(var(--bb-hl-purple-rgb), 0) 50%, rgba(var(--bb-hl-purple-rgb), .5) 50%);
         &[data-rich-text-format-boundary]  {
-          background-color: rgba(#c561ec, .25) !important;
+          background-color: rgba(var(--bb-hl-purple-rgb), .25) !important;
         }
       }
     }
     &-pink {
       @include highlighter-base() {
-        background: linear-gradient(180deg, rgba(#f77dd2, 0) 50%, rgba(#f77dd2, .5) 50%);
+        background: linear-gradient(180deg, rgba(var(--bb-hl-pink-rgb), 0) 50%, rgba(var(--bb-hl-pink-rgb), .5) 50%);
         &[data-rich-text-format-boundary]  {
-          background-color: rgba(#f77dd2, .25) !important;
+          background-color: rgba(var(--bb-hl-pink-rgb), .25) !important;
         }
       }
     }
     &-sky {
       @include highlighter-base() {
-        background: linear-gradient(180deg, rgba(#89d0ff, 0) 50%, rgba(#89d0ff, .5) 50%);
+        background: linear-gradient(180deg, rgba(var(--bb-hl-sky-rgb), 0) 50%, rgba(var(--bb-hl-sky-rgb), .5) 50%);
         &[data-rich-text-format-boundary]  {
-          background-color: rgba(#89d0ff, .25) !important;
+          background-color: rgba(var(--bb-hl-sky-rgb), .25) !important;
         }
       }
     }
     &-gray {
       @include highlighter-base() {
-        background: linear-gradient(180deg, rgba(#cacaca, 0) 50%, rgba(#cacaca, .5) 50%);
+        background: linear-gradient(180deg, rgba(var(--bb-hl-gray-rgb), 0) 50%, rgba(var(--bb-hl-gray-rgb), .5) 50%);
         &[data-rich-text-format-boundary]  {
-          background-color: rgba(#cacaca, .25) !important;
+          background-color: rgba(var(--bb-hl-gray-rgb), .25) !important;
         }
       }
     }
