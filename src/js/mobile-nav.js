@@ -20,13 +20,7 @@
    */
   document.addEventListener('DOMContentLoaded', () => {
     if ('bbCfgMobileNav' in window) {
-      if (Object.assign) {
-        nav = Object.assign(nav, bbCfgMobileNav);
-      } else { /* (ie11 measures) */
-        Object.keys(nav).forEach((key) => {
-          if (bbCfgMobileNav[key]) nav[key] = bbCfgMobileNav[key].concat(nav[key].filter((e) => nav[key].indexOf(e) === -1));
-        });
-      }
+      nav = Object.assign(nav, bbCfgMobileNav);
     }
     if (nav.slideNav.length > 0) slideNav();
     if (nav.footerNav.length > 0) footerNav();
@@ -184,7 +178,7 @@
      * PC幅にリサイズでリセット
      */
     window.addEventListener('resize', () => {
-      const bp = !window._BbBreakPoint ? 768 : window._BbBreakPoint;
+      const bp = !window._BbBreakPoint ? 782 : window._BbBreakPoint;
       if (document.documentElement.clientWidth >= bp) {
         toggleElement.forEach((toggle) => {
           document.body.classList.remove(nameShowBtn);

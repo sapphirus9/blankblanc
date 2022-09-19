@@ -43,7 +43,6 @@ class BbSetUserAgent
       else if (/Android.*?Mobile/.test(ua)) config.device = 'mobile';
       /* Browser */
       if (/Mac OS X(?!.*Chrome)(?=.*Safari)/.test(ua)) config.browser = 'safari';
-      else if (/Trident\/7\.0/.test(ua)) config.browser = 'ie11';
       else if (/Firefox/.test(ua)) config.browser = 'firefox';
       else if (/Chrome/.test(ua)) config.browser = 'chromium';
       else if (/Silk/.test(ua)) config.browser = 'silk';
@@ -156,10 +155,6 @@ class BbSmoothScroll {
     document.documentElement.id = 'blankblanc-wp-admin';
     new BbSetUserAgent().addClass();
     return;
-  }
-  /* forEach (ie11 measures) */
-  if (window.NodeList && !NodeList.prototype.forEach) {
-    NodeList.prototype.forEach = Array.prototype.forEach;
   }
 
   /**
@@ -358,7 +353,7 @@ class BbSmoothScroll {
     const anchor = location.hash;
     if (anchor) {
       const $anchor = document.querySelector(anchor);
-      new BbSmoothScroll($anchor, Object.create(_options.scrollCommon));
+      new BbSmoothScroll($anchor, Object.create(_options.toAnchorLink));
     }
   });
 
@@ -466,32 +461,15 @@ class BbSmoothScroll {
     if (secondColRect.height <= fixedWidgetRect.height) return;
     const currentBottom = window.pageYOffset + window.BbOptions.shrinkHeight;
     if (initfixedWidget.top === null) initfixedWidget.top = window.pageYOffset + fixedWidgetRect.top;
-    // 画面よりウィジェットが小さい場合（ie11対応）
-    const $globalNav = document.querySelector('#global-nav');
-    const globalNavHeight = $globalNav ? $globalNav.getBoundingClientRect().height : 0;
-    const widget_size1 = fixedWidgetRect.height <= window.BbOptions.shrinkHeight - initfixedWidget.top ? true : false;
-    const widget_size2 = window.BbOptions.shrinkHeight - globalNavHeight > fixedWidgetRect.height + initfixedWidget.offset ? true : false;
-    if (widget_size1 || widget_size2) {
-      if (parseInt(initfixedWidget.top - initfixedWidget.offset) < window.pageYOffset) $fixedWidget.classList.add('sticky');
-      else $fixedWidget.classList.remove('sticky');
-      const fixedWidgetBottom = parseInt(window.pageYOffset + fixedWidgetRect.bottom);
-      const secondColBottom = parseInt(window.pageYOffset + secondColRect.bottom);
-      if (fixedWidgetBottom >= secondColBottom) {
-        $fixedWidget.classList.add('absolute');
-        if (fixedWidgetRect.top > initfixedWidget.offset) $fixedWidget.classList.remove('absolute');
-      }
-      else $fixedWidget.classList.remove('absolute');
-    } else {
-      $fixedWidget.classList.remove('sticky');
-      // ウィジェットのボトムを判定
-      const fixedWidgetBottom = parseInt(initfixedWidget.top + fixedWidgetRect.height);
-      if (currentBottom >= fixedWidgetBottom) $fixedWidget.classList.add('fixed');
-      else $fixedWidget.classList.remove('fixed');
-      // カラムのボトムを判定
-      const secondColBottom = parseInt(window.pageYOffset + secondColRect.bottom);
-      if (currentBottom >= secondColBottom) $fixedWidget.classList.add('absolute');
-      else $fixedWidget.classList.remove('absolute');
-    }
+    $fixedWidget.classList.remove('sticky');
+    // ウィジェットのボトムを判定
+    const fixedWidgetBottom = parseInt(initfixedWidget.top + fixedWidgetRect.height);
+    if (currentBottom >= fixedWidgetBottom) $fixedWidget.classList.add('fixed');
+    else $fixedWidget.classList.remove('fixed');
+    // カラムのボトムを判定
+    const secondColBottom = parseInt(window.pageYOffset + secondColRect.bottom);
+    if (currentBottom >= secondColBottom) $fixedWidget.classList.add('absolute');
+    else $fixedWidget.classList.remove('absolute');
   });
 
   /**
@@ -595,6 +573,19 @@ class BbSmoothScroll {
   };
 
   /**
+   * iframeコンテンツの読み込みを遅延
+   * add) iframe class="embeded-iframe-src"
+   */
+  function _EmbededIframeSrc() {
+    const iframes = document.querySelectorAll('.embeded-iframe-src');
+    iframes.forEach(function (iframe) {
+      if (iframe.getAttribute('data-src')) {
+        iframe.setAttribute('src', iframe.getAttribute('data-src'));
+      }
+    });
+  }
+
+  /**
    *
    */
   const _CookieBanner = () => {
@@ -621,12 +612,20 @@ class BbSmoothScroll {
   /**
    * DOM読み込み後に実行
    */
-  const initBreakPoint = 768;
+  const initBreakPoint = 782;
   let _options = {
     scrollCommon: {
       loaded: false,
       offset: true,
       speed: 40,
+      desktop: 65,
+      mobile: 65,
+      breakPoint: initBreakPoint
+    },
+    toAnchorLink: {
+      loaded: false,
+      offset: true,
+      speed: 95,
       desktop: 65,
       mobile: 65,
       breakPoint: initBreakPoint
@@ -667,6 +666,7 @@ class BbSmoothScroll {
     _SelectTags();
     _GoPageTop();
     _GoAnchorLink();
+    _ToAnchorLink();
     _SearchForm();
     _BbToc();
     _GlobalNav();
@@ -693,10 +693,10 @@ class BbSmoothScroll {
    */
   window.addEventListener('load', () => {
     _TableContents();
-    _ToAnchorLink();
     _FixedHeaderPart();
     _FadeInActive();
     _CookieBanner();
+    _EmbededIframeSrc();
     // ページ読み込み完了のクラスを追加
     document.documentElement.classList.add('page-loaded');
     window.BbOptions.pageLoaded = true;
