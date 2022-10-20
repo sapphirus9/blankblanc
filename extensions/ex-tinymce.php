@@ -33,7 +33,7 @@ if (!function_exists('customize_tiny_mce')) {
             'classes'  => 'text-highlighter text-highlighter-yellow',
           ),
           array(
-            'title'    => '・グリーン',
+            'title'    => 'グリーン',
             'inline'   => 'em',
             'classes'  => 'text-highlighter text-highlighter-green',
           ),
