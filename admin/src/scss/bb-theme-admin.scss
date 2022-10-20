@@ -1,5 +1,4 @@
 @charset "UTF-8";
-@use 'config' as cfg;
 /*
  *--------------------------------------------------------------------
  * Theme Name: BlankBlanc
@@ -7,6 +6,21 @@
  * Description: 管理画面（外観 » テーマオプション）用スタイルシートです。
  *--------------------------------------------------------------------
  */
+#blankblanc-theme-options {
+  h1 {
+    .title {
+      display: inline-block;
+      margin-right: 1em;
+      vertical-align: middle;
+    }
+    small {
+      display: inline-block;
+      font-size: .52174em;
+      color: #9499a0;
+    }
+  }
+}
+
 #bb-config-edit {
   min-width: 800px;
   margin-top: 10px;
@@ -57,32 +71,32 @@
     }
     &.config-modified {
       .label-title {
-        color: cfg.$base-red-3;
-        border-left-color: cfg.$base-red-2;
+        color: #ad002b;
+        border-left-color: #ff4a4a;
       }
     }
     &.config-list {
-      max-width: cfg.$max-width-mobile;
+      max-width: 700px;
       .list-block {
         [contenteditable] {
           white-space: pre-wrap;
           outline: 1px solid transparent;
           padding: 15px;
-          background-color: cfg.$base-gray-7;
-          border: 1px solid cfg.$base-gray-5;
+          background-color: #f5f5f5;
+          border: 1px solid #e0e0e0;
           box-sizing: border-box;
           border-radius: 5px;
           transition: all .2s;
           &:focus {
-            background-color: cfg.$base-white;
-            border-color: cfg.$base-gray-3;
+            background-color: #fff;
+            border-color: #a0a0a0;
           }
         }
       }
       .modified {
-        color: cfg.$base-red-2;
+        color: #ff4a4a;
         font-weight: normal;
-        border-bottom: 1px dashed cfg.$base-red-2;
+        border-bottom: 1px dashed #ff4a4a;
       }
     }
   }
@@ -288,24 +302,33 @@
   }
   .ui-sortable {
     position: relative;
+    padding: 7px 7px 6px;
+    background-color: #f4f4f4;
+    overflow: hidden;
     > li {
-      margin-bottom: 4px;
-      background-color: #e3e8e9;
+      margin-bottom: 1px;
+      background-color: #e0e1e4;
       overflow: hidden;
       user-select: none;
       &.active {
-        background-color: #d0d5d6;
+        background-color: #9499a0;
+        .widgets-name {
+          color: #fff !important;
+        }
+        .sidebar-name {
+          color: #e5e5e5 !important;
+        }
       }
       input {
         &[type=checkbox] {
           float: left;
-          margin: 9px 0 0 8px;
+          margin: 10px 0 0 10px;
         }
       }
       label {
         display: block;
-        padding: 8px;
-        margin-left: 22px;
+        padding: 10px;
+        margin-left: 24px;
         cursor: move;
         span {
           cursor: inherit;
@@ -314,13 +337,16 @@
     }
   }
   #activate-mobile-nav {
-    display: inline-block;
+    display: block;
+    max-width: 320px;
+    box-sizing: border-box;
     .widgets-name {
+      color: #909090;
       margin-right: 5px;
     }
     .sidebar-name {
       display: inline-block;
-      color: #777;
+      color: #b0b0b0;
       font-size: .83em;
     }
   }
@@ -754,7 +780,7 @@
       }
     }
     .ui-sortable {
-      width: 80%;
+      width: 90%;
       > li {
         label {
           padding: 11px 8px;
