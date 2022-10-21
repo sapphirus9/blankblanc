@@ -173,7 +173,7 @@ body.nav-window-show {
   -webkit-overflow-scrolling: touch;
 }
 
-#nav-window-widgets {
+#nav-window-container {
   .widget,
   .menu {
     margin: 0;
@@ -218,8 +218,7 @@ body.nav-window-show {
       }
     }
   }
-  > ul,
-  > ol {
+  .nav-block {
     border-bottom: 1px solid var(--bb-gray-6);
     &:last-child {
       border-bottom: none;

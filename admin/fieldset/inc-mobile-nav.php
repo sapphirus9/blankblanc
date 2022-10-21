@@ -11,6 +11,9 @@
   unset($active_widgets['wp_inactive_widgets']);
   $li_chkd = $li_none = array();
   foreach ($active_widgets as $widget_group_id => $widget_group) {
+    if (preg_match('/^mobile\-widget/', $widget_group_id)) {
+      continue;
+    }
     if (empty($widget_group)) {
       continue;
     }
@@ -31,10 +34,10 @@
         if (isset($config_values['mobile_nav']) && in_array('#' . $widget_id, $config_values['mobile_nav'])) {
           $key = array_search('#' . $widget_id, $config_values['mobile_nav']);
           $li_chkd[$key] = "<input type=\"checkbox\" name=\"blankblanc_config_values[mobile_nav][]\" id=\"bb-widget_{$widget_id}\" value=\"#{$widget_id}\" checked>\n"
-          . "<label for=\"bb-widget_{$widget_id}\"><span class=\"widgets-name\">{$widget_name}</span><span class=\"sidebar-name\">（{$sidebar_name}）</span></label>\n";
+          . "<label for=\"bb-widget_{$widget_id}\"><span class=\"widgets-name\">{$widget_name}</span><span class=\"sidebar-name\"> : {$sidebar_name}</span></label>\n";
         } else {
           $li_none[] = "<input type=\"checkbox\" name=\"blankblanc_config_values[mobile_nav][]\" id=\"bb-widget_{$widget_id}\" value=\"#{$widget_id}\">\n"
-          . "<label for=\"bb-widget_{$widget_id}\"><span class=\"widgets-name\">{$widget_name}</span><span class=\"sidebar-name\">（{$sidebar_name}）</span></label>\n";
+          . "<label for=\"bb-widget_{$widget_id}\"><span class=\"widgets-name\">{$widget_name}</span><span class=\"sidebar-name\"> : {$sidebar_name}</span></label>\n";
         }
       }
     }
@@ -45,7 +48,8 @@
   <div class="col-left">
     <div class="label-title">モバイルメニュー</div>
     <div class="note">選択されたウィジェットはモバイル時のスライドナビ内のメニューとして登録されます。<br>
-    ドラッグ&amp;ドロップで表示順を並べ替えできます。</div>
+    ドラッグ&amp;ドロップで表示順を並べ替えできます。<br><br>
+    ※外観の<a href="<?php echo admin_url('widgets.php'); ?>">ウィジェット設定</a>で「モバイル Top」「モバイル Bottom」に登録されたウィジェットは、このメニューの上部と下部に配置されます。</div>
   </div>
   <div class="col-right">
     <div class="input-group">

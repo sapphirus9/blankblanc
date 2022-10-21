@@ -118,39 +118,49 @@ register_nav_menus(array(
 if (!function_exists('add_widgets_init')) {
   function add_widgets_init() {
     register_sidebar(array(
-      'name'        => 'サイドバーウィジェット1',
+      'name'        => 'サイドバー 1',
       'id'          => 'sidebar-widget-1',
-      'description' => 'サイドバーにウィジェットを配置します。'
+      'description' => 'サイドバーの1段目にウィジェットを配置します。'
     ));
     register_sidebar(array(
-      'name'        => 'サイドバーウィジェット2',
+      'name'        => 'サイドバー 2',
       'id'          => 'sidebar-widget-2',
-      'description' => 'サイドバーにウィジェットを配置します。'
+      'description' => 'サイドバーの2段目にウィジェットを配置します。'
     ));
     register_sidebar(array(
-      'name'        => 'サイドバーウィジェット3',
+      'name'        => 'サイドバー 3',
       'id'          => 'sidebar-widget-3',
-      'description' => 'サイドバー3にウィジェットを配置します。'
+      'description' => 'サイドバーの3段目にウィジェットを配置します。'
     ));
     register_sidebar(array(
-      'name'        => 'フッターウィジェット1',
+      'name'        => 'フッター 1',
       'id'          => 'footer-widget-1',
-      'description' => 'フッターにウィジェットを配置します。'
+      'description' => 'フッターの1列目のカラムにウィジェットを配置します。'
     ));
     register_sidebar(array(
-      'name'        => 'フッターウィジェット2',
+      'name'        => 'フッター 2',
       'id'          => 'footer-widget-2',
-      'description' => 'フッターにウィジェットを配置します。'
+      'description' => 'フッターの2列目のカラムにウィジェットを配置します。'
     ));
     register_sidebar(array(
-      'name'        => 'フッターウィジェット3',
+      'name'        => 'フッター 3',
       'id'          => 'footer-widget-3',
-      'description' => 'フッターにウィジェットを配置します。'
+      'description' => 'フッターの3列目のカラムにウィジェットを配置します。'
     ));
     register_sidebar(array(
-      'name'        => 'フッターウィジェット4',
+      'name'        => 'フッター 4',
       'id'          => 'footer-widget-4',
-      'description' => 'フッターにウィジェットを配置します。'
+      'description' => 'フッターの4列目のカラムにウィジェットを配置します。'
+    ));
+    register_sidebar(array(
+      'name'        => 'モバイル Top',
+      'id'          => 'mobile-widget-top',
+      'description' => 'テーマオプションで設定のモバイルメニューより上部にウィジェットを配置します。'
+    ));
+    register_sidebar(array(
+      'name'        => 'モバイル Bottom',
+      'id'          => 'mobile-widget-bottom',
+      'description' => 'テーマオプションで設定のモバイルメニューより下部にウィジェットを配置します。'
     ));
   }
 }

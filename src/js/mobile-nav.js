@@ -51,6 +51,7 @@
     const nameMainScreen = '#main-screen';
     const nameMainScreenMask = '#main-screen-mask';
     const nameNavWindowArea = '#nav-window-area';
+    const nameNavWindowContainer = '#nav-window-container';
     const nameNavWindowWidgets = '#nav-window-widgets';
     const nameOpenBtn = '#nav-window-open-btn';
     const nameCloseBtn = '#nav-window-close-btn';
@@ -88,7 +89,7 @@
     /**
      * 動作：サブメニュー表示の切り替え
      */
-    const $itemAll = document.querySelectorAll(nameNavWindowWidgets + ' .child-group');
+    const $itemAll = document.querySelectorAll(nameNavWindowContainer + ' .child-group');
     $itemAll.forEach(($item) => {
       $item.previousElementSibling.appendChild(createHtml('span', null, '.icon-toggle'));
       const $itemParent = $item.parentNode;
