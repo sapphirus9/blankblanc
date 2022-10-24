@@ -1,3 +1,4 @@
+<?php bb_theme_check(); ?>
 <fieldset <?php $this->has_modified('title_separator'); ?>>
   <div class="col-left">
     <div class="label-title">titleタグのセパレーター</div>

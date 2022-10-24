@@ -1,3 +1,4 @@
+<?php bb_theme_check(); ?>
 <fieldset <?php $this->has_modified('mobile_nav_position'); ?>>
   <div class="col-left">
     <div class="label-title">スライドナビを右側に変更</div>

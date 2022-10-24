@@ -6,11 +6,19 @@
  */
 
 /**
+ * 直アクセスの対策
+ */
+function bb_theme_check() {
+  return;
+}
+
+
+/**
  * WordPress のバージョンを確認
  */
-if (version_compare($GLOBALS['wp_version'], '5.5', '<')) {
+if (version_compare($GLOBALS['wp_version'], '5.9', '<')) {
   function bb_wp_version_notice() {
-    printf('<div class="error"><p>BlankBlancはWordPress 5.5未満の動作を保証しておりません。<br>現在ご利用中のバージョンは<strong>%s</strong>です。WordPressのアップグレードをご検討ください。</p></div>', $GLOBALS['wp_version']);
+    printf('<div class="error"><p>BlankBlancはWordPress 5.9未満の動作を保証しておりません。<br>現在ご利用中のバージョンは<strong>%s</strong>です。WordPressのアップグレードをご検討ください。</p></div>', $GLOBALS['wp_version']);
   }
   add_action('admin_notices', 'bb_wp_version_notice');
 }

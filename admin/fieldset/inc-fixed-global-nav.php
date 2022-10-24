@@ -1,3 +1,4 @@
+<?php bb_theme_check(); ?>
 <fieldset <?php $this->has_modified('fixed_global_nav'); ?>>
   <div class="col-left">
     <div class="label-title">グローバルナビの固定</div>

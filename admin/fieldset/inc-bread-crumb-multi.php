@@ -1,4 +1,5 @@
 <?php // [extention] ex-breadcrumb.php ---
+  bb_theme_check();
   if (class_exists('bbBreadCrumb')) : ?>
   <fieldset <?php $this->has_modified('bread_crumb_multi'); ?>>
     <div class="col-left">

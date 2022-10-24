@@ -1,3 +1,4 @@
+<?php bb_theme_check(); ?>
 <fieldset <?php $this->has_modified('ja_auto_post_slug.rewrite'); ?>>
   <div class="col-left">
     <div class="label-title">日本語タイトル時のスラッグ設定</div>

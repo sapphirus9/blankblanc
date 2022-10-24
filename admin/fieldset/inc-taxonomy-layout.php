@@ -1,3 +1,4 @@
+<?php bb_theme_check(); ?>
 <fieldset <?php $this->has_modified('taxonomy_layout'); ?>>
   <div class="col-left">
     <div class="label-title">共通の投稿一覧レイアウトタイプ</div>

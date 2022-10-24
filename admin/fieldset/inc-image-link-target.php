@@ -1,3 +1,4 @@
+<?php bb_theme_check(); ?>
 <fieldset <?php $this->has_modified('image_link_target'); ?>>
   <div class="col-left">
     <div class="label-title">画像リンクを別窓で開く</div>

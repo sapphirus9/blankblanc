@@ -1,3 +1,4 @@
+<?php bb_theme_check(); ?>
 <fieldset <?php $this->has_modified('excerpt_more'); ?>>
   <div class="col-left">
     <div class="label-title">記事抜粋時の省略表記</div>

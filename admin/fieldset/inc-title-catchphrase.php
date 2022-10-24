@@ -1,3 +1,4 @@
+<?php bb_theme_check(); ?>
 <fieldset <?php $this->has_modified('title_catchphrase'); ?>>
   <div class="col-left">
     <div class="label-title">titleに併記するキャッチフレーズ</div>

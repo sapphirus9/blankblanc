@@ -1,3 +1,4 @@
+<?php bb_theme_check(); ?>
 <fieldset id="bb-logo-image" <?php $this->has_modified('logo_image', 'bb-media-upload'); ?>>
   <div class="col-left">
     <div class="media-title">ロゴ画像</div>

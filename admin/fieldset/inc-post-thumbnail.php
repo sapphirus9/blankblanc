@@ -1,3 +1,4 @@
+<?php bb_theme_check(); ?>
 <fieldset <?php $this->has_modified('post_thumbnail'); ?>>
   <div class="col-left">
     <div class="label-title">アイキャッチ画像</div>

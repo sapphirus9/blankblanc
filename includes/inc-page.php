@@ -5,6 +5,7 @@
  * Template: inc-page
  * Description: 固定ページ表示
  */
+bb_theme_check();
 ?>
 <?php while (have_posts()) :
   the_post(); ?>

@@ -5,6 +5,7 @@
  * Template: inc-single
  * Description: 投稿ページ表示
  */
+bb_theme_check();
 ?>
 <?php while (have_posts()) :
   the_post(); ?>

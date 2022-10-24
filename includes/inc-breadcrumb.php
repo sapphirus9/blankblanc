@@ -5,6 +5,7 @@
  * Template: inc-breadcrumb
  * Description: パンくずを表示 (ex-breadcrumb [extension])
  */
+bb_theme_check();
 ?>
 <?php if (function_exists('bb_get_bread_crumb')) : ?>
   <div id="bread-crumb">

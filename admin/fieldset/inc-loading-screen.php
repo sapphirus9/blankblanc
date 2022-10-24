@@ -1,3 +1,4 @@
+<?php bb_theme_check(); ?>
 <fieldset <?php $this->has_modified('loading_screen'); ?>>
   <div class="col-left">
     <div class="label-title">ローディング画面の表示</div>

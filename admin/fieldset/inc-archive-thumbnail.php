@@ -1,3 +1,4 @@
+<?php bb_theme_check(); ?>
 <fieldset <?php $this->has_modified('archive_thumbnail'); ?>>
   <div class="col-left">
     <div class="label-title">一覧ページのサムネイル画像<em>※必須</em></div>

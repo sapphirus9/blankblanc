@@ -1,4 +1,5 @@
 <?php // [extention] extensions/ex-mainvisual.php ---
+  bb_theme_check();
   if (function_exists('call_bb_mainvisual_term_meta')) : ?>
   <fieldset <?php $this->has_modified('mv_image_size'); ?>>
     <div class="col-left">

@@ -5,6 +5,7 @@
  * Template: comment
  * Description: コメント
  */
+bb_theme_check();
 ?>
 
 <?php

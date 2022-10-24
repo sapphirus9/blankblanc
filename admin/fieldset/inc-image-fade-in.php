@@ -1,3 +1,4 @@
+<?php bb_theme_check(); ?>
 <fieldset <?php $this->has_modified('image_fade_in'); ?>>
   <div class="col-left">
     <div class="label-title">画面内に入ったら画像を表示</div>

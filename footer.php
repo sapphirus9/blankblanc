@@ -5,6 +5,7 @@
  * Template: footer
  * Description: 共通フッター
  */
+bb_theme_check();
 ?>
     <footer id="global-footer">
       <div class="wrap">

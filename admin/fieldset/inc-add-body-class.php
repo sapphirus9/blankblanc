@@ -1,3 +1,4 @@
+<?php bb_theme_check(); ?>
 <fieldset <?php $this->has_modified('add_body_class'); ?>>
   <div class="col-left">
     <div class="label-title">body_classの読み込み</div>

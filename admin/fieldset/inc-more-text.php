@@ -1,3 +1,4 @@
+<?php bb_theme_check(); ?>
 <fieldset <?php $this->has_modified('more_text'); ?>>
   <div class="col-left">
     <div class="label-title">『続きを読む』の表記</div>

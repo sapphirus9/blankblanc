@@ -1,4 +1,5 @@
 <?php // [extention] extensions/ex-page-layout.php ---
+  bb_theme_check();
   if (function_exists('call_bb_page_layout_select')) : ?>
   <fieldset <?php $this->has_modified('column_layout'); ?>>
     <div class="col-left">

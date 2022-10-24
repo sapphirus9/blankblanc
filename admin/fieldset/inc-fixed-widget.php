@@ -1,3 +1,4 @@
+<?php bb_theme_check(); ?>
 <fieldset <?php $this->has_modified('fixed_widget'); ?>>
   <div class="col-left">
     <div class="label-title">サイドバー（ウィジェット）の固定</div>

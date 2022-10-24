@@ -5,6 +5,7 @@
  * Template: inc-mainvisual
  * Description: メインビジュアルを表示 (ex-mainvisual [extension])
  */
+bb_theme_check();
 ?>
 <?php
 global $bb_theme_config, $bb_mainvisual_image;

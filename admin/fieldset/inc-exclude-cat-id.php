@@ -1,4 +1,5 @@
 <?php // [extention] ex-exclude-categories.php ---
+  bb_theme_check();
   if (class_exists('bbExcludeCategories')) : ?>
   <fieldset <?php $this->has_modified('exclude_cat_id'); ?>>
     <div class="col-left">

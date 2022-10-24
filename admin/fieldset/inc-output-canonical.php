@@ -1,3 +1,4 @@
+<?php bb_theme_check(); ?>
 <fieldset <?php $this->has_modified('output_canonical'); ?>>
   <div class="col-left">
     <div class="label-title">rel=canonical／prev／next出力</div>

@@ -1,3 +1,4 @@
+<?php bb_theme_check(); ?>
 <fieldset <?php $this->has_modified('homepage_layout.articles'); ?>>
   <div class="col-left">
     <div class="label-title">投稿一覧レイアウトタイプ</div>

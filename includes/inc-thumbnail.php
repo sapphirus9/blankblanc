@@ -5,6 +5,7 @@
  * Template: inc-thumbnail
  * Description: サムネイルを表示
  */
+bb_theme_check();
 ?>
 <?php if (current_theme_supports('post-thumbnails') && has_post_thumbnail() && $GLOBALS['page'] < 2) : ?>
   <div class="post-thumbnail">

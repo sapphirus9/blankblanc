@@ -1,3 +1,4 @@
+<?php bb_theme_check(); ?>
 <fieldset <?php $this->has_modified('favicon'); ?>>
   <div class="col-left">
     <div class="label-title">favicon画像のURL</div>

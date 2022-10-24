@@ -5,6 +5,7 @@
  * Template: header
  * Description: 共通ヘッダー
  */
+bb_theme_check();
 ?>
 <!DOCTYPE html>
 <html lang="ja">

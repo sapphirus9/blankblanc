@@ -1,4 +1,5 @@
 <?php // [extention] extensions/ex-table-of-contents.php ---
+  bb_theme_check();
   if (function_exists('call_bb_table_of_contents')) : ?>
   <div class="activate-block-header">
     <fieldset <?php $this->has_modified('use_toc'); ?>>

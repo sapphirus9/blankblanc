@@ -1,3 +1,4 @@
+<?php bb_theme_check(); ?>
 <fieldset <?php $this->has_modified('copyright'); ?>>
   <div class="col-left">
     <div class="label-title">コピーライトの表記</div>

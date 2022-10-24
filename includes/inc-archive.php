@@ -5,6 +5,7 @@
  * Template: inc-archive
  * Description: 記事を抜粋して一覧表示
  */
+bb_theme_check();
 ?>
 <?php echo bb_get_term_description(); ?>
 <div class="entry-articles">

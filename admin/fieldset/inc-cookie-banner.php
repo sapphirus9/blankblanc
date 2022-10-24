@@ -1,3 +1,4 @@
+<?php bb_theme_check(); ?>
 <fieldset <?php $this->has_modified('cookie_banner.indicate'); ?>>
   <div class="col-left">
     <div class="label-title">Cookieの使用同意画面を表示</div>

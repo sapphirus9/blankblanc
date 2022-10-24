@@ -5,6 +5,7 @@
  * Template: sidebar
  * Description: サイドバー
  */
+bb_theme_check();
 ?>
 
 <aside id="global-widget"<?php echo bb_get_fixed_widget();?>>

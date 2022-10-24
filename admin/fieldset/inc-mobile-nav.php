@@ -1,3 +1,4 @@
+<?php bb_theme_check(); ?>
 <fieldset <?php $this->has_modified('mobile_nav'); ?>>
   <?php
   global $wp_registered_sidebars, $wp_registered_widgets;

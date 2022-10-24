@@ -1,3 +1,4 @@
+<?php bb_theme_check(); ?>
 <fieldset <?php $this->has_modified('disable_emoji'); ?>>
   <div class="col-left">
     <div class="label-title">絵文字の無効化</div>

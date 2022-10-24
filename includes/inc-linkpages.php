@@ -5,6 +5,7 @@
  * Template: inc-linkpages
  * Description: 投稿／固定ページ内のページ送り
  */
+bb_theme_check();
 ?>
 <?php
 if (!post_password_required()) {
