@@ -253,18 +253,44 @@ if (!function_exists('add_mobile_styles_scripts')) {
     // スライドメニューの登録
     $_js = array();
     if (!empty($bb_theme_config['mobile_nav'])) {
-      $_js[] = "\tslideNav: ['" . implode("', '", $bb_theme_config['mobile_nav']) . "']";
+      $_js[] = "slideNav:['" . implode("','", $bb_theme_config['mobile_nav']) . "']";
     }
     if (!empty($bb_theme_config['mobile_nav_footer'])) {
-      $_js[] = "\tfooterNav: ['" . implode("', '", $bb_theme_config['mobile_nav_footer']) . "']";
+      $_js[] = "footerNav:['" . implode("','", $bb_theme_config['mobile_nav_footer']) . "']";
+    }
+    // モバイルウィジェットの登録
+    if (is_active_sidebar('mobile-widget-top') || is_active_sidebar('mobile-widget-bottom')) {
+      $_js[] = "mobileWidgets:'" . get_admin_url(null, 'admin-ajax.php?action=mobile-widgets') . "'";
     }
     if (!empty($_js)) {
-      $js = "var bbCfgMobileNav = {\n" . implode(",\n", $_js) . "\n};";
+      $js = 'var bbCfgMobileNav={' . implode(',', $_js) . '};';
       wp_add_inline_script('mobile-nav', $js, 'before');
     }
   }
 }
 add_action('wp_enqueue_scripts', 'add_mobile_styles_scripts', 40);
+
+// 管理画面で登録されたモバイル用ウィジェットの追加
+function add_ajax_mobile_widgets() {
+  $widgets = [
+    'mobile-widget-top',
+    'mobile-widget-bottom',
+  ];
+  foreach ($widgets as $widget) {
+    if (is_active_sidebar($widget)) {
+?>
+<div id="<?php echo $widget; ?>" class="nav-block">
+  <ol>
+    <?php dynamic_sidebar($widget); ?>
+  </ol>
+</div>
+<?php
+    }
+  }
+  wp_die();
+}
+add_action('wp_ajax_mobile-widgets', 'add_ajax_mobile_widgets');
+add_action('wp_ajax_nopriv_mobile-widgets', 'add_ajax_mobile_widgets');
 
 // ユーザー定義関数
 if (!function_exists('add_common_scripts')) {

@@ -62,6 +62,34 @@
     if (!$navWindowArea) return;
 
     /**
+     * 動作：サブメニュー表示の切り替え
+     */
+    const subMenuEffect = (attr) => {
+      if (!attr) attr = nameNavWindowContainer;
+      const $itemAll = document.querySelectorAll(attr + ' .child-group');
+      $itemAll.forEach(($item) => {
+        $item.previousElementSibling.appendChild(createHtml('span', null, '.icon-toggle'));
+        const $itemParent = $item.parentNode;
+        $itemParent.classList.add('acoordion-menu');
+        const maxHeight = (act) => {
+          let height = 0;
+          if (act == 'open') {
+            const $subMenu = $item.querySelector('ul').getBoundingClientRect();
+            height = parseInt($subMenu.height) + 25;
+          }
+          $item.style.maxHeight = `${height}px`;
+        };
+        $itemParent.querySelector('.icon-toggle').addEventListener('click', (e) => {
+          $itemParent.classList.toggle('active');
+          e.stopPropagation();
+          e.preventDefault();
+          if ($itemParent.classList.contains('active')) maxHeight('open');
+          else maxHeight();
+        });
+      });
+    };
+
+    /**
      * メニュー／ウィジェットの追加
      */
     let navEnable = false;
@@ -85,31 +113,32 @@
         document.querySelector(nameNavWindowWidgets).appendChild(list);
       }
     });
+    subMenuEffect();
 
     /**
-     * 動作：サブメニュー表示の切り替え
+     * 管理画面で登録されたモバイル用ウィジェットの追加
      */
-    const $itemAll = document.querySelectorAll(nameNavWindowContainer + ' .child-group');
-    $itemAll.forEach(($item) => {
-      $item.previousElementSibling.appendChild(createHtml('span', null, '.icon-toggle'));
-      const $itemParent = $item.parentNode;
-      $itemParent.classList.add('acoordion-menu');
-      const maxHeight = (act) => {
-        let height = 0;
-        if (act == 'open') {
-          const $subMenu = $item.querySelector('ul').getBoundingClientRect();
-          height = parseInt($subMenu.height) + 25;
-        }
-        $item.style.maxHeight = `${height}px`;
-      };
-      $itemParent.querySelector('.icon-toggle').addEventListener('click', (e) => {
-        $itemParent.classList.toggle('active');
-        e.stopPropagation();
-        e.preventDefault();
-        if ($itemParent.classList.contains('active')) maxHeight('open');
-        else maxHeight();
+    if (nav.mobileWidgets) {
+      const xhr = new XMLHttpRequest();
+      xhr.addEventListener('loadend', () => {
+        const widgets = document.createElement('div');
+        widgets.innerHTML = xhr.response;
+        widgets.childNodes.forEach((widget) => {
+          switch (widget.id) {
+            case 'mobile-widget-top':
+              document.querySelector(nameNavWindowWidgets).before(widget);
+              subMenuEffect(`#${widget.id}`);
+              break;
+            case 'mobile-widget-bottom':
+              document.querySelector(nameNavWindowWidgets).after(widget);
+              subMenuEffect(`#${widget.id}`);
+              break;
+          }
+        });
       });
-    });
+      xhr.open('GET', nav.mobileWidgets);
+      xhr.send();
+    }
 
     /**
      * CLOSEボタンを追加
