@@ -44,7 +44,7 @@
       align-self: center;
       margin-right: 30px;
       @include media-max(lg) {
-        align-self: center;
+        text-align: center;
         margin: 0 auto;
       }
     }
@@ -55,7 +55,6 @@
   .logo {
     display: inline-flex;
     @include media-max(lg) {
-      text-align: center;
       margin-top: 4px;
     }
     a {
