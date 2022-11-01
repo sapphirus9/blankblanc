@@ -25,7 +25,7 @@
   min-width: 800px;
   margin-top: 10px;
   opacity: 0;
-  transition: all .1s;
+  transition: opacity .5s;
   &.loaded {
     opacity: 1;
   }
@@ -97,6 +97,12 @@
         color: #ff4a4a;
         font-weight: normal;
         border-bottom: 1px dashed #ff4a4a;
+        &-key {
+          color: #ad002b;
+          font-weight: normal;
+          background-color: rgba(#ad002b, .1);
+          border-radius: 3px;
+        }
       }
     }
   }
