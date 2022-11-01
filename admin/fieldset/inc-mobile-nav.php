@@ -54,6 +54,7 @@
   </div>
   <div class="col-right">
     <div class="input-group">
+      <input type="hidden" name="blankblanc_config_values[mobile_nav]" value="">
       <ol id="activate-mobile-nav">
         <?php foreach ($li_arr as $li) : ?>
           <li><?php echo $li; ?></li>

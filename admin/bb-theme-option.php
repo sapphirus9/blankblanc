@@ -318,6 +318,9 @@ class blankblancConfig
     } else {
       if (is_array($this->bb_theme_default[$keys[0]])) {
         ksort($this->bb_theme_default[$keys[0]]);
+        if (empty($this->config_values[$keys[0]])) {
+          $this->config_values[$keys[0]] = array();
+        }
         ksort($this->config_values[$keys[0]]);
       }
       if ($this->bb_theme_default[$keys[0]] !== wp_unslash($this->config_values[$keys[0]])) {
@@ -337,10 +340,21 @@ class blankblancConfig
     $tab = str_repeat("\t", $level);
     foreach ($current as $key => $value) {
       if (is_array($value)) {
+        $modified_key = $key;
+        // 変更のある項目のチェック
+        if (!$child) {
+          $default_value = $default[$key];
+          $current_value = $value;
+          ksort($default_value);
+          ksort($current_value);
+          if (serialize($default_value) != serialize(wp_unslash($current_value))) {
+            $modified_key = sprintf("<strong class=\"modified-key\">'%s'</strong>", $key);
+          }
+        }
         if (empty($value)) {
-          array_push($src, "{$tab}'{$key}' => array(),\n");
+          array_push($src, "{$tab}{$modified_key} => array(),\n");
         } else {
-          array_push($src, "{$tab}'{$key}' => array(\n");
+          array_push($src, "{$tab}{$modified_key} => array(\n");
           array_push($src, $this->config_list($value, $level + 1, 'child', $default[$key]));
           array_push($src, "{$tab}),\n");
         }
