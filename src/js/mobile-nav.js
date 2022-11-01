@@ -12,7 +12,8 @@
    */
   let nav = {
     slideNav: [], /* スライドナビ ウイジェットの li が対象 */
-    footerNav: [] /* フッターナビ用 ウイジェットの li が対象 */
+    footerNav: [], /* フッターナビ用 ウイジェットの li が対象 */
+    mobileWidgets: null /* Ajaxでのモバイル用ウィジェットのURL */
   };
 
   /**
@@ -22,7 +23,7 @@
     if ('bbCfgMobileNav' in window) {
       nav = Object.assign(nav, bbCfgMobileNav);
     }
-    if (nav.slideNav.length > 0) slideNav();
+    if (nav.slideNav.length > 0 || nav.mobileWidgets) slideNav();
     if (nav.footerNav.length > 0) footerNav();
   });
 

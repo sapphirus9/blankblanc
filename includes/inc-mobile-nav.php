@@ -7,10 +7,16 @@
  */
 bb_theme_check();
 ?>
-<div id="nav-window-area" class="is-mobile">
-  <div id="nav-window-scroll">
-    <div id="nav-window-container">
-      <div id="nav-window-widgets" class="nav-block"></div>
+<?php
+global $bb_theme_config;
+if (!empty($bb_theme_config['mobile_nav']) || is_active_sidebar('mobile-widget-top') || is_active_sidebar('mobile-widget-bottom')) :
+  $empty = empty($bb_theme_config['mobile_nav']) ? ' nav-block-empty' : '';
+?>
+  <div id="nav-window-area" class="is-mobile">
+    <div id="nav-window-scroll">
+      <div id="nav-window-container">
+        <div id="nav-window-widgets" class="nav-block<?php echo $empty; ?>"></div>
+      </div>
     </div>
   </div>
-</div>
+<?php endif;

@@ -219,9 +219,16 @@ body.nav-window-show {
     }
   }
   .nav-block {
-    border-bottom: 1px solid var(--bb-gray-6);
-    &:last-child {
-      border-bottom: none;
+    ~ .nav-block {
+      border-top: 1px solid var(--bb-gray-6);
+    }
+    &-empty {
+      display: none;
+      &:first-child {
+        ~ .nav-block {
+          border-top: none;
+        }
+      }
     }
   }
   .widget_meta,
