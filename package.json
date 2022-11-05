@@ -20,9 +20,9 @@
   "homepage": "https://github.com/sapphirus9/blankblanc#readme",
   "devDependencies": {
     "@babel/preset-env": "^7.19.4",
-    "@wordpress/scripts": "^24.4.0",
+    "@wordpress/scripts": "^24.5.0",
     "autoprefixer": "^10.4.13",
-    "babel-loader": "^9.0.0",
+    "babel-loader": "^9.1.0",
     "gulp": "^4.0.2",
     "gulp-dart-sass": "^1.0.2",
     "gulp-notify": "^4.0.0",
