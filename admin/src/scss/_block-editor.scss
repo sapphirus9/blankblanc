@@ -1,0 +1,10 @@
+//--------------------------------------------------------------------
+// classic editor
+//--------------------------------------------------------------------
+.rich-text:focus {
+  .text-highlighter {
+    &[data-rich-text-format-boundary]  {
+      background-color: rgba(0, 0, 0, .1);
+    }
+  }
+}

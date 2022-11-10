@@ -6,6 +6,7 @@
  */
 @use '../../../src/scss/vars';
 @use 'common';
-@use 'editor';
+@use 'classic-editor';
+@use 'block-editor';
 @use '../../../src/scss/common/add-tinymce' as *;
 @include add-tinymce();

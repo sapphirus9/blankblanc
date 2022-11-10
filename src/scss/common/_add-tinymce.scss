@@ -17,73 +17,46 @@
     &-red {
       @include highlighter-base() {
         background: linear-gradient(180deg, rgba(var(--bb-hl-red-rgb), 0) 50%, rgba(var(--bb-hl-red-rgb), .5) 50%);
-        &[data-rich-text-format-boundary]  {
-          background-color: rgba(var(--bb-hl-red-rgb), .25) !important;
-        }
       }
     }
     &-orange {
       @include highlighter-base() {
         background: linear-gradient(180deg, rgba(var(--bb-hl-orange-rgb), 0) 50%, rgba(var(--bb-hl-orange-rgb), .5) 50%);
-        &[data-rich-text-format-boundary]  {
-          background-color: rgba(var(--bb-hl-orange-rgb), .25) !important;
-        }
       }
     }
     &-yellow {
       @include highlighter-base() {
         background: linear-gradient(180deg, rgba(var(--bb-hl-yellow-rgb), 0) 50%, rgba(var(--bb-hl-yellow-rgb), .5) 50%);
-        &[data-rich-text-format-boundary]  {
-          background-color: rgba(var(--bb-hl-yellow-rgb), .25) !important;
-        }
       }
     }
     &-green {
       @include highlighter-base() {
         background: linear-gradient(180deg, rgba(var(--bb-hl-green-rgb), 0) 50%, rgba(var(--bb-hl-green-rgb), .5) 50%);
-        &[data-rich-text-format-boundary]  {
-          background-color: rgba(var(--bb-hl-green-rgb), .25) !important;
-        }
       }
     }
     &-blue {
       @include highlighter-base() {
         background: linear-gradient(180deg, rgba(var(--bb-hl-blue-rgb), 0) 50%, rgba(var(--bb-hl-blue-rgb), .5) 50%);
-        &[data-rich-text-format-boundary]  {
-          background-color: rgba(var(--bb-hl-blue-rgb), .25) !important;
-        }
       }
     }
     &-purple {
       @include highlighter-base() {
         background: linear-gradient(180deg, rgba(var(--bb-hl-purple-rgb), 0) 50%, rgba(var(--bb-hl-purple-rgb), .5) 50%);
-        &[data-rich-text-format-boundary]  {
-          background-color: rgba(var(--bb-hl-purple-rgb), .25) !important;
-        }
       }
     }
     &-pink {
       @include highlighter-base() {
         background: linear-gradient(180deg, rgba(var(--bb-hl-pink-rgb), 0) 50%, rgba(var(--bb-hl-pink-rgb), .5) 50%);
-        &[data-rich-text-format-boundary]  {
-          background-color: rgba(var(--bb-hl-pink-rgb), .25) !important;
-        }
       }
     }
     &-sky {
       @include highlighter-base() {
         background: linear-gradient(180deg, rgba(var(--bb-hl-sky-rgb), 0) 50%, rgba(var(--bb-hl-sky-rgb), .5) 50%);
-        &[data-rich-text-format-boundary]  {
-          background-color: rgba(var(--bb-hl-sky-rgb), .25) !important;
-        }
       }
     }
     &-gray {
       @include highlighter-base() {
         background: linear-gradient(180deg, rgba(var(--bb-hl-gray-rgb), 0) 50%, rgba(var(--bb-hl-gray-rgb), .5) 50%);
-        &[data-rich-text-format-boundary]  {
-          background-color: rgba(var(--bb-hl-gray-rgb), .25) !important;
-        }
       }
     }
   }
