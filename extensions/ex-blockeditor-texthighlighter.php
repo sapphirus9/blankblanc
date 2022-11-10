@@ -14,7 +14,9 @@ function add_blockeditor_text_highlighter() {
   register_block_type(
     'blankblanc/text-highlighter',
     array(
-      'editor_script' => 'text-highlighter',
+      'editor_script_handles' => array(
+        'text-highlighter',
+      )
     )
   );
 }
