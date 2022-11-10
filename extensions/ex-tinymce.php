@@ -19,47 +19,47 @@ if (!function_exists('customize_tiny_mce')) {
         'items' => array(
           array(
             'title'    => 'レッド',
-            'inline'   => 'em',
+            'inline'   => 'mark',
             'classes'  => 'text-highlighter text-highlighter-red',
           ),
           array(
             'title'    => 'オレンジ',
-            'inline'   => 'em',
+            'inline'   => 'mark',
             'classes'  => 'text-highlighter text-highlighter-orange',
           ),
           array(
             'title'    => 'イエロー',
-            'inline'   => 'em',
+            'inline'   => 'mark',
             'classes'  => 'text-highlighter text-highlighter-yellow',
           ),
           array(
             'title'    => 'グリーン',
-            'inline'   => 'em',
+            'inline'   => 'mark',
             'classes'  => 'text-highlighter text-highlighter-green',
           ),
           array(
             'title'    => 'ブルー',
-            'inline'   => 'em',
+            'inline'   => 'mark',
             'classes'  => 'text-highlighter text-highlighter-blue',
           ),
           array(
             'title'    => 'パープル',
-            'inline'   => 'em',
+            'inline'   => 'mark',
             'classes'  => 'text-highlighter text-highlighter-purple',
           ),
           array(
             'title'    => 'ピンク',
-            'inline'   => 'em',
+            'inline'   => 'mark',
             'classes'  => 'text-highlighter text-highlighter-pink',
           ),
           array(
             'title'    => 'スカイブルー',
-            'inline'   => 'em',
+            'inline'   => 'mark',
             'classes'  => 'text-highlighter text-highlighter-sky',
           ),
           array(
             'title'    => 'グレー',
-            'inline'   => 'em',
+            'inline'   => 'mark',
             'classes'  => 'text-highlighter text-highlighter-gray',
           ),
         ),
