@@ -17,6 +17,11 @@
       }
     }
   }
+  .over-width {
+    > div {
+      --bb-width-desktop: #{$over-width};
+    }
+  }
 }
 
 .entry-body .wp-block {
