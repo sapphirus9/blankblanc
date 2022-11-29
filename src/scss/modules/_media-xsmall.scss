@@ -7,10 +7,10 @@
   // nav window
   //--------------------------------------------------------------------
   #nav-window-area {
-    transform: translateX(-85.01vw);
-    width: 85vw;
+    transform: translateX(min(calc((var(--bb-nav-area) + .2vw) / -1), calc((var(--bb-min-nav-area) + 1px) / -1)));
+    width: max(var(--bb-nav-area), var(--bb-min-nav-area));
     .nav-window-right & {
-      transform: translateX(85.01vw);
+      transform: translateX(max(calc(var(--bb-nav-area) + .2vw), calc(var(--bb-min-nav-area) + 1px)));
     }
   }
 }

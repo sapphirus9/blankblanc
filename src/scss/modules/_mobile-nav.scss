@@ -37,9 +37,9 @@ body.nav-window-show {
   left: 0;
   right: auto;
   z-index: 2;
-  width: 400px;
+  width: var(--bb-max-nav-area);
   background-color: var(--bb-white);
-  transform: translateX(-401px);
+  transform: translateX(calc((var(--bb-max-nav-area) + 1px) / -1));
   transition: transform .3s;
   @include media-max(lg) {
     display: block;
@@ -47,7 +47,7 @@ body.nav-window-show {
   .nav-window-right & {
     left: auto;
     right: 0;
-    transform: translateX(401px);
+    transform: translateX(calc(var(--bb-max-nav-area) + 1px));
   }
   &.nav-window-show {
     transform: translateX(0) !important;
