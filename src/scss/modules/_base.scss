@@ -52,6 +52,12 @@ a {
   }
 }
 
+.over-width {
+  .wrap {
+    --bb-width-desktop: #{$over-width};
+  }
+}
+
 .is-mobile {
   display: none;
   @include media-max(lg) {
