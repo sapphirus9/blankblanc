@@ -90,7 +90,7 @@ class BbSmoothScroll {
       const $targetElem = 'string' == typeof (position) ? document.querySelector(position) : position;
       if ($targetElem) {
         const rect = $targetElem.getBoundingClientRect();
-        position = rect.top + window.pageYOffset;
+        position = rect.top + window.scrollY;
         const dataOptions = $targetElem.dataset.option;
         if (dataOptions) {
           const _dataOptions = dataOptions.split(',');
@@ -111,7 +111,7 @@ class BbSmoothScroll {
       position = position - (document.documentElement.clientWidth < init.breakPoint ? init.mobile : init.desktop);
       if (position < 0) position = 0;
     }
-    const currentPos = window.pageYOffset;
+    const currentPos = window.scrollY;
     let timer = null;
     let cancel = false;
     let direction = 'neutral'
@@ -148,6 +148,7 @@ class BbSmoothScroll {
  * main
  * -------------------------
  */
+this.BbOptions = {};
 (() => {
   // html確認
   if (!document.getElementById('main-screen')) {
@@ -281,7 +282,7 @@ class BbSmoothScroll {
     ];
     eventAll.forEach((event) => {
       const indicate = () => {
-        const currentPos = window.pageYOffset;
+        const currentPos = window.scrollY;
         const pageBottomTop = document.documentElement.scrollHeight - window.BbOptions.shrinkHeight;
         if (start < currentPos) {
           $gotop.classList.add('gotop-show');
@@ -365,7 +366,7 @@ class BbSmoothScroll {
     const $headerPart = document.querySelector('#header-part');
     if ($headerPart) {
       const rect = $headerPart.getBoundingClientRect();
-      if (window.pageYOffset  >= parseInt(window.pageYOffset  + rect.top)) $headerPart.classList.add('fixed');
+      if (window.scrollY  >= parseInt(window.scrollY  + rect.top)) $headerPart.classList.add('fixed');
       else $headerPart.classList.remove('fixed');
     }
   });
@@ -457,19 +458,25 @@ class BbSmoothScroll {
     }
     const secondColRect = $secondCol.getBoundingClientRect();
     const fixedWidgetRect = $fixedWidget.getBoundingClientRect();
-    // コンテンツカラムよりウィジェットの方が高い場合は処理をしない
+    // コンテンツカラムよりウィジェットの方が大きい場合は処理をしない
     if (secondColRect.height <= fixedWidgetRect.height) return;
-    const currentBottom = window.pageYOffset + window.BbOptions.shrinkHeight;
-    if (initfixedWidget.top === null) initfixedWidget.top = window.pageYOffset + fixedWidgetRect.top;
-    $fixedWidget.classList.remove('sticky');
-    // ウィジェットのボトムを判定
-    const fixedWidgetBottom = parseInt(initfixedWidget.top + fixedWidgetRect.height);
-    if (currentBottom >= fixedWidgetBottom) $fixedWidget.classList.add('fixed');
-    else $fixedWidget.classList.remove('fixed');
-    // カラムのボトムを判定
-    const secondColBottom = parseInt(window.pageYOffset + secondColRect.bottom);
-    if (currentBottom >= secondColBottom) $fixedWidget.classList.add('absolute');
-    else $fixedWidget.classList.remove('absolute');
+    const currentBottom = window.scrollY + window.BbOptions.shrinkHeight;
+    if (initfixedWidget.top === null) initfixedWidget.top = window.scrollY + fixedWidgetRect.top;
+    const globalNavRect = document.querySelector('#global-nav').getBoundingClientRect();
+    const globalWidgetRect = document.querySelector('#global-widget').getBoundingClientRect();
+    // ウィンドウよりウィジェットの方が小さい場合
+    if (window.BbOptions.shrinkHeight > parseInt(globalWidgetRect.height - globalNavRect.height)) {
+      $fixedWidget.classList.add('sticky');
+    } else {
+      // ウィジェットのボトムを判定
+      const fixedWidgetBottom = parseInt(initfixedWidget.top + fixedWidgetRect.height);
+      if (currentBottom >= fixedWidgetBottom) $fixedWidget.classList.add('fixed');
+      else $fixedWidget.classList.remove('fixed');
+      // カラムのボトムを判定
+      const secondColBottom = parseInt(window.scrollY + secondColRect.bottom);
+      if (currentBottom >= secondColBottom) $fixedWidget.classList.add('absolute');
+      else $fixedWidget.classList.remove('absolute');
+    }
   });
 
   /**
