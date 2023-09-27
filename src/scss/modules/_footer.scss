@@ -6,14 +6,11 @@
 // global footer
 //--------------------------------------------------------------------
 #global-footer {
-  @include media-max(lg) {
-    max-width: var(--bb-max-width-mobile);
-    margin: 0 auto;
-  }
   .wrap {
     min-height: 100px;
     @include media-max(lg) {
       min-height: 0;
+      max-width: var(--bb-max-width-mobile);
     }
   }
   .copyright {

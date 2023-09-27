@@ -4,6 +4,7 @@
 //--------------------------------------------------------------------
 #contents {
   display: block;
+  flex: 1;
   padding-bottom: 80px;
   background-color: var(--bb-white);
   @include media-max(lg) {
