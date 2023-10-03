@@ -873,13 +873,63 @@ function bb_theme_comment($comment, $args, $depth) {
   </div>
 <?php
 }
-// 「コメントを残す」タグを変更（h3 -> div）
-function customize_reply_title($defaults) {
-  $defaults['title_reply_before'] = '<div id="reply-title" class="comment-reply-title">';
-  $defaults['title_reply_after'] = "</div>\n";
-  return $defaults;
+
+// コメントフォーム
+function bb_theme_comment_form() {
+  global $post;
+  // デフォルト値取得
+  $post_id = $post->ID;
+  $commenter = wp_get_current_commenter();
+  $user = wp_get_current_user();
+  $req = get_option('require_name_email');
+  $aria_req = ($req ? ' aria-required="true"' : '');
+  $req_text = '<span class="required">（必須）</span>';
+
+  // $fields 設定
+  $fields = array(
+    'author' => '<p class="inputtext">' . '<label for="author">' . '名前'
+      . ($req ? $req_text : null) . '</label>' .
+      '<input id="author" name="author" type="text" value="'
+      . esc_attr($commenter['comment_author']) . '"' . $aria_req . ' /></p>' . "\n",
+
+    'email'  => '<p class="inputtext"><label for="email">' . 'メールアドレス'
+      . ($req ? $req_text : null) . '</label>' .
+      '<span class="not-publish">※メールアドレスは公開されません</span>' .
+      '<input id="email" name="email" type="text" value="'
+      . esc_attr($commenter['comment_author_email']) . '"' . $aria_req . ' /></p>' . "\n",
+
+    'url'    => '<p class="inputtext"><label for="url">' . 'ウェブサイト'
+      . '</label>' .
+      '<input id="url" name="url" type="text" value="'
+      . esc_attr($commenter['comment_author_url']) . '"' . ' /></p>' . "\n",
+    );
+
+  // $comment_field 設定
+  $comment_field = '<p class="comment-form-comment"><label for="comment">' . 'コメント'
+    . $req_text . '</label>'
+    . '<textarea id="comment" name="comment" aria-required="true"></textarea></p>' . "\n";
+
+  // $args 設定
+  $args = array(
+    'fields'               => apply_filters('comment_form_default_fields', $fields),
+    'cancel_reply_link'    => '<span class="cancel-comment-reply-link-text">キャンセル</span>',
+    'comment_field'        => $comment_field,
+    'logged_in_as'         => sprintf(
+      '<p class="logged-in-as">%s</p>',
+      sprintf(
+        __('<a href="%1$s">%2$s</a>としてログインしています。<br class="is-mobile">（<a href="%3$s">ログアウト</a>する）'),
+        get_edit_user_link(),
+        $user->exists() ? $user->display_name : '',
+        wp_logout_url(apply_filters('the_permalink', get_permalink($post_id), $post_id))
+      )
+    ),
+    'comment_notes_before' => '',
+    'comment_notes_after'  => '',
+    'title_reply_before'   => '<div id="reply-title" class="comment-reply-title">',
+    'title_reply_after'    => "</div>\n",
+  );
+  comment_form($args);
 }
-add_filter('comment_form_defaults', 'customize_reply_title');
 
 
 /**
