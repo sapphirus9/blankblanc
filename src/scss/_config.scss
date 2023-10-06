@@ -8,13 +8,13 @@
 // length
 //--------------------------------------------------------------------
 $width-limit: 1850px;
-$width-desktop: 1100px;
+$width-desktop: 1150px;
 $over-width: 1500px;
 $first-column: 750px;
-$second-column: 300px;
+$second-column: 350px;
 $one-column: 750px;
 $max-width-mobile: 700px;
-$min-width-mobile: 360px;
+$min-width-mobile: 375px;
 $gap-desktop: 25px;
 $nowrap-tile-step: 280px;
 $global-nav-height: 40px;
@@ -24,7 +24,7 @@ $mobile-header-height: 54px;
 // nav
 $nav-area: 86vw;
 $max-nav-area: 400px;
-$min-nav-area: 320px;
+$min-nav-area: 335px;
 
 // color
 //--------------------------------------------------------------------
@@ -115,8 +115,8 @@ $hl-gray-rgb: 202, 202, 202;
 //  |lg: 600px ~ 781px ---------->|
 //  |md: 540px ~ 599px ------>|
 //  |sm: 450px ~ 539px --->|
-//  |xs: 360px ~ 449px ->|
-//  |min: ~ 359px ---->|
+//  |xs: 375px ~ 449px ->| -> $min-width-mobile
+//  |min: ~ 374px ---->| -> $min-width-mobile
 $breakpoints: (
   max: 1200px,
   // xl: 1000px,
@@ -124,7 +124,7 @@ $breakpoints: (
   md: 600px, //  *block editor default bp: 600px
   sm: 540px,
   xs: 450px,
-  min: 360px,
+  min: $min-width-mobile,
   b-md: 600px
 );
 @mixin media-max($type: lg) {
