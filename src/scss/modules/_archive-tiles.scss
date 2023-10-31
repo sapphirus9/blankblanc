@@ -36,63 +36,37 @@
     }
   }
   .entry-articles {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns:  repeat(3, 1fr);
+    gap: 40px;
     font-size: 1.5rem;
-    margin: 0 -20px;
     @include media-max(lg) {
-      margin: 0 -15px;
+      gap: 30px;
     }
     @include media-max(md) {
-      margin: 0 -10px;
+      grid-template-columns:  repeat(2, 1fr);
+      gap: 20px;
+    }
+    .fullwidth-layout & {
+      grid-template-columns:  repeat(4, 1fr);
     }
     .nowrapwidth-layout & {
-      margin: 0 var(--bb-gap-desktop) - 20px;
+      grid-template-columns:  repeat(4, 1fr);
       @include media-min($width-limit) {
-        width: $width-limit - 30px;
+        width: $width-limit;
         margin: 0 auto;
       }
       @include media-max(lg) {
-        margin: 0 -15px;
+        grid-template-columns:  repeat(3, 1fr);
       }
       @include media-max(md) {
-        margin: 0 -10px;
+        grid-template-columns:  repeat(2, 1fr);
       }
-    }
-  }
-  .entry-article {
-    width: calc(100% / 3);
-    padding: 0 20px;
-    margin-bottom: 40px;
-    box-sizing: border-box;
-    @include media-max(lg) {
-      padding: 0 15px;
-      margin-bottom: 30px;
-    }
-    .nowrapwidth-layout & {
       @include media-min($nowrap-tile-step * 5) {
-        width: calc(100% / 5);
+        grid-template-columns:  repeat(5, 1fr);
       }
       @include media-min($nowrap-tile-step * 6) {
-        width: calc(100% / 6);
-      }
-    }
-    .nowrapwidth-layout &,
-    .fullwidth-layout & {
-      width: calc(100% / 4);
-      @include media-max(lg) {
-        width: calc(100% / 3);
-      }
-    }
-    @include media-max(md) {
-      padding: 0 10px;
-    }
-    @include media-max(sm) {
-      width: calc(100% / 2);
-      .nowrapwidth-layout &,
-      .fullwidth-layout & {
-        width: calc(100% / 2);
+        grid-template-columns:  repeat(6, 1fr);
       }
     }
   }

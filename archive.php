@@ -7,7 +7,7 @@
  */
 get_header(); ?>
 
-<main role="main" id="contents" class="archive">
+<main role="main" id="contents" class="archive-page">
   <?php get_template_part('includes/inc', 'mainvisual'); ?>
   <?php get_template_part('includes/inc', 'breadcrumb'); ?>
 

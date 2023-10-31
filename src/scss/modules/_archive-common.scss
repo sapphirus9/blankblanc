@@ -37,6 +37,12 @@
     @include media-max(lg) {
       margin: 0 var(--bb-gap-mobile);
     }
+    .nowrapwidth-layout & {
+      @include media-min($width-limit) {
+        width: $width-limit;
+        margin: 0 auto;
+      }
+    }
   }
   .entry-article {
     padding: 20px 0;
