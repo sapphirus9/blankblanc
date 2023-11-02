@@ -47,20 +47,20 @@
       grid-template-columns:  repeat(2, 1fr);
       gap: 20px;
     }
-    .fullwidth-layout & {
-      grid-template-columns:  repeat(4, 1fr);
-    }
+    .fullwidth-layout &,
     .nowrapwidth-layout & {
       grid-template-columns:  repeat(4, 1fr);
-      @include media-min($width-limit) {
-        width: $width-limit;
-        margin: 0 auto;
-      }
       @include media-max(lg) {
         grid-template-columns:  repeat(3, 1fr);
       }
       @include media-max(md) {
         grid-template-columns:  repeat(2, 1fr);
+      }
+    }
+    .nowrapwidth-layout & {
+      @include media-min($width-limit) {
+        width: $width-limit;
+        margin: 0 auto;
       }
       @include media-min($nowrap-tile-step * 5) {
         grid-template-columns:  repeat(5, 1fr);
