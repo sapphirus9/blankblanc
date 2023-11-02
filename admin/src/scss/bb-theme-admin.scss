@@ -8,6 +8,34 @@
  */
 #blankblanc-theme-options {
   h1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .column {
+      &-theme-name {
+        a {
+          display: flex;
+          align-items: center;
+          color: #b0b5b6;
+          font-size: 1rem;
+          line-height: 1;
+          text-decoration: none;
+          box-shadow: none;
+          .octicon-mark-github {
+            width: 22px;
+            height: 22px;
+            margin-left: .4em;
+            fill: #b0b5b6;
+          }
+          &:hover {
+            color: #9499a0;
+            .octicon-mark-github {
+              fill: #9499a0;
+            }
+          }
+        }
+      }
+    }
     .title {
       display: inline-block;
       margin-right: 1em;
