@@ -113,6 +113,7 @@ const EsBuild = done => {
       .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
       .pipe(esbuild({
         bundle: true,
+        sourcemap: cfg.mode == 'production' ? false : true,
         minify: cfg.mode == 'production' ? true : false,
       }))
       .pipe(gulp.dest(_dist.js))

@@ -232,11 +232,14 @@
       });
     });
   });
-  $(window).on('beforeunload', function () {
+  $(window).on('beforeunload', function (e) {
     if ($('#addtag, #edittag').length) {
       change_value = false;
     }
-    if (change_value) return '';
+    if (change_value) {
+      e.preventDefault();
+      return '';
+    }
   });
 
   // テーマオプションを表示
