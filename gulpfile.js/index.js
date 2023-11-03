@@ -7,7 +7,8 @@ const cfg = require('./config')
  * モジュール
  */
 const autoprefixer  = require('autoprefixer')
-const bsync         = require('browser-sync')
+const bsync         = require('browser-sync').create()
+const blistesbuild  = require('browserslist-to-esbuild')
 const gulp          = require('gulp')
 const sass          = require('gulp-sass')(require('sass'))
 const esbuild       = require('gulp-esbuild')
@@ -113,6 +114,7 @@ const EsBuild = done => {
       .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
       .pipe(esbuild({
         bundle: true,
+        target: blistesbuild(),
         sourcemap: cfg.mode == 'production' ? false : true,
         minify: cfg.mode == 'production' ? true : false,
       }))
