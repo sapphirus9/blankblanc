@@ -6,6 +6,7 @@
 // global footer
 //--------------------------------------------------------------------
 #global-footer {
+  background-color: var(--bb-gray-7);
   .wrap {
     min-height: 100px;
     @include media-max(lg) {
@@ -57,7 +58,7 @@
 .footer-widgets {
   display: flex;
   flex-wrap: wrap;
-  padding-top: 30px;
+  padding-top: 50px;
   margin: 0 -15px;
   @include media-max(lg) {
     display: block;
