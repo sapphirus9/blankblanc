@@ -47,6 +47,30 @@
       color: #9499a0;
     }
   }
+  @keyframes force-reset {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  #force-reset {
+    margin: 10px 0;
+    opacity: 0;
+    animation-name: force-reset;
+    animation-delay: .5s;
+    animation-duration: .2s;
+    animation-fill-mode: both;
+    animation-iteration-count: 1;
+    .message {
+      display: block;
+      color: #ff4a4a;
+      font-size: .75rem;
+      line-height: 1.5;
+      margin-bottom: .75em;
+    }
+  }
 }
 
 #bb-config-edit {
@@ -61,13 +85,16 @@
     min-width: initial;
   }
   .nav-tab-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 4px;
     margin-bottom: 10px;
     li {
-      float: left;
       margin: 0;
-      outline: none;
     }
     a {
+      margin-left: 0;
       &:focus {
         box-shadow: none;
       }
@@ -370,7 +397,8 @@
       }
     }
   }
-  #activate-mobile-nav {
+  #activate-mobile-nav,
+  #activate-mobile-nav-footer {
     display: block;
     max-width: 335px;
     box-sizing: border-box;
@@ -402,6 +430,9 @@
         padding: 0;
       }
     }
+  }
+  #bb_config_mv_home_content {
+    max-width: calc(100% - 2px);
   }
 }
 

@@ -182,14 +182,14 @@
   // モバイルナビ用ウィジェットの並べ替え
   if ($.ui && $.ui.sortable) {
     $(function () {
-      $('#activate-mobile-nav').sortable({
+      $('#activate-mobile-nav, #activate-mobile-nav-footer').sortable({
         delay: 200,
         opacity: 0.6,
         scroll: false
       }).bind('sortchange', function () {
         change_value = true;
       });
-      $('#activate-mobile-nav > li').each(function () {
+      $('#activate-mobile-nav > li, #activate-mobile-nav-footer > li').each(function () {
         var cb = $('input:checkbox', this);
         $(this)
         .toggleClass('active', cb.prop('checked'))

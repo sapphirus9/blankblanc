@@ -46,13 +46,19 @@ function bb_setup_theme_config() {
   $bb_theme_default = bb_config_default();
   if (function_exists('bb_config')) {
     // 子テーマの設定を登録
-    $bb_theme_default = array_merge($bb_theme_default, bb_config());
+    $bb_theme_default['mobile_nav'] = array();
+    $bb_theme_default['mobile_nav_footer'] = array();
+    $bb_theme_default['toc_config']['toc_hidden'] = array();
+    $bb_theme_default = array_replace_recursive($bb_theme_default, bb_config());
   }
   if ($load_config = get_option('blankblanc_config_values')) {
     // アップデートチェック（バージョンが異なる場合はDBを更新）
     if (!isset($load_config['theme_version']) || $load_config['theme_version'] != $bb_theme_default['theme_version']) {
       unset($load_config['theme_version']);
-      $bb_theme_config = array_merge($bb_theme_default, $load_config);
+      $bb_theme_default['mobile_nav'] = array();
+      $bb_theme_default['mobile_nav_footer'] = array();
+      $bb_theme_default['toc_config']['toc_hidden'] = array();
+      $bb_theme_config = array_replace_recursive($bb_theme_default, $load_config);
       update_option('blankblanc_config_values', wp_unslash($bb_theme_config));
     } else {
       $bb_theme_config = $load_config;
