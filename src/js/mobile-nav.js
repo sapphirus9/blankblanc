@@ -223,7 +223,7 @@
    * フッターナビを構成
    */
   const footerNav = () => {
-    const list = createHtml('ul', null, isMobile);
+    const list = document.querySelector('#mobile-footer-widget');
     const _nav = nav.footerNav;
     _nav.forEach((footer) => {
       if (footer == globalNav || footer == headerNav) {
@@ -238,8 +238,6 @@
         _list.firstElementChild.setAttribute('id', footer.substring(1) + '-footernav');
         list.appendChild(_list.firstChild);
       }
-      const $globalFooter = document.querySelector(globalFooter + ' .footer-widgets');
-      $globalFooter.insertBefore(list, $globalFooter.firstElementChild);
     });
   };
 })();

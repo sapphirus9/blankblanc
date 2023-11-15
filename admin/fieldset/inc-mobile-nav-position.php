@@ -1,8 +1,8 @@
 <?php bb_theme_check(); ?>
 <fieldset <?php $this->has_modified('mobile_nav_position'); ?>>
   <div class="col-left">
-    <div class="label-title">スライドナビを右側に変更</div>
-    <div class="note">モバイル時のスライドナビウィンドウの方向を右側からに変更します。</div>
+    <div class="label-title">スライドウィンドウを右に変更</div>
+    <div class="note">モバイル時のスライドウィンドウの出現を右方向からに変更します。</div>
   </div>
   <div class="col-right">
     <div class="group">

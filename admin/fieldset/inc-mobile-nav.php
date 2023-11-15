@@ -47,10 +47,10 @@
   $li_arr = array_merge($li_chkd, $li_none);
   ?>
   <div class="col-left">
-    <div class="label-title">モバイルメニュー</div>
-    <div class="note">選択されたウィジェットはモバイル時のスライドナビ内のメニューとして登録されます。<br>
+    <div class="label-title">スライドウィンドウ</div>
+    <div class="note">選択されたウィジェットはモバイル時のスライドウィンドウ内のメニューとして登録されます。<br>
     ドラッグ&amp;ドロップで表示順を並べ替えできます。<br><br>
-    ※外観の<a href="<?php echo admin_url('widgets.php'); ?>">ウィジェット設定</a>で「モバイル Top」「モバイル Bottom」に登録されたウィジェットは、このメニューの上部と下部に配置されます。</div>
+    ※外観の<a href="<?php echo admin_url('widgets.php'); ?>">ウィジェット設定</a>で「スライドウィンドウ（上）」「スライドウィンドウ（下）」に登録されたウィジェットは、このメニューの上部と下部に配置されます。</div>
   </div>
   <div class="col-right">
     <div class="input-group">

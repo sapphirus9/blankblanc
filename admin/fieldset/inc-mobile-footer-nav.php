@@ -47,8 +47,8 @@
   $li_arr = array_merge($li_chkd, $li_none);
   ?>
   <div class="col-left">
-    <div class="label-title">モバイルフッターメニュー</div>
-    <div class="note">選択されたウィジェットはモバイル時に共通フッターの下に複製されます。<br>
+    <div class="label-title">モバイルフッターウィジェット</div>
+    <div class="note">選択されたウィジェットはモバイル向けとして「#mobile-footer-widget」内に複製されます。<br>
     ドラッグ&amp;ドロップで表示順を並べ替えできます。<br></div>
   </div>
   <div class="col-right">

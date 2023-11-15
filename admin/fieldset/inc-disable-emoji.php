@@ -2,7 +2,7 @@
 <fieldset <?php $this->has_modified('disable_emoji'); ?>>
   <div class="col-left">
     <div class="label-title">絵文字の無効化</div>
-    <div class="note">絵文字に関連する js, css, dns-prefetch を無効化します。</div>
+    <div class="note">絵文字に関連するjs, css, dns-prefetchを無効化します。</div>
   </div>
   <div class="col-right">
     <div class="group">

@@ -153,14 +153,24 @@ if (!function_exists('add_widgets_init')) {
       'description' => 'フッターの4列目のカラムにウィジェットを配置します。'
     ));
     register_sidebar(array(
-      'name'        => 'モバイル Top',
+      'name'        => 'スライドウィンドウ（上）',
       'id'          => 'mobile-widget-top',
-      'description' => 'テーマオプションで設定のモバイルメニューより上部にウィジェットを配置します。'
+      'description' => 'テーマオプションで設定のスライドウィンドウより上部にウィジェットを配置します。'
     ));
     register_sidebar(array(
-      'name'        => 'モバイル Bottom',
+      'name'        => 'スライドウィンドウ（下）',
       'id'          => 'mobile-widget-bottom',
-      'description' => 'テーマオプションで設定のモバイルメニューより下部にウィジェットを配置します。'
+      'description' => 'テーマオプションで設定のスライドウィンドウより下部にウィジェットを配置します。'
+    ));
+    register_sidebar(array(
+      'name'        => 'モバイルフッター（上）',
+      'id'          => 'mobile-footer-widget-top',
+      'description' => '通常のフッターより上部にモバイル用ウィジェットを配置します。'
+    ));
+    register_sidebar(array(
+      'name'        => 'モバイルフッター（下）',
+      'id'          => 'mobile-footer-widget-bottom',
+      'description' => '通常のフッターより下部にモバイル用ウィジェットを配置します。'
     ));
   }
 }
