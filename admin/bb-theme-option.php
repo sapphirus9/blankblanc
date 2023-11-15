@@ -116,21 +116,21 @@ class blankblancConfig
             $config_values = $bb_theme_default;
           }
         } else {
-          $config_values = array_merge($bb_theme_default, $config_post);
-          // 設定が空の場合の処理
-          $check_empty_config = array(
-            'mobile_nav'
-          );
-          foreach ($check_empty_config as $value) {
-            if (empty($config_post[$value])) {
-              $config_values['mobile_nav'] = null;
-            }
+          $bb_theme_default['mobile_nav'] = array(); // モバイルメニュー
+          if (empty($config_post['mobile_nav'])) {
+            $config_post['mobile_nav'] = array();
           }
+          $bb_theme_default['mobile_nav_footer'] = array(); // モバイルフッターメニュー
+          if (empty($config_post['mobile_nav_footer'])) {
+            $config_post['mobile_nav_footer'] = array();
+          }
+          $bb_theme_default['toc_config']['toc_hidden'] = array(); // 目次から除外する見出し
+          $config_values = array_replace_recursive($bb_theme_default, $config_post);
           $config_values['exclude_cat_id'] = str_replace(' ', '', $config_values['exclude_cat_id']);
           update_option('blankblanc_config_values', wp_unslash($config_values));
         }
       }
-    } else { // 初期値値をセット
+    } else { // 初期値をセット
       if (!$config_values = get_option('blankblanc_config_values')) {
         $config_values = $bb_theme_default;
         update_option('blankblanc_config_values', wp_unslash($config_values));
@@ -193,6 +193,12 @@ HTML;
         <p><strong>設定を保存しました</strong></p>
       </div>
     <?php endif; ?>
+    <form method="post" id="force-reset">
+        <?php wp_nonce_field('blankblanc_config_nonce'); ?>
+        <div class="message">このテキストが表示されている場合、設定値に誤りがある可能性あります。<br>
+        以下のボタンより初期設定に戻してみてください。</div>
+        <?php submit_button('強制的に初期設定に戻す', 'button--force-reset', 'blankblanc_config_values[reset_config]', false, array('id' => 'reset-config')); ?>
+    </form>
     <div id="bb-config-edit">
       <form method="post">
         <fieldset class="submit-btn submit-btn-top">
@@ -258,6 +264,7 @@ HTML;
           <div id="tab-4">
             <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-mobile-nav-position.php'; ?>
             <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-mobile-nav.php'; ?>
+            <?php require_once dirname(__DIR__) . '/admin/fieldset/inc-mobile-footer-nav.php'; ?>
           </div>
           <!-- /tab-4 -->
 
@@ -305,11 +312,13 @@ HTML;
         <hr>
         <fieldset class="submit-btn submit-btn-bottom">
           <?php submit_button('設定を保存', 'primary', 'blankblanc-config-save-2', false); ?>
-          <?php submit_button('初期設定値に戻す', 'button-reset', 'blankblanc_config_values[reset_config]', false, array('id' => 'reset-config-2')); ?>
         </fieldset>
       </form>
     </div>
   </div>
+  <script>
+    document.querySelector('#force-reset').style.display = 'none';
+  </script>
   <?php
   }
 
@@ -331,6 +340,9 @@ HTML;
     if (isset($keys[1])) {
       $key_class = $key_class . ' ' . $keys[1];
       if (is_array($this->bb_theme_default[$keys[0]][$keys[1]])) {
+        if (empty($this->config_values[$keys[0]][$keys[1]])) {
+          $this->config_values[$keys[0]][$keys[1]] = array();
+        }
         ksort($this->bb_theme_default[$keys[0]][$keys[1]]);
         ksort($this->config_values[$keys[0]][$keys[1]]);
       }
@@ -362,21 +374,22 @@ HTML;
     $tab = str_repeat("\t", $level);
     foreach ($current as $key => $value) {
       if (is_array($value)) {
-        $modified_key = $key;
         // 変更のある項目のチェック
-        if (!$child) {
-          $default_value = $default[$key];
-          $current_value = $value;
-          ksort($default_value);
-          ksort($current_value);
-          if (serialize($default_value) != serialize(wp_unslash($current_value))) {
-            $modified_key = sprintf("<strong class=\"modified-key\">'%s'</strong>", $key);
-          }
+        $modified_flag = false;
+        $modified_key = $key;
+        $default_value = $default[$key];
+        $current_value = $value;
+        ksort($default_value);
+        ksort($current_value);
+        if (serialize($default_value) != serialize(wp_unslash($current_value))) {
+          $modified_flag = true;
+          $modified_key = sprintf("<strong class=\"modified-key\">'%s'</strong>", $key);
         }
         if (empty($value)) {
-          array_push($src, "{$tab}{$modified_key} => array(),\n");
+          $array_empty = $modified_flag ? '<strong class="modified">array()</strong>' : 'array()';
+          array_push($src, "{$tab}'{$modified_key}' => {$array_empty},\n");
         } else {
-          array_push($src, "{$tab}{$modified_key} => array(\n");
+          array_push($src, "{$tab}'{$modified_key}' => array(\n");
           array_push($src, $this->config_list($value, $level + 1, 'child', $default[$key]));
           array_push($src, "{$tab}),\n");
         }

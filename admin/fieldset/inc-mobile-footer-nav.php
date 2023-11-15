@@ -1,5 +1,5 @@
 <?php bb_theme_check(); ?>
-<fieldset <?php $this->has_modified('mobile_nav'); ?>>
+<fieldset <?php $this->has_modified('mobile_nav_footer'); ?>>
   <?php
   global $wp_registered_sidebars, $wp_registered_widgets;
   $before_nav = has_nav_menu('global_nav') ? array('global-nav' => array('global-nav')) : array();
@@ -32,13 +32,13 @@
         $widget_name = !empty($widget[$reg_widget['params'][0]['number']]['title']) ? esc_attr($widget[$reg_widget['params'][0]['number']]['title']) : esc_attr__($reg_widget['name']);
       }
       if ($sidebar_name && $widget_name) {
-        if (isset($config_values['mobile_nav']) && in_array('#' . $widget_id, $config_values['mobile_nav'])) {
-          $key = array_search('#' . $widget_id, $config_values['mobile_nav']);
-          $li_chkd[$key] = "<input type=\"checkbox\" name=\"blankblanc_config_values[mobile_nav][]\" id=\"bb-widget_{$widget_id}\" value=\"#{$widget_id}\" checked>\n"
-          . "<label for=\"bb-widget_{$widget_id}\"><span class=\"widgets-name\">{$widget_name}</span><span class=\"sidebar-name\"> : {$sidebar_name}</span></label>\n";
+        if (isset($config_values['mobile_nav_footer']) && in_array('#' . $widget_id, $config_values['mobile_nav_footer'])) {
+          $key = array_search('#' . $widget_id, $config_values['mobile_nav_footer']);
+          $li_chkd[$key] = "<input type=\"checkbox\" name=\"blankblanc_config_values[mobile_nav_footer][]\" id=\"bb-widget-footer_{$widget_id}\" value=\"#{$widget_id}\" checked>\n"
+          . "<label for=\"bb-widget-footer_{$widget_id}\"><span class=\"widgets-name\">{$widget_name}</span><span class=\"sidebar-name\"> : {$sidebar_name}</span></label>\n";
         } else {
-          $li_none[] = "<input type=\"checkbox\" name=\"blankblanc_config_values[mobile_nav][]\" id=\"bb-widget_{$widget_id}\" value=\"#{$widget_id}\">\n"
-          . "<label for=\"bb-widget_{$widget_id}\"><span class=\"widgets-name\">{$widget_name}</span><span class=\"sidebar-name\"> : {$sidebar_name}</span></label>\n";
+          $li_none[] = "<input type=\"checkbox\" name=\"blankblanc_config_values[mobile_nav_footer][]\" id=\"bb-widget-footer_{$widget_id}\" value=\"#{$widget_id}\">\n"
+          . "<label for=\"bb-widget-footer_{$widget_id}\"><span class=\"widgets-name\">{$widget_name}</span><span class=\"sidebar-name\"> : {$sidebar_name}</span></label>\n";
         }
       }
     }
@@ -47,15 +47,14 @@
   $li_arr = array_merge($li_chkd, $li_none);
   ?>
   <div class="col-left">
-    <div class="label-title">スライドウィンドウ</div>
-    <div class="note">選択されたウィジェットはモバイル時のスライドウィンドウ内のメニューとして登録されます。<br>
-    ドラッグ&amp;ドロップで表示順を並べ替えできます。<br><br>
-    ※外観の<a href="<?php echo admin_url('widgets.php'); ?>">ウィジェット設定</a>で「スライドウィンドウ（上）」「スライドウィンドウ（下）」に登録されたウィジェットは、このメニューの上部と下部に配置されます。</div>
+    <div class="label-title">モバイルフッターウィジェット</div>
+    <div class="note">選択されたウィジェットはモバイル向けとして「#mobile-footer-widget」内に複製されます。<br>
+    ドラッグ&amp;ドロップで表示順を並べ替えできます。<br></div>
   </div>
   <div class="col-right">
     <div class="input-group">
-      <input type="hidden" name="blankblanc_config_values[mobile_nav]" value="">
-      <ol id="activate-mobile-nav">
+      <input type="hidden" name="blankblanc_config_values[mobile_nav_footer]" value="">
+      <ol id="activate-mobile-nav-footer">
         <?php foreach ($li_arr as $li) : ?>
           <li><?php echo $li; ?></li>
         <?php endforeach; ?>

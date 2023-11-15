@@ -16,9 +16,9 @@ function bb_theme_check() {
 /**
  * WordPress のバージョンを確認
  */
-if (version_compare($GLOBALS['wp_version'], '5.9', '<')) {
+if (version_compare($GLOBALS['wp_version'], '6.0', '<')) {
   function bb_wp_version_notice() {
-    printf('<div class="error"><p>BlankBlancはWordPress 5.9未満の動作を保証しておりません。<br>現在ご利用中のバージョンは<strong>%s</strong>です。WordPressのアップグレードをご検討ください。</p></div>', $GLOBALS['wp_version']);
+    printf('<div class="error"><p>BlankBlancはWordPress 6.0未満の動作を保証しておりません。<br>現在ご利用中のバージョンは<strong>%s</strong>です。WordPressのアップグレードをご検討ください。</p></div>', $GLOBALS['wp_version']);
   }
   add_action('admin_notices', 'bb_wp_version_notice');
 }
@@ -27,9 +27,9 @@ if (version_compare($GLOBALS['wp_version'], '5.9', '<')) {
 /**
  * PHP のバージョンを確認
  */
-if (version_compare(phpversion(), '5.6.20', '<')) {
+if (version_compare(phpversion(), '7.4', '<')) {
   function bb_php_version_notice() {
-    printf('<div class="error"><p>BlankBlancはPHP 5.6.20未満の動作を保証しておりません。<br>現在ご利用中のバージョンは<strong>%s</strong>です。PHPのアップグレードをご検討ください。</p></div>', phpversion());
+    printf('<div class="error"><p>BlankBlancはPHP 7.4未満の動作を保証しておりません。<br>現在ご利用中のバージョンは<strong>%s</strong>です。PHPのアップグレードをご検討ください。</p></div>', phpversion());
   }
   add_action('admin_notices', 'bb_php_version_notice');
 }
@@ -46,13 +46,19 @@ function bb_setup_theme_config() {
   $bb_theme_default = bb_config_default();
   if (function_exists('bb_config')) {
     // 子テーマの設定を登録
-    $bb_theme_default = array_merge($bb_theme_default, bb_config());
+    $bb_theme_default['mobile_nav'] = array();
+    $bb_theme_default['mobile_nav_footer'] = array();
+    $bb_theme_default['toc_config']['toc_hidden'] = array();
+    $bb_theme_default = array_replace_recursive($bb_theme_default, bb_config());
   }
   if ($load_config = get_option('blankblanc_config_values')) {
     // アップデートチェック（バージョンが異なる場合はDBを更新）
     if (!isset($load_config['theme_version']) || $load_config['theme_version'] != $bb_theme_default['theme_version']) {
       unset($load_config['theme_version']);
-      $bb_theme_config = array_merge($bb_theme_default, $load_config);
+      $bb_theme_default['mobile_nav'] = array();
+      $bb_theme_default['mobile_nav_footer'] = array();
+      $bb_theme_default['toc_config']['toc_hidden'] = array();
+      $bb_theme_config = array_replace_recursive($bb_theme_default, $load_config);
       update_option('blankblanc_config_values', wp_unslash($bb_theme_config));
     } else {
       $bb_theme_config = $load_config;
