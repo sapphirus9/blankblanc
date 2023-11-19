@@ -6,11 +6,11 @@
 .main-article .entry-body .bb-toc {
   &-block {
     position: relative;
-    max-width: 600px;
+    width: clamp(300px, 100%, 640px);
     min-height: 40px;
-    margin: 50px auto;
+    margin: 70px auto 50px;
     @include media-max(lg) {
-      margin: 40px auto;
+      margin: 60px auto 40px;
     }
     &.changed .bb-toc {
       &-body {
@@ -42,7 +42,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      max-width: 210px;
+      width: clamp(120px, 100%, 240px);
       height: 40px;
       margin: 0 auto;
       padding: 0 10px 0 40px;
@@ -103,7 +103,7 @@
   }
   &-body {
     padding: 0;
-    margin: 20px 0 0;
+    margin: 0;
     max-height: 150vh;
     opacity: 1;
     overflow: hidden;
