@@ -164,18 +164,24 @@ this.BbOptions = {};
    */
   const _BackgroundImage = () => {
     const $imgAll = document.querySelectorAll('img.background-image-src');
+    let num = 0;
+    let loaded = 0;
     $imgAll.forEach(($img) => {
+      num++;
       const _img = document.createElement('img');
       _img.src = $img.src;
       $img.style.display = 'none';
       $img.parentNode.classList.add('background-image-block');
       const $body = document.createElement('div');
-      $body.classList.add('background-image-body');
+      $body.classList.add('background-image-body', 'background-image-body-' + num);
       $body.style.backgroundImage = 'url(' + _img.src + ')';
       $img.parentNode.insertBefore($body, $img);
       $body.appendChild($img);
       _img.addEventListener('load', () => {
-        $body.parentNode.classList.add('show');
+        loaded++;
+        if ($imgAll.length === loaded) {
+          $body.parentNode.classList.add('show');
+        }
       });
     });
   };
