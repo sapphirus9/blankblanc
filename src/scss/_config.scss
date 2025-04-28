@@ -1,6 +1,7 @@
 //--------------------------------------------------------------------
 // config
 //--------------------------------------------------------------------
+@use 'sass:meta';
 @use 'sass:math';
 @use 'sass:map';
 @use 'sass:string';
@@ -128,7 +129,7 @@ $breakpoints: (
   b-md: 600px
 );
 @mixin media-max($type: lg) {
-  @if type-of($type) == 'number' {
+  @if meta.type-of($type) == 'number' {
     @media (max-width: #{$type - 1}) {
       @content;
     }
@@ -139,7 +140,7 @@ $breakpoints: (
   }
 }
 @mixin media-min($type: lg) {
-  @if type-of($type) == 'number' {
+  @if meta.type-of($type) == 'number' {
     @media (min-width: #{$type}) {
       @content;
     }

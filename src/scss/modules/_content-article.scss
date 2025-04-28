@@ -682,8 +682,10 @@
           margin: 5px 0 0;
         }
       }
-      @include bb-input-decoration();
-      @include bb-input-placeholder();
+      & {
+        @include bb-input-decoration();
+        @include bb-input-placeholder();
+      }
       &[type='submit'] {
         color: var(--bb-white);
         font-size: 1.6rem;
