@@ -6,18 +6,18 @@
 :root {
   // color
   --bb-white: #{$base-white};
-  --bb-white-rgb: #{color.red($base-white)}, #{color.green($base-white)}, #{color.blue($base-white)};
+  --bb-white-rgb: #{color.channel($base-white, 'red', $space: rgb)}, #{color.channel($base-white, 'green', $space: rgb)}, #{color.channel($base-white, 'blue', $space: rgb)};
   --bb-black: #{$base-black};
-  --bb-black-rgb: #{color.red($base-black)}, #{color.green($base-black)}, #{color.blue($base-black)};
+  --bb-black-rgb: #{color.channel($base-black, 'red', $space: rgb)}, #{color.channel($base-black, 'green', $space: rgb)}, #{color.channel($base-black, 'blue', $space: rgb)};
   --bb-gray-1: #{$base-gray-1};
   --bb-gray-2: #{$base-gray-2};
   --bb-gray-3: #{$base-gray-3};
   --bb-gray-4: #{$base-gray-4};
   --bb-gray-5: #{$base-gray-5};
-  --bb-gray-5-rgb: #{color.red($base-gray-5)}, #{color.green($base-gray-5)}, #{color.blue($base-gray-5)};
+  --bb-gray-5-rgb: #{color.channel($base-gray-5, 'red', $space: rgb)}, #{color.channel($base-gray-5, 'green', $space: rgb)}, #{color.channel($base-gray-5, 'blue', $space: rgb)};
   --bb-gray-6: #{$base-gray-6};
   --bb-gray-7: #{$base-gray-7};
-  --bb-gray-7-rgb: #{color.red($base-gray-7)}, #{color.green($base-gray-7)}, #{color.blue($base-gray-7)};
+  --bb-gray-7-rgb: #{color.channel($base-gray-7, 'red', $space: rgb)}, #{color.channel($base-gray-7, 'green', $space: rgb)}, #{color.channel($base-gray-7, 'blue', $space: rgb)};
   --bb-red-1: #{$base-red-1};
   --bb-red-2: #{$base-red-2};
   --bb-red-3: #{$base-red-3};
@@ -32,7 +32,7 @@
   --bb-input-border-shadow: #{$input-border-shadow};
   --bb-nav-gray-1: #{$nav-gray-1};
   --bb-form-red-1: #{$form-red-1};
-  --bb-form-red-1-rgb: #{color.red($form-red-1)}, #{color.green($form-red-1)}, #{color.blue($form-red-1)};
+  --bb-form-red-1-rgb: #{color.channel($form-red-1, "red", $space: rgb)}, #{color.channel($form-red-1, "green", $space: rgb)}, #{color.channel($form-red-1, "blue", $space: rgb)};
   --bb-form-red-1-bg: #{color.scale($form-red-1, $lightness: 96%)};
 
   // highlighter

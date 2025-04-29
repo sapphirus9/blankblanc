@@ -72,7 +72,7 @@ const ScssProd = () =>
   gulp.src(_files.scss)
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
     .pipe(sass.sync({
-      outputStyle: 'compressed',
+      style: 'compressed',
     }))
     .pipe(postcss([
       autoprefixer({ cascade: false }),
@@ -89,7 +89,7 @@ const ScssDev = () =>
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
     .pipe(sourcemaps.init())
     .pipe(sass.sync({
-      outputStyle: 'compressed',
+      style: 'compressed',
     }))
     .pipe(postcss([
       autoprefixer(),

@@ -194,7 +194,9 @@ $className : '.bb-form-style';
         font-size: 1.7rem;
       }
     }
-    @include bb-input-decoration();
+    & {
+      @include bb-input-decoration();
+    }
     &[type='checkbox'] {
       display: none;
       & + label,
