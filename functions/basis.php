@@ -1041,11 +1041,15 @@ if (!function_exists('bb_copyright')) {
       $prefix = "<span class=\"prefix\">{$bb_theme_config['copyright']['prefix']}</span>";
     }
     $year = '';
-    if (!empty($bb_theme_config['copyright']['start_year'])) {
+    if ($bb_theme_config['copyright']['current_year'] === true) {
+      $year = empty($bb_theme_config['copyright']['start_year']) ? date_i18n('Y') : $bb_theme_config['copyright']['start_year'];
+    } elseif (!empty($bb_theme_config['copyright']['start_year'])) {
       $year = date_i18n('Y');
       if ((string) $bb_theme_config['copyright']['start_year'] < $year) {
         $year = $bb_theme_config['copyright']['start_year'] . '-' . $year;
       }
+    }
+    if ($year) {
       $year = "<span class=\"year\">{$year}</span>";
     }
     $suffix = '';
